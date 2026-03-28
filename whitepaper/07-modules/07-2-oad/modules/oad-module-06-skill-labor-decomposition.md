@@ -196,7 +196,7 @@ def build_production_steps(
 
 4) Build Maintenance Steps + Compute Lifetime Maintenance Hours
 
-This is where your prior code was inconsistent. We compute total maintenance hours over life using:
+We compute total maintenance hours over life using:
 
 - expected lifespan hours (from Module 4)
 - maintenance interval days
