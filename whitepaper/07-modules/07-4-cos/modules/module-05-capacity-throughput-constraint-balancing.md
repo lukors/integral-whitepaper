@@ -98,8 +98,6 @@ BlockReason = Literal["skill", "tool", "material", "space", "unknown"]
 # block_reason: Optional[BlockReason] = None
 ```
 
-If you don’t want to add a field, Module 5 can still fall back to parsing `notes`, but structured tags are strongly preferred.
-
 ------
 
 1. Detect Task-Level Bottlenecks from Execution Metrics
