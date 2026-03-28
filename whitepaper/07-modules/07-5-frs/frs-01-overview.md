@@ -38,7 +38,7 @@ In short, **FRS is the guardian of viability**.
 
 It does not “run” the system, optimize outcomes, or impose corrections. Rather, it ensures that Integral remains **situationally aware, historically informed, and adaptively responsive**—capable of correcting course through democratic processes **before crises become irreversible**.
 
-The FRS is composed of **seven tightly scoped micro-modules**, which together form a recursive:
+The FRS is composed of **seven tightly scoped micro-modules**, which together form a loop:
 
 **perception → diagnosis → modeling → recommendation → governance interface → learning → federation loop**,
 operating continuously at **local, node, and inter-node scales**.
