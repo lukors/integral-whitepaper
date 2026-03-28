@@ -285,7 +285,7 @@ Together, the diagram depicts CDS not as a legislature or voting system, but as 
 
 ### Narrative Snapshot — A Full CDS Walkthrough
 
-Example: Flooded Access Bridge Edition
+Example: Flooded Access Bridge
 
 To illustrate how the **Collaborative Decision System (CDS)** operates as a complete, adaptive governance cycle, consider the following real-world scenario.
 
