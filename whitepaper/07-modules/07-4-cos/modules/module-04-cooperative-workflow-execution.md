@@ -24,7 +24,7 @@ Think of it as the **production cockpit**: everyone can see what’s happening, 
 
 **Types (Execution Layer)**
 
-We extend the COS types already defined, without renaming your existing `COSTaskInstance.id`.
+We extend the COS types already defined.
 
 ```python
 from dataclasses import dataclass, field
