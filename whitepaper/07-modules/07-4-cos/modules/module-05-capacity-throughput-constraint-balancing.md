@@ -190,8 +190,6 @@ def detect_task_bottlenecks(
 
 2. Refine Constraint Types
 
-Preferred: use `inst.block_reason` (structured). Fallback: parse `inst.notes`.
-
 ```python
 def refine_constraint_types(
     plan: COSProductionPlan,
