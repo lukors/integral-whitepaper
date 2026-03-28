@@ -334,7 +334,7 @@ This module is ITC’s **coordination interface**, not its decision authority. I
 - CDS defines weighting, decay, and fairness rules
 - OAD supplies continuously improving design intelligence
 - COS communicates real-time labor availability and bottlenecks
-- FRS feeds ecological constraint and behavioral anomaly dataThe result is a dynamically self-correcting valuation system. This module does not originate policy, valuation logic, or enforcement; it routes and synchronizes signals so the appropriate systems can act within their defined authority.
+- FRS feeds ecological constraint and behavioral anomaly data. The result is a dynamically self-correcting valuation system. This module does not originate policy, valuation logic, or enforcement; it routes and synchronizes signals so the appropriate systems can act within their defined authority.
 
 **Example (Modular Cell Phone)**
 FRS reports increasing dependence on imported cobalt for phone batteries.
