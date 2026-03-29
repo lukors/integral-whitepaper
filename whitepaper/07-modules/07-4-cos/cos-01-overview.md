@@ -290,7 +290,7 @@ FRS confirms ecological improvement.
 
 ------
 
-![Integral system diagram](../../../assets/integral-system-diagram-14.png)<img width="468" height="15" alt="image" src="https://github.com/user-attachments/assets/0bb7a786-cd5f-4e83-b6a2-e2548d503ef5" />
+![Integral system diagram](../../../assets/integral-system-diagram-14.png)
 
 
 Above Diagram: *COS Module Interaction* 

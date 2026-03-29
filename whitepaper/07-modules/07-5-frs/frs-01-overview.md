@@ -310,7 +310,7 @@ The sailboat does not become “cheaper” or “scarcer” through market force
 
 ------
 
-![Integral system diagram](../../../assets/integral-system-diagram-15.png)<img width="468" height="15" alt="image" src="https://github.com/user-attachments/assets/01bcd617-27f6-47bf-9c7d-53a8197b599f" />
+![Integral system diagram](../../../assets/integral-system-diagram-15.png)
 
 
 Above Diagram: *FRS Architecture Diagram — Adaptive Intelligence Without Command*

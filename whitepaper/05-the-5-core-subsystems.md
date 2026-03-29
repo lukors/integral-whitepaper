@@ -16,7 +16,7 @@ This mapping ensures that the reader sees these systems not as abstract technolo
 
 This section introduces each system at the conceptual level before the next section details their micro-architecture.
 
-![Integral system diagram](../assets/integral-system-diagram-03.png)<img width="468" height="29" alt="image" src="https://github.com/user-attachments/assets/248f56b6-dc6e-4776-89ef-1ad00a1a0896" />
+![Integral system diagram](../assets/integral-system-diagram-03.png)
 
 
 ## 5.2 CDS — Collaborative Decision System
@@ -37,7 +37,7 @@ CDS ensures that decisions are made *with* the people they affect, not *for* the
 
 As an aside, while Integral is conceived first and foremost as a democratic economic system, its overlap with broader democratic processes is entirely fluid. The same tools that enable cooperative economic coordination—direct participation, transparent deliberation, and algorithmic assistance—naturally extend to community decision-making at every level. In principle, this framework could replace the entire architecture of representative democracy itself. That said, this is not the immediate focus. Given the transitional realities faced, the priority is to establish economic intelligence and coordination first; political transformation emerges downstream from that foundation.
 
-![Integral system diagram](../assets/integral-system-diagram-04.png)<img width="468" height="29" alt="image" src="https://github.com/user-attachments/assets/5c9ef312-746f-4bf4-aea4-7611b5ec7682" />
+![Integral system diagram](../assets/integral-system-diagram-04.png)
 
 
 Above Diagram: 
@@ -62,7 +62,7 @@ OAD is the epistemic backbone of the system. It includes, in part:
 
 There is no intellectual property. Knowledge is treated as a commons: transparent, shareable, and continuously improved. When a design is optimized—made easier to build, more repairable, or more resource-efficient—every node benefits immediately. This global learning effect is one of the primary engines of Integral’s post-scarcity trajectory. OAD supplies the structured knowledge that production cooperatives turn into real goods and infrastructure.
 
-![Integral system diagram](../assets/integral-system-diagram-05.png)<img width="468" height="29" alt="image" src="https://github.com/user-attachments/assets/f58d7113-ce41-435a-8986-2ab3cfcf8956" />
+![Integral system diagram](../assets/integral-system-diagram-05.png)
 
 
 Above Diagram:
@@ -94,17 +94,14 @@ The three-signal valuation method—**labor, ecology, and fairness**—ensures t
 
 This dual function—contribution recognition and adaptive access valuation—makes ITC the metabolic regulator of Integral. As OAD improves designs and COS increases production efficiency, the ITC access cost of goods naturally declines. This decline is not a subsidy but a structural outcome of cooperation, refined design, reduced material intensity, and continuous optimization. Over time, ITC guides the system toward lower labor burdens, greater sufficiency, and reliable access without relying on money, growth imperatives, or competitive incentives.
 
-![Integral system diagram](../assets/integral-system-diagram-06.png)<img width="468" height="15" alt="image" src="https://github.com/user-attachments/assets/aaa42aba-ae0c-4ea3-abc1-38ea778c5636" />
-
-
-
+![Integral system diagram](../assets/integral-system-diagram-06.png)
 
 
 Above Diagram: *Labor → ITC (Contribution Recognition Loop)*
 This chart illustrates how Integral recognizes and contextualizes human contribution without treating labor as a commodity. Work activity flows into COS, where tasks are logged and characterized according to difficulty, urgency, and individual capacity. These labor metrics are then evaluated by FRS, which ensures workloads remain balanced and that no person or demographic group is structurally disadvantaged. CDS provides the normative rules—multipliers, protected-category adjustments, and thresholds—that guide how contributions are valued. Together, these systems determine how many ITCs are recorded in a person’s ledger. The process is non-monetary, non-transferable, and free of accumulation dynamics. Feedback loops from FRS and CDS adjust future task allocation and valuation rules, ensuring labor recognition remains fair, adaptive, and locally responsive. This loop defines how ITCs come into existence as a record of meaningful participation.
 
 
-![Integral system diagram](../assets/integral-system-diagram-07.png)<img width="468" height="15" alt="image" src="https://github.com/user-attachments/assets/f70576d6-062d-423f-85d2-663d8d427aed" />
+![Integral system diagram](../assets/integral-system-diagram-07.png)
 
 
 Above Diagram: *Production → ITC Access Value (Economic Calculation Loop)*
@@ -181,7 +178,7 @@ This information feeds directly into the multi-signal valuation process that det
 COS is the operational engine that turns OAD designs into real goods, generates the metrics required for accurate economic calculation, and enables the adaptive coordination on which the entire system depends.
 
 
-![Integral system diagram](../assets/integral-system-diagram-08.png)<img width="468" height="29" alt="image" src="https://github.com/user-attachments/assets/4f13a533-e2ad-45d1-baee-2e89befec6bb" />
+![Integral system diagram](../assets/integral-system-diagram-08.png)
 
 
 Above Diagram:
@@ -209,7 +206,7 @@ FRS then feeds this information back to CDS, OAD, COS, and ITC, triggering adjus
 
 FRS is the adaptive nervous system of Integral: continuously observing, analyzing, diagnosing, and guiding improvements. Without FRS, the system would drift; with FRS, it becomes self-correcting, continuously aligning production, access, and ecological conditions across the entire network.
 
-![Integral system diagram](../assets/integral-system-diagram-09.png)<img width="468" height="15" alt="image" src="https://github.com/user-attachments/assets/003389ae-ec97-4d3e-acce-c0d6e65f0a13" />
+![Integral system diagram](../assets/integral-system-diagram-09.png)
 
 
 Above Diagram: This diagram shows how FRS functions as Integral’s diagnostic and regulatory nervous system. Multiple categories of information—ecological data, production metrics, ITC contribution and access patterns, node-level conditions, and direct member feedback—flow into FRS, where they are continuously monitored and aggregated. FRS analyzes these signals to identify trends, inefficiencies, risks, or emerging imbalances, and then performs diagnostic checks to detect anomalies or misalignments between actual conditions and system operation.

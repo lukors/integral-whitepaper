@@ -119,7 +119,7 @@ The greenhouse becomes more efficient each season because feedback is easy to co
 The greenhouse becomes a living part of the community’s infrastructure—democratically initiated, collaboratively designed, cooperatively built, fairly accessed, and continuously improved. No competition, prices, or bargaining are needed. The system works because each subsystem reinforces the others, creating a self-correcting economic metabolism.
 
 
-![Integral system diagram](../assets/integral-system-diagram-10.png)<img width="468" height="29" alt="image" src="https://github.com/user-attachments/assets/4e6ab5eb-81d2-4a1e-ac6e-b5d39f191949" />
+![Integral system diagram](../assets/integral-system-diagram-10.png)
 
 
 Above Diagram: 
