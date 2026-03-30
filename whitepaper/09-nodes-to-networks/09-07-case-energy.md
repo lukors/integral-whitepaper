@@ -136,7 +136,7 @@ The same formal pattern applied in watershed management appears here under diffe
 
 
 
-![Integral system diagram](assets/integral-system-diagram-17.png)
+![Integral system diagram](../../assets/integral-system-diagram-17.png)
 
 Above diagram: *Shared Energy Infrastructure Coordination Control Loop*
 This diagram shows how Integral coordinates across a shared energy system—such as a power grid or interconnected microgrids—without centralized dispatch or market pricing. Each node senses its local energy conditions and publishes a compressed *Node State Summary (NSS)* exposing only system-relevant effects, including load, reserve margins, stability indicators, and risk flags. The Feedback & Review System (FRS) aggregates these summaries across the coupled energy domain, detects scope mismatches, and evaluates thresholds. Minor stress produces advisory signals that widen awareness without expanding decision scope. Persistent or safety-critical constraints trigger a *Coordination Envelope (CE)*, enabling temporary, scope-limited convergence of node-level decision processes (CDS) and synchronized action across operations (COS), design prioritization (OAD), and contribution recognition (ITC). As stability and reserves recover, FRS signals exit conditions, the envelope dissolves automatically, and all nodes return to fully local energy regulation. Coordination expands only to preserve system viability and contracts immediately once the disturbance resolves.
