@@ -346,7 +346,7 @@ The federation moves toward cobalt independence—without markets.
 
 
 
-![Integral system diagram](../../../assets/integral-system-diagram-13b.png)
+![Integral system diagram](../../../assets/integral-system-diagram-13.png)
 
 
 Above Diagram: *Integral Time Credit (ITC) System | Cybernetic Flow of Contribution, Valuation, and Access*
