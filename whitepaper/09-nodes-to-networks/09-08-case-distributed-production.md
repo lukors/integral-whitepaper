@@ -135,7 +135,7 @@ The same recursive pattern observed in ecoogical and infrastructural domains app
 
 
 
-![Integral system diagram](assets/integral-system-diagram-18.png)
+![Integral system diagram](../../assets/integral-system-diagram-18.png)
 
 
 
