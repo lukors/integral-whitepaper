@@ -348,8 +348,8 @@ The federation moves toward cobalt independence—without markets.
 
 ![Integral system diagram](../../../assets/integral-system-diagram-13.png)
 
-
 Above Diagram: *Integral Time Credit (ITC) System | Cybernetic Flow of Contribution, Valuation, and Access*
+
 This diagram illustrates the full micro-architecture of the Integral Time Credit (ITC) system, showing how verified labor contribution is transformed into access obligations for goods and services without prices, money, exchange, or accumulation. ITC functions as a metabolic coordination layer, synchronizing real labor, ecological constraints, and democratic norms across the Integral federation. At the center of the diagram is the ITC internal pipeline (Modules 1–9). Operational labor originates in COS (Production & Operations) and enters ITC through Module 1 (Labor Event Capture & Verification), where work is authenticated but not yet valued. 
 
 These events pass through Module 2 (Skill & Context Weighting), where contribution is interpreted according to skill, difficulty, ecological sensitivity, urgency, and scarcity—within bounds set by CDS, not market forces. Module 3 (Time-Decay) prevents accumulation and proto-wealth by ensuring that contribution remains tied to ongoing participation rather than past effort. Module 4 (Labor-Budget Forecasting) provides feed-forward intelligence, anticipating future labor needs and preventing bottlenecks before they arise, while explicitly not compelling participation. Module 5 (Access Allocation & Redemption) computes the proportional ITC access obligation required to obtain a good or service, based on OAD design intelligence, COS production realities, and FRS ecological feedback. 

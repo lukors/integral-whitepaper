@@ -96,15 +96,15 @@ This dual function—contribution recognition and adaptive access valuation—ma
 
 ![Integral system diagram](../assets/integral-system-diagram-06.png)
 
-
 Above Diagram: *Labor → ITC (Contribution Recognition Loop)*
+
 This chart illustrates how Integral recognizes and contextualizes human contribution without treating labor as a commodity. Work activity flows into COS, where tasks are logged and characterized according to difficulty, urgency, and individual capacity. These labor metrics are then evaluated by FRS, which ensures workloads remain balanced and that no person or demographic group is structurally disadvantaged. CDS provides the normative rules—multipliers, protected-category adjustments, and thresholds—that guide how contributions are valued. Together, these systems determine how many ITCs are recorded in a person’s ledger. The process is non-monetary, non-transferable, and free of accumulation dynamics. Feedback loops from FRS and CDS adjust future task allocation and valuation rules, ensuring labor recognition remains fair, adaptive, and locally responsive. This loop defines how ITCs come into existence as a record of meaningful participation.
 
 
 ![Integral system diagram](../assets/integral-system-diagram-07.png)
 
-
 Above Diagram: *Production → ITC Access Value (Economic Calculation Loop)*
+
 This chart shows how access values for goods and services are generated through cybernetic economic calculation rather than markets or price signals. COS captures detailed production metrics—embodied labor, material usage, tool wear, and throughput constraints—while OAD shapes the available designs, influencing efficiency and resource requirements. FRS evaluates these metrics from two angles: ecological viability and resource strain, and equity in access and distribution. CDS supplies policy-level guidance when systemic adjustments are needed, such as priority classes or need-based access modifiers. These inputs converge in a three-signal valuation node—labor, ecology, fairness—which determines the ITC access value of each good or service. When a person obtains the good, the corresponding ITCs are extinguished, preventing accumulation or leverage. Usage patterns, strain, and distributional outcomes flow back through FRS to COS, OAD, and CDS, forming a continuous adaptation cycle. This loop replaces market pricing entirely, grounding valuation in measurable production realities and community-defined fairness.
 
 **Walkthrough:**

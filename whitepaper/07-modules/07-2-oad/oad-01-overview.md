@@ -305,6 +305,7 @@ A cold-climate adaptation appears: a freeze-resistant filter casing. Months late
 ![Integral system diagram](../../../assets/integral-system-diagram-12.png)
 
 Above Diagram: *Open Access Design System (OAD): Micro-Architecture and Feedback Loops*
+
 This diagram illustrates the micro-architecture of the Open Access Design System (OAD) and its role as Integral’s collective design intelligence. The vertical flow represents the lifecycle of a design, beginning with a new need or idea and proceeding through structured specification, collaborative refinement, ecological and lifecycle modeling, feasibility simulation, labor decomposition, system integration, optimization, certification, and archival in the global design commons.
 
 At multiple stages, OAD produces computable design intelligence—material and ecological coefficients, lifecycle and maintenance profiles, labor-step decompositions, interoperability constraints, and optimization results—which are consumed directly by the Cooperative Organization System (COS) and Integral Time Credits (ITC) for production planning and access-value calculation.

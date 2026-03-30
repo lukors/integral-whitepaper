@@ -312,8 +312,8 @@ The sailboat does not become “cheaper” or “scarcer” through market force
 
 ![Integral system diagram](../../../assets/integral-system-diagram-15.png)
 
-
 Above Diagram: *FRS Architecture Diagram — Adaptive Intelligence Without Command*
+
 This diagram illustrates the internal architecture and signal flow of the Feedback & Review System (FRS), Integral’s adaptive intelligence layer. FRS continuously ingests structured signals from across the federation—including COS production metrics, OAD design updates, ITC valuation dynamics, CDS governance indicators, ecological monitoring data, and inter-node exchanges—and integrates them into a unified perceptual field. This intake function (Module 1) does not interpret or judge conditions; it normalizes, timestamps, and contextualizes signals so the system’s current state can be perceived coherently across time and scale.
 
 From this shared perceptual substrate, FRS performs diagnostic classification (Module 2), distinguishing causal pathologies from surface symptoms and tagging them by severity, scope, and persistence. These diagnoses then feed into constraint modeling and system-dynamics simulation (Module 3), where future viability envelopes are explored through counterfactual scenarios rather than point predictions. Importantly, modeled expectations feed back into perception as reference baselines, allowing FRS to detect not just change, but deviation from anticipated trajectories—an essential cybernetic function for long-horizon stability.

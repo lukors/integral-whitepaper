@@ -266,13 +266,8 @@ A raised walkway approved to prevent storm flooding performs well initially. Six
 
 ![Integral system diagram](../../../assets/integral-system-diagram-11.png)
 
-
-
-
-
-
-
 Above Diagram:  *Collaborative Decision System (CDS) Micro-Architecture*
+
 This diagram illustrates the micro-level architecture of the Collaborative Decision System (CDS)—Integral’s participatory governance metabolism. Modules 1–6 form the core decision pipeline, transforming raw human input and system signals into structured issues, contextualized knowledge, constrained scenarios, deliberated options, and mathematically synthesized consensus. Module 7 records every step of this process in a transparent, tamper-evident public ledger, while Module 8 translates approved decisions into coordinated action across OAD, COS, ITC, and FRS.
 
 When computational consensus cannot resolve a dispute—due to cultural meaning, ethical tension, or irreducible value conflict—Module 9 is invoked as a high-bandwidth human resolution layer, using facilitated deliberation or Syntegrity to surface shared coherence beyond algorithmic inference. Outcomes from Module 9 re-enter the formal CDS pipeline through recording and dispatch, preserving continuity and legitimacy.

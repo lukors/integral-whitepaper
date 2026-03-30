@@ -137,9 +137,8 @@ The same recursive pattern observed in ecoogical and infrastructural domains app
 
 ![Integral system diagram](../../assets/integral-system-diagram-18.png)
 
+Above Diagram: *Distributed Production Coordination Control Loop*
 
-
-Above Diagram:  *Distributed Production Coordination Control Loop*
 This diagram illustrates how Integral coordinates the distributed production of complex goods without firms, markets, or centralized management. Each node independently senses its local production conditions and publishes a compressed *Node State Summary (NSS)* that exposes only outward-facing effects—such as capacity constraints, bottlenecks, dependency stress, and risk indicators—while keeping internal organization private. The Feedback & Review System (FRS) aggregates these summaries across a dependency-linked production domain, detects scope mismatches, and evaluates coordination thresholds. Minor disturbances generate advisory signals that widen awareness without expanding decision scope. Persistent or safety-critical disruptions trigger a *Coordination Envelope (CE)*, within which node-level decision processes (CDS) converge temporarily and coordination occurs across design (OAD), operations (COS), and contribution recognition (ITC). As production flow stabilizes and quality metrics return within bounds, FRS signals exit conditions, the envelope dissolves automatically, and all nodes return to fully autonomous production.
 
 ------

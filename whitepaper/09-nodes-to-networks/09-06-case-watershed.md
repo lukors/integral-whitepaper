@@ -136,8 +136,8 @@ The same formal pattern—observable state, scope detection, threshold classific
 
 ![Integral system diagram](../../assets/integral-system-diagram-16.png)
 
-
 Above Diagram: *Bioregional Watershed Coordination Control Loop*
+
 This diagram illustrates how Integral coordinates across a shared watershed without centralized authority. Each node senses its local conditions and publishes a compressed *Node State Summary (NSS)* that exposes only outward-facing effects. The Feedback & Review System (FRS) aggregates these summaries at the watershed domain, detects scope mismatches, and evaluates thresholds. When disturbances are minor, advisory signals simply widen awareness. When shared constraints persist or intensify, a *Coordination Envelope (CE)* is instantiated, enabling temporary, scope-limited convergence of node-level decision processes (CDS) and synchronized action across operations (COS), design (OAD), and contribution recognition (ITC). As indicators stabilize, FRS signals exit conditions, the envelope dissolves automatically, and all nodes return to fully local regulation. Coordination expands and contracts strictly in response to real-world conditions, preserving autonomy while maintaining bioregional viability.
 
 ------
