@@ -10,7 +10,7 @@ ITCs calibrate fairness—as defined by **CDS policy** and **ecological constrai
 
 ------
 
-**Cybernetic Valuation Pipeline **
+**Cybernetic Valuation Pipeline**
 
 Critically, ITCs do not arise from abstract “value preferences,” competitive bidding, or any market-like negotiation. Instead, access-values for goods and services emerge from a **cybernetic valuation pipeline** integrating four subsystems—**OAD, COS, FRS, and CDS**—each contributing a distinct, non-market signal.
 
