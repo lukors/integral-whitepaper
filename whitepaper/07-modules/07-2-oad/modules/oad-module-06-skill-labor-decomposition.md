@@ -42,7 +42,7 @@ A `LaborProfile` for that `version_id`, containing:
 
 These outputs are consumed directly by COS and ITC, and also used to build `OADValuationProfile`.
 
-------
+***
 
 **Core Types**
 
@@ -77,7 +77,7 @@ class LaborProfile:
     risk_notes: str
 ```
 
-------
+***
 
 **Core Logic **
 
@@ -118,7 +118,7 @@ PROCESS_LIBRARY: Dict[str, Dict[str, Any]] = {
 }
 ```
 
-------
+***
 
 2) Extract a High-Level Process Plan
 
@@ -143,7 +143,7 @@ def get_maintenance_task_def(version: DesignVersion) -> Dict[str, Any]:
     })
 ```
 
-------
+***
 
 3) Build Production Steps
 
@@ -192,7 +192,7 @@ def build_production_steps(
     return labor_steps
 ```
 
-------
+***
 
 4) Build Maintenance Steps + Compute Lifetime Maintenance Hours
 
@@ -257,7 +257,7 @@ def build_maintenance_steps_and_totals(
     return [step], total_maintenance_hours_over_life
 ```
 
-------
+***
 
 5) Aggregate into a LaborProfile
 
@@ -310,7 +310,7 @@ def build_labor_profile(
     )
 ```
 
-------
+***
 
 **Math Sketch — Labor Aggregation & Lifetime Effort**
 

@@ -13,7 +13,7 @@ This module is the **sensory interface** of the ITC system. It listens to COS ta
 
 Output is a clean stream of `LaborEvent` objects. They are **value-neutral** until Module 2 applies weighting.
 
-------
+***
 
 **Inputs**
 
@@ -29,7 +29,7 @@ Output is a clean stream of `LaborEvent` objects. They are **value-neutral** unt
 - A corresponding `LedgerEntry` of type `"labor_event_recorded"`
    *(weighting happens later; this is the audit record of capture + verification)*
 
-------
+***
 
 **Core Logic **
 

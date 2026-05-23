@@ -12,7 +12,7 @@ This module ensures that:
 
 It is the **norm-protection layer** that keeps ITC a **coordination signal**, not a currency, wage, or bargaining instrument.
 
-------
+***
 
 **Role in the System**
 
@@ -36,7 +36,7 @@ It **detects, flags, and escalates** patterns to:
 
 Enforcement, if any, is **always human-governed** and policy-bound.
 
-------
+***
 
 **Core Type — Ethics Flag**
 
@@ -77,7 +77,7 @@ Assumed registries (conceptual):
 ETHICS_FLAGS: Dict[str, ITCEthicsFlag] = {}
 ```
 
-------
+***
 
 **Core Detection Heuristics**
 
@@ -147,7 +147,7 @@ def detect_proto_market_exchange(
     return flags
 ```
 
-------
+***
 
 **2. Queue Bias / Balance Privilege Detection**
 
@@ -208,7 +208,7 @@ def detect_queue_bias(
     return flags
 ```
 
-------
+***
 
 **3. Role Monopoly & Decay-Evasion Detection**
 
@@ -263,7 +263,7 @@ def detect_role_monopoly(
 
 Decay-evasion detection follows the same structure: closed-loop task cycling without COS necessity.
 
-------
+***
 
 **Orchestrating Ethics Monitoring**
 
@@ -292,7 +292,7 @@ def run_itc_ethics_monitoring_cycle(
     return flags
 ```
 
-------
+***
 
 **Math Sketch — Ethical Pattern Indicators**
 

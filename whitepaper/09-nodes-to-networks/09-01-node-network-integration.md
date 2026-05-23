@@ -31,4 +31,4 @@ For this reason, the macro layer does not replicate the five systems at a higher
 
 In Integral, scale does not elevate power. It **exposes constraints**. The macro layer exists to make coordination possible rather than mandatory, visible rather than enforced, and beneficial rather than coercive—allowing autonomous communities to respond to shared conditions together without surrendering sovereignty or creating a place for power to accumulate.
 
-------
+***

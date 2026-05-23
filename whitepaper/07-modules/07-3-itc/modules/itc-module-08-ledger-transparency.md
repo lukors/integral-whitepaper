@@ -25,7 +25,7 @@ Module 8 is the **nervous system log**. It:
 
 It is **not** a blockchain or speculative token ledger. It is a **cybernetic audit log**: fast, structured, verifiable, and tied directly to real-world tasks and access.
 
-------
+***
 
 **Core Types**
 
@@ -116,7 +116,7 @@ def append_ledger_entry(entry: LedgerEntry) -> LedgerEntry:
 
 This creates a **hash-chained log**: change any old entry → all downstream hashes break.
 
-------
+***
 
 **Recording Key ITC Events**
 
@@ -295,7 +295,7 @@ def log_equivalence_band_applied(
 
 Ethics + policy updates are logged similarly via `"ethics_flag_created"`, `"ethics_flag_resolved"`, `"policy_updated"`.
 
-------
+***
 
 **Query & Audit Helpers**
 
@@ -329,7 +329,7 @@ def verify_ledger_integrity() -> bool:
     return True
 ```
 
-------
+***
 
 **Math Sketch — Hash-Chained Audit Log**
 

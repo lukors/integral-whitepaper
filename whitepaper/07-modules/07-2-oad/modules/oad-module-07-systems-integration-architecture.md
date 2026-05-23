@@ -49,7 +49,7 @@ These outputs directly influence:
 - final certification (Module 9),
 - and long-term FRS telemetry mapping.
 
-------
+***
 
 **Reminder: Integration Type**
 
@@ -221,7 +221,7 @@ def evaluate_system_integration(
     )
 ```
 
-------
+***
 
 **Math Sketch — Integration Scoring**
 

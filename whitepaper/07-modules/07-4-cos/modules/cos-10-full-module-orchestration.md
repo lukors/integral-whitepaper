@@ -200,7 +200,7 @@ def run_cos_pipeline(
         "fragility": fragility,
 ```
 
-------
+***
 
 **What This Orchestration Demonstrates (Plain Language)**
 
@@ -210,7 +210,7 @@ def run_cos_pipeline(
 - **COS** determines how it is *actually built* under real constraints
 - No prices, no firms, no wages — just observable production reality
 
-------
+***
 
 **2. COS is the source of real economic information**
 
@@ -225,7 +225,7 @@ COS **measures directly**:
 
 This is the missing informational substrate in classical economics.
 
-------
+***
 
 **3. COS continuously feeds ITC valuation**
 
@@ -239,7 +239,7 @@ Every COS module emits computable signals:
 
 The result is **access-values grounded in reality**, not negotiation.
 
-------
+***
 
 **4. COS enables recursive system learning**
 
@@ -250,11 +250,11 @@ The result is **access-values grounded in reality**, not negotiation.
 Production improves → efficiency rises → access-values fall
 Not through competition — through intelligence.
 
-------
+***
 
 Closing Statement
 
 > COS is where Integral stops being theory and becomes metabolism.
 >  It is the layer where labor, materials, tools, ecology, and cooperation are coordinated directly — without markets, money, or hierarchy — and rendered computable for valuation, governance, and long-term adaptation.
 
-------
+***

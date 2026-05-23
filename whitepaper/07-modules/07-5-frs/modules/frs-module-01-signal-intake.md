@@ -21,7 +21,7 @@ Module 1 accepts **interpretable, structured signals** (not raw sensor noise), p
 - Integrity metadata (quality scores, schema versions, hash chain)
 - A minimal routing index (domains/sources/tags present in the packet)
 
-------
+***
 
 **Core Logic (Pseudocode)**
 
@@ -208,7 +208,7 @@ def build_signal_packet(
     return packet
 ```
 
-------
+***
 
 **Running Example (Sailboat): Ingest → Packetize**
 
@@ -274,7 +274,7 @@ packet = build_signal_packet(
 # At this point, Module 2 receives `packet` as its input substrate.
 ```
 
-------
+***
 
 **Math Sketches**
 

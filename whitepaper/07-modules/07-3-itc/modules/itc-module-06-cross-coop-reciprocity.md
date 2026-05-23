@@ -31,7 +31,7 @@ It applies equivalence **only** when:
 
 Equivalence is **slow-changing, bounded, public, non-exchangeable**, and applied **only at moments of use or migration**, ensuring it cannot become a currency layer.
 
-------
+***
 
 **Types**
 
@@ -96,7 +96,7 @@ class ITCAccount:
     last_decay_update: datetime
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -128,7 +128,7 @@ def compute_node_composite_index(
     return max(idx, policy.get("min_composite_index", 0.1))
 ```
 
-------
+***
 
 **2. Compute Equivalence Rule Between Nodes**
 
@@ -168,7 +168,7 @@ def compute_node_equivalence_rule(
     )
 ```
 
-------
+***
 
 **3. Migrating an Account Between Nodes**
 
@@ -196,7 +196,7 @@ def migrate_itc_account_to_node(
     # Ledger logging recommended (omitted here for brevity)
 ```
 
-------
+***
 
 **4. Cross-Node Labor (Remote or Federated Work)**
 
@@ -228,7 +228,7 @@ def record_cross_node_labor(
     return credits_home
 ```
 
-------
+***
 
 **Math Sketch — Node Equivalence & Cross-Node Credits**
 

@@ -32,4 +32,4 @@ The system does not rely on moral obligation or ideological alignment. It relies
 
 Federation, therefore, is not something one joins. It is something one **maintains** through continuous coherence with shared protocols and shared reality.
 
-------
+***

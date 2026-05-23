@@ -60,4 +60,4 @@ This domain-invariant model is not merely an organizational preference; it is a 
 
 In short, Integral’s macro coordination is not an added layer above nodes. It is the emergent behavior of nodes **synchronizing effects, constraints, and commitments** through a shared cybernetic interface—allowing society to scale collective intelligence without scaling centralized control.
 
-------
+***

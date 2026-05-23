@@ -33,7 +33,7 @@ A proposal that fails a constraint is **not rejected outright**—it is returned
   - `issue.last_updated_at` set
 - A filtered set of feasible scenarios for Module 5 and 6 *(or a set of “revise-and-retry” requirements if all fail)*
 
-------
+***
 
 **Helper Type for Reporting**
 
@@ -55,7 +55,7 @@ class ConstraintReport:
     metadata: Dict[str, Any] = field(default_factory=dict)
 ```
 
-------
+***
 
 **Core Logic **
 
@@ -131,7 +131,7 @@ def check_constraints(
     )
 ```
 
-------
+***
 
 **Math Sketch — Constraint Check as Multi-Domain Feasibility**
 

@@ -300,4 +300,4 @@ In other words, every design that enters Integral passes through a finite, audit
 
 Finally, every certified design re-enters OAD through Module 10, where reuse data, operational feedback, and contextual adaptations recursively feed back into Module 2—ensuring that Integral’s design intelligence continuously evolves through real-world learning rather than static specification.
 
-------
+***

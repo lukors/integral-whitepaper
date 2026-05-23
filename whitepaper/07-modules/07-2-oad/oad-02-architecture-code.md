@@ -14,7 +14,7 @@ OAD is not a one-way pipeline. Certified designs stored in the commons (Module 1
 
 All code below is Python-style pseudocode, meant to illustrate structure and logic rather than serve as production code.
 
-------
+***
 
 **High-Level Types**
 

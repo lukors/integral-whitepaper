@@ -24,7 +24,7 @@ so that production flows smoothly **without managers, wages, or bidding**.
 
 This module **does not assign labor**. It makes the opportunity space legible and helps volunteers find the highest-impact fit.
 
-------
+***
 
 **Key Types**
 
@@ -79,7 +79,7 @@ class LaborMatchingResult:
     notes: str
 ```
 
-------
+***
 
 1. Labor Demand from the Production Plan
 
@@ -113,7 +113,7 @@ def compute_labor_demand_from_plan(plan: COSProductionPlan) -> LaborDemandSnapsh
     )
 ```
 
-------
+***
 
 2. Labor Availability from People Profiles
 
@@ -152,7 +152,7 @@ def compute_labor_availability(
     )
 ```
 
-------
+***
 
 3. Scarcity Index by Skill Tier
 
@@ -175,7 +175,7 @@ def compute_scarcity_index(
 
 This `scarcity_index_by_skill` is one of the clean signals ITC uses in **Module 2 (weighting)** and **Module 4 (forecasting)**—but COS does not set the weights; it reports the constraint landscape.
 
-------
+***
 
 4. Scoring and Suggesting Matches
 
@@ -312,7 +312,7 @@ def build_labor_matching(
 
 Voluntary selection remains the rule.
 
-------
+***
 
 **Math Sketch — Demand, Availability, Scarcity, Matching**
 

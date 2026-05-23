@@ -38,7 +38,7 @@ FRS operational feedback can recalibrate ecological coefficients over time when 
 - `EcoAssessment` for that `version_id` (normalized indices + `eco_score`)
 - Eco-relevant values that later feed `OADValuationProfile` (e.g., `embodied_energy_mj`, `eco_score`)
 
-------
+***
 
 **Core Logic**
 
@@ -254,11 +254,11 @@ def compute_eco_assessment(
     )
 ```
 
-------
+***
 
 Later, when Module 4 (Lifecycle & Maintainability Modeling) is applied, `repairability_norm` is recalculated using empirically modeled disassembly, maintenance, and refurbishment characteristics, replacing this provisional estimate.
 
-------
+***
 
 **Math Sketch — Eco Score Aggregation**
 

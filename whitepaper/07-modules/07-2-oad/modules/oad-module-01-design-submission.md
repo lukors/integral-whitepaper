@@ -26,7 +26,7 @@ so that later modules (collaborative design, material–ecology analysis, lifecy
 - A `DesignSpec` object
 - An initial `DesignVersion` (e.g., `"v0.1-initial-submission"`) linked to that spec
 
-------
+***
 
 **Core Logic **
 
@@ -142,7 +142,7 @@ def intake_design_submission(
     return spec, version
 ```
 
-------
+***
 
 **Math Sketch — Completeness Heuristic**
 

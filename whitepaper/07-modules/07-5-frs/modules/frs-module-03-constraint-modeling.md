@@ -13,7 +13,7 @@ Turn `DiagnosticFinding` objects into explicit `ConstraintModel`s and run scenar
 - Optional `MemoryRecord` priors (FRS-6) for baseline parameter ranges (used as priors, not overrides)
 - CDS-approved constraint templates and threshold references (FRS reads them; it does not author them)
 
-------
+***
 
 **Outputs**
 
@@ -24,7 +24,7 @@ Turn `DiagnosticFinding` objects into explicit `ConstraintModel`s and run scenar
   - trace links back to originating `DiagnosticFinding` IDs
 - Optional “scenario narratives” for FRS-5 (derived artifacts; not required)
 
-------
+***
 
 **Core Logic **
 
@@ -104,7 +104,7 @@ def risk_from_breaches(breached: List[Constraint], total: List[Constraint]) -> f
     return max(0.0, min(1.0, 0.6 * frac + 0.4 * depth_score))
 ```
 
-------
+***
 
 **Illustrative Sailboat Model (Toy Parameters Used by the Pseudocode)**
 
@@ -135,7 +135,7 @@ class SailboatModelParams:
     time_step_weeks_long: int = 260
 ```
 
-------
+***
 
 **Extract current state for modeling**
 
@@ -161,7 +161,7 @@ def extract_sailboat_state(
     }
 ```
 
-------
+***
 
 **Convert state into explicit constraints**
 
@@ -217,7 +217,7 @@ def build_sailboat_constraints(
     return constraints
 ```
 
-------
+***
 
 **Scenario projection (illustrative dynamics)**
 
@@ -271,7 +271,7 @@ def project_timber_margin(
     return timber_regen - use_next
 ```
 
-------
+***
 
 **Run scenario suite across horizons**
 
@@ -353,7 +353,7 @@ def run_sailboat_scenarios(
     return results
 ```
 
-------
+***
 
 **Main: build a ConstraintModel from Findings + Packets**
 
@@ -391,7 +391,7 @@ def build_constraint_model_from_findings(
     )
 ```
 
-------
+***
 
 **Running Example (Sailboat): Findings → Model → Scenario Envelope**
 
@@ -419,7 +419,7 @@ for r in model.scenario_results:
         print(r.scenario_id, r.constraint_breaches, r.risk_score)
 ```
 
-------
+***
 
 **Math Sketches**
 

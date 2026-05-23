@@ -27,7 +27,7 @@ Specifically, CDS:
 
 CDS is not a digital legislature. It is a **cybernetic governance system** modeled on how adaptive systems coordinate perception, reasoning, constraint enforcement, learning, and correction over time. Each module performs a necessary cognitive function—perception, structuring, contextualization, boundary checking, deliberation, synthesis, coordination, memory, escalation, and revision.
 
-------
+***
 
 **CDS MODULE OVERVIEW TABLE:**
 
@@ -66,7 +66,7 @@ Every submission is identity-verified (human or system), deduplicated, and norma
 **Example**
 Residents submit proposals to renovate a shared tool library. Others submit concerns about accessibility and noise. COS flags repeated tool damage. FRS adds a signal about airflow-related corrosion. Module 1 authenticates and bundles all inputs into a single issue object for structuring.
 
-------
+***
 
 ### Module 2: Issue Structuring & Framing Module
 
@@ -87,7 +87,7 @@ This module does not judge proposals. It clarifies *what the actual decision is*
 **Example**
 Tool-library submissions cluster into themes: ventilation, accessibility, storage layout, noise, and material constraints. The module reveals that most concerns stem from airflow, not misuse — reframing the problem from “behavior” to “design.”
 
-------
+***
 
 ### Module 3: Knowledge Integration & Context Engine
 
@@ -108,7 +108,7 @@ The result is a unified **context model** that replaces opinion-based debate wit
 **Example**
 The system compiles airflow data, corrosion logs, accessibility standards, past renovations, and existing OAD design templates. It reveals that overcrowding and humidity — not overuse — explain most tool damage.
 
-------
+***
 
 ### Module 4: Norms & Constraint Checking Module
 
@@ -129,7 +129,7 @@ Scenarios are never rejected silently. If a constraint is violated, the module r
 **Example**
 A proposal includes powered dust extraction but exceeds energy constraints. Module 4 returns a condition: the design is permissible only if paired with passive ventilation or renewable augmentation.
 
-------
+***
 
 ### Module 5: Participatory Deliberation Workspace
 
@@ -150,7 +150,7 @@ Deliberation is non-coercive and fully transparent. Arguments evolve in public v
 **Example**
 Participants refine a hybrid renovation plan combining airflow improvements, reorganized storage, and an outdoor workbench. Accessibility objections lead to widened aisles and assisted lifting mechanisms.
 
-------
+***
 
 ### Module 6: Weighted Consensus Engine
 
@@ -170,7 +170,7 @@ It produces outcomes such as approval, conditional approval, revision requests, 
 **Example**
 A renovation plan shows high support but a blocking objection about noise near the entrance. The engine suggests relocating the workbench and adding sound damping, resolving all objections without a vote.
 
-------
+***
 
 ### Module 7: Transparency, Versioning & Accountability
 
@@ -193,7 +193,7 @@ Records are append-only, cryptographically linked, and accessible through public
 **Example**
 Any resident can trace a tool-library decision from initial proposals through airflow data, constraint checks, consensus refinement, and final approval.
 
-------
+***
 
 ### Module 8: Implementation Dispatch Interface
 
@@ -213,7 +213,7 @@ This ensures that decisions do not stall at the symbolic level — they become e
 **Example**
 A renovation decision dispatches design updates to OAD, forms carpentry and ventilation teams in COS, adjusts ITC contribution rules, and instructs FRS to track airflow efficiency and tool-damage rates post-implementation.
 
-------
+***
 
 ### Module 9: Human Deliberation & High-Bandwidth Resolution
 
@@ -239,7 +239,7 @@ A proposal to repaint a shared tool library in bright colors meets strong resist
 
 Module 9 convenes a short facilitated deliberation session. Participants agree on a compromise: preserve the original palette while incorporating subtle accent elements from the proposed design. The outcome is logged, versioned, and dispatched as a finalized directive.
 
-------
+***
 
 ### Module 10: Review, Revision & Override Module
 
@@ -281,7 +281,7 @@ Module 10 operates as a post-decision supervisory loop, continuously reviewing i
 
 Together, the diagram depicts CDS not as a legislature or voting system, but as a cybernetic governance architecture—capable of perception, reasoning, constraint enforcement, collective sense-making, execution, memory, and continuous self-correction across time.
 
-------
+***
 
 ### Narrative Snapshot — A Full CDS Walkthrough
 
@@ -298,7 +298,7 @@ A key pedestrian bridge connecting a residential area to a local Access Center b
 
 The issue enters CDS—not as a vote, but as a **governance signal**.
 
-------
+***
 
 **Module 1 — Issue Capture & Signal Intake**
 
@@ -315,7 +315,7 @@ This includes:
 
 All submissions are identity-verified (human or system), timestamped, deduplicated, and tagged. No prioritization occurs yet. The system ensures only that **everything relevant enters the decision space intact**.
 
-------
+***
 
 **Module 2 — Issue Structuring & Framing**
 
@@ -335,7 +335,7 @@ Through this structuring, CDS identifies a shared underlying objective:
 
 This reframing clarifies that the issue is not merely about “fixing a bridge,” but about **access resilience under ecological change**.
 
-------
+***
 
 **Module 3 — Knowledge Integration & Context Engine**
 
@@ -354,7 +354,7 @@ A critical insight emerges:
 
 All participants now deliberate within a **shared factual landscape**, rather than competing interpretations of reality.
 
-------
+***
 
 **Module 4 — Norms & Constraint Checking**
 
@@ -374,7 +374,7 @@ Results include:
 
 Rather than rejecting proposals, CDS returns **specific modification requirements**: prioritize permeable materials, modular construction, and strict accessibility constraints. Only constraint-compliant scenarios advance.
 
-------
+***
 
 **Module 5 — Participatory Deliberation Workspace**
 
@@ -395,7 +395,7 @@ Objections are mapped transparently:
 
 Through iterative refinement, proposals converge toward a **hybrid solution**: a raised, fully accessible secondary walkway combined with limited, ecologically sensitive riverbank reinforcement.
 
-------
+***
 
 **Module 6 — Weighted Consensus Mechanism**
 
@@ -416,7 +416,7 @@ Instead of forcing a decision, CDS synthesizes **conditions for approval**:
 
 With these conditions met, consensus is achieved **without marginalizing minority concerns**.
 
-------
+***
 
 **Module 7 — Decision Recording, Versioning & Accountability**
 
@@ -432,7 +432,7 @@ The entire decision lifecycle is then permanently recorded:
 
 Records are append-only, cryptographically linked, and publicly inspectable. Any resident can trace *exactly how* and *why* the decision emerged.
 
-------
+***
 
 **Module 8 — Implementation Dispatch Interface**
 
@@ -447,7 +447,7 @@ CDS dispatches:
 
 Governance now becomes **operational reality**.
 
-------
+***
 
 **Module 9 — Human Deliberation & High-Bandwidth Resolution**
 
@@ -466,7 +466,7 @@ A facilitated deliberation session brings together elders, designers, and younge
 
 The outcome is formally recorded (Module 7) and dispatched (Module 8), maintaining full continuity with the CDS pipeline.
 
-------
+***
 
 **Module 10 — Review, Revision & Override (Post-Decision Loop)**
 
@@ -482,7 +482,7 @@ The decision is amended:
 
 The revision is transparently logged and re-dispatched—without political conflict, blame, or loss of legitimacy.
 
-------
+***
 
 **Final Outcome**
 

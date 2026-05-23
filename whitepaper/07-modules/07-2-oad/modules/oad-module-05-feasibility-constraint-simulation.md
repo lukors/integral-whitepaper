@@ -51,7 +51,7 @@ class SimulationResult:
     failure_modes: List[str]
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -91,7 +91,7 @@ def build_simulation_scenarios(version: DesignVersion) -> Dict[str, Dict]:
     }
 ```
 
-------
+***
 
 **2. Simulation Backends (Structural / Flow)**
 
@@ -130,7 +130,7 @@ def run_flow_sim(version: DesignVersion, scenario: Dict) -> Dict:
     }
 ```
 
-------
+***
 
 **3. Safety & Local Feasibility Scoring**
 
@@ -175,7 +175,7 @@ def compute_safety_and_feasibility(indicators: Dict) -> Dict:
     }
 ```
 
-------
+***
 
 **4. Aggregate Simulation Result**
 
@@ -241,7 +241,7 @@ def run_feasibility_simulation(version: DesignVersion) -> SimulationResult:
     )
 ```
 
-------
+***
 
 **Math Sketch — Feasibility Aggregation**
 

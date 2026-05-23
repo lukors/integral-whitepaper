@@ -4,7 +4,7 @@ The distributed production of complex goods—such as housing systems, medical e
 
 This case demonstrates how Integral coordinates complex, multi-node production **without firms, markets, or centralized planners**, using the same recursive architecture formalized in Sections 9.5–9.7.
 
-------
+***
 
 **9.8.1 Domain Definition**:
 
@@ -14,7 +14,7 @@ Inclusion in the domain is determined by **design dependency**, not ownership or
 
 Each node remains autonomous in its internal organization, labor norms, and production priorities. Coordination emerges only when dependencies require synchronization.
 
-------
+***
 
 **9.8.2 Observable State and NSS Construction**:
 
@@ -37,7 +37,7 @@ Illustrative indicators include:
 
 Individual labor schedules, internal governance methods, or strategic priorities remain local.
 
-------
+***
 
 **9.8.3 Scope Detection**:
 
@@ -50,7 +50,7 @@ FRS aggregates NSS indicators across the production domain and detects patterns 
 
 A scope mismatch is detected when production viability cannot be restored through isolated local adjustment—when **dependency resolution requires synchronized action across nodes**.
 
-------
+***
 
 **9.8.4 Threshold Evaluation**:
 
@@ -62,7 +62,7 @@ Threshold functions classify production disturbances:
 
 Thresholds identify *what must be resolved*, not who controls production.
 
-------
+***
 
 **9.8.5 Coordination Envelope Formation**:
 
@@ -78,7 +78,7 @@ The envelope specifies:
 
 Nodes not involved in the dependency chain are excluded.
 
-------
+***
 
 **9.8.6 CDS Convergence and Decision Scope**:
 
@@ -98,7 +98,7 @@ Decisions cannot:
 
 Each node ratifies envelope commitments internally.
 
-------
+***
 
 **9.8.7 OAD, COS, and ITC Coordination**:
 
@@ -110,7 +110,7 @@ This domain highlights the **centrality of OAD**:
 
 Reciprocity applies to effort and capability mobilization, not to ownership of outputs.
 
-------
+***
 
 **9.8.8 Feedback, Stabilization, and Dissolution**:
 
@@ -125,7 +125,7 @@ Once stability persists:
 
 No production authority remains.
 
-------
+***
 
 **9.8.9 Significance of the Case**:
 
@@ -142,4 +142,4 @@ The same recursive pattern observed in ecoogical and infrastructural domains app
 Above Diagram:  *Distributed Production Coordination Control Loop*
 This diagram illustrates how Integral coordinates the distributed production of complex goods without firms, markets, or centralized management. Each node independently senses its local production conditions and publishes a compressed *Node State Summary (NSS)* that exposes only outward-facing effects—such as capacity constraints, bottlenecks, dependency stress, and risk indicators—while keeping internal organization private. The Feedback & Review System (FRS) aggregates these summaries across a dependency-linked production domain, detects scope mismatches, and evaluates coordination thresholds. Minor disturbances generate advisory signals that widen awareness without expanding decision scope. Persistent or safety-critical disruptions trigger a *Coordination Envelope (CE)*, within which node-level decision processes (CDS) converge temporarily and coordination occurs across design (OAD), operations (COS), and contribution recognition (ITC). As production flow stabilizes and quality metrics return within bounds, FRS signals exit conditions, the envelope dissolves automatically, and all nodes return to fully autonomous production.
 
-------
+***

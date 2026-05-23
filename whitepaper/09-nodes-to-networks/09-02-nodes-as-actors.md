@@ -22,4 +22,4 @@ Interoperability is thus achieved through **shared structural schemas rather tha
 
 At macro scale, therefore, **nodes—not individuals—become the primary actors**. Individuals participate through their local systems; there is no planetary labor market and no bypass of local accountability by appealing upward. Coordination remains grounded in place, ecology, and consequence, even as it extends across regions and networks.
 
-------
+***

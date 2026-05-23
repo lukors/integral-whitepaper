@@ -12,7 +12,7 @@ are **continuously recalibrated in response to real-world conditions**, but **on
 
 This is the *cybernetic glue* that keeps ITC adaptive without turning it into an autonomous “policy authority.”
 
-------
+***
 
 Role in the System
 
@@ -35,7 +35,7 @@ Module 9 performs four functions:
    - updates the active policy used by Modules 1–8
    - writes a `policy_updated` entry to the ITC ledger (Module 8) for traceability
 
-------
+***
 
 **Core Types:**
 
@@ -91,7 +91,7 @@ class PolicyProposal:
     generated_by: str                  # "automatic" or committee id
 ```
 
-------
+***
 
 **Signal Aggregation**
 
@@ -109,7 +109,7 @@ def collect_latest_signals(node_id: str) -> Dict[str, Any]:
     return {"oad": oad_payloads, "cos": cos_signal, "frs": frs_signal, "cds": cds_policy}
 ```
 
-------
+***
 
 **Policy Adjustment Heuristics**
 
@@ -223,7 +223,7 @@ def propose_itc_policy_adjustments(
     )
 ```
 
-------
+***
 
 **CDS Review and Activation**
 
@@ -292,7 +292,7 @@ def activate_and_broadcast_itc_policy(
     notify_ethics_monitor(new_snapshot)
 ```
 
-------
+***
 
 **Periodic Coordination Tick**
 
@@ -335,7 +335,7 @@ def coordination_tick_for_node(node_id: str) -> Optional[ITCPolicySnapshot]:
     return None
 ```
 
-------
+***
 
 **Math Sketch — Policy as a Bounded Function of Signals**
 

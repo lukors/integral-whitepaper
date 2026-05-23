@@ -27,7 +27,7 @@ Transform a certified `DesignVersion` + its `OADValuationProfile` into a concret
   - `expected_cycle_time_hours`
 - A simple **plan summary** that ITC can immediately use as an initial (pre-execution) input for valuation.
 
-------
+***
 
 **Assumed OAD Decomposition Format**
 

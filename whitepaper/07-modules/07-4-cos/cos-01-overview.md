@@ -16,7 +16,7 @@ COS converts certified OAD designs into **real production cycles**, aligning vol
 In the analog village, COS resembles rotating teams who plant, harvest, maintain tools, build structures, and repair equipment — not under command, but through shared awareness of what is needed, when, and by whom.
  COS is the **digitally augmented, recursively coordinated expansion** of that pattern.
 
-------
+***
 
 **COS is where economic calculation becomes physical reality.**
 
@@ -37,7 +37,7 @@ COS is the federation’s **production nervous system**, ensuring that every coo
 
 Below are the nine modules that together form the full COS micro-architecture.
 
-------
+***
 
 **COS Module Overview Table**
 
@@ -53,7 +53,7 @@ Below are the nine modules that together form the full COS micro-architecture.
 | **8. Cooperative Coordination & Inter-Coop Integration** | Synchronize multiple cooperatives within and across nodes, ensuring shared capacity, distributed specialization, and federated production cycles remain coherent. | Mondragón-style inter-coop networks; federated supply orchestration |
 | **9. Transparency, Ledger & Audit**                      | Log labor, materials, throughput, failures, and distribution events for full cybernetic traceability; supply clean operational data to ITC and FRS. | Open ERP audit trails, transparent production ledgers        |
 
-------
+***
 
 ### Module 1: Production Planning & Work Breakdown
 
@@ -84,7 +84,7 @@ The OAD-certified “Bicycle v3.2” design is decomposed into:
 
 COS outputs a structured, immediately executable production plan.
 
-------
+***
 
 ### Module 2: Labor Organization & Skill-Matching
 
@@ -110,7 +110,7 @@ Weighting increases modestly.
 Three trainees volunteer.
 The bottleneck dissolves—no manager, no command.
 
-------
+***
 
 ### Module 3: Resource Procurement & Materials Management
 
@@ -137,7 +137,7 @@ ITC adjusts access-values →
 OAD explores alternative tire compounds →
 FRS monitors ecological stress.
 
-------
+***
 
 ### Module 4: Cooperative Workflow Execution
 
@@ -162,7 +162,7 @@ COS displays the constraint.
 Two welders finish their step and shift to wheel assembly.
 Flow resumes—no foreman required.
 
-------
+***
 
 ### Module 5: Capacity, Throughput & Constraint Balancing
 
@@ -188,7 +188,7 @@ A bearing press goes offline.
 COS reroutes tasks, signals ITC, and notifies OAD.
 Throughput stabilizes without halting production.
 
-------
+***
 
 ### Module 6: Distribution & Access Flow Coordination
 
@@ -213,7 +213,7 @@ ITC access-values rise slightly.
 Shared-use is prioritized.
 Values normalize as demand subsides.
 
-------
+***
 
 ### Module 7: Quality Assurance & Safety Verification
 
@@ -236,7 +236,7 @@ OAD updates geometry.
 ITC temporarily raises access-values.
 FRS tracks aluminum use changes.
 
-------
+***
 
 ### Module 8: Cooperative Coordination & Inter-Coop Integration
 
@@ -260,7 +260,7 @@ Frame coop in Node B is overloaded.
 COS redistributes tasks.
 ITC harmonizes equivalence bands.
 
-------
+***
 
 ### Module 9: Transparency, Ledger & Audit
 
@@ -288,7 +288,7 @@ OAD redesigns joints.
 ITC lowers future access-values.
 FRS confirms ecological improvement.
 
-------
+***
 
 ![Integral system diagram](../../../assets/integral-system-diagram-14.png)
 
@@ -325,7 +325,7 @@ Downstream outputs from COS include:
 
 In essence, COS is the musculature of the Integral economy: a self-organizing, feedback-driven production system that replaces markets and managerial hierarchies with direct, computable coordination of labor, materials, and ecological limits.
 
-------
+***
 
 ### Narrative Snapshot: COS (+ ITC) in Action
 
@@ -345,7 +345,7 @@ That concrete access-value emerges **only when COS begins real production**.
 
 The moment physical, operational work begins—cutting blanks, bending sides, gluing braces—**the ITC system becomes metabolically active**. As defined earlier, governance debates and creative ideation sit outside this layer; what matters here is **materially necessary labor acting on the physical world**.
 
-------
+***
 
 **Module 1 — Production Planning & Work Breakdown**
 
@@ -381,7 +381,7 @@ ITC does **not** yet compute a final access-value, but now has a grounded baseli
 
 > “A standard acoustic guitar in this node will likely require ~X weighted labor hours plus Y ecological burden under normal conditions.”
 
-------
+***
 
 **Module 2 — Labor Organization & Skill-Matching**
 
@@ -410,7 +410,7 @@ ITC’s Skill & Context Weighting Engine responds *within CDS bounds*:
 - abundance → normalization,
 - long-term skill growth → gradual relaxation.
 
-------
+***
 
 **Module 3 — Resource Procurement & Materials Management**
 
@@ -436,7 +436,7 @@ These signals propagate:
 
 **General Note**: If internal procurement is not feasible, COS may initiate **temporary external cooperative sourcing**, logged transparently and treated as a transitional condition—not a hidden supply chain.
 
-------
+***
 
 **Module 4 — Cooperative Workflow Execution**
 
@@ -465,7 +465,7 @@ COS reports back:
 
 ITC now has **empirical labor reality**, not assumptions.
 
-------
+***
 
 **Module 5 — Capacity, Throughput & Constraint Balancing**
 
@@ -489,7 +489,7 @@ ITC’s Labor Forecasting Module absorbs this:
 
 The system adapts **before failure propagates**.
 
-------
+***
 
 **Module 6 — Distribution & Access Flow Coordination**
 
@@ -521,7 +521,7 @@ Result:
 
 Personal acquisition → ITCs extinguished. Shared use → no extinguishment.
 
-------
+***
 
 **Module 7 — Quality Assurance & Safety Verification**
 
@@ -546,7 +546,7 @@ ITC responds proportionally:
 
 Improvement lowers cost. Not competition.
 
-------
+***
 
 **Module 8 — Cooperative Coordination & Inter-Coop Integration**
 
@@ -573,7 +573,7 @@ Over time, as internal capability grows:
 
 System learning replaces supply chains.
 
-------
+***
 
 **Module 9 — Transparency, Ledger & Audit**
 
@@ -591,7 +591,7 @@ When another node wants to replicate guitar production, it doesn’t just copy C
 - where bottlenecks occurred and how they were resolved,
 - how ITC access-values evolved as efficiency improved.
 
-------
+***
 
 **Closing Loop**
 
@@ -606,4 +606,4 @@ Guitars become easier to access **not because of cost-cutting**, but because the
 
 That is COS in action: **production without markets, coordination without command, and value without price.**
 
-------
+***

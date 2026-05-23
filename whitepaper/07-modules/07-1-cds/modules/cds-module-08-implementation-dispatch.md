@@ -37,7 +37,7 @@ If CDS is the *brain*, Module 8 is the **motor cortex**.
 
 This packet is then **consumed by COS, OAD, ITC, and FRS**.
 
-------
+***
 
 **Helper Type — DispatchPacket (canonical)**
 
@@ -64,7 +64,7 @@ class DispatchPacket:
     metadata: Dict[str, Any] = field(default_factory=dict)
 ```
 
-------
+***
 
 **Core Logic **
 
@@ -149,7 +149,7 @@ def generate_dispatch(
     return dispatch
 ```
 
-------
+***
 
 **Dispatch Scheduling Logic (Mini-Sketch)**
 
@@ -177,7 +177,7 @@ def compute_schedule(
     }
 ```
 
-------
+***
 
 **Math Sketch — Dependency Ordering**
 

@@ -22,7 +22,7 @@ If not, it:
 - updates the effective lifecycle/maintenance expectations,
 - and emits bounded signals that can raise or lower **future** access obligations (and optionally differentiate specific batches).
 
-------
+***
 
 **Types — QA Specs, Results, and Signals**
 
@@ -129,7 +129,7 @@ class FRSFailureSignal:
     description: str
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -259,7 +259,7 @@ def summarize_qa_results(
     )
 ```
 
-------
+***
 
 5) Translate QA deviations into ITC signals
 
@@ -316,7 +316,7 @@ def build_itc_reliability_signal(
     )p
 ```
 
-------
+***
 
 6) FRS failure signal
 
@@ -344,7 +344,7 @@ def build_frs_failure_signal(qa_summary: QABatchSummary) -> FRSFailureSignal:
     )
 ```
 
-------
+***
 
 7) Orchestration: Full Module 7 pass
 
@@ -394,7 +394,7 @@ def run_quality_assurance_pipeline(
     }
 ```
 
-------
+***
 
 **Math Sketch — QA-driven valuation adjustment**
 

@@ -41,7 +41,7 @@ Importantly: COS does **not** assume every material/process has a dedicated coop
 - `ITCDependencySignal` (advisory multiplier input to ITC Module 5, bounded by CDS policy)
 - `FRSAutonomySignal` (risk/fragility monitoring input)
 
-------
+***
 
 **Types — Cooperative Units, Dependencies, and Signals**
 
@@ -147,7 +147,7 @@ class FRSAutonomySignal:
     description: str
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -354,7 +354,7 @@ Triggered when:
 - routing patterns/capacities change,
 - or FRS/ITC request reevaluation after a shock.
 
-------
+***
 
 **Math Sketch — Network-Level Autonomy and Fragility**
 

@@ -30,7 +30,7 @@ Convert raw, heterogeneous submissions—proposals, objections, comments, and sy
 - Deduplicated placeholder submissions (inserted by Module 1) are ignored to preserve signal clarity.
 - `StructuredIssueView` and `SubmissionCluster` are **transient computational artifacts**, not canonical CDS records. They exist to support downstream reasoning and deliberation.
 
-------
+***
 
 **Helper Types (for structuring)**
 
@@ -55,7 +55,7 @@ class StructuredIssueView:
     metadata: Dict[str, Any]
 ```
 
-------
+***
 
 **Core Logic **
 
@@ -189,7 +189,7 @@ def cluster_submissions(
     )
 ```
 
-------
+***
 
 **Math Sketch — Clustering and Similarity**
 

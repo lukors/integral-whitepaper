@@ -144,7 +144,7 @@ def run_itc_pipeline_for_node(
     }
 ```
 
-------
+***
 
 **Narrative Interpretation **
 
@@ -186,7 +186,7 @@ Every balance, valuation, and policy change is traceable through a tamper-eviden
 
 ITC remains aligned with reality because its parameters are continuously recalibrated—*but only within democratically approved bounds*.
 
-------
+***
 
 **Final Summary: What ITC Actually Is**
 
@@ -217,4 +217,4 @@ With ITC complete, the Integral system now has:
 
 From here, the system no longer needs markets to know what to do.
 
-------
+***

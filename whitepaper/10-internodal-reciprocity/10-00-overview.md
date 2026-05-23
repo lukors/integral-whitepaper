@@ -12,4 +12,4 @@ Unlike the scope expansion mechanisms of Section 9, internodal reciprocity does 
 
 This section formalizes the principles and technical structures that make such reciprocity possible. It defines the types of reciprocal flows that exist between nodes, the objects and protocols through which they are expressed, and the mathematical and computational logic by which contributions are recognized across heterogeneous local contexts. Together, these mechanisms enable Integral to function as a **cooperative economic network**—one that supports mobility, specialization, and mutual support without collapsing into markets or hierarchies.
 
-------
+***

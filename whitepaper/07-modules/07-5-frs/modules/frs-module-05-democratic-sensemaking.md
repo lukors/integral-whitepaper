@@ -5,7 +5,7 @@ Translate FRS findings, models, and routed recommendations into **human-comprehe
 
 FRS-5 does **not** decide. It renders reality legible for democratic process.
 
-------
+***
 
 **Inputs**
 
@@ -15,7 +15,7 @@ FRS-5 does **not** decide. It renders reality legible for democratic process.
 - Optional `MemoryRecord` references for “historical parallels” (FRS-6) *(context only; never overrides evidence)*
 - Optional CDS context: current deliberation queues, policy snapshots, and audience configuration *(what level of detail is appropriate)*
 
-------
+***
 
 **Outputs**
 
@@ -28,7 +28,7 @@ FRS-5 does **not** decide. It renders reality legible for democratic process.
 
 Artifacts are **auditable**: each includes links back to the exact findings/models/recommendations that generated it.
 
-------
+***
 
 **Core Logic **
 
@@ -337,7 +337,7 @@ def build_sensemaking_artifacts(
     return artifacts
 ```
 
-------
+***
 
 **Running Example (Sailboat): “Make It Legible for CDS”**
 
@@ -363,7 +363,7 @@ Typical outputs for the sailboat case:
 - **Scenario Comparison:** “Status quo breaches constraints in mid/long horizon; combined intervention restores viability envelope.”
 - **Deliberation Prompts:** “Authorize OAD sprint? Adjust COS workflow now? Prioritize autonomy strategy? Revisit thresholds?”
 
-------
+***
 
 **Math Sketches**
 

@@ -29,7 +29,7 @@ Certified designs stored in the global commons (Module 10) are continuously pull
 
 Below is the complete **micro-architecture of OAD**, updated to reflect its central role in feeding COS and ITC with computable design intelligence.
 
-------
+***
 
 **OAD Module Overview Table**
 
@@ -46,7 +46,7 @@ Below is the complete **micro-architecture of OAD**, updated to reflect its cent
 | **9. Validation, Certification & Release Manager**      | Quality control, final approval, version stamping, compliance with ecological and operational norms | PLM systems, OSHW certifications, formal verification pipelines |
 | **10. Knowledge Commons & Reuse Repository**            | Global archive of all designs, metadata, versions, simulations, maintenance logs, and cross-node adoption | Wikimedia, open hardware libraries, federated knowledge bases |
 
-------
+***
 
 ### Module 1: Design Submission & Structured Specification
 
@@ -71,7 +71,7 @@ This is the “front door” of the design organism.
 **Example**
 A contributor submits a modular water filtration unit. They upload preliminary CAD files, list bamboo and stainless options, define target flow rate, outline cleaning intervals, and include a rough labor-step sketch: frame fabrication → filter packing → flow testing. The module verifies the submission for completeness and moves it forward.
 
-------
+***
 
 ### Module 2: Collaborative Design Workspace
 
@@ -96,7 +96,7 @@ Certified designs retrieved from the **Knowledge Commons (Module 10)** re-enter 
 **Example**
 Three variants of the filter housing emerge: recycled plastic, bamboo composite, and lightweight metal. Contributors run parallel branches, compare pros and cons, merge promising optimizations, and document every design path. Months later, a different node pulls the bamboo variant from the commons and adapts it for colder climates by thickening wall sections and altering seals—creating a new certified branch.
 
-------
+***
 
 ### Module 3: Material & Ecological Coefficient Engine
 
@@ -122,7 +122,7 @@ Operational feedback from **FRS** can recalibrate them over time when real-world
 **Example**
 The stainless-steel version flags high embodied energy. OAD recommends shifting to bamboo composite for low-impact regions or recycled plastic for nodes with industrial recycling capacity. Later, FRS reports faster-than-expected bamboo degradation in high-humidity coastal nodes, triggering a coefficient update and a redesign branch using treated composite layers.
 
-------
+***
 
 ### Module 4: Lifecycle & Maintainability Modeling
 
@@ -147,7 +147,7 @@ These models are continuously updated. Operational performance data from **FRS**
 **Example**
 The initial filter design requires frequent disassembly. OAD models show that redesigning the housing to be tool-free reduces lifetime labor by 40%. After deployment, FRS confirms the reduced maintenance frequency in practice, reinforcing the new design as the preferred certified branch.
 
-------
+***
 
 ### Module 5: Feasibility & Constraint Simulation
 
@@ -172,7 +172,7 @@ Feasibility limits are not static; they can be **tightened or revised** as ecolo
 **Example**
 CFD reveals back-pressure buildup in the filtration channel. A revised geometry improves throughput and safety margins, resolving the constraint automatically. Later, higher sediment loads reported by FRS trigger a re-run of simulations with updated boundary conditions.
 
-------
+***
 
 ### Module 6: Skill & Labor-Step Decomposition Module
 
@@ -203,7 +203,7 @@ Without this module, Integral could not perform *non-market economic calculation
 **Example**
 The filtration unit decomposes into: frame cutting (low skill), housing assembly (medium), flow testing (medium/high), and seal inspection (medium). COS uses this to match workers, while ITC uses it to compute fair access values. After deployment, COS reports that seal inspection takes longer in sandy environments, prompting a labor-step update.
 
-------
+***
 
 ### Module 7: Systems Integration & Architectural Coordination
 
@@ -227,7 +227,7 @@ It also ensures that designs align with **federated Integral standards**, enabli
 **Example**
 OAD confirms the filtration unit fits neatly into existing rainwater capture systems and can integrate with a compost-heat loop, reducing mold risk and increasing performance. The module also flags that a standardized inlet size allows the unit to connect to other OAD-certified storage tanks.
 
-------
+***
 
 ### Module 8: Optimization & Efficiency Engine
 
@@ -252,7 +252,7 @@ Optimization outputs directly influence **COS production efficiency** and **ITC 
 **Example**
 Optimization reduces material usage by 27%, increases durability, and decreases required assembly time—lowering lifetime labor inputs and reducing ITC access requirements for the final product.
 
-------
+***
 
 ### Module 9: Validation, Certification & Release Manager
 
@@ -276,7 +276,7 @@ Certification status can be **revoked or updated** if later FRS data indicates d
 **Example**
 The filtration design is certified after tests confirm safety, maintainability, and ecological requirements. COS is notified that production can begin. Months later, FRS feedback prompts a minor revision and re-certification for high-sediment environments.
 
-------
+***
 
 ### Module 10: Knowledge Commons & Reuse Repository
 
@@ -300,7 +300,7 @@ This module constitutes Integral’s **evolving design genome**.
 **Example**
 A cold-climate adaptation appears: a freeze-resistant filter casing. Months later, a desert node merges its own sand-resistant prefilter, creating a hybrid version adopted globally.
 
-------
+***
 
 ![Integral system diagram](../../../assets/integral-system-diagram-12.png)
 
@@ -313,7 +313,7 @@ The diagram also highlights OAD’s recursive feedback structure. Operational pe
 
 Finally, the Knowledge Commons & Reuse Repository functions as a living design genome: certified designs are preserved globally and continuously re-enter the collaborative workspace for local adaptation, branching, and improvement. Together, these flows show OAD not as a static repository of blueprints, but as a self-correcting, federated design organism that enables non-market production coordination across the Integral network.**
 
-------
+***
 
 ### Narrative Snapshot: A Full OAD Walkthrough
 
@@ -321,7 +321,7 @@ A coastal Integral node is experiencing worsening **seasonal saltwater intrusion
 
 The moment the idea emerges, it enters **OAD**.
 
-------
+***
 
 **Module 1 — Design Submission & Structured Specification**
 
@@ -337,7 +337,7 @@ The structured template requires:
 
 OAD checks for completeness, classifies the submission, and confirms it is technically coherent enough to move into collaborative development.
 
-------
+***
 
 **Module 2 — Collaborative Design Workspace**
 
@@ -358,7 +358,7 @@ Branches evolve openly through:
 
 Ideas are not privatized; they are *co-evolving organisms* in a shared ecosystem.
 
-------
+***
 
 **Module 3 — Material & Ecological Coefficient Engine**
 
@@ -382,7 +382,7 @@ The engine suggests lower-impact alternatives: **biodegradable fiber supports, b
 
 A **more ecologically viable branch** is spawned.
 
-------
+***
 
 **Module 4 — Lifecycle & Maintainability Modeling**
 
@@ -404,7 +404,7 @@ Conversely, the hybrid solar/fiber design:
 
 This dramatically affects later **ITC access valuation** once operational—lower maintainability burden → lower access cost.
 
-------
+***
 
 **Module 5 — Feasibility & Constraint Simulation**
 
@@ -422,7 +422,7 @@ A revised geometry increases output by **21%** with *no additional materials*.
 
 At this stage the design is no longer speculative—it is **functionally sound**.
 
-------
+***
 
 **Module 6 — Skill & Labor-Step Decomposition**
 
@@ -444,7 +444,7 @@ This module outputs:
 
 This is where OAD begins interfacing directly with the **future access cost of the good**.
 
-------
+***
 
 **Module 7 — Systems Integration & Architectural Coordination**
 
@@ -462,7 +462,7 @@ A synergy emerges: **routing waste heat from the unit into a nearby greenhouse i
 
 The design becomes *part of a system*, not an isolated object.
 
-------
+***
 
 **Module 8 — Optimization & Efficiency Engine**
 
@@ -485,7 +485,7 @@ A parametric optimization cycle yields:
 
 The design is now *approaching optimality*.
 
-------
+***
 
 **Module 9 — Validation, Certification & Release Manager**
 
@@ -508,7 +508,7 @@ Once validated, the desalination unit gains:
 
 The design becomes **production-ready**.
 
-------
+***
 
 **Module 10 — Knowledge Commons & Reuse Repository**
 
@@ -543,4 +543,4 @@ Just **collective intelligence → ecological evaluation → simulation → opti
 
 A civilization designing like an expanding, learning organism. Not for profit — **for life, resilience, and shared flourishing**.
 
-------
+***

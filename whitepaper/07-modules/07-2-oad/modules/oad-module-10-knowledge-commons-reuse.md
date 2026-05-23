@@ -49,7 +49,7 @@ From Module 9 (Certification) and downstream operation:
   - COS default design selection,
   - ITC valuation stabilization.
 
-------
+***
 
 **Reminder: Repository Index Type**
 
@@ -68,7 +68,7 @@ class RepoEntry:
 `RepoEntry` is an **index**, not a data warehouse.
  It points to canonical records stored elsewhere (certification, eco, lifecycle, labor, etc.).
 
-------
+***
 
 **Learning & Feedback Extensions**
 
@@ -93,7 +93,7 @@ class OperationalFeedback:
 
 `ReuseMetrics` and `OperationalFeedback` are **authoritative learning records**. Any cached fields in `RepoEntry` must be consistent with them.
 
-------
+***
 
 **Core Repository Logic**
 
@@ -105,7 +105,7 @@ REUSE_METRICS: Dict[str, ReuseMetrics] = {}
 OPERATIONAL_FEEDBACK: Dict[str, OperationalFeedback] = {}
 ```
 
-------
+***
 
 1. Publishing a Certified Design
 
@@ -143,7 +143,7 @@ def publish_to_repository(
     return entry
 ```
 
-------
+***
 
 **2. Tracking Real-World Reuse (COS → OAD)**
 
@@ -172,7 +172,7 @@ def register_design_deployment(
     return metrics
 ```
 
-------
+***
 
 **3. Registering Design Lineage (Evolution)**
 
@@ -189,7 +189,7 @@ def register_variant_relationship(
         REPO_ENTRIES[parent_version_id].variants.append(child_version_id)
 ```
 
-------
+***
 
 **4. Registering Operational Feedback (FRS → OAD)**
 
@@ -217,7 +217,7 @@ This evidence is routed back to:
 - **Module 6** (maintenance labor recalibration),
 - **Module 8** (next-generation optimization).
 
-------
+***
 
 **Math Sketch — Reuse as a Distributed Utility Signal**
 

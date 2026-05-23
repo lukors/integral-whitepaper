@@ -43,7 +43,7 @@ The FRS is composed of **seven tightly scoped micro-modules**, which together fo
 **perception → diagnosis → modeling → recommendation → governance interface → learning → federation loop**,
 operating continuously at **local, node, and inter-node scales**.
 
-------
+***
 
 **FRS Module Overview Table**
 
@@ -57,7 +57,7 @@ operating continuously at **local, node, and inter-node scales**.
 | **6. Longitudinal Memory, Pattern Learning & Institutional Recall** | Preserve historical data on crises, interventions, design changes, ecological baselines, and governance outcomes to enable long-range learning and prevent repeated systemic failure. | Institutional memory systems, longitudinal databases, ecological archives |
 | **7. Federated Intelligence & Inter-Node Learning**          | Coordinate cross-node signal exchange, shared learning, stress propagation, and best-practice diffusion while preserving local autonomy and avoiding centralization. | Federated learning, distributed coordination systems, networked resilience models |
 
-------
+***
 
 ### Module 1: Signal Intake & Semantic Integration
 
@@ -103,7 +103,7 @@ Module 1 does not evaluate these signals. It integrates them into a coherent, co
 
 > *“Sailboat production is stable, but hull-timber usage is trending toward local sustainability limits under increasing access demand.”*
 
-------
+***
 
 ### Module 2: Diagnostic Classification & Pathology Detection
 
@@ -149,7 +149,7 @@ It classifies the condition as:
 
 This is no longer random noise, but not yet a crisis.
 
-------
+***
 
 ### Module 3: Constraint Modeling & System Dynamics Simulation
 
@@ -188,7 +188,7 @@ Results show:
 
 > *Under status quo, timber regeneration limits are crossed within five years. Design improvement alone restores long-term viability; demand growth without redesign accelerates failure.*
 
-------
+***
 
 ### Module 4: Recommendation & Signal Routing Engine
 
@@ -218,7 +218,7 @@ Module 4 issues:
 - **To CDS**:
    *“Projected timber stress exceeds sustainability thresholds under current demand within five years.”*
 
-------
+***
 
 ### Module 5: Democratic Sensemaking & CDS Interface
 
@@ -247,7 +247,7 @@ For CDS deliberation, Module 5 presents:
 - discussion prompts such as:
    *“Should we prioritize redesign, limit demand, or invest in new materials?”*
 
-------
+***
 
 ### Module 6: Longitudinal Memory, Pattern Learning & Institutional Recall
 
@@ -276,7 +276,7 @@ Module 6 recalls:
 
 This context informs present decisions without dictating outcomes.
 
-------
+***
 
 ### Module 7: Federated Intelligence & Inter-Node Learning
 
@@ -298,7 +298,7 @@ The coastal node shares:
 
 Another node, planning its first sailboat, adapts its design **before** encountering the same constraints.
 
-------
+***
 
 **Closing Note**
 
@@ -308,7 +308,7 @@ Together, these seven modules form a **continuous, non-coercive adaptive loop**:
 
 The sailboat does not become “cheaper” or “scarcer” through market forces. It becomes **more viable, durable, and accessible** because the system itself learns.
 
-------
+***
 
 ![Integral system diagram](../../../assets/integral-system-diagram-15.png)
 
@@ -324,7 +324,7 @@ To support democratic legitimacy, FRS converts system intelligence into human-co
 
 Taken together, the diagram shows FRS as a continuous adaptive loop—perception, diagnosis, modeling, recommendation, democratic sensemaking, memory, and federation—operating without centralization or coercion. FRS does not “run” the Integral economy; it ensures that the economy remains situationally aware, historically informed, and capable of correcting course through democratic processes before crises become irreversible.
 
-------
+***
 
 ### Narrative Snapshot — A Full FRS Walkthrough (Sailboat Edition)
 
@@ -332,7 +332,7 @@ Taken together, the diagram shows FRS as a continuous adaptive loop—perception
 
 To see the **Feedback & Review System (FRS)** operating as a complete, recursive adaptive loop, imagine the following situation unfolding within a coastal Integral node.
 
-------
+***
 
 **The Situation: Subtle Signals, No Crisis**
 
@@ -349,7 +349,7 @@ This is precisely the kind of condition markets ignore and bureaucracies discove
 
 The moment these signals begin to **cohere**, they enter the FRS.
 
-------
+***
 
 **FRS-1 — Signal Intake & Semantic Integration**
 
@@ -366,7 +366,7 @@ Module 1 does not judge or interpret. It **normalizes, timestamps, and contextua
 
 Where a market system would see scattered price movements or procurement issues, FRS now sees **a structured signal field**.
 
-------
+***
 
 **FRS-2 — Diagnostic Classification & Pathology Detection**
 
@@ -385,7 +385,7 @@ FRS classifies the issue as:
 
 This classification matters. It distinguishes a **structural trajectory** from a temporary fluctuation.
 
-------
+***
 
 **FRS-3 — Constraint Modeling & System Dynamics Simulation**
 
@@ -402,7 +402,7 @@ FRS is not predicting the future. It is **mapping the boundaries of viability**.
 
 The conclusion is clear: left unaddressed, the system remains functional—but progressively more fragile, dependent, and labor-intensive.
 
-------
+***
 
 **FRS-4 — Recommendation & Signal Routing Engine**
 
@@ -419,7 +419,7 @@ With diagnosis and modeling complete, Module 4 generates **typed, non-executive 
 
 FRS does not implement these actions. It **makes the system legible** and hands agency to the appropriate domains.
 
-------
+***
 
 **FRS-5 — Democratic Sensemaking & CDS Interface**
 
@@ -435,7 +435,7 @@ Instead of debating ideology or intuition, CDS deliberates within a **shared, ev
 
 Governance becomes informed choice, not reactive control.
 
-------
+***
 
 **FRS-6 — Longitudinal Memory, Pattern Learning & Institutional Recall**
 
@@ -460,7 +460,7 @@ FRS retrieves:
 
 This is not nostalgia. It is **institutional memory preventing repeated mistakes**.
 
-------
+***
 
 **FRS-7 — Federated Intelligence & Inter-Node Learning**
 
@@ -480,7 +480,7 @@ There are no patents, no proprietary advantages, no artificial scarcity.
 
 Knowledge circulates freely—because viability depends on shared learning.
 
-------
+***
 
 **Outcome**
 
@@ -500,10 +500,10 @@ Just:
 
 > **Perception → Diagnosis → Modeling → Recommendation → Democratic Deliberation → Memory → Federated Adaptation**
 
-------
+***
 
 **What This Demonstrates**
 
 This is Integral’s adaptive metabolism: a civilization-scale system that remains viable **not by predicting perfectly**, but by **detecting drift early, understanding it structurally, and correcting course democratically**. This is what replaces prices. This is what replaces bureaucratic planning. This is what allows complexity *without collapse*.
 
-------
+***

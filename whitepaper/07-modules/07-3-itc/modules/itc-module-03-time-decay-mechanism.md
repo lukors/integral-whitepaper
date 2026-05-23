@@ -24,7 +24,7 @@ Decay parameters are:
 - Updated `ITCAccount` with decayed balance and updated `last_decay_applied_at`
 - A `LedgerEntry` of type `"itc_decayed"` recording the decay event
 
-------
+***
 
 **Core Logic **
 
@@ -153,7 +153,7 @@ def run_decay_cycle(now: datetime, policy_snapshot_id: Optional[str] = None) -> 
         apply_decay_to_account(account, now, policy_snapshot_id=policy_snapshot_id)
 ```
 
-------
+***
 
 **Math Sketch — Gentle Demurrage, Democratically Bounded**
 

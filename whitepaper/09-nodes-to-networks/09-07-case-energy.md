@@ -4,7 +4,7 @@ Shared energy infrastructure provides a second, complementary demonstration of I
 
 This case illustrates how Integral manages **capacity synchronization, stability constraints, and risk propagation** across multiple nodes while preserving local autonomy over production choices, consumption priorities, and internal governance.
 
-------
+***
 
 **Domain Definition:**
 
@@ -12,7 +12,7 @@ An energy coordination domain consists of all nodes materially coupled through a
 
 Inclusion is determined strictly by **electrical or thermal coupling**, not by ownership, geography, or political boundary. Nodes retain full authority over internal energy policy, technology mix, and local demand management. Coordination emerges only when network stability or capacity constraints exceed local closure.
 
-------
+***
 
 **Observable State and NSS Construction**:
 
@@ -38,7 +38,7 @@ Illustrative indicators include:
 
 Internal dispatch algorithms, pricing mechanisms, or demand-control strategies are not shared.
 
-------
+***
 
 **Scope Detection**:
 
@@ -51,7 +51,7 @@ FRS aggregates NSS vectors across the energy domain and evaluates correlated pat
 
 A scope mismatch is detected when maintaining stability or avoiding cascading failure cannot be achieved through isolated local adjustments alone.
 
-------
+***
 
 **Threshold Evaluation**:
 
@@ -63,7 +63,7 @@ Threshold functions classify the condition:
 
 Thresholds identify **what must be respected**, not how energy must be produced or consumed.
 
-------
+***
 
 **Coordination Envelope Formation**:
 
@@ -79,7 +79,7 @@ The envelope specifies:
 
 Nodes outside the coupled network are excluded automatically.
 
-------
+***
 
 **CDS Convergence and Decision Scope**:
 
@@ -101,7 +101,7 @@ Decisions cannot:
 
 Each node internalizes envelope commitments through its own CDS.
 
-------
+***
 
 **COS, OAD, and ITC Coordination**:
 
@@ -111,7 +111,7 @@ Each node internalizes envelope commitments through its own CDS.
 
 Reciprocity applies to effort and capacity mobilization, not to energy units themselves.
 
-------
+***
 
 **Feedback, Stabilization, and Dissolution**:
 
@@ -126,7 +126,7 @@ Once stability persists across the defined window:
 
 No regional energy authority remains.
 
-------
+***
 
 **Significance of the Case**:
 
@@ -141,5 +141,5 @@ The same formal pattern applied in watershed management appears here under diffe
 Above diagram: *Shared Energy Infrastructure Coordination Control Loop*
 This diagram shows how Integral coordinates across a shared energy system—such as a power grid or interconnected microgrids—without centralized dispatch or market pricing. Each node senses its local energy conditions and publishes a compressed *Node State Summary (NSS)* exposing only system-relevant effects, including load, reserve margins, stability indicators, and risk flags. The Feedback & Review System (FRS) aggregates these summaries across the coupled energy domain, detects scope mismatches, and evaluates thresholds. Minor stress produces advisory signals that widen awareness without expanding decision scope. Persistent or safety-critical constraints trigger a *Coordination Envelope (CE)*, enabling temporary, scope-limited convergence of node-level decision processes (CDS) and synchronized action across operations (COS), design prioritization (OAD), and contribution recognition (ITC). As stability and reserves recover, FRS signals exit conditions, the envelope dissolves automatically, and all nodes return to fully local energy regulation. Coordination expands only to preserve system viability and contracts immediately once the disturbance resolves.
 
-------
+***
 
