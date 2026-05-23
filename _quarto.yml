@@ -124,3 +124,14 @@ format:
     # internally; reset them after the template show rule is installed.
     include-before: |
       #show heading: set heading(numbering: none)
+      #show heading.where(level: 1): it => {
+        pagebreak()
+        block(
+          width: 100%,
+          stroke: (right: none, rest: 2pt + blue),
+          inset: (left: 2em, rest: 1.6em),
+          fill: white,
+          align(left, text(size: 2.2em, weight: "bold", hyphenate: false, it.body)),
+        )
+        v(1.5cm, weak: true)
+      }
