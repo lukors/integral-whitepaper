@@ -310,7 +310,7 @@ $$
 CT \approx \frac{WIP}{\lambda}
 $$
 
----
+***
 **How Module 4 Talks to ITC, OAD, and FRS**
 
 - **To ITC (Labor Event Capture & Valuation)**

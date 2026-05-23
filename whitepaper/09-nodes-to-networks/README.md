@@ -6,7 +6,7 @@ Where earlier sections established node-level viability and subsystem interactio
 
 The focus is not routine reciprocity (covered in Section 10), but **exceptional coordination dynamics** triggered when disturbances exceed local closure capacity.
 
----
+***
 
 # Conceptual Focus
 
@@ -21,7 +21,7 @@ Section 9 develops the following core ideas:
 
 Together, these mechanisms explain how Integral scales without centralized planning or market arbitration.
 
----
+***
 
 # Section Structure
 
@@ -39,7 +39,7 @@ Together, these mechanisms explain how Integral scales without centralized plann
 * **09-03 Federation as Synchronization**
   Distinguishes federation from authority aggregation.
 
----
+***
 
 ## Scope Expansion Mechanics
 
@@ -49,7 +49,7 @@ Together, these mechanisms explain how Integral scales without centralized plann
 * **09-05 Scope Detection Thresholds and Envelopes**
   Formalizes disturbance-triggered coordination expansion.
 
----
+***
 
 ## Applied Case Studies
 
@@ -59,14 +59,14 @@ Together, these mechanisms explain how Integral scales without centralized plann
 
 These illustrate how scope envelopes emerge and dissolve across domains.
 
----
+***
 
 ## Synthesis
 
 * **09-09 Domain-Invariant Coordination**
   Extracts the general coordination logic applicable across sectors.
 
----
+***
 
 # Key Distinction
 
@@ -80,7 +80,7 @@ Section 10 addresses:
 
 This separation is essential for preventing implicit reintroduction of centralized planning or market mediation.
 
----
+***
 
 # Architectural Role in the Whitepaper
 
@@ -92,7 +92,7 @@ Section 9 provides the bridge between:
 
 It establishes the conditions under which federation becomes necessary while preserving local sovereignty.
 
----
+***
 
 # Reviewer Guidance
 
@@ -105,7 +105,7 @@ When reviewing this section, focus on:
 * applicability across domains
 * mathematical and cybernetic consistency
 
----
+***
 
 # Navigation
 

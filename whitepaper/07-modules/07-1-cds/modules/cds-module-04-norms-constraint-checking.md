@@ -163,7 +163,7 @@ $$C_k(S) = \text{True} \;\; \forall k$$
 
 If any domain fails, the scenario is returned for revision with specificity, not rejected in total.
 
----
+***
 
 **Semantic Summary**
 

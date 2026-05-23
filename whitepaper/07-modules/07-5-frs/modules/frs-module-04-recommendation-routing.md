@@ -504,7 +504,7 @@ $$\Delta = \text{risk}(\text{status quo}) - \text{risk}(\text{combined intervent
 
 A large $\Delta$ increases confidence in the relevance of the recommendation, but does not create executive authority.
 
----
+***
 
 **Plain-Language Summary**
 

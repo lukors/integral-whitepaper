@@ -264,7 +264,7 @@ Where:
 
 Because equivalence is **bounded, public, and non-exchangeable**, this mechanism preserves fairness **without enabling arbitrage**.
 
----
+***
 
 **In Plain Language**
 

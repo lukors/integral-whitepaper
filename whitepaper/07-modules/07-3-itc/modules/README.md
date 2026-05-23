@@ -4,7 +4,7 @@ This directory contains the detailed module architecture of the Integral Time Cr
 
 Each module represents a distinct functional layer within ITC’s contribution recording, access allocation, and reciprocity coordination framework.
 
----
+***
 
 ## Module Overview
 
@@ -38,7 +38,7 @@ Coordinates ITC outputs with CDS, OAD, COS, and FRS.
 10. Full ITC Orchestration  
 Describes system-wide pseudo-code illustrating how modules operate as a unified process.
 
----
+***
 
 ## Contribution Guidance
 
@@ -50,7 +50,7 @@ Feedback on modules may include:
 - ethical considerations
 - cross-subsystem integration concerns
 
----
+***
 
 ## Structural Note
 

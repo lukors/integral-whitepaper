@@ -259,7 +259,7 @@ $$
 
 This is crude, but enough for initial planning and ITC shadow valuation; more detailed versions can use full critical-path analysis over the task dependency graph.
 
----
+***
 
 **Plain-Language Interpretation**
 

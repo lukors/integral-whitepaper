@@ -432,7 +432,7 @@ Interpretation:
 - If $\hat{p} > p_0$, then $r_p > 1$: lifespan decreases, maintenance increases, access obligation can rise modestly.
 - If $\hat{p} < p_0$, then $r_p < 1$: durability is better than expected; access obligations can drift downward over time.
 
----
+***
 
 **Plain-language summary**
 

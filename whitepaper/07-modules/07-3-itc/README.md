@@ -17,7 +17,7 @@ Unlike monetary accounting systems, ITC is designed to:
 - support collaborative production planning
 - remain embedded within CDS governance and FRS feedback
 
----
+***
 
 ## Structure
 
@@ -30,7 +30,7 @@ This section is organized into:
 
 Modules are located in the `modules` directory.
 
----
+***
 
 ## Module Map
 
@@ -45,7 +45,7 @@ Modules are located in the `modules` directory.
 9. Integration & Coordination  
 10. Full ITC Orchestration
 
----
+***
 
 ## Feedback & Critique
 
@@ -57,7 +57,7 @@ Community review occurs through:
 
 This repository serves as a peer-review layer rather than implementation code.
 
----
+***
 
 ## Relationship to Other Subsystems
 
@@ -68,7 +68,7 @@ ITC operates in tight coupling with:
 - COS → production coordination and scheduling
 - FRS → feedback, recalibration, and adaptive learning
 
----
+***
 
 ## Conceptual Summary
 

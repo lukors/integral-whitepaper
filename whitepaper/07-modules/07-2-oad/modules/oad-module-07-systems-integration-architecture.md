@@ -242,7 +242,7 @@ Thus:
 - A design that enables **resource circularity** is softly rewarded.
 - Final score $I \in [0,1]$ gives a clean compatibility signal.
 
----
+***
 
 **Interpretation in Plain Language**
 

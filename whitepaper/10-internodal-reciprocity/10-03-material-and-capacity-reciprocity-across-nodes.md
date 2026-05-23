@@ -4,7 +4,7 @@ Material and capacity reciprocity addresses how **physical goods, components, to
 
 Integral resolves this by treating material movement not as trade, but as **constraint-based provisioning**: a coordinated response to expressed need and available capacity, optimized for system viability rather than profit or exchange equivalence.
 
----
+***
 
 **10.3.1 Two Forms of Material Reciprocity**
 
@@ -15,7 +15,7 @@ Material reciprocity operates in two distinct but related forms:
 
 Both are coordinated through COS interfaces and recorded as **provision events**, not transactions.
 
----
+***
 
 **10.3.2 Material Requests as Constraint Objects**
 
@@ -32,7 +32,7 @@ A request includes:
 
 Requests describe **requirements**, not willingness to pay.
 
----
+***
 
 **10.3.3 Offers and Capacity Envelopes**
 
@@ -46,7 +46,7 @@ Nodes offering materials or capacity publish **availability envelopes**, specify
 
 No node is required to expose full inventories. Only **provisionable surplus** is visible.
 
----
+***
 
 **10.3.4 Matching Without Markets**
 
@@ -73,7 +73,7 @@ Subject to:
 
 This is a **planning computation**, not a price discovery process.
 
----
+***
 
 **10.3.5 Provisioning as Recognized Contribution**
 
@@ -91,7 +91,7 @@ Instead:
 
 This preserves reciprocity without introducing exchange logic.
 
----
+***
 
 **10.3.6 Assurance and Acceptance**
 
@@ -104,7 +104,7 @@ Material reciprocity is stabilized through **assurance artifacts**:
 
 Receiving nodes retain the right to reject materials that fail to meet specifications. Rejection does not trigger penalties; it simply invalidates recognition for that provision event.
 
----
+***
 
 **10.3.7 Stress and Priority Conditions**
 
@@ -117,7 +117,7 @@ Under routine conditions, provisioning proceeds through standard matching. Under
 
 These escalations occur within **coordination envelopes** as defined in Section 9, not through permanent allocation authority.
 
----
+***
 
 **10.3.8 Pseudo-Code Illustration**
 ```python
@@ -142,7 +142,7 @@ def provision_materials(offers, requests, constraints):
 
 This process never computes prices, debts, or exchanges—only feasible allocations under shared constraints.
 
----
+***
 
 **10.3.9 Significance**
 
@@ -150,7 +150,7 @@ Material and capacity reciprocity demonstrates that **physical provisioning can 
 
 Together with labor reciprocity, this completes Integral's approach to internodal cooperation: **information flows freely, labor moves with recognition, materials provision by constraint, and assurance stabilizes trust—without money, markets, or centralized control.**
 
----
+***
 
 **10.3.10 Worked Example: Routine Material and Capacity Provisioning Across Nodes**
 

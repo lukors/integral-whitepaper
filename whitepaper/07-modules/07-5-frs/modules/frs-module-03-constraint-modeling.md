@@ -453,7 +453,7 @@ $$f = \frac{\lvert\mathcal{B}\rvert}{\lvert\mathcal{C}\rvert}$$
 
 where $d$ is a normalized breach-depth term.
 
----
+***
 
 **Plain-Language Summary**
 

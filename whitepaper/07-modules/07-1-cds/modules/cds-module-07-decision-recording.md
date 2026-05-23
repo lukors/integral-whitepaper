@@ -207,7 +207,7 @@ This guarantees:
 
 This provides **blockchain-grade integrity without blockchain overhead**.
 
----
+***
 
 **Semantic Summary**
 

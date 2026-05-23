@@ -350,7 +350,7 @@ where $h$ is a cryptographic hash (e.g. SHA-256), and $H_0$ is a fixed constant 
 
 **Tamper-evidence property:** if any payload $P_i$ is modified, then $\tilde{H}_i \ne H_i$ and all downstream hashes break.
 
----
+***
 
 **Transparency & Calculation Traceability**
 

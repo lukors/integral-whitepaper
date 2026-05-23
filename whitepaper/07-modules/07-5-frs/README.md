@@ -5,7 +5,7 @@ It continuously monitors operational reality across nodes, detects emerging patt
 
 Where other subsystems coordinate production, design, contribution, and governance, FRS ensures that **the civilization learns from its own behavior over time**.
 
----
+***
 
 ## Core Functions
 
@@ -19,7 +19,7 @@ FRS performs seven tightly integrated roles:
 6. Longitudinal memory and institutional recall
 7. Federated intelligence and inter-node learning
 
----
+***
 
 ## Position in Integral Architecture
 
@@ -35,7 +35,7 @@ Instead, it functions as:
 
 All actionable decisions remain within CDS governance.
 
----
+***
 
 ## Folder Structure:
 
@@ -55,7 +55,7 @@ All actionable decisions remain within CDS governance.
 __
 
 
----
+***
 
 ## Relationship to Other Subsystems
 
@@ -66,7 +66,7 @@ __
 | COS | Provides operational throughput, bottlenecks, and capacity indicators |
 | ITC | Contributes labor distribution, fairness, and participation signals |
 
----
+***
 
 ## Guiding Principle
 

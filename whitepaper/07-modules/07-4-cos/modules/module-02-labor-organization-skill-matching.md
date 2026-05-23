@@ -364,7 +364,7 @@ $$
 
 The system emits top-$k$ candidates per task instance as **recommendations**, preserving voluntary choice.
 
----
+***
 
 **Plain-Language Interpretation**
 

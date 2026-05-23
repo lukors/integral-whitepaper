@@ -398,7 +398,7 @@ $$\text{artifact} \Rightarrow \{\text{findings},\ \text{models},\ \text{recommen
 
 This prevents technocratic opacity: CDS can always inspect the chain of reasoning.
 
----
+***
 
 **Plain-Language Summary**
 

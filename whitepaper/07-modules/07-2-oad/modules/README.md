@@ -13,7 +13,7 @@ These files define the functional components of OAD:
 10. Knowledge Commons & Reuse Repository
 11. Full OAD Orchestration
 
----
+***
 
 # Relationship to Other Integral Systems
 
@@ -26,7 +26,7 @@ OAD is tightly coupled to the broader Integral architecture:
 
 OAD therefore acts as the **technical knowledge substrate** of the Integral system.
 
----
+***
 
 # Contributor Guidance
 
@@ -42,7 +42,7 @@ Contributors may engage by:
 
 All contributions should be submitted via Issues and Pull Requests following repository templates.
 
----
+***
 
 # Design Philosophy
 

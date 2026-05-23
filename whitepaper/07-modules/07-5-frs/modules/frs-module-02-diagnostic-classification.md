@@ -315,7 +315,7 @@ $$\text{margin} = R - C$$
 
 If $\text{margin} < 0$ and persists, overshoot risk increases.
 
----
+***
 
 **Plain-Language Summary**
 

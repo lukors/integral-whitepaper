@@ -441,7 +441,7 @@ Steps with high severity are candidates for:
 
 Once the most severe step is identified (or top-$k$), that step is (for this batch) the **bottleneck**: its capacity constrains total output.
 
----
+***
 
 **Plain-Language Example (Still Bicycle / Guitar Behind the Scenes)**
 

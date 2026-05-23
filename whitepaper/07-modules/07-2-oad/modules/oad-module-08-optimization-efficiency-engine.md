@@ -246,7 +246,7 @@ Subject to constraints from:
 
 This is a **Pareto-constrained, multi-objective physical optimization**, not a market cost minimization.
 
----
+***
 
 **Interpretation in Plain Language**
 

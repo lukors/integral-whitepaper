@@ -12,7 +12,7 @@ It is important to define what this section does *not* cover. The mechanisms des
 
 With these boundary conditions established, the following subsections formalize the observable state representations, threshold functions, and coordination envelopes through which adaptive scope expansion occurs in practice.
 
----
+***
 
 **Cybernetic Basis of Adaptive Scope**:
 
@@ -30,7 +30,7 @@ As science, sensing, and modeling advance, cross-node coordination may occur fre
 
 In short, **global awareness may become persistent, but global authority does not**. Local integrity remains the primary site of regulation, with broader coordination emerging only as—and for as long as—shared reality requires.
 
----
+***
 
 **Observable State and Requisite Variety**:
 
@@ -55,7 +55,7 @@ Together, these classes provide sufficient variety to detect scope mismatches, i
 
 The Node State Summary is therefore not a reporting requirement imposed from above, but a **cybernetic interface**: a minimal projection of local reality into a shared coordination space. It enables nodes to remain internally sovereign while participating in collective awareness at scale. The following sections formalize this representation and specify how such summaries are aggregated, evaluated, and acted upon through threshold functions and coordination envelopes.
 
----
+***
 
 **Node State Summary (NSS) — Formal Definition**:
 
@@ -100,7 +100,7 @@ In this way, the NSS functions as a **cybernetic interface**, not a reporting ch
 
 The following section builds on this definition by specifying how collections of Node State Summaries are evaluated to detect scope mismatches and trigger coordination thresholds.
 
----
+***
 
 **Scope Detection Criteria**:
 
@@ -154,7 +154,7 @@ If criteria are no longer met—because indicators stabilize, correlations weake
 
 In this way, scope detection acts as a **gatekeeper mechanism**, ensuring that expanded coordination arises only when warranted by shared reality and dissolves as soon as it is no longer necessary.
 
----
+***
 
 **Threshold Functions:**
 
@@ -200,7 +200,7 @@ Threshold functions do not enact coordination themselves. They determine **which
 
 The next section formalizes the Coordination Envelope itself: the temporary, scope-limited structure through which nodes respond collectively once coordination thresholds are crossed.
 
----
+***
 
 **Coordination Envelope (CE)**:
 
@@ -291,7 +291,7 @@ The Coordination Envelope is the **core technical bridge** between local autonom
 
 With the Coordination Envelope formalized, the remaining sections specify how CDS convergence operates within an envelope, how failure modes are prevented, and how the system resolves coordination without institutionalization.
 
----
+***
 
 **CDS Convergence Within an Envelope**:
 
@@ -355,7 +355,7 @@ CDS convergence within a Coordination Envelope provides the **minimal decision i
 
 With CDS convergence defined, the remaining sections address system safeguards, failure modes, and the formal dissolution logic that ensures coordination never hardens into hierarchy.
 
----
+***
 
 **Formal Pseudo-Code: Detection → Envelope → Dissolution**:
 
@@ -510,7 +510,7 @@ def upsert_coordination_envelope(active_envelopes, event, S_domain):
 - **Effects, not internals**: NSS is the sole required inter-node state exposure; internal CDS/COS/ITC details remain local.
 - **Automatic contraction**: exit thresholds and hysteresis ensure that coordination dissolves when disturbances stabilize or decouple.
 
----
+***
 
 **Failure Modes and Safeguards**:
 
@@ -574,7 +574,7 @@ These safeguards ensure that Integral's capacity for large-scale coordination do
 
 Coordination remains **situational, reversible, and proportional**, preserving local sovereignty while enabling collective viability.
 
----
+***
 
 **Transition to Applied Examples**:
 

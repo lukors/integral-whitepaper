@@ -4,7 +4,7 @@ Cross-node labor reciprocity is the most structurally demanding form of internod
 
 Integral resolves this by treating labor mobility not as exchange, but as **recognized contribution events** that are interpreted locally under shared protocol constraints.
 
----
+***
 
 **10.2.1 Core Principle: Recognition Without Conversion**
 
@@ -16,7 +16,7 @@ When an individual contributes labor in a node other than their home node, nothi
 
 What moves across nodes is therefore **information about contribution**, not value itself. There is no exchange rate, no fungible unit, and no accumulation pathway.
 
----
+***
 
 **10.2.2 Contribution Receipt (CR): The Transfer Object**
 
@@ -52,7 +52,7 @@ Where:
 
 The CR does **not** contain a numeric value. It is a verifiable statement of fact.
 
----
+***
 
 **10.2.3 Local ITC Valuation Functions**
 
@@ -69,7 +69,7 @@ Where:
 
 This computation occurs **locally** and produces **non-transferable ITC recognition** within node $i$'s system.
 
----
+***
 
 **10.2.4 Equivalence Bands: Preventing Arbitrage**
 
@@ -92,7 +92,7 @@ Bands are:
 
 They ensure **comparability without unification**.
 
----
+***
 
 **10.2.5 Decay, Non-Transferability, and Access**
 
@@ -111,7 +111,7 @@ Access rights derived from ITCs remain bounded by:
 
 Cross-node recognition does not override local access ceilings.
 
----
+***
 
 **10.2.6 Mobility Without Markets**
 
@@ -124,7 +124,7 @@ This architecture enables:
 
 At no point does labor become a tradable good. There is no market for hours, no salary competition, and no incentive to chase "high-value" nodes. Mobility follows **need, interest, and viability**, not price gradients.
 
----
+***
 
 **10.2.7 Illustrative Pseudo-Code**
 ```python
@@ -141,7 +141,7 @@ def recognize_contribution(receipt, local_profile, band):
 
 This function never produces a transferable unit—only a bounded recognition event within the local ITC ledger.
 
----
+***
 
 **10.2.8 Significance**
 
@@ -149,7 +149,7 @@ Cross-node labor reciprocity in Integral demonstrates that **mobility, specializ
 
 The next section extends this logic to **material and capacity reciprocity**, where constrained optimization replaces exchange as the organizing principle.
 
----
+***
 
 **10.2.9 Illustrative Example: Cross-Node Labor Reciprocity in Practice**
 
@@ -250,7 +250,7 @@ From Alex's perspective:
 
 This is internodal labor reciprocity **without exchange**, made possible by separating contribution from value, value from access, and access from power.
 
----
+***
 
 **Good-Faith Contribution, Quality, and Dispute Handling**
 

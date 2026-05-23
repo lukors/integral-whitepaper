@@ -236,7 +236,7 @@ Interpretation — designs with high $U_v$:
 - stabilize ITC valuation,
 - become default infrastructure templates.
 
----
+***
 
 **Relationship to COS and ITC**
 
@@ -258,7 +258,7 @@ Because each repository entry is backed by certified ecological data, lifecycle 
 
 This is **learning-based economic calculation**, not price speculation.
 
----
+***
 
 **Plain-Language Summary**
 

@@ -381,7 +381,7 @@ $$H_{\text{weighted}} = \sum_k H_{\text{weighted}}^{(k)}$$
 
 This quantity **must match** (within tolerance) the labor cost used by ITC valuation. Any discrepancy indicates a data or logic error upstream.
 
----
+***
 
 **2. Material Footprint**
 
@@ -399,7 +399,7 @@ $$EII_{\text{total}} = \sum_m EII_m$$
 
 This same aggregate must be used by **both ITC and FRS**, ensuring ecological consistency.
 
----
+***
 
 **3. QA Consistency**
 
@@ -413,7 +413,7 @@ $$\left| r_{\text{fail}} - r_{\text{proj}} \right| > \varepsilon \;\Rightarrow\;
 
 This is how **empirical reality corrects design assumptions**.
 
----
+***
 
 **4. Traceability**
 
@@ -423,7 +423,7 @@ $$h_i = H(e_i,\, h_{i-1})$$
 
 Any modification to a prior event breaks all downstream hashes, making tampering **detectable rather than impossible**.
 
----
+***
 
 **Plain-Language Summary**
 

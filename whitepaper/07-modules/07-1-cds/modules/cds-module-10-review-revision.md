@@ -185,7 +185,7 @@ If:
 
 $$D > \tau \Rightarrow \text{review triggered}$$
 
----
+***
 
 **Final Conceptual Distinction (Important)**
 

@@ -257,7 +257,7 @@ $$\text{yield factor}_s = \frac{\sigma_y}{\sigma_{\max}(s)}$$
 
 If any scenario violates safety thresholds (e.g. $\sigma_{\max} > \sigma_y$), the design is flagged with an explicit failure mode and routed back for redesign or risk-aware handling downstream.
 
----
+***
 
 **Plain-language summary**
 

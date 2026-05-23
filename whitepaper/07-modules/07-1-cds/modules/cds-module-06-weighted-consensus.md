@@ -208,7 +208,7 @@ If:
 - $O \ge O_{\text{block}}$ → revise (blocking objection)
 - contradictory signals / value conflict → escalate to Module 9
 
----
+***
 
 **Semantic Summary**
 

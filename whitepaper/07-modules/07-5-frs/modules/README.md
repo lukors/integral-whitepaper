@@ -4,7 +4,7 @@ This directory contains the detailed modules composing the **Feedback & Review S
 
 Each module performs a specific role in transforming raw system signals into structured knowledge, simulations, recommendations, and federated learning processes.
 
----
+***
 
 ## Module Sequence
 
@@ -29,7 +29,7 @@ Maintains historical learning, trend detection, and persistent institutional kno
 ### Module 7 — Federated Intelligence & Inter-Node Learning
 Enables cross-node knowledge sharing, adaptive policy diffusion, and distributed system intelligence.
 
----
+***
 
 ## Orchestration Layer
 
@@ -40,7 +40,7 @@ signal intake → diagnosis → modeling → recommendation → democratic inter
 
 This orchestration ensures FRS operates as a **learning feedback architecture**, not a centralized analytical authority.
 
----
+***
 
 ## Design Philosophy
 
@@ -53,7 +53,7 @@ FRS modules are:
 
 All governance decisions remain within CDS.
 
----
+***
 
 ## Structural Role in Integral
 

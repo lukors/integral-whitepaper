@@ -354,7 +354,7 @@ $$\pi(t^+) = \mathrm{proj}_B\big(\tilde{\pi}(t)\big)$$
 
 Where $\mathrm{proj}_B$ clamps continuous parameters (e.g., multipliers) and enforces discrete admissibility (e.g., the selected `DecayRule` must be in the CDS-approved set).
 
----
+***
 
 **Plain-language summary**
 

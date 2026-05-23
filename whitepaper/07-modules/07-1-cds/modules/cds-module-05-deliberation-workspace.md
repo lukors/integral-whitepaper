@@ -168,7 +168,7 @@ $$I(O_k) = \max_{o_i \in O_k} I(o_i)$$
 
 This ensures even a small minority with high-severity, high-scope objections cannot be silenced or diluted.
 
----
+***
 
 **Semantic Summary**
 

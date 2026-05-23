@@ -301,7 +301,7 @@ $$
 EII_{\text{total}}^{ext} = \sum_{m\in\mathcal{M}} EII_m^{ext}
 $$
 
----
+***
 
 **Plain-Language Interpretation**
 

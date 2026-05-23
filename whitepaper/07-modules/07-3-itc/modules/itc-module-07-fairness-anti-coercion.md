@@ -312,7 +312,7 @@ $$\rho \ge \rho_{\min}$$
 
 over sufficient samples → flag **queue bias**.
 
----
+***
 
 **2. Proto-Market Exchange Score**
 
@@ -326,7 +326,7 @@ $$M_{a,b} \ge M_{\text{threshold}}$$
 
 → flag **proto-market exchange**.
 
----
+***
 
 **In Plain Language**
 

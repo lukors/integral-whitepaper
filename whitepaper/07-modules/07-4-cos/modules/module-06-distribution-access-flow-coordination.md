@@ -388,7 +388,7 @@ $$
 m = \mathrm{clip}\left(1 + \gamma_1\cdot \text{scarcity} + \gamma_2\cdot \tfrac{1}{2}(B_p + B_s),\; m_{\min},\; m_{\max}\right)
 $$
 
----
+***
 
 **Plain-Language Example**
 

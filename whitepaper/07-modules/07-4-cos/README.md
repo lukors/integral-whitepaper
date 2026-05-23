@@ -5,7 +5,7 @@ It transforms validated designs, governance decisions, and contribution signals 
 
 While CDS governs decision legitimacy and OAD governs design intelligence, COS governs **real-world work orchestration**.
 
----
+***
 
 ## Core Functions
 
@@ -20,7 +20,7 @@ COS ensures that:
 - safety and quality are verified across cooperative networks
 - inter-cooperative coordination remains coherent at scale
 
----
+***
 
 ## Architectural Role in Integral
 
@@ -38,7 +38,7 @@ COS acts as the **execution bridge** between subsystems:
 Without COS, Integral would remain conceptual.  
 With COS, governance and design become **materialized reality**.
 
----
+***
 
 ## Repository Structure
 

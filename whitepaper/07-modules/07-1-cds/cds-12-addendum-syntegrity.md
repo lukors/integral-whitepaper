@@ -16,7 +16,7 @@ When these conditions exist, CDS escalates **within Module 9** to **Syntegrity**
 
 > **Syntegrity does not replace CDS. It is the constitutional last resort inside Module 9 that prevents deadlock, domination, or arbitrary override—while keeping outcomes formally recorded (Module 7) and executable (Module 8).**
 
----
+***
 
 **When CDS should escalate to Syntegrity**
 
@@ -45,7 +45,7 @@ Typical example values:
 
 This ensures Syntegrity remains rare, appropriate, and reserved for issues requiring full-spectrum human cognition.
 
----
+***
 
 **Pseudocode implementation**
 ```python
@@ -89,7 +89,7 @@ def initiate_syntegrity_session(issue: Issue, participants: List[Participant]) -
     return integrate_syntegrity_outcomes_as_module9(outcomes)
 ```
 
----
+***
 
 **Why Syntegrity matters**
 

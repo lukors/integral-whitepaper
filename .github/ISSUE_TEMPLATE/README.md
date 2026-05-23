@@ -9,7 +9,7 @@ Rather than informal commentary, feedback is organized into two distinct categor
 
 This separation ensures clarity between identifying problems and proposing improvements, enabling productive discourse and iterative refinement.
 
----
+***
 
 ## Purpose
 
@@ -23,7 +23,7 @@ Issue templates exist to:
 
 This process reflects Integral’s broader principles of **structured deliberation, transparent feedback, and adaptive learning**.
 
----
+***
 
 ## Available Templates
 
@@ -41,7 +41,7 @@ A critique does **not** require proposing a solution.
 
 It focuses on clarifying the problem space.
 
----
+***
 
 ### 2. Revision Proposal
 
@@ -55,7 +55,7 @@ Use this template when:
 
 A revision focuses on **solution space**, not critique alone.
 
----
+***
 
 ## How to Submit Feedback
 
@@ -72,7 +72,7 @@ Rather than informal commentary, feedback is organized into two distinct categor
 
 This separation ensures clarity between identifying problems and proposing improvements, enabling productive discourse and iterative refinement.
 
----
+***
 
 ## Purpose
 
@@ -86,7 +86,7 @@ Issue templates exist to:
 
 This process reflects Integral’s broader principles of **structured deliberation, transparent feedback, and adaptive learning**.
 
----
+***
 
 ## Available Templates
 
@@ -104,7 +104,7 @@ A critique does **not** require proposing a solution.
 
 It focuses on clarifying the problem space.
 
----
+***
 
 ### 2. Revision Proposal
 
@@ -118,7 +118,7 @@ Use this template when:
 
 A revision focuses on **solution space**, not critique alone.
 
----
+***
 
 ## How to Submit Feedback
 
@@ -130,7 +130,7 @@ Navigate to the appropriate file under:
 
 Copy the link to the section (and header if possible).
 
----
+***
 
 ### Step 2 — Open a new issue
 Go to:
@@ -141,7 +141,7 @@ Select the appropriate template:
 - Critique
 - Revision
 
----
+***
 
 ### Step 3 — Complete the template
 Provide:
@@ -155,7 +155,7 @@ Avoid general commentary.
 
 Specificity improves usefulness.
 
----
+***
 
 ## Review Norms
 
@@ -169,7 +169,7 @@ This repository prioritizes:
 
 Disagreement is expected and valuable. The goal is **refinement**, not consensus.
 
----
+***
 
 ## Relationship to Discussions
 
@@ -184,7 +184,7 @@ GitHub Discussions may be used for:
 
 If discussion yields actionable feedback, it should be converted into an Issue using the appropriate template.
 
----
+***
 
 ## Evolution of the Whitepaper
 
@@ -200,7 +200,7 @@ Instead, they:
 
 The whitepaper evolves through iterative synthesis of critique and revision proposals.
 
----
+***
 
 ## Guiding Principle
 
@@ -210,6 +210,6 @@ This review process embodies a core Integral dynamic:
 
 Together, they form a distributed feedback loop supporting continual improvement.
 
----
+***
 
 

@@ -303,7 +303,7 @@ $$H_i = \text{SHA256}\big(\text{serialize}(P_i)\ \Vert\ H_{i-1}\big)$$
 
 Changing any past payload breaks all downstream hashes, enabling auditability without tokenization.
 
----
+***
 
 **Plain-Language Summary**
 
