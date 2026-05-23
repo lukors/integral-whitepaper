@@ -10,6 +10,8 @@ ___
 
 # Integral Whitepaper (Peer Review Repository)
 
+Live site: https://lukors.github.io/integral-whitepaper/
+
 This repository contains the **Integral technical whitepaper** — a federated, post-monetary, cybernetically coordinated cooperative economic system — structured as modular Markdown to enable transparent peer review, revision tracking, and distributed critique.
 
 [Download full PDF here: https://integralcollective.io/documents/whitepaper.html ]
