@@ -393,7 +393,7 @@ def run_capacity_and_constraint_analysis(
 **Math Sketch — Bottleneck Identification & Severity**
 
 Let:
-- $S = \\{ s_1, \dots, s_n \\}$ be the set of task types (definitions).
+- $S = \{ s_1, \dots, s_n \}$ be the set of task types (definitions).
 - For each step $s$:
   - Estimated total hours:
 
@@ -461,4 +461,3 @@ Over time:
 - Training expands, tools improve, design is simplified.
 - The severity score drops, throughput stabilizes.
 - ITC weighting for that step can relax, and the **access-value of the good trends downward**, reflecting real systemic efficiency, not price games.
-

@@ -334,7 +334,7 @@ def verify_ledger_integrity() -> bool:
 
 We can think of the ledger as an ordered sequence:
 
-$$L = \\{ e_1, e_2, \dots, e_N \\}$$
+$$L = \{ e_1, e_2, \dots, e_N \}$$
 
 Each entry $e_k$ contains:
 - a payload $P_k$ (event metadata),

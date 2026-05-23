@@ -47,6 +47,27 @@ Each section directory contains:
 
 ---
 
+## Quarto Rendering
+
+This repository is configured as a Quarto book. The rendered book excludes
+`README.md` navigation files and publishes the substantive whitepaper sections
+as a static website, EPUB, and Typst-backed PDF.
+
+Local render commands:
+
+```bash
+quarto render
+quarto render --to html
+quarto render --to epub
+quarto render --to typst
+```
+
+Generated output is written to `_book/` and is not committed. The GitHub Actions
+workflow publishes the rendered HTML book to the `gh-pages` branch, with PDF and
+EPUB downloads linked from the site.
+
+---
+
 ## Peer Review Workflow
 
 ### Option A — Structured Feedback (recommended)

@@ -36,7 +36,7 @@ Each CR includes:
 
 Formally, a receipt $c$ is a structured metadata bundle:
 
-$$c = \\{ t, h, \tau, \kappa, \rho, \sigma, q, d, \text{sig}_h \\}$$
+$$c = \{ t, h, \tau, \kappa, \rho, \sigma, q, d, \text{sig}_h \}$$
 
 Where:
 

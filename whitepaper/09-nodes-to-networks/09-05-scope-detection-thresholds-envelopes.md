@@ -63,7 +63,7 @@ The **Node State Summary (NSS)** is the formal mechanism through which a node ex
 
 Formally, each node $i$ publishes an NSS as a vector of typed indicators:
 
-$$\text{NSS}_i = \\{ s_{i1}, s_{i2}, \dots, s_{in} \\}$$
+$$\text{NSS}_i = \{ s_{i1}, s_{i2}, \dots, s_{in} \}$$
 
 Each element $s_{ij}$ corresponds to a specific observable dimension of local activity that may generate cross-node impact. Indicators are explicitly typed to ensure interpretability, comparability, and bounded variety.
 
@@ -124,7 +124,7 @@ No single indicator is sufficient on its own. Scope detection depends on **patte
 
 **Formal Detection Logic**
 
-Let $\\{\text{NSS}_1, \text{NSS}_2, \dots, \text{NSS}_n\\}$ represent the set of Node State Summaries within a correlated domain (e.g., a watershed or supply network).
+Let $\{\text{NSS}_1, \text{NSS}_2, \dots, \text{NSS}_n\}$ represent the set of Node State Summaries within a correlated domain (e.g., a watershed or supply network).
 
 A scope mismatch is detected when one or more of the following conditions hold:
 
@@ -180,7 +180,7 @@ Threshold functions are applied to aggregated and correlated NSS indicators rath
 
 A threshold function $T_k$ maps this state to a coordination classification:
 
-$$T_k(\mathbf{S}_{\text{domain}}) \rightarrow \\{\text{normal}, \text{advisory}, \text{coordinate}\\}$$
+$$T_k(\mathbf{S}_{\text{domain}}) \rightarrow \{\text{normal}, \text{advisory}, \text{coordinate}\}$$
 
 Multiple threshold functions may operate simultaneously over different indicators and domains. Coordination is triggered only when at least one coordination or non-negotiable threshold is satisfied.
 
@@ -591,4 +591,3 @@ Specifically, the following applied cases will show:
 In each case, attention is focused on *mechanism*, not narrative: what observable state is exposed, which thresholds are crossed, how coordination envelopes are bounded, how decisions are made within scope, and how coordination dissolves once conditions stabilize. The intent is to make clear that Integral's macro-scale behavior is not an abstraction layered atop local organization, but a **direct consequence of the same cybernetic rules applied recursively**.
 
 By grounding the formal specification in empirical problem spaces, these examples complete the demonstration that Integral's approach to scale is neither utopian nor ad hoc. It is a technically coherent method for aligning decision scope with real-world impact—capable of operating across neighborhoods, regions, and global systems without surrendering autonomy or creating new centers of power.
-

@@ -330,7 +330,7 @@ Total lifetime labor embodied in one unit:
 
 $$H_{\text{total}} = H_{\text{prod}} + H_{\text{maint}}$$
 
-Hours by skill tier $k \in \\{\text{low},\text{medium},\text{high},\text{expert}\\}$:
+Hours by skill tier $k \in \{\text{low},\text{medium},\text{high},\text{expert}\}$:
 
 $$H_k = \sum_{s:\, \tau_s = k} h_s$$
 

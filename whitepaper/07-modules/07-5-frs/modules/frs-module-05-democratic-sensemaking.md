@@ -393,7 +393,7 @@ This frames governance as **tradeoff selection under constraints**, not preferen
 
 Every artifact must remain traceable back to source evidence:
 
-$$\text{artifact} \Rightarrow \\{\text{findings},\ \text{models},\ \text{recommendations},\ \text{evidence refs}\\}$$
+$$\text{artifact} \Rightarrow \{\text{findings},\ \text{models},\ \text{recommendations},\ \text{evidence refs}\}$$
 
 This prevents technocratic opacity: CDS can always inspect the chain of reasoning.
 

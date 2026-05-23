@@ -136,7 +136,7 @@ def check_constraints(
 
 A scenario $S$ is viable only if it satisfies:
 
-$$S \in \mathcal{F}_{eco} \;\cap\; \mathcal{F}_{res} \;\cap\; \mathcal{F}_{lab} \;\cap\; \mathcal{F}_{soc} \;\cap\; \mathcal{F}_{const}$$
+$$S \in \mathcal{F}_{eco},\quad S \in \mathcal{F}_{res},\quad S \in \mathcal{F}_{lab},\quad S \in \mathcal{F}_{soc},\quad S \in \mathcal{F}_{const}$$
 
 Where each feasibility set defines a constraint domain:
 

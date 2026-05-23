@@ -206,7 +206,7 @@ def summarize_plan_for_itc(plan: COSProductionPlan, oad_profile: OADValuationPro
 ```
 **Math Sketch — Labor & Material Budgets**
 
-Let there be a set of labor steps $S = \\{ s_1, s_2, \dots, s_n \\}$ from OAD.
+Let there be a set of labor steps $S = \{ s_1, s_2, \dots, s_n \}$ from OAD.
 
 For each step $s$:
 - $h_s$ = base hours per unit

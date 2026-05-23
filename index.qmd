@@ -1,0 +1,9 @@
+---
+title: "Integral Whitepaper"
+subtitle: "A federated, post-monetary cooperative system"
+author: "Integral Collective"
+---
+
+# Integral Whitepaper {.unnumbered}
+
+This is the Quarto test for the Integral whitepaper.

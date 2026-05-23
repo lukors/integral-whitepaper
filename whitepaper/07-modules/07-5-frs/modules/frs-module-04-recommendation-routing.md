@@ -485,7 +485,7 @@ where $g$ is a bounded mapping that outputs **typed** recommendations with audit
 
 Let recommendation $r$ have severity $s(r)$.
 
-Let $S_{CDS}$ be the severities requiring CDS visibility (e.g., $\\{\text{high}, \text{critical}\\}$).
+Let $S_{CDS}$ be the severities requiring CDS visibility (e.g., $\{\text{high}, \text{critical}\}$).
 
 If:
 
