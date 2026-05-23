@@ -1,3 +1,6 @@
 /.quarto/
 /_book/
+/index.typ
+/index.tex
+/index.html
 **/*.quarto_ipynb

@@ -113,10 +113,14 @@ book:
 format:
   html:
     toc: true
-    number-sections: true
+    number-sections: false
   epub:
     toc: true
-    number-sections: true
+    number-sections: false
   typst:
     toc: true
-    number-sections: true
+    number-sections: false
+    # Quarto's bundled orange-book Typst template enables heading counters
+    # internally; reset them after the template show rule is installed.
+    include-before: |
+      #show heading: set heading(numbering: none)
