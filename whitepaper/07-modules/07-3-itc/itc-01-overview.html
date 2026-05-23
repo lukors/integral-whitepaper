@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7.3 ITC Modules – Integral Whitepaper</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../whitepaper/07-modules/07-3-itc/itc-02-architecture-code.html" rel="next">
+<link href="../../../whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-32c177501efb78f9be123735d54f4510.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../whitepaper/07-modules/07-3-itc/itc-01-overview.html"><span class="chapter-title">7.3 ITC Modules</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">Integral Whitepaper</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../Integral-Whitepaper.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../Integral-Whitepaper.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integral Whitepaper</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/00-abstract.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-abstract.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/01-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>1. INTRODUCTION</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/02-human-analogy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. A HUMAN-LEVEL ANALOGY</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/03-what-integral-solves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>3. WHAT INTEGRAL SOLVES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/04-what-integral-creates.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>4. WHAT INTEGRAL CREATES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/05-the-5-core-subsystems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>5. THE FIVE CORE SUBSYSTEMS (MEZZO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/06-how-the-five-systems-work-as-one.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>6. HOW THE FIVE SYSTEMS WORK AS ONE</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/cds-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/cds-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal CDS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (CDS) — Issue Capture &amp; Signal Intake</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (CDS) — Issue Structuring &amp; Framing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (CDS) — Knowledge Integration &amp; Context Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-04-norms-constraint-checking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (CDS) — Norms &amp; Constraint Checking Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-05-deliberation-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (CDS) — Participatory Deliberation Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-06-weighted-consensus.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (CDS) — Weighted Consensus Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-07-decision-recording.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (CDS) — Decision Recording, Versioning &amp; Accountability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-08-implementation-dispatch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (CDS) — Implementation Dispatch Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-09-human-deliberation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (CDS) — Human Deliberation &amp; High-Bandwidth Resolution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-10-review-revision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (CDS) — Review, Revision &amp; Override Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: CDS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDS Addendum: Syntegrity as Final-Stage Human Deliberation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/oad-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.2 OAD Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/oad-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal OAD Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (OAD) — Design Submission &amp; Structured Specification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (OAD) — Collaborative Design Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-03-material-ecological-coefficient-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (OAD) — Material &amp; Ecological Coefficient Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-04-lifecycle-maintainability-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (OAD) — Lifecycle &amp; Maintainability Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-05-feasibility-constraint-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (OAD) — Feasibility &amp; Constraint Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-06-skill-labor-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (OAD) — Skill &amp; Labor-Step Decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-07-systems-integration-architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (OAD) — Systems Integration &amp; Architectural Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-08-optimization-efficiency-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (OAD) — Optimization &amp; Efficiency Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-09-validation-certification-release.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (OAD) — Validation, Certification &amp; Release Manager</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (OAD) — Knowledge Commons &amp; Reuse Repository</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: OAD Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/itc-01-overview.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">7.3 ITC Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/itc-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal ITC Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (ITC) — Labor Event Capture &amp; Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (ITC) — Skill &amp; Context Weighting Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-03-time-decay-mechanism.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (ITC) — Time-Decay Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-04-labor-forecasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (ITC) — Labor Forecasting &amp; Need Anticipation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-05-access-allocation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (ITC) — Access Allocation &amp; Redemption</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-06-cross-coop-reciprocity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (ITC) — Cross-Cooperative &amp; Internodal Reciprocity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-07-fairness-anti-coercion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (ITC) — Fairness, Anti-Coercion &amp; Ethical Safeguards</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-08-ledger-transparency.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (ITC) — Ledger, Transparency &amp; Auditability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (ITC) — Integration &amp; Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: ITC Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/cos-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.4 COS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/cos-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal COS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (COS) — Production Planning &amp; Work Breakdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (COS) — Labor Organization &amp; Skill-Matching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-03-resource-procurement-materials-management.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (COS) — Resource Procurement &amp; Materials Management</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-04-cooperative-workflow-execution.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (COS) — Cooperative Workflow Execution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (COS) — Capacity, Throughput &amp; Constraint Balancing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (COS) — Distribution &amp; Access Flow Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (COS) — Quality Assurance &amp; Safety Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-08-cooperative-coordination-inter-coop-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (COS) — Cooperative Coordination &amp; Inter-Coop Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (COS) — Transparency, Ledger &amp; Audit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: COS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/frs-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.5 FRS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/frs-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal FRS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-01-signal-intake.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (FRS) — Signal Intake &amp; Semantic Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-02-diagnostic-classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (FRS) — Diagnostic Classification &amp; Pathology Detection</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-03-constraint-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (FRS) — Constraint Modeling &amp; System Dynamics Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-04-recommendation-routing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (FRS) — Recommendation &amp; Signal Routing Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-05-democratic-sensemaking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (FRS)— Democratic Sensemaking &amp; CDS Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (FRS) — Longitudinal Memory, Pattern Learning &amp; Institutional Recall</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: FRS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/08-community-shuttle-example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8. THE FIVE SYSTEMS | SERVICE EXAMPLE</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>9. NODES TO NETWORKS: RECURSIVE ORGANIZATION (MACRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-01-node-network-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.1 Node Network Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-02-nodes-as-actors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.2 Nodes as Actors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-03-federation-as-synchronization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.3 Federation as Synchronization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.4 Scale, Scope, and Bioregional Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-06-case-watershed.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.6 Applied Case I: Bioregional Watershed Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-07-case-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.7 Applied Case II: Shared Energy Infrastructure Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-08-case-distributed-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.8 Applied Case III: Distributed Production of Complex Goods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-09-synthesis-domain-invariant-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.9 Synthesis: Domain-Invariant Coordination Logic</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>10. INTERNODAL RECIPROCITY</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-01-reciprocity-primitives-and-flow-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.1 Reciprocity Primitives and Flow Types</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.2 Cross-Node Labor Reciprocity and ITC Recognition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.3 Material and Capacity Reciprocity Across Nodes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.4 Assurance, Trust, and Anti-Arbitrage Mechanisms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/11-transition-adoption-implementation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11. TRANSITION, ADOPTION, &amp; IMPLEMENTATION</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#module-1-labor-event-capture-verification" id="toc-module-1-labor-event-capture-verification" class="nav-link active" data-scroll-target="#module-1-labor-event-capture-verification">Module 1: Labor Event Capture &amp; Verification</a></li>
+  <li><a href="#module-2-skill-context-weighting-engine" id="toc-module-2-skill-context-weighting-engine" class="nav-link" data-scroll-target="#module-2-skill-context-weighting-engine">Module 2: Skill &amp; Context Weighting Engine</a></li>
+  <li><a href="#module-3-time-decay-mechanism" id="toc-module-3-time-decay-mechanism" class="nav-link" data-scroll-target="#module-3-time-decay-mechanism">Module 3: Time-Decay Mechanism</a></li>
+  <li><a href="#module-4-labor-budget-forecasting-need-anticipation" id="toc-module-4-labor-budget-forecasting-need-anticipation" class="nav-link" data-scroll-target="#module-4-labor-budget-forecasting-need-anticipation">Module 4: Labor-Budget Forecasting &amp; Need Anticipation</a></li>
+  <li><a href="#module-5-access-allocation-redemption" id="toc-module-5-access-allocation-redemption" class="nav-link" data-scroll-target="#module-5-access-allocation-redemption">Module 5: Access Allocation &amp; Redemption</a></li>
+  <li><a href="#module-6-cross-cooperative-internodal-reciprocity" id="toc-module-6-cross-cooperative-internodal-reciprocity" class="nav-link" data-scroll-target="#module-6-cross-cooperative-internodal-reciprocity">Module 6: Cross-Cooperative &amp; Internodal Reciprocity</a></li>
+  <li><a href="#module-7-fairness-anti-coercion-ethical-safeguards" id="toc-module-7-fairness-anti-coercion-ethical-safeguards" class="nav-link" data-scroll-target="#module-7-fairness-anti-coercion-ethical-safeguards">Module 7: Fairness, Anti-Coercion &amp; Ethical Safeguards</a></li>
+  <li><a href="#module-8-ledger-transparency-auditability" id="toc-module-8-ledger-transparency-auditability" class="nav-link" data-scroll-target="#module-8-ledger-transparency-auditability">Module 8: Ledger, Transparency &amp; Auditability</a></li>
+  <li><a href="#module-9-integration-coordination" id="toc-module-9-integration-coordination" class="nav-link" data-scroll-target="#module-9-integration-coordination">Module 9: Integration &amp; Coordination</a></li>
+  <li><a href="#narrative-snapshot-itc-walkthrough-a-labor-focus" id="toc-narrative-snapshot-itc-walkthrough-a-labor-focus" class="nav-link" data-scroll-target="#narrative-snapshot-itc-walkthrough-a-labor-focus">Narrative Snapshot: ITC Walkthrough A (Labor Focus)</a></li>
+  <li><a href="#narrative-snapshot-itc-walkthrough-b-access-focus" id="toc-narrative-snapshot-itc-walkthrough-b-access-focus" class="nav-link" data-scroll-target="#narrative-snapshot-itc-walkthrough-b-access-focus">Narrative Snapshot: ITC Walkthrough B (Access Focus)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">7.3 ITC Modules</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The <strong>Integral Time Credit (ITC) System</strong> is the metabolic backbone of the Integral economy—the mechanism through which contribution, access, ecological limits, and system-wide coordination are woven into a single coherent process. ITCs replace both the <strong>price mechanism of markets</strong> and <strong>command-based administrative allocation</strong> as methods of economic valuation and access determination.</p>
+<p>Instead of speculation, exchange, accumulation, or profit, ITCs operate as <strong>non-transferable, decaying signals</strong> reflecting verified contribution within a cooperative and ecologically bounded production system.</p>
+<p>Unlike money, ITCs have no independent economic power. They cannot be traded, stored for strategic advantage, used to command labor, or accumulated to gain status. Instead, they function as a continuously updated measure of one’s <strong>material participation</strong> in the ongoing maintenance of the shared system.</p>
+<p>ITCs calibrate fairness—as defined by <strong>CDS policy</strong> and <strong>ecological constraints</strong>—synchronize labor availability with actual needs, ensure proportional access to goods, and maintain coherence across the federation’s metabolic processes.</p>
+<hr>
+<p><strong>Cybernetic Valuation Pipeline </strong></p>
+<p>Critically, ITCs do not arise from abstract “value preferences,” competitive bidding, or any market-like negotiation. Instead, access-values for goods and services emerge from a <strong>cybernetic valuation pipeline</strong> integrating four subsystems—<strong>OAD, COS, FRS, and CDS</strong>—each contributing a distinct, non-market signal.</p>
+<p><strong>OAD generates computable design intelligence</strong>, including:</p>
+<ul>
+<li>detailed labor-step decomposition</li>
+<li>skill requirements and rarity</li>
+<li>material intensity and ecological coefficients</li>
+<li>lifecycle maintainability and renewal burdens</li>
+<li>embodied energy, repairability, and resource flows</li>
+</ul>
+<p><strong>COS converts design intelligence into operational reality</strong>, yielding:</p>
+<ul>
+<li>total labor demand and duration</li>
+<li>required skill distributions</li>
+<li>real resource throughput and bottlenecks</li>
+<li>ecological and seasonal constraints</li>
+<li>maintenance frequencies and replacement rates</li>
+</ul>
+<p><strong>FRS monitors real-world performance and adaptive limits</strong>, such as:</p>
+<ul>
+<li>actual vs.&nbsp;expected durability</li>
+<li>actual maintenance burden vs.&nbsp;OAD forecasts</li>
+<li>shifts in material scarcity, energy availability, or ecosystem strain</li>
+<li>fairness indicators and participation dynamics</li>
+<li>early detection of bottlenecks, misalignments, or proto-market behavior</li>
+</ul>
+<p>FRS ensures that valuation and weighting propagate <strong>reality</strong>, not assumption. Goods that unexpectedly fail early, require more maintenance, use scarcer materials, or impose ecological strain will see their access obligations adjust accordingly. Likewise, when production becomes easier, repair cycles diminish, labor becomes abundant, or ecological conditions improve, access obligations fall.</p>
+<p>These adjustments are <strong>coordination signals</strong>, not scarcity rents or incentive rewards.</p>
+<hr>
+<p><strong>Post-Scarcity Trajectory</strong></p>
+<p>Over time, this dynamic reinforces Integral’s long-term trajectory toward <strong>post-scarcity</strong>. As automation, open design reuse, modularity, and cooperative scaling reduce marginal labor inputs, ITC access-values drop proportionally.</p>
+<p>Entire categories of goods and services asymptotically approach <strong>zero contribution requirement</strong>, eventually exiting the ITC domain entirely. Integral is thus structurally designed to achieve <strong>“more with less”</strong>—a secular decline in the labor-cost of life-supporting goods and a shrinking of the metabolic layer rather than its institutionalization.</p>
+<hr>
+<p><strong>Normative Governance (CDS)</strong></p>
+<p><strong>CDS establishes democratic and constitutional bounds</strong>, including:</p>
+<ul>
+<li>weighting limits</li>
+<li>decay parameters</li>
+<li>fairness and anti-coercion rules</li>
+<li>ecological ceilings and floors</li>
+<li>federation-level equivalence standards</li>
+</ul>
+<p>Together, OAD, COS, FRS, and CDS compute the <strong>ITC access obligation</strong>—the proportional contribution required to responsibly obtain a given good or service—based on measurable physical reality rather than price speculation or bureaucratic decree.</p>
+<p>Thus, ITC valuation is neither a market price nor a centralized assignment. It is the emergent outcome of a <strong>recursive, transparent, physically grounded calculation</strong>—an algorithmic expression of labor, ecology, repairability, scarcity, and maintenance burden, all measured in human time.</p>
+<hr>
+<p><strong>Scope of ITCs</strong></p>
+<p>Within this framework, ITCs apply <strong>only to operational labor</strong>: the work required to build, maintain, repair, distribute, or operate the infrastructures and cooperatives of the Integral system.</p>
+<p>By contrast, <strong>democratic participation and creative ideation do not generate ITCs</strong>. These belong to the commons layer. Compensating them with ITCs would distort governance, incentivize performative behavior, and reintroduce competitive dynamics into non-rival domains.</p>
+<p>This structural separation preserves democratic legitimacy and prevents market logic from re-entering intellectual or cultural life.</p>
+<hr>
+<p><strong>In practice, ITCs:</strong></p>
+<ul>
+<li>verify material contribution</li>
+<li>weight labor by skill, difficulty, ecological sensitivity, and urgency</li>
+<li>compute access-values using <strong>OAD → COS → FRS → CDS</strong> signals</li>
+<li>distribute production burden fairly across the federation</li>
+<li>coordinate labor supply with system-wide demand</li>
+<li>prevent accumulation through gentle time decay</li>
+<li>enforce ethical safeguards against coercion or proto-markets</li>
+<li>synchronize tightly with CDS, OAD, COS, and FRS</li>
+</ul>
+<p>ITC is not an incentive mechanism, but a <strong>coordination and integrity mechanism</strong>. It ensures access is governed by contribution and ecological responsibility—not wealth or bargaining power—and replaces price signals with multidimensional, cybernetic information.</p>
+<hr>
+<p><strong>ITC Module Overview Table</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ITC Module</strong></th>
+<th><strong>Primary Function</strong></th>
+<th><strong>Technical Analogs / Conceptual Basis</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1. Labor Event Capture &amp; Verification</strong></td>
+<td>Authenticates operational labor and records verified contribution as atomic valuation inputs.</td>
+<td>Time-tracking systems; cooperative logs; peer verification</td>
+</tr>
+<tr class="even">
+<td><strong>2. Skill &amp; Context Weighting Engine</strong></td>
+<td>Converts raw labor into weighted contribution using skill, difficulty, urgency, and ecological sensitivity.</td>
+<td>Competency frameworks; difficulty indices; democratic weighting</td>
+</tr>
+<tr class="odd">
+<td><strong>3. Time-Decay Mechanism</strong></td>
+<td>Prevents accumulation and keeps access aligned with current participation.</td>
+<td>Demurrage (non-exchangeable); metabolic cycle analogs</td>
+</tr>
+<tr class="even">
+<td><strong>4. Labor-Budget Forecasting &amp; Need Anticipation</strong></td>
+<td>Predicts future labor needs to guide weighting, training, and credit flow.</td>
+<td>System-dynamics forecasting; non-market demand modeling</td>
+</tr>
+<tr class="odd">
+<td><strong>5. Access Allocation &amp; Redemption</strong></td>
+<td>Computes access obligations for goods and extinguishes ITCs upon permanent acquisition.</td>
+<td>Resource allocation engines; timebank redemption (non-transferable)</td>
+</tr>
+<tr class="even">
+<td><strong>6. Cross-Cooperative &amp; Internodal Reciprocity</strong></td>
+<td>Normalizes ITC interpretation across nodes without enabling arbitrage.</td>
+<td>Federated equivalence bands; interoperability frameworks</td>
+</tr>
+<tr class="odd">
+<td><strong>7. Fairness, Anti-Coercion &amp; Ethical Safeguards</strong></td>
+<td>Detects and prevents manipulation, coercion, or proto-market behavior.</td>
+<td>Ethics boards; anomaly detection; governance oversight</td>
+</tr>
+<tr class="even">
+<td><strong>8. Ledger, Transparency &amp; Auditability</strong></td>
+<td>Maintains a tamper-evident public record of ITC dynamics.</td>
+<td>Open audit trails; transparent ledgers</td>
+</tr>
+<tr class="odd">
+<td><strong>9. Integration &amp; Coordination Module</strong></td>
+<td>Synchronizes ITC with CDS, OAD, COS, and FRS.</td>
+<td>Cybernetic middleware; VSM-inspired coordination</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<section id="module-1-labor-event-capture-verification" class="level3">
+<h3 class="anchored" data-anchor-id="module-1-labor-event-capture-verification">Module 1: Labor Event Capture &amp; Verification</h3>
+<p><strong>Purpose</strong> Record and authenticate all operational labor so every credited event reflects real, voluntary, and socially necessary work.</p>
+<p><strong>Description</strong> This module functions as the economic organism’s <strong>sensory interface</strong>. Every action involved in producing or maintaining goods—fabrication, assembly, machining, software flashing, repair operations, logistics—enters the ITC system only after authenticated verification.</p>
+<p>COS task flows, cooperative logs, and peer confirmation supply the necessary structure. Sensor-assisted verification may be used for precision-critical tasks (e.g., electronics testing), but <strong>human verification remains the norm</strong>.</p>
+<p>Labor events are logged <strong>as authenticated records</strong>, but neutrally. They acquire no value, weight, or access implication until processed by <strong>Module 2’s weighting engine</strong>.</p>
+<p><strong>Example (Modular Cell Phone)</strong> During modular phone production, three members assemble the phone’s coreboard and snap in the parametric connector array. A fourth member verifies solder integrity and a successful boot test.</p>
+<p>The system logs:</p>
+<ul>
+<li>participants</li>
+<li>task ID (“coreboard assembly — rev.3”)</li>
+<li>hours</li>
+<li>skill tier (electronics technician)</li>
+<li>verification signatures</li>
+</ul>
+<p>The event then moves forward to weighting.</p>
+<hr>
+</section>
+<section id="module-2-skill-context-weighting-engine" class="level3">
+<h3 class="anchored" data-anchor-id="module-2-skill-context-weighting-engine">Module 2: Skill &amp; Context Weighting Engine</h3>
+<p><strong>Purpose</strong> Interpret labor in context—skill, difficulty, ecological sensitivity, urgency, and scarcity—to assign weighted contribution.</p>
+<p><strong>Description</strong> Tasks vary dramatically in skill intensity and ecological impact. The hour is not the unit of value; the <strong>contextualized contribution signal</strong> is. This module translates raw time into weighted ITCs using <strong>CDS-approved bands</strong>.</p>
+<p>There is no bidding, no price negotiation, and no competition—only democratic, transparent calibration bounded by policy and ecological constraints. Weighting does not create advantage, priority, or bargaining power; it only ensures proportional recognition of materially different forms of work.</p>
+<p><strong>Example (Modular Cell Phone)</strong></p>
+<ul>
+<li>Routine casing assembly → weight <strong>1.0</strong></li>
+<li>Precision micro-soldering → <strong>1.6</strong></li>
+<li>Micro-soldering during technician scarcity or urgent heat-wave deployment → <strong>1.8</strong></li>
+</ul>
+<hr>
+</section>
+<section id="module-3-time-decay-mechanism" class="level3">
+<h3 class="anchored" data-anchor-id="module-3-time-decay-mechanism">Module 3: Time-Decay Mechanism</h3>
+<p><strong>Purpose</strong> Prevent accumulation, maintain circulation, and keep access tied to ongoing participation.</p>
+<p><strong>Description</strong> ITCs gently decay when not exercised through access or renewed participation. This avoids proto-wealth effects and ensures that access remains proportional and current rather than anchored to past contribution.</p>
+<p>Decay is <strong>not a punishment for inactivity</strong>, but a normalization mechanism that keeps access aligned with present participation. Decay rates are slow, predictable, bounded by CDS, and continuously monitored by FRS <strong>for systemic distortion or imbalance</strong>.</p>
+<p><strong>Example (Modular Cell Phone)</strong> Someone who spent a month repairing modular phone screens accumulates 60 ITCs. If they are inactive for several months, their balance decays gently. When they resume participation—say, by updating firmware modules—the balance stabilizes.</p>
+<hr>
+</section>
+<section id="module-4-labor-budget-forecasting-need-anticipation" class="level3">
+<h3 class="anchored" data-anchor-id="module-4-labor-budget-forecasting-need-anticipation">Module 4: Labor-Budget Forecasting &amp; Need Anticipation</h3>
+<p><strong>Purpose</strong> Ensure ITC creation aligns with real labor needs and ecological constraints.</p>
+<p><strong>Description</strong> This module forecasts labor demand using:</p>
+<ul>
+<li>COS production cycles</li>
+<li>OAD design updates (e.g., new camera module requiring different connectors)</li>
+<li>ecological and seasonal constraints (e.g., battery fabrication increases during heatwaves)</li>
+<li>skill availability</li>
+<li>maintenance rhythms and return rates</li>
+</ul>
+<p>It prevents misalignment between <strong>necessary labor</strong> and <strong>recognized contribution</strong>, and helps guide training, scheduling, and weighting adjustments. Forecasting does not compel participation; it adjusts recognition parameters so that contribution remains proportional to actual system needs.</p>
+<p><strong>Example (Modular Cell Phone)</strong> The system forecasts a rise in battery module replacements during summer due to thermal strain. To avoid bottlenecks, the weighting parameters for battery conditioning and module diagnostics are temporarily adjusted.</p>
+<hr>
+</section>
+<section id="module-5-access-allocation-redemption" class="level3">
+<h3 class="anchored" data-anchor-id="module-5-access-allocation-redemption">Module 5: Access Allocation &amp; Redemption</h3>
+<p><strong>Purpose</strong></p>
+<p>Convert OAD and COS intelligence into concrete ITC <strong>access obligations (ITC access-values)</strong> for goods and services, while governing how access is delivered through Access Centers, tool libraries, shared-use pools, and distribution nodes.</p>
+<p>This module determines <strong>when ITCs are extinguished</strong>, <strong>when access is free</strong>, and <strong>how scarcity or ecological stress modifies access obligations</strong>.</p>
+<p><strong>Description</strong> This is the operational heart of Integral’s post-price distribution system. Module 5 transforms multidimensional signals from OAD, COS, and FRS into <strong>fair, proportional, ecologically bounded access pathways</strong>.</p>
+<p>ITC access-values for permanent acquisitions (e.g., a modular phone) are derived from:</p>
+<ul>
+<li>total labor hours by skill tier (from OAD + COS)</li>
+<li>ecological coefficients &amp; embodied energy</li>
+<li>material scarcity and intensity</li>
+<li>lifecycle repairability and maintenance burden</li>
+<li>expected renewal cycles and recycling pathways</li>
+<li>production bottlenecks and throughput constraints (COS)</li>
+<li>real-time scarcity or ecological stress signals (FRS)</li>
+</ul>
+<p>These calculations do not express willingness to pay, exchange ratios, or relative desirability—only the proportional contribution required to responsibly remove a good from shared circulation.</p>
+<p><strong>Permanent Acquisition</strong> When a member acquires a good—removing it from shared circulation—ITCs are <strong>extinguished</strong>. They are <strong>never transferred</strong> to another person or entity. This prevents accumulation, prevents proto-trading, and ties acquisition directly to contribution.</p>
+<p><strong>Shared-Use Access (Tool Libraries &amp; Access Centers)</strong> Most tools, equipment, and specialized devices are <em>not owned individually</em>. Thus:</p>
+<ul>
+<li>Short-term borrowing is typically <strong>free</strong> (ITCs not extinguished).</li>
+<li>Reservations during scarcity may require a small, temporary ITC lock.</li>
+<li>COS tracks usage for maintenance cycles.</li>
+<li>FRS adjusts rules if hoarding, misuse, or shortages appear.</li>
+</ul>
+<p><strong>Essential Goods and Ecological Constraints</strong> Some goods (e.g., water filters, heating modules) must remain universally accessible. Others may have their access-values temporarily raised or lowered <strong>within CDS-defined bounds</strong> depending on ecological load, bottlenecked materials, seasonal variation, or over/under-use detected by FRS.</p>
+<p>Valuation is therefore dynamic—always tied to physical reality, never market dynamics.</p>
+<p><strong>Example (Modular Cell Phone)</strong> A member seeks a newly released “rev.4 modular phone,” whose OAD profile indicates:</p>
+<ul>
+<li>modular components</li>
+<li>long lifespan</li>
+<li>low-toxicity materials</li>
+<li>high repairability</li>
+<li>recycled-aluminum frame</li>
+<li>reduced lithium intensity</li>
+<li>lower embodied energy</li>
+</ul>
+<p>COS reports efficient assembly workflows and no bottlenecks. FRS shows no ecological stress.</p>
+<p><strong>Result:</strong> The phone receives a <strong>lower ITC access-value</strong> than prior versions—reflecting real improvements, not market competition.</p>
+<p>The member redeems ITCs → the credits are extinguished → the device becomes theirs.</p>
+<p><strong>Shared-Use Contrast:</strong> The same member checks out a precision diagnostic tool from the Access Center.</p>
+<ul>
+<li>Borrowing is <strong>free</strong>, since the tool remains in shared circulation.</li>
+<li>ITCs are not extinguished unless scarcity requires a brief fairness-lock.</li>
+<li>COS logs usage for maintenance scheduling.</li>
+</ul>
+<p><strong>Modular Upgrade Case:</strong> A camera module replacement requires ITC redemption proportional to labor, material intensity, ecological coefficients, and component scarcity. As production efficiency improves or materials become more abundant, the access-value naturally falls.</p>
+<hr>
+</section>
+<section id="module-6-cross-cooperative-internodal-reciprocity" class="level3">
+<h3 class="anchored" data-anchor-id="module-6-cross-cooperative-internodal-reciprocity">Module 6: Cross-Cooperative &amp; Internodal Reciprocity</h3>
+<p><strong>Purpose</strong> Ensure consistent ITC meaning across nodes with different ecological conditions and skill distributions.</p>
+<p><strong>Description</strong> Material scarcity, training patterns, climate differences, and population density vary across the federation. This module harmonizes <strong>interpretation</strong>, not balances, through equivalence bands—so people are neither penalized nor advantaged by movement. The underlying ITC ledger remains unchanged; only local access computation adjusts to context.</p>
+<p><strong>Example (Modular Cell Phone)</strong> A member who earned ITCs assembling logic boards in Node A travels to Node B, where micro-soldering expertise is scarcer and ecologically prioritized. The <strong>effective interpretation</strong> of their balance adapts to local equivalence bands, ensuring fairness without enabling arbitrage.</p>
+<hr>
+</section>
+<section id="module-7-fairness-anti-coercion-ethical-safeguards" class="level3">
+<h3 class="anchored" data-anchor-id="module-7-fairness-anti-coercion-ethical-safeguards">Module 7: Fairness, Anti-Coercion &amp; Ethical Safeguards</h3>
+<p><strong>Purpose</strong> Prevent proto-market dynamics, coercion, or undue influence based on ITC positioning.</p>
+<p><strong>Description</strong> This module monitors for violations such as:</p>
+<ul>
+<li>“I’ll give you 5 ITCs to replace my phone screen” (explicitly forbidden)</li>
+<li>pressure to volunteer for high-weight tasks</li>
+<li>preferential treatment for high ITC-holders</li>
+<li>attempts to corner specialized roles</li>
+<li>circumventing decay</li>
+</ul>
+<p>FRS monitors patterns and flags irregularities for CDS review. This module does not enforce sanctions or modify balances; it detects ethical violations and escalates them through FRS to CDS for democratic resolution.</p>
+<p><strong>Example (Modular Cell Phone)</strong> A repair coop begins giving faster access to diagnostic benches to members with high ITC balances. The system flags this as unethical. CDS intervenes and resets queue rules.</p>
+<hr>
+</section>
+<section id="module-8-ledger-transparency-auditability" class="level3">
+<h3 class="anchored" data-anchor-id="module-8-ledger-transparency-auditability">Module 8: Ledger, Transparency &amp; Auditability</h3>
+<p><strong>Purpose</strong> Maintain tamper-evident, transparent, auditable records of all ITC dynamics.</p>
+<p><strong>Description</strong> The ledger records, in an append-only and publicly inspectable form:</p>
+<ul>
+<li>labor events</li>
+<li>weightings</li>
+<li>decay</li>
+<li>redemptions</li>
+<li>inter-node equivalence adjustments</li>
+<li>ethical interventions</li>
+<li>FRS-corrected valuation updates</li>
+</ul>
+<p>The ledger is <strong>not a blockchain</strong>. It is a cybernetic audit layer enabling verifiability, diagnosis, and trust—without speculation, tokenization, or exchange. The ledger does not govern behavior or enforce rules; it records system activity so governance and feedback systems can act transparently.</p>
+<p><strong>Example (Modular Cell Phone)</strong> Ledger analytics show a sharp rise in screen replacements. OAD reviews the design, COS adjusts maintenance schedules, and FRS watches for ecological stress in glass supply chains. Transparency turns what would be a market failure into rapid systemic correction.</p>
+<hr>
+</section>
+<section id="module-9-integration-coordination" class="level3">
+<h3 class="anchored" data-anchor-id="module-9-integration-coordination">Module 9: Integration &amp; Coordination</h3>
+<p><strong>Purpose</strong> Synchronize ITC with CDS rules, OAD intelligence, COS operations, and FRS ecological and social feedback.</p>
+<p><strong>Description</strong> This module is ITC’s <strong>coordination interface</strong>, not its decision authority. It ensures that:</p>
+<ul>
+<li>CDS defines weighting, decay, and fairness rules</li>
+<li>OAD supplies continuously improving design intelligence</li>
+<li>COS communicates real-time labor availability and bottlenecks</li>
+<li>FRS feeds ecological constraint and behavioral anomaly dataThe result is a dynamically self-correcting valuation system. This module does not originate policy, valuation logic, or enforcement; it routes and synchronizes signals so the appropriate systems can act within their defined authority.</li>
+</ul>
+<p><strong>Example (Modular Cell Phone)</strong> FRS reports increasing dependence on imported cobalt for phone batteries. OAD develops an alternative battery chemistry. ITC weighting adjusts to reflect updated skill and material context. COS shifts production accordingly. CDS approves policy shifts. The federation moves toward cobalt independence—without markets.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../assets/integral-system-diagram-13b.png" class="img-fluid figure-img"></p>
+<figcaption>Integral system diagram</figcaption>
+</figure>
+</div>
+<p>Above Diagram: <em>Integral Time Credit (ITC) System | Cybernetic Flow of Contribution, Valuation, and Access</em> This diagram illustrates the full micro-architecture of the Integral Time Credit (ITC) system, showing how verified labor contribution is transformed into access obligations for goods and services without prices, money, exchange, or accumulation. ITC functions as a metabolic coordination layer, synchronizing real labor, ecological constraints, and democratic norms across the Integral federation. At the center of the diagram is the ITC internal pipeline (Modules 1–9). Operational labor originates in COS (Production &amp; Operations) and enters ITC through Module 1 (Labor Event Capture &amp; Verification), where work is authenticated but not yet valued.</p>
+<p>These events pass through Module 2 (Skill &amp; Context Weighting), where contribution is interpreted according to skill, difficulty, ecological sensitivity, urgency, and scarcity—within bounds set by CDS, not market forces. Module 3 (Time-Decay) prevents accumulation and proto-wealth by ensuring that contribution remains tied to ongoing participation rather than past effort. Module 4 (Labor-Budget Forecasting) provides feed-forward intelligence, anticipating future labor needs and preventing bottlenecks before they arise, while explicitly not compelling participation. Module 5 (Access Allocation &amp; Redemption) computes the proportional ITC access obligation required to obtain a good or service, based on OAD design intelligence, COS production realities, and FRS ecological feedback.</p>
+<p>When a good is permanently acquired, ITCs are extinguished, not transferred, eliminating exchange, bargaining, or accumulation. Module 6 (Cross-Cooperative &amp; Internodal Reciprocity) ensures that ITC meaning remains consistent across federated nodes with different ecological and skill contexts by harmonizing interpretation, not balances. Module 7 (Fairness, Anti-Coercion &amp; Ethical Safeguards) detects proto-market behavior, coercion, or manipulation and escalates issues through FRS to CDS for democratic resolution, without direct enforcement authority. Module 8 (Ledger, Transparency &amp; Auditability) records all ITC-relevant events in an append-only, publicly inspectable ledger that supports trust and diagnosis without tokenization or speculation.</p>
+<p>Module 9 (Integration &amp; Coordination) synchronizes signals across CDS, OAD, COS, and FRS, routing updates while explicitly not originating policy, valuation, or enforcement. Access outcomes flow from Module 5 to Access Centers, Tool Libraries, Shared-Use Pools, and Distribution Nodes, where goods and services are delivered. Observed usage patterns and ecological or behavioral signals then feed back into COS and FRS, closing the cybernetic loop and enabling continuous system adaptation.</p>
+<p>Solid arrows represent primary operational data flows required for the system to function (e.g., labor events, access allocation). Dotted arrows represent contextual, supervisory, or feedback signals that inform and correct behavior without conferring command authority. Together, these flows demonstrate how Integral replaces the price system with a transparent, physically grounded, non-coercive valuation process rooted in real labor, ecology, and democratic governance.</p>
+<hr>
+</section>
+<section id="narrative-snapshot-itc-walkthrough-a-labor-focus" class="level3">
+<h3 class="anchored" data-anchor-id="narrative-snapshot-itc-walkthrough-a-labor-focus">Narrative Snapshot: ITC Walkthrough A (Labor Focus)</h3>
+<p>To understand the Integral Time Credit System as <strong>lived metabolic flow</strong>, imagine the following:</p>
+<p>A regional node is preparing for the dry season. Water tables are dropping, and the community accelerates production of modular <strong>gravity-fed water purification units</strong>—critical infrastructure for households and field distribution.</p>
+<p><strong>The moment real operational work begins—physical fabrication, testing, assembly, logistics—ITC comes alive.</strong> Not during debate, not during ideation, but during <strong>material contribution</strong> to shared infrastructure. ITCs only metabolize where real, necessary labor takes place.</p>
+<hr>
+<p><strong>Module 1 — Labor Event Capture &amp; Verification</strong></p>
+<p>Four members work in the fabrication space:</p>
+<ul>
+<li>one cuts and heat-bends the housing shell</li>
+<li>one prepares ceramic filter elements</li>
+<li>one installs the activated-carbon stack</li>
+<li>one conducts flow-rate and microbial tests</li>
+</ul>
+<p>Each task check-in is logged through COS, authenticated, and verified by a peer. <strong>In simple terms: the system records who did what, for how long, and confirms that the work was real, completed correctly, and necessary.</strong></p>
+<p>No event enters the ITC ledger until humans verify it. Labor enters as a <strong>neutral signal</strong>—not yet valued.</p>
+<hr>
+<p><strong>Module 2 — Skill &amp; Context Weighting Engine</strong></p>
+<p>Different tasks require different skill levels and ecological awareness:</p>
+<ul>
+<li>ceramic firing → weight <strong>1.4</strong></li>
+<li>water-quality testing (safety-critical) → <strong>1.6</strong></li>
+<li>basic housing assembly → <strong>1.0</strong></li>
+</ul>
+<p>Context modifies weight:</p>
+<ul>
+<li>drought conditions raise ecological urgency → <strong>1.7–1.8</strong></li>
+<li>technician scarcity triggers temporary uplift</li>
+</ul>
+<p><strong>These weighting bands are not arbitrary—they are democratically decided through CDS deliberation and revisited whenever needed.</strong> They are transparent, bounded, and community-governed. No bidding, no competition, no private negotiation.</p>
+<hr>
+<p><strong>Module 3 — Time-Decay Mechanism</strong></p>
+<p>A member earns <strong>48 ITCs</strong> during purifier production. If they remain inactive for months, their balance gently decays.</p>
+<p>This avoids proto-wealth accumulation and preserves proportionality between contribution and access. Decay affects <em>unused balances</em> only; ITCs extinguished through access are not subject to decay.</p>
+<p><strong>And importantly: decay parameters are democratically set, not black-boxed or algorithmically imposed.</strong> FRS ensures decay behavior remains fair and functional.</p>
+<hr>
+<p><strong>Module 4 — Labor-Budget Forecasting &amp; Need Anticipation</strong></p>
+<p>Forecasting integrates:</p>
+<ul>
+<li>COS production data</li>
+<li>OAD design updates</li>
+<li>ecological and seasonal constraints</li>
+<li>maintenance and replacement rhythms</li>
+</ul>
+<p>The system predicts that filter replacements will double during the coming heatwave.</p>
+<p>Weighting for ceramic firing and diagnostic testing temporarily increases. Training cycles open to prevent bottlenecks.</p>
+<p>This prevents scarcity—<strong>before</strong> it manifests.</p>
+<hr>
+<p><strong>Module 5 — Access Allocation &amp; Redemption</strong></p>
+<p>Members redeem ITCs for water purification units, with access-values derived from:</p>
+<ul>
+<li>total labor by skill tier</li>
+<li>ecological coefficients</li>
+<li>material scarcity</li>
+<li>lifecycle durability and repairability</li>
+<li>production constraints</li>
+<li>real-time ecological feedback (FRS)</li>
+</ul>
+<p>When a purifier is acquired, ITCs are extinguished.This prevents accumulation, trade, or resale.</p>
+<p>Borrowing a turbidity meter or UV testing wand from an Access Center is <strong>simply free</strong>, because tools stay in the shared-use pool rather than leaving circulation. Only during scarcity would a temporary fairness-lock appear.</p>
+<hr>
+<p><strong>Module 6 — Cross-Cooperative &amp; Internodal Reciprocity</strong></p>
+<p>A visiting member from another watershed joins the work.</p>
+<p>Their ITCs transfer with them, and <strong>local equivalence rules</strong> adjust interpretation to harmonize with:</p>
+<ul>
+<li>ecological differences</li>
+<li>skill scarcity</li>
+<li>local weighting norms</li>
+</ul>
+<p>There is no currency exchange, no arbitrage—just unified contribution coherence across nodes.</p>
+<hr>
+<p><strong>Module 7 — Fairness, Anti-Coercion &amp; Ethical Safeguards</strong></p>
+<p>FRS detects informal pressure placed on kiln operators to “work extra.” This violates cooperative ethics.</p>
+<p>The system flags it → CDS intervenes → training expands → weighting adjusts.</p>
+<p>Power does not aggregate in skill bottlenecks.</p>
+<hr>
+<p><strong>Module 8 — Ledger, Transparency &amp; Auditability</strong></p>
+<p>Every part of the purifier cycle—labor hours, ecological adjustments, scarcity shifts, <strong>redemptions</strong>—is visible in a tamper-evident audit layer.</p>
+<p>People can see:</p>
+<ul>
+<li>how access-values were derived</li>
+<li>why weights changed</li>
+<li>how ecological stress influenced obligations</li>
+</ul>
+<p>Transparency eliminates speculation and rumor. It creates immediate, shared situational awareness.</p>
+<hr>
+<p><strong>Module 9 — Integration &amp; Coordination</strong></p>
+<p>FRS detects rising stress in forest resources used for activated carbon.</p>
+<p>Response:</p>
+<ul>
+<li>OAD prototypes a rice-husk biochar replacement</li>
+<li>COS tests and implements new workflows</li>
+<li>ITC weighting adjusts to support the transition</li>
+<li>CDS confirms policy alignment</li>
+</ul>
+<p>The federation reduces ecological strain <strong>without markets</strong>, <strong>without prices</strong>, <strong>without command hierarchies</strong>, purely through cybernetic coordination.</p>
+<hr>
+</section>
+<section id="narrative-snapshot-itc-walkthrough-b-access-focus" class="level3">
+<h3 class="anchored" data-anchor-id="narrative-snapshot-itc-walkthrough-b-access-focus">Narrative Snapshot: ITC Walkthrough B (Access Focus)</h3>
+<p>Access-Value in focus: <strong>How a Bicycle Gets Its ITC Access-Value</strong></p>
+<p>A cooperative node is preparing for the spring mobility cycle. Demand for bicycles rises every year as weather improves and inter-node travel increases. A newly updated bicycle design—<strong>the “Modular Terrain Bike, rev.3”</strong>—is ready for evaluation.</p>
+<p>The moment <strong>physical work</strong> begins—cutting tubing, fitting joints, welding frames, assembling hubs—<strong>the ITC system comes alive</strong>. This is because ITCs apply <strong>only</strong> to operational, materially grounded labor, not deliberation or ideation.</p>
+<p>Below is how the bicycle’s <strong>ITC access-value</strong> emerges from the cybernetic valuation pipeline.</p>
+<hr>
+<p><strong>STEP 1 — OAD: Deriving the Bicycle’s Design Intelligence</strong></p>
+<p>OAD has already processed the bicycle design and produced a certified <code>OADValuationProfile</code> for this version.</p>
+<p><strong>1. Labor-Step Decomposition (OAD → ITC input)</strong></p>
+<p>The bicycle requires:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Skill Tier</th>
+<th>Estimated Hours</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tube cutting and mitering</td>
+<td>1.0</td>
+<td>1.5 hours</td>
+</tr>
+<tr class="even">
+<td>Welding and alignment</td>
+<td>1.8</td>
+<td>2.0 hours</td>
+</tr>
+<tr class="odd">
+<td>Drivetrain assembly</td>
+<td>1.4</td>
+<td>1.0 hour</td>
+</tr>
+<tr class="even">
+<td>Wheel lacing + truing</td>
+<td>1.6</td>
+<td>1.2 hours</td>
+</tr>
+<tr class="odd">
+<td>Brake system installation</td>
+<td>1.2</td>
+<td>0.8 hours</td>
+</tr>
+<tr class="even">
+<td>Final inspection &amp; tuning</td>
+<td>1.0</td>
+<td>0.5 hours</td>
+</tr>
+</tbody>
+</table>
+<p>OAD output (prior to ITC weighting):</p>
+<ul>
+<li><strong>Total raw labor:</strong> 7.0 hours</li>
+<li>These steps populate <code>LaborProfile.total_production_hours</code></li>
+<li>Skill weighting is deferred to <strong>ITC Module 2</strong></li>
+</ul>
+<hr>
+<p><strong>2. Material Intensity &amp; Ecological Coefficients (OAD → ITC input)</strong></p>
+<p>From the CAD model and bill of materials:</p>
+<ul>
+<li>2.4 kg chromoly steel</li>
+<li>0.7 kg aluminum (crank + seatpost)</li>
+<li>0.3 kg rubber (tire compounds)</li>
+<li>0.2 kg plastics/nylon for fittings</li>
+<li>0.1 kg lubrication compounds</li>
+</ul>
+<p>OAD computes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ecological Factor</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Embodied energy</td>
+<td>34.2 MJ</td>
+</tr>
+<tr class="even">
+<td>Carbon intensity</td>
+<td>4.1 kg CO₂-eq</td>
+</tr>
+<tr class="odd">
+<td>Toxicity index</td>
+<td>0.18</td>
+</tr>
+<tr class="even">
+<td>Recyclability</td>
+<td>0.82</td>
+</tr>
+<tr class="odd">
+<td>Water/land impact</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<p>These values populate fields in <code>OADValuationProfile</code> and later contribute to:</p>
+<ul>
+<li><code>eco_burden_adjustment</code></li>
+<li><code>material_scarcity_adjustment</code></li>
+</ul>
+<hr>
+<p><strong>3. Lifecycle &amp; Repairability (OAD → ITC input)</strong></p>
+<p>From lifecycle modeling:</p>
+<ul>
+<li>Expected lifespan: <strong>12 years</strong></li>
+<li>Expected maintenance labor over lifespan: <strong>3.2 hours</strong></li>
+<li>Repairability index: <strong>0.88</strong></li>
+<li>Replacement cycle: minimal</li>
+</ul>
+<p>These values populate:</p>
+<ul>
+<li><code>expected_lifespan_hours</code></li>
+<li><code>repairability_credit</code></li>
+<li><code>longevity_credit</code></li>
+</ul>
+<p>This bicycle is designed to be repaired locally with minimal special tools—an important factor in reducing ITC access obligations.</p>
+<hr>
+<p><strong>STEP 2 — COS: Real Production Conditions</strong></p>
+<p>COS converts design assumptions into <strong>real operational context</strong>.</p>
+<p><strong>1. Current labor conditions (COS → ITC context)</strong></p>
+<ul>
+<li>Welding specialists moderately scarce → <code>scarcity_signal = +0.12</code></li>
+<li>Wheel-building abundant → no modifier</li>
+<li>Assembly stable → no modifier</li>
+</ul>
+<p><strong>2. Resource availability</strong></p>
+<ul>
+<li>Steel supply normal</li>
+<li>Aluminum constrained due to logistics → <code>material_scarcity_index = +0.07</code></li>
+</ul>
+<p><strong>3. Throughput and bottlenecks</strong></p>
+<ul>
+<li>Two welding stations under maintenance</li>
+<li>COS emits a <strong>backlog / throughput constraint signal</strong> for welding steps</li>
+</ul>
+<p>These populate <code>COSWorkloadSignal</code> inputs to Module 5.</p>
+<hr>
+<p><strong>STEP 3 — FRS: Real-World Corrections</strong></p>
+<p>FRS overlays <strong>empirical feedback</strong>.</p>
+<p><strong>1. Longevity correction</strong></p>
+<p>FRS reports that rev.2 bicycles showed:</p>
+<ul>
+<li>Actual lifespan: <strong>14 years</strong></li>
+<li>Actual maintenance burden: <strong>2.1 hours</strong></li>
+</ul>
+<p>This revises:</p>
+<ul>
+<li><code>repairability_credit</code> upward</li>
+<li><code>longevity_credit</code> downward (rewarding durability)</li>
+</ul>
+<hr>
+<p><strong>2. Scarcity amplification</strong></p>
+<p>Aluminum recycling throughput dips. COS’s +0.07 signal is amplified by FRS to:</p>
+<ul>
+<li><code>material_scarcity_adjustment = +0.11</code></li>
+</ul>
+<hr>
+<p><strong>3. Worker fatigue signal</strong></p>
+<p>FRS detects elevated welder fatigue due to unrelated infrastructure surges. It recommends a <strong>+0.05 safety/fairness weighting adjustment</strong> to welding tasks.</p>
+<hr>
+<p><strong>STEP 4 — ITC Modules Resolve the Signals</strong></p>
+<p>Now ITC processes these inputs.</p>
+<hr>
+<p><strong>ITC Module 1 — Labor Event Capture</strong></p>
+<ul>
+<li>Precise hours logged</li>
+<li>Peer verification confirms quality and safety</li>
+<li><code>LaborEvent</code> objects created</li>
+<li><strong>No value assigned yet</strong></li>
+</ul>
+<hr>
+<p><strong>ITC Module 2 — Skill &amp; Context Weighting</strong></p>
+<p>CDS-approved weighting policies are applied:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 16%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Base Weight</th>
+<th>COS Modifier</th>
+<th>FRS Modifier</th>
+<th>Final Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tube cutting</td>
+<td>1.0</td>
+<td>0</td>
+<td>0</td>
+<td><strong>1.0</strong></td>
+</tr>
+<tr class="even">
+<td>Welding &amp; alignment</td>
+<td>1.8</td>
+<td>+0.12</td>
+<td>+0.05</td>
+<td><strong>1.97</strong></td>
+</tr>
+<tr class="odd">
+<td>Drivetrain assembly</td>
+<td>1.4</td>
+<td>0</td>
+<td>0</td>
+<td><strong>1.4</strong></td>
+</tr>
+<tr class="even">
+<td>Wheel lacing</td>
+<td>1.6</td>
+<td>0</td>
+<td>0</td>
+<td><strong>1.6</strong></td>
+</tr>
+<tr class="odd">
+<td>Brake installation</td>
+<td>1.2</td>
+<td>0</td>
+<td>0</td>
+<td><strong>1.2</strong></td>
+</tr>
+<tr class="even">
+<td>Final tuning</td>
+<td>1.0</td>
+<td>0</td>
+<td>0</td>
+<td><strong>1.0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Result:</p>
+<ul>
+<li><code>base_weighted_labor_hours ≈ 9.17</code></li>
+</ul>
+<p>This value is stored as the <strong>labor backbone</strong> of <code>AccessValuation.base_weighted_labor_hours</code>.</p>
+<hr>
+<p><strong>ITC Module 3 — Time-Decay</strong></p>
+<p>Not relevant to the bicycle’s computation, but affects individual balances over time.</p>
+<hr>
+<p><strong>ITC Module 4 — Labor Forecasting</strong></p>
+<p>COS forecasts rising bicycle demand in two months.</p>
+<ul>
+<li>Future weighting may adjust</li>
+<li><strong>Current access-value remains unchanged</strong> (no retroactive effects)</li>
+</ul>
+<hr>
+<p><strong>ITC Module 5 — Access Allocation &amp; Redemption</strong></p>
+<p>The final ITC access obligation is computed as:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 42%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>AccessValuation Field</th>
+<th>Hours</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Weighted labor</td>
+<td><code>base_weighted_labor_hours</code></td>
+<td>9.17</td>
+</tr>
+<tr class="even">
+<td>Ecological burden</td>
+<td><code>eco_burden_adjustment</code></td>
+<td>+6.78</td>
+</tr>
+<tr class="odd">
+<td>Material scarcity</td>
+<td><code>material_scarcity_adjustment</code></td>
+<td>+0.41</td>
+</tr>
+<tr class="even">
+<td>Repairability credit</td>
+<td><code>repairability_credit</code></td>
+<td>−1.2</td>
+</tr>
+<tr class="odd">
+<td>Lifecycle longevity credit</td>
+<td><code>longevity_credit</code></td>
+<td>−0.9</td>
+</tr>
+<tr class="even">
+<td><strong>Final ITC access obligation</strong></td>
+<td><code>final_itc_cost</code></td>
+<td><strong>≈14.26</strong></td>
+</tr>
+</tbody>
+</table>
+<p>These values are <strong>bounded by CDS policy</strong>, logged transparently, and fully traceable.</p>
+<p><strong>≈ 14 ITCs</strong></p>
+<hr>
+<p><strong>STEP 5 — Redemption</strong></p>
+<p>A member redeems <strong>14 ITCs</strong>:</p>
+<ul>
+<li>Credits are <strong>extinguished</strong></li>
+<li>They cannot circulate, trade, or be reused</li>
+<li>No exchange, no resale, no profit</li>
+</ul>
+<p>If the member instead used a shared bicycle or tool:</p>
+<ul>
+<li><strong>No redemption</strong></li>
+<li><strong>No extinguishment</strong></li>
+<li><strong>Shared access only</strong></li>
+</ul>
+<hr>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.html" class="pagination-link" aria-label="Putting It Together: OAD Orchestration">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Putting It Together: OAD Orchestration</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../whitepaper/07-modules/07-3-itc/itc-02-architecture-code.html" class="pagination-link" aria-label="Formal ITC Specification: Pseudocode + Math Sketches">
+        <span class="nav-page-text"><span class="chapter-title">Formal ITC Specification: Pseudocode + Math Sketches</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning – Integral Whitepaper</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html" rel="next">
+<link href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.html" rel="prev">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-32c177501efb78f9be123735d54f4510.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../../">Integral Whitepaper</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../../Integral-Whitepaper.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../../Integral-Whitepaper.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integral Whitepaper</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/00-abstract.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-abstract.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/01-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>1. INTRODUCTION</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/02-human-analogy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. A HUMAN-LEVEL ANALOGY</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/03-what-integral-solves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>3. WHAT INTEGRAL SOLVES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/04-what-integral-creates.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>4. WHAT INTEGRAL CREATES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/05-the-5-core-subsystems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>5. THE FIVE CORE SUBSYSTEMS (MEZZO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/06-how-the-five-systems-work-as-one.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>6. HOW THE FIVE SYSTEMS WORK AS ONE</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal CDS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (CDS) — Issue Capture &amp; Signal Intake</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (CDS) — Issue Structuring &amp; Framing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (CDS) — Knowledge Integration &amp; Context Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-04-norms-constraint-checking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (CDS) — Norms &amp; Constraint Checking Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-05-deliberation-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (CDS) — Participatory Deliberation Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-06-weighted-consensus.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (CDS) — Weighted Consensus Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-07-decision-recording.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (CDS) — Decision Recording, Versioning &amp; Accountability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-08-implementation-dispatch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (CDS) — Implementation Dispatch Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-09-human-deliberation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (CDS) — Human Deliberation &amp; High-Bandwidth Resolution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-10-review-revision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (CDS) — Review, Revision &amp; Override Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: CDS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDS Addendum: Syntegrity as Final-Stage Human Deliberation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/oad-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.2 OAD Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/oad-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal OAD Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (OAD) — Design Submission &amp; Structured Specification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (OAD) — Collaborative Design Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-03-material-ecological-coefficient-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (OAD) — Material &amp; Ecological Coefficient Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-04-lifecycle-maintainability-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (OAD) — Lifecycle &amp; Maintainability Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-05-feasibility-constraint-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (OAD) — Feasibility &amp; Constraint Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-06-skill-labor-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (OAD) — Skill &amp; Labor-Step Decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-07-systems-integration-architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (OAD) — Systems Integration &amp; Architectural Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-08-optimization-efficiency-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (OAD) — Optimization &amp; Efficiency Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-09-validation-certification-release.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (OAD) — Validation, Certification &amp; Release Manager</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (OAD) — Knowledge Commons &amp; Reuse Repository</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: OAD Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/itc-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.3 ITC Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/itc-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal ITC Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (ITC) — Labor Event Capture &amp; Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (ITC) — Skill &amp; Context Weighting Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-03-time-decay-mechanism.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (ITC) — Time-Decay Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-04-labor-forecasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (ITC) — Labor Forecasting &amp; Need Anticipation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-05-access-allocation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (ITC) — Access Allocation &amp; Redemption</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-06-cross-coop-reciprocity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (ITC) — Cross-Cooperative &amp; Internodal Reciprocity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-07-fairness-anti-coercion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (ITC) — Fairness, Anti-Coercion &amp; Ethical Safeguards</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-08-ledger-transparency.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (ITC) — Ledger, Transparency &amp; Auditability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (ITC) — Integration &amp; Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: ITC Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/cos-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.4 COS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/cos-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal COS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (COS) — Production Planning &amp; Work Breakdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (COS) — Labor Organization &amp; Skill-Matching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-03-resource-procurement-materials-management.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (COS) — Resource Procurement &amp; Materials Management</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-04-cooperative-workflow-execution.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (COS) — Cooperative Workflow Execution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (COS) — Capacity, Throughput &amp; Constraint Balancing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (COS) — Distribution &amp; Access Flow Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (COS) — Quality Assurance &amp; Safety Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-08-cooperative-coordination-inter-coop-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (COS) — Cooperative Coordination &amp; Inter-Coop Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (COS) — Transparency, Ledger &amp; Audit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: COS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/frs-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.5 FRS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/frs-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal FRS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-01-signal-intake.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (FRS) — Signal Intake &amp; Semantic Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-02-diagnostic-classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (FRS) — Diagnostic Classification &amp; Pathology Detection</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-03-constraint-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (FRS) — Constraint Modeling &amp; System Dynamics Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-04-recommendation-routing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (FRS) — Recommendation &amp; Signal Routing Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-05-democratic-sensemaking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (FRS)— Democratic Sensemaking &amp; CDS Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (FRS) — Longitudinal Memory, Pattern Learning &amp; Institutional Recall</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: FRS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/08-community-shuttle-example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8. THE FIVE SYSTEMS | SERVICE EXAMPLE</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>9. NODES TO NETWORKS: RECURSIVE ORGANIZATION (MACRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-01-node-network-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.1 Node Network Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-02-nodes-as-actors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.2 Nodes as Actors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-03-federation-as-synchronization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.3 Federation as Synchronization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.4 Scale, Scope, and Bioregional Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-06-case-watershed.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.6 Applied Case I: Bioregional Watershed Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-07-case-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.7 Applied Case II: Shared Energy Infrastructure Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-08-case-distributed-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.8 Applied Case III: Distributed Production of Complex Goods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-09-synthesis-domain-invariant-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.9 Synthesis: Domain-Invariant Coordination Logic</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>10. INTERNODAL RECIPROCITY</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-01-reciprocity-primitives-and-flow-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.1 Reciprocity Primitives and Flow Types</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.2 Cross-Node Labor Reciprocity and ITC Recognition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.3 Material and Capacity Reciprocity Across Nodes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.4 Assurance, Trust, and Anti-Arbitrage Mechanisms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/11-transition-adoption-implementation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11. TRANSITION, ADOPTION, &amp; IMPLEMENTATION</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Purpose</strong> Enable <strong>federation-scale learning without centralization</strong> by sharing stress signatures, validated patterns, and scenario envelopes across nodes—while preserving local autonomy. Module 7 closes the FRS loop by ensuring that what one node learns under real constraints becomes <strong>available intelligence</strong> to others, without mandates, markets, or hierarchy.</p>
+<p>FRS-7 does <strong>not</strong> standardize behavior. It synchronizes <strong>insight</strong>, not action.</p>
+<p><strong>Inputs</strong></p>
+<ul>
+<li>Local <code>DiagnosticFinding</code> objects (FRS-2)</li>
+<li>Local <code>ConstraintModel</code> + <code>ScenarioResult</code>s (FRS-3)</li>
+<li>Local <code>MemoryRecord</code>s marked shareable (FRS-6)</li>
+<li>Optional inbound federation feeds (peer nodes’ shared bundles)</li>
+<li>CDS-approved sharing policies (what is public, aggregated, delayed, anonymized)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul>
+<li>Published <code>FederatedSignalBundle</code>s (outbound)</li>
+<li>Ingested <code>FederatedInsight</code>s (inbound)</li>
+<li>Optional <code>CrossNodePattern</code>s (aggregated, confidence-scored)</li>
+<li>Synchronization metadata for auditability (hash chain, policy refs)</li>
+</ul>
+<hr>
+<p><strong>Design Principles</strong></p>
+<ol type="1">
+<li><strong>Voluntary propagation</strong> Nodes publish insights; others subscribe. No compulsory uptake.</li>
+<li><strong>Non-competitive sharing</strong> No IP rent, no advantage hoarding, no strategic secrecy.</li>
+<li><strong>Aggregation over exposure</strong> Share <strong>patterns and envelopes</strong>, not raw local telemetry unless explicitly approved.</li>
+<li><strong>Asynchronous synchronization</strong> Nodes need not be in lockstep; intelligence diffuses gradually.</li>
+<li><strong>Autonomy preserved</strong> Every received insight is advisory and must pass local FRS-2 → FRS-5 before action.</li>
+</ol>
+<hr>
+<p><strong>Core Logic (Pseudocode)</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dataclasses <span class="im">import</span> dataclass, field</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List, Dict, Any, Optional</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hashlib</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Assumes from FRS types:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># - SemanticTag, DiagnosticFinding, ConstraintModel, MemoryRecord</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># - Scope, Confidence</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># - generate_id(...)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stable_json(obj: Dict[<span class="bu">str</span>, Any]) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> json.dumps(obj, sort_keys<span class="op">=</span><span class="va">True</span>, separators<span class="op">=</span>(<span class="st">","</span>, <span class="st">":"</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sha256(s: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> hashlib.sha256(s.encode(<span class="st">"utf-8"</span>)).hexdigest()</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Federated types</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FederatedSignalBundle:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">    What a node publishes to the federation.</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">    Aggregated + policy-governed (not raw telemetry by default).</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span>: <span class="bu">str</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    published_at: datetime</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    share_scope: Scope                   <span class="co"># "local" | "node" | "regional" | "federation"</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    tags: List[<span class="st">"SemanticTag"</span>] <span class="op">=</span> field(default_factory<span class="op">=</span><span class="bu">list</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    summary: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    confidence: Confidence <span class="op">=</span> <span class="st">"medium"</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    share_policy_id: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Aggregated intelligence payloads</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    findings_summary: List[Dict[<span class="bu">str</span>, Any]] <span class="op">=</span> field(default_factory<span class="op">=</span><span class="bu">list</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    scenario_envelopes: List[Dict[<span class="bu">str</span>, Any]] <span class="op">=</span> field(default_factory<span class="op">=</span><span class="bu">list</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    lessons: List[Dict[<span class="bu">str</span>, Any]] <span class="op">=</span> field(default_factory<span class="op">=</span><span class="bu">list</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Integrity</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    prev_hash: Optional[<span class="bu">str</span>] <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    bundle_hash: Optional[<span class="bu">str</span>] <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FederatedInsight:</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="co">    What a node receives from the federation.</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    bundle_id: <span class="bu">str</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    origin_node_id: <span class="bu">str</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    received_at: datetime</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    tags: List[<span class="st">"SemanticTag"</span>] <span class="op">=</span> field(default_factory<span class="op">=</span><span class="bu">list</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    content: Dict[<span class="bu">str</span>, Any] <span class="op">=</span> field(default_factory<span class="op">=</span><span class="bu">dict</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    confidence: Confidence <span class="op">=</span> <span class="st">"medium"</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    notes: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CrossNodePattern:</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="co">    Emergent pattern observed across multiple nodes.</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span>: <span class="bu">str</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    created_at: datetime</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    tags: List[<span class="st">"SemanticTag"</span>]</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    participating_nodes: List[<span class="bu">str</span>]</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    description: <span class="bu">str</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    aggregated_outcomes: Dict[<span class="bu">str</span>, <span class="bu">float</span>]</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    confidence: Confidence</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><strong>Publishing Intelligence (Outbound)</strong></p>
+<ol type="1">
+<li>Build a federation-safe bundle</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_federated_bundle(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    findings: List[<span class="st">"DiagnosticFinding"</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    model: Optional[<span class="st">"ConstraintModel"</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    memory_records: List[<span class="st">"MemoryRecord"</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    share_policy_id: <span class="bu">str</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    prev_hash: Optional[<span class="bu">str</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> FederatedSignalBundle:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Prepare a federation-safe intelligence bundle:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    - summarizes findings (not raw evidence)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    - includes scenario envelope (risk + breaches)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    - includes shareable lessons (outcome deltas + pattern tags)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tags: aggregate and dedupe while preserving SemanticTag type</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    tag_pairs <span class="op">=</span> {(t.key, t.value) <span class="cf">for</span> f <span class="kw">in</span> findings <span class="cf">for</span> t <span class="kw">in</span> f.related_tags}</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    tags <span class="op">=</span> [SemanticTag(k, v) <span class="cf">for</span> (k, v) <span class="kw">in</span> <span class="bu">sorted</span>(tag_pairs)]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    findings_summary <span class="op">=</span> [{</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"finding_type"</span>: f.finding_type,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"severity"</span>: f.severity,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"persistence"</span>: f.persistence,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"scope"</span>: f.scope,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"confidence"</span>: f.confidence,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"summary"</span>: f.summary,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">for</span> f <span class="kw">in</span> findings]</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    scenario_envelopes: List[Dict[<span class="bu">str</span>, Any]] <span class="op">=</span> []</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> model:</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> r <span class="kw">in</span> model.scenario_results:</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            scenario_envelopes.append({</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                <span class="st">"scenario_id"</span>: r.scenario_id,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>                <span class="st">"horizon"</span>: r.horizon,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>                <span class="st">"risk_score"</span>: r.risk_score,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>                <span class="st">"constraint_breaches"</span>: <span class="bu">list</span>(r.constraint_breaches),</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>            })</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Only share lessons explicitly marked shareable (policy would enforce)</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    lessons <span class="op">=</span> []</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> memory_records:</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> m.record_type <span class="op">!=</span> <span class="st">"lesson"</span>:</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        lessons.append({</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>            <span class="st">"title"</span>: m.title,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>            <span class="st">"pattern_tags"</span>: [(t.key, t.value) <span class="cf">for</span> t <span class="kw">in</span> m.tags <span class="cf">if</span> t.key <span class="op">==</span> <span class="st">"pattern"</span>],</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>            <span class="st">"quantified_outcomes"</span>: <span class="bu">dict</span>(m.quantified_outcomes),</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    bundle <span class="op">=</span> FederatedSignalBundle(</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        <span class="bu">id</span><span class="op">=</span>generate_id(<span class="st">"fed_bundle"</span>),</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        published_at<span class="op">=</span>datetime.utcnow(),</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        share_scope<span class="op">=</span><span class="st">"node"</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        tags<span class="op">=</span>tags,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        summary<span class="op">=</span><span class="st">"Federated learning bundle (aggregated): drift → envelope → lessons."</span>,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>        confidence<span class="op">=</span><span class="st">"medium"</span>,</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>        share_policy_id<span class="op">=</span>share_policy_id,</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        findings_summary<span class="op">=</span>findings_summary,</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        scenario_envelopes<span class="op">=</span>scenario_envelopes,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>        lessons<span class="op">=</span>lessons,</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        prev_hash<span class="op">=</span>prev_hash,</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    payload <span class="op">=</span> {</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>        <span class="st">"id"</span>: bundle.<span class="bu">id</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        <span class="st">"node_id"</span>: bundle.node_id,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>        <span class="st">"published_at"</span>: bundle.published_at.isoformat(),</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="st">"share_scope"</span>: bundle.share_scope,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>        <span class="st">"tags"</span>: [(t.key, t.value, t.weight) <span class="cf">for</span> t <span class="kw">in</span> bundle.tags],</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>        <span class="st">"summary"</span>: bundle.summary,</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>        <span class="st">"confidence"</span>: bundle.confidence,</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>        <span class="st">"share_policy_id"</span>: bundle.share_policy_id,</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>        <span class="st">"findings_summary"</span>: bundle.findings_summary,</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>        <span class="st">"scenario_envelopes"</span>: bundle.scenario_envelopes,</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>        <span class="st">"lessons"</span>: bundle.lessons,</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>        <span class="st">"prev_hash"</span>: bundle.prev_hash,</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>    bundle.bundle_hash <span class="op">=</span> sha256(stable_json(payload))</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> bundle</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><strong>Receiving Intelligence (Inbound)</strong></p>
+<ol start="2" type="1">
+<li>Ingest and normalize peer bundles</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ingest_federated_bundle(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    bundle: FederatedSignalBundle,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    received_at: Optional[datetime] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> FederatedInsight:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Normalize a received bundle into a local insight object.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    (No automatic action; it becomes advisory input to local FRS.)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> FederatedInsight(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        bundle_id<span class="op">=</span>bundle.<span class="bu">id</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        origin_node_id<span class="op">=</span>bundle.node_id,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        received_at<span class="op">=</span>received_at <span class="kw">or</span> datetime.utcnow(),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        tags<span class="op">=</span>bundle.tags,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        content<span class="op">=</span>{</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"findings"</span>: bundle.findings_summary,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"scenarios"</span>: bundle.scenario_envelopes,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"lessons"</span>: bundle.lessons,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"bundle_hash"</span>: bundle.bundle_hash,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"share_policy_id"</span>: bundle.share_policy_id,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        confidence<span class="op">=</span>bundle.confidence,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        notes<span class="op">=</span><span class="st">"Received via FRS-7 federation exchange (advisory)."</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><strong>Cross-Node Pattern Synthesis</strong></p>
+<ol start="3" type="1">
+<li>Detect emergent patterns across nodes</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> synthesize_cross_node_patterns(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    insights: List[FederatedInsight],</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    min_nodes: <span class="bu">int</span> <span class="op">=</span> <span class="dv">2</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> List[CrossNodePattern]:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Aggregate similar insights into cross-node patterns.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Grouping key: pattern tags carried in lesson payloads.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    grouped: Dict[<span class="bu">str</span>, List[FederatedInsight]] <span class="op">=</span> {}</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ins <span class="kw">in</span> insights:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extract pattern keys from lesson payloads</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> lesson <span class="kw">in</span> ins.content.get(<span class="st">"lessons"</span>, []):</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> k, v <span class="kw">in</span> lesson.get(<span class="st">"pattern_tags"</span>, []):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> k <span class="op">==</span> <span class="st">"pattern"</span>:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                    grouped.setdefault(v, []).append(ins)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    results: List[CrossNodePattern] <span class="op">=</span> []</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pattern_key, group <span class="kw">in</span> grouped.items():</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        participating_nodes <span class="op">=</span> <span class="bu">sorted</span>({g.origin_node_id <span class="cf">for</span> g <span class="kw">in</span> group})</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(participating_nodes) <span class="op">&lt;</span> min_nodes:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Aggregate outcomes (simple mean over shared lessons containing quantified outcomes)</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        sums: Dict[<span class="bu">str</span>, <span class="bu">float</span>] <span class="op">=</span> {}</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        counts: Dict[<span class="bu">str</span>, <span class="bu">int</span>] <span class="op">=</span> {}</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> g <span class="kw">in</span> group:</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> lesson <span class="kw">in</span> g.content.get(<span class="st">"lessons"</span>, []):</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> metric, val <span class="kw">in</span> lesson.get(<span class="st">"quantified_outcomes"</span>, {}).items():</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                    sums[metric] <span class="op">=</span> sums.get(metric, <span class="fl">0.0</span>) <span class="op">+</span> <span class="bu">float</span>(val)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                    counts[metric] <span class="op">=</span> counts.get(metric, <span class="dv">0</span>) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        aggregated_outcomes <span class="op">=</span> {</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>            m: (sums[m] <span class="op">/</span> <span class="bu">max</span>(counts.get(m, <span class="dv">1</span>), <span class="dv">1</span>))</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> m <span class="kw">in</span> sums.keys()</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        confidence: Confidence <span class="op">=</span> <span class="st">"high"</span> <span class="cf">if</span> <span class="bu">len</span>(participating_nodes) <span class="op">&gt;=</span> <span class="dv">3</span> <span class="cf">else</span> <span class="st">"medium"</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        results.append(CrossNodePattern(</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>            <span class="bu">id</span><span class="op">=</span>generate_id(<span class="st">"cross_pattern"</span>),</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>            created_at<span class="op">=</span>datetime.utcnow(),</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>            tags<span class="op">=</span>[SemanticTag(<span class="st">"pattern"</span>, pattern_key)],</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>            participating_nodes<span class="op">=</span>participating_nodes,</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>            description<span class="op">=</span><span class="ss">f"Recurring pattern '</span><span class="sc">{</span>pattern_key<span class="sc">}</span><span class="ss">' observed across </span><span class="sc">{</span><span class="bu">len</span>(participating_nodes)<span class="sc">}</span><span class="ss"> nodes."</span>,</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>            aggregated_outcomes<span class="op">=</span>aggregated_outcomes,</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>            confidence<span class="op">=</span>confidence,</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>        ))</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><strong>Routing Federated Intelligence Back into Local FRS</strong></p>
+<ol start="4" type="1">
+<li>Local reintegration (advisory only)</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reintegrate_federated_insights(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    insights: List[FederatedInsight],</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> Dict[<span class="bu">str</span>, Any]:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Feed federated intelligence back into local FRS loops.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Advisory only; local FRS must re-validate.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"for_diagnostics"</span>: insights,      <span class="co"># FRS-2 context amplification</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"for_modeling"</span>: insights,         <span class="co"># FRS-3 parameter priors</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"for_recommendations"</span>: insights,  <span class="co"># FRS-4 template enrichment</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"for_sensemaking"</span>: insights,      <span class="co"># FRS-5 historical parallels</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"for_memory"</span>: insights,           <span class="co"># FRS-6 archive enrichment</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><strong>Running Example (Sailboat): One Node → Federation → Back Again</strong></p>
+<p><em>Illustrative Signal Flow (Non-Normative Example)</em></p>
+<p>The following example illustrates how a local sailboat durability episode is shared as aggregated intelligence, received by peer nodes, and synthesized into a cross-node pattern. It introduces no new logic, rules, or authority beyond the formal specification above, and should be read strictly as an informative instantiation of the defined data structures—not as a procedural requirement, execution model, or prescriptive workflow.</p>
+<ul>
+<li>Node A publishes:
+<ul>
+<li>findings (humidity-driven maintenance drift + resin dependency trend)</li>
+<li>scenario envelope (status quo vs redesign/substitution)</li>
+<li>lessons (bio-based coatings + workflow sequencing reduced maintenance 20–35%)</li>
+</ul></li>
+<li>Two peer coastal nodes receive the bundle.</li>
+<li>One reports similar humidity-linked drift; another confirms a different binder pathway.</li>
+<li>FRS-7 synthesizes a cross-node pattern tagged <code>pattern: coastal_humidity_resilience</code>.</li>
+<li>That pattern is reintegrated locally as <strong>advisory</strong> input to:
+<ul>
+<li>FRS-6 (memory)</li>
+<li>FRS-4 (recommendation templates)</li>
+<li>FRS-5 (sensemaking options for CDS)</li>
+</ul></li>
+</ul>
+<p>No one is told what to do. Everyone can see what worked.</p>
+<hr>
+<p><strong>Math Sketches</strong></p>
+<p><strong>1. Confidence accumulation across nodes</strong></p>
+<p>Let a pattern <span class="math inline">\(p\)</span> be observed in <span class="math inline">\(n\)</span> nodes with improvement values <span class="math inline">\(\Delta_i\)</span>.</p>
+<p><span class="math display">\[C_p = \mathrm{clip}\left(\frac{1}{n}\sum_{i=1}^{n}\Delta_i,\ 0,\ 1\right)\]</span></p>
+<p>Confidence increases with replication and effect size.</p>
+<hr>
+<p><strong>2. Non-dominance constraint</strong></p>
+<p>Federated patterns do not override local evidence.</p>
+<p><span class="math display">\[\text{federated insight} \Rightarrow \text{prior adjustment}\]</span></p>
+<p>Federated intelligence modifies <strong>priors</strong>, not conclusions; local FRS-2/3 always re-validate.</p>
+<hr>
+<p><strong>3. Network learning diffusion proxy</strong></p>
+<p>A crude diffusion proxy (optional monitoring metric):</p>
+<p><span class="math display">\[\mathcal{R} = \frac{\lvert R\rvert}{\lvert P\rvert}\cdot \log(1+\lvert N\rvert)\]</span></p>
+<p>where <span class="math inline">\(N\)</span> is nodes, <span class="math inline">\(P\)</span> shared patterns, and <span class="math inline">\(R\)</span> replicated interventions.</p>
+<hr>
+<p><strong>Plain-Language Summary</strong></p>
+<p>FRS Module 7 ensures that learning doesn’t stay trapped inside local experience. Nodes publish <strong>aggregated drift patterns and viability envelopes</strong>, peers receive them as advisory context, and repeated successes become cross-node evidence—without central authority, mandates, or competitive advantage. It’s how Integral becomes collectively smarter while remaining federated.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.html" class="pagination-link" aria-label="Module 6 (FRS) — Longitudinal Memory, Pattern Learning &amp; Institutional Recall">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Module 6 (FRS) — Longitudinal Memory, Pattern Learning &amp; Institutional Recall</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html" class="pagination-link" aria-label="Putting It Together: FRS Orchestration">
+        <span class="nav-page-text"><span class="chapter-title">Putting It Together: FRS Orchestration</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

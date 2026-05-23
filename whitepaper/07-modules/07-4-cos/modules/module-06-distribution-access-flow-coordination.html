@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Module 6 (COS) — Distribution &amp; Access Flow Coordination – Integral Whitepaper</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.html" rel="next">
+<link href="../../../../whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.html" rel="prev">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-32c177501efb78f9be123735d54f4510.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.html"><span class="chapter-title">Module 6 (COS) — Distribution &amp; Access Flow Coordination</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../../">Integral Whitepaper</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../../Integral-Whitepaper.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../../Integral-Whitepaper.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integral Whitepaper</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/00-abstract.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-abstract.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/01-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>1. INTRODUCTION</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/02-human-analogy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. A HUMAN-LEVEL ANALOGY</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/03-what-integral-solves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>3. WHAT INTEGRAL SOLVES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/04-what-integral-creates.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>4. WHAT INTEGRAL CREATES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/05-the-5-core-subsystems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>5. THE FIVE CORE SUBSYSTEMS (MEZZO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/06-how-the-five-systems-work-as-one.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>6. HOW THE FIVE SYSTEMS WORK AS ONE</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal CDS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (CDS) — Issue Capture &amp; Signal Intake</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (CDS) — Issue Structuring &amp; Framing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (CDS) — Knowledge Integration &amp; Context Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-04-norms-constraint-checking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (CDS) — Norms &amp; Constraint Checking Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-05-deliberation-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (CDS) — Participatory Deliberation Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-06-weighted-consensus.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (CDS) — Weighted Consensus Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-07-decision-recording.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (CDS) — Decision Recording, Versioning &amp; Accountability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-08-implementation-dispatch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (CDS) — Implementation Dispatch Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-09-human-deliberation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (CDS) — Human Deliberation &amp; High-Bandwidth Resolution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-10-review-revision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (CDS) — Review, Revision &amp; Override Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: CDS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDS Addendum: Syntegrity as Final-Stage Human Deliberation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/oad-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.2 OAD Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/oad-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal OAD Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (OAD) — Design Submission &amp; Structured Specification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (OAD) — Collaborative Design Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-03-material-ecological-coefficient-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (OAD) — Material &amp; Ecological Coefficient Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-04-lifecycle-maintainability-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (OAD) — Lifecycle &amp; Maintainability Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-05-feasibility-constraint-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (OAD) — Feasibility &amp; Constraint Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-06-skill-labor-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (OAD) — Skill &amp; Labor-Step Decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-07-systems-integration-architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (OAD) — Systems Integration &amp; Architectural Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-08-optimization-efficiency-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (OAD) — Optimization &amp; Efficiency Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-09-validation-certification-release.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (OAD) — Validation, Certification &amp; Release Manager</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (OAD) — Knowledge Commons &amp; Reuse Repository</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: OAD Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/itc-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.3 ITC Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/itc-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal ITC Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (ITC) — Labor Event Capture &amp; Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (ITC) — Skill &amp; Context Weighting Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-03-time-decay-mechanism.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (ITC) — Time-Decay Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-04-labor-forecasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (ITC) — Labor Forecasting &amp; Need Anticipation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-05-access-allocation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (ITC) — Access Allocation &amp; Redemption</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-06-cross-coop-reciprocity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (ITC) — Cross-Cooperative &amp; Internodal Reciprocity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-07-fairness-anti-coercion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (ITC) — Fairness, Anti-Coercion &amp; Ethical Safeguards</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-08-ledger-transparency.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (ITC) — Ledger, Transparency &amp; Auditability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (ITC) — Integration &amp; Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: ITC Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/cos-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.4 COS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/cos-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal COS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (COS) — Production Planning &amp; Work Breakdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (COS) — Labor Organization &amp; Skill-Matching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-03-resource-procurement-materials-management.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (COS) — Resource Procurement &amp; Materials Management</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-04-cooperative-workflow-execution.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (COS) — Cooperative Workflow Execution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (COS) — Capacity, Throughput &amp; Constraint Balancing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Module 6 (COS) — Distribution &amp; Access Flow Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (COS) — Quality Assurance &amp; Safety Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-08-cooperative-coordination-inter-coop-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (COS) — Cooperative Coordination &amp; Inter-Coop Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (COS) — Transparency, Ledger &amp; Audit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: COS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/frs-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.5 FRS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/frs-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal FRS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-01-signal-intake.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (FRS) — Signal Intake &amp; Semantic Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-02-diagnostic-classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (FRS) — Diagnostic Classification &amp; Pathology Detection</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-03-constraint-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (FRS) — Constraint Modeling &amp; System Dynamics Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-04-recommendation-routing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (FRS) — Recommendation &amp; Signal Routing Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-05-democratic-sensemaking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (FRS)— Democratic Sensemaking &amp; CDS Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (FRS) — Longitudinal Memory, Pattern Learning &amp; Institutional Recall</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: FRS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/08-community-shuttle-example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8. THE FIVE SYSTEMS | SERVICE EXAMPLE</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>9. NODES TO NETWORKS: RECURSIVE ORGANIZATION (MACRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-01-node-network-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.1 Node Network Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-02-nodes-as-actors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.2 Nodes as Actors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-03-federation-as-synchronization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.3 Federation as Synchronization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.4 Scale, Scope, and Bioregional Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-06-case-watershed.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.6 Applied Case I: Bioregional Watershed Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-07-case-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.7 Applied Case II: Shared Energy Infrastructure Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-08-case-distributed-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.8 Applied Case III: Distributed Production of Complex Goods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-09-synthesis-domain-invariant-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.9 Synthesis: Domain-Invariant Coordination Logic</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>10. INTERNODAL RECIPROCITY</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-01-reciprocity-primitives-and-flow-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.1 Reciprocity Primitives and Flow Types</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.2 Cross-Node Labor Reciprocity and ITC Recognition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.3 Material and Capacity Reciprocity Across Nodes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.4 Assurance, Trust, and Anti-Arbitrage Mechanisms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/11-transition-adoption-implementation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11. TRANSITION, ADOPTION, &amp; IMPLEMENTATION</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Module 6 (COS) — Distribution &amp; Access Flow Coordination</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Purpose</strong></p>
+<p>Route finished goods into <strong>Access Centers, shared-use pools, repair loops, and delivery channels</strong>, while generating <strong>availability/scarcity signals</strong> that ITC uses (within CDS bounds) to compute and adjust access obligations. This is where “we built X” becomes “here’s how X is actually available to people.”</p>
+<p><strong>Role in the system</strong></p>
+<p>Up to now:</p>
+<ul>
+<li><strong>OAD</strong> → designed and certified the artifact.</li>
+<li><strong>COS 1–5</strong> → planned, staffed, sourced, and built it in real space.</li>
+<li><strong>ITC</strong> → can compute a <em>prospective</em> access obligation from design + production assumptions.</li>
+</ul>
+<p><strong>Module 6</strong> closes the loop between production and lived access:</p>
+<ul>
+<li>decides <strong>where</strong> finished units go (personal acquisition stock, shared fleets, essential-service reserves, repair pools),</li>
+<li>tracks <strong>stock vs requests</strong> (availability, backlog),</li>
+<li>detects <strong>scarcity</strong> and <strong>misallocation</strong> patterns (e.g., personal stock drained while shared stock sits idle),</li>
+<li>emits <strong>non-market signals</strong> to:
+<ul>
+<li><strong>ITC</strong> (availability/backlog multipliers as <em>inputs</em>, not prices),</li>
+<li><strong>FRS</strong> (access stress signals for long-horizon monitoring).</li>
+</ul></li>
+</ul>
+<p>This is the federation’s <strong>distribution nervous system</strong>: not price formation, not bidding—just transparent routing plus measured availability.</p>
+<hr>
+<p><strong>Types — Access Channels, Inventory, and Signals</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dataclasses <span class="im">import</span> dataclass</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Dict, List, Optional</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> enum <span class="im">import</span> Enum</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AccessChannelType(<span class="bu">str</span>, Enum):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    PERSONAL <span class="op">=</span> <span class="st">"personal_acquisition"</span>        <span class="co"># long-term possession, ITCs extinguished (ITC side)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    SHARED_FLEET <span class="op">=</span> <span class="st">"shared_fleet"</span>            <span class="co"># pooled use (bikes, instruments, devices)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    TOOL_LIBRARY <span class="op">=</span> <span class="st">"tool_library"</span>            <span class="co"># short-term borrow, typically free</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    ESSENTIAL_SERVICE <span class="op">=</span> <span class="st">"essential_service"</span>  <span class="co"># reserved availability for essential provisioning</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    REPAIR_POOL <span class="op">=</span> <span class="st">"repair_pool"</span>              <span class="co"># held for swap/repair/reconditioning loop</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DistributionPolicy:</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Default routing policy for a good in a node.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    COS normalizes splits and enforces minimum/priority constraints.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    default_split: Dict[AccessChannelType, <span class="bu">float</span>]   <span class="co"># weights (need not sum to 1)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    prioritize_essential: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>              <span class="co"># reserve a minimum essential stock</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    min_essential_units: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>                    <span class="co"># optional: hard minimum for ESSENTIAL_SERVICE</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    min_shared_fraction: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.0</span>                <span class="co"># ensure some share remains in SHARED_FLEET/TOOL_LIBRARY</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AccessInventoryRecord:</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">    Current state of a good across channels in a node.</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    good_id: <span class="bu">str</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    by_channel: Dict[AccessChannelType, <span class="bu">int</span>]</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    pending_requests_personal: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    pending_requests_shared: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    pending_requests_essential: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># optional timestamp for windowed monitoring</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    updated_at: Optional[datetime] <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ITCAccessAvailabilitySignal:</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">    Advisory signal to ITC Module 5: availability/backlog conditions that can</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">    gently modulate access obligations (within CDS-defined bounds).</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    good_id: <span class="bu">str</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    availability_index_personal: <span class="bu">float</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    availability_index_shared: <span class="bu">float</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    backlog_ratio_personal: <span class="bu">float</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    backlog_ratio_shared: <span class="bu">float</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    suggested_access_multiplier: <span class="bu">float</span>   <span class="co"># &gt;1 scarcity; &lt;1 abundance (advisory)</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    notes: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclass</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FRSAccessStressSignal:</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="co">    Monitoring signal to FRS: persistent scarcity, over-demand, or underutilization patterns.</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    good_id: <span class="bu">str</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    scarcity_index: <span class="bu">float</span>               <span class="co"># 0–1 (higher = scarcer)</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    underutilization_index: <span class="bu">float</span>       <span class="co"># 0–1 (higher = more idle relative to demand proxy)</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    description: <span class="bu">str</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><strong>Core Logic</strong></p>
+<ol type="1">
+<li>Routing finished goods into channels</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _normalize_split(split: Dict[AccessChannelType, <span class="bu">float</span>]) <span class="op">-&gt;</span> Dict[AccessChannelType, <span class="bu">float</span>]:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="bu">sum</span>(split.values())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> total <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># sensible fallback: default to shared circulation</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {AccessChannelType.SHARED_FLEET: <span class="fl">1.0</span>}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {ch: w <span class="op">/</span> total <span class="cf">for</span> ch, w <span class="kw">in</span> split.items()}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> route_finished_goods(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    finished_units: <span class="bu">int</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    policy: DistributionPolicy,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    inv: AccessInventoryRecord,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> AccessInventoryRecord:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Route newly finished units into access channels using:</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    - normalized default split</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    - optional essential reservation</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">    - optional minimum shared fraction</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> finished_units <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        inv.updated_at <span class="op">=</span> datetime.utcnow()</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> inv</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    split <span class="op">=</span> _normalize_split(policy.default_split)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    allocated: Dict[AccessChannelType, <span class="bu">int</span>] <span class="op">=</span> {ch: <span class="dv">0</span> <span class="cf">for</span> ch <span class="kw">in</span> AccessChannelType}</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span> finished_units</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- A) Optional essential reservation (first claim) ---</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> policy.prioritize_essential <span class="kw">and</span> policy.min_essential_units <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        current_essential <span class="op">=</span> inv.by_channel.get(AccessChannelType.ESSENTIAL_SERVICE, <span class="dv">0</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        needed <span class="op">=</span> <span class="bu">max</span>(<span class="dv">0</span>, policy.min_essential_units <span class="op">-</span> current_essential)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        reserve <span class="op">=</span> <span class="bu">min</span>(needed, remaining)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        allocated[AccessChannelType.ESSENTIAL_SERVICE] <span class="op">+=</span> reserve</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        remaining <span class="op">-=</span> reserve</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- B) Deterministic base allocation using floor, then distribute remainder by largest fractional part ---</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute exact desired counts</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    desired <span class="op">=</span> {ch: split.get(ch, <span class="fl">0.0</span>) <span class="op">*</span> remaining <span class="cf">for</span> ch <span class="kw">in</span> AccessChannelType}</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> {ch: <span class="bu">int</span>(desired[ch]) <span class="cf">for</span> ch <span class="kw">in</span> AccessChannelType}  <span class="co"># floor</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    used <span class="op">=</span> <span class="bu">sum</span>(base.values())</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ensure we don't exceed remaining (shouldn’t, due to floor)</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    used <span class="op">=</span> <span class="bu">min</span>(used, remaining)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ch <span class="kw">in</span> AccessChannelType:</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        base[ch] <span class="op">=</span> <span class="bu">min</span>(base[ch], remaining)  <span class="co"># defensive</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    leftover <span class="op">=</span> remaining <span class="op">-</span> <span class="bu">sum</span>(base.values())</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Distribute leftover by fractional remainders (largest first)</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    remainders <span class="op">=</span> <span class="bu">sorted</span>(</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        [(ch, desired[ch] <span class="op">-</span> base[ch]) <span class="cf">for</span> ch <span class="kw">in</span> AccessChannelType],</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>],</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        reverse<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(leftover):</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        allocated[remainders[i <span class="op">%</span> <span class="bu">len</span>(remainders)][<span class="dv">0</span>]] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add base floors</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ch <span class="kw">in</span> AccessChannelType:</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        allocated[ch] <span class="op">+=</span> base[ch]</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- C) Enforce minimum shared fraction (shared_fleet + tool_library) ---</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    total_after <span class="op">=</span> <span class="bu">sum</span>(inv.by_channel.values()) <span class="op">+</span> finished_units</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    min_shared_units <span class="op">=</span> <span class="bu">int</span>(policy.min_shared_fraction <span class="op">*</span> total_after)</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    current_shared <span class="op">=</span> (</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        inv.by_channel.get(AccessChannelType.SHARED_FLEET, <span class="dv">0</span>)</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> inv.by_channel.get(AccessChannelType.TOOL_LIBRARY, <span class="dv">0</span>)</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    new_shared <span class="op">=</span> allocated[AccessChannelType.SHARED_FLEET] <span class="op">+</span> allocated[AccessChannelType.TOOL_LIBRARY]</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    deficit <span class="op">=</span> <span class="bu">max</span>(<span class="dv">0</span>, min_shared_units <span class="op">-</span> (current_shared <span class="op">+</span> new_shared))</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> deficit <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>        <span class="co"># pull from PERSONAL first (least communal), then from REPAIR_POOL if needed</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>        pull_order <span class="op">=</span> [AccessChannelType.PERSONAL, AccessChannelType.REPAIR_POOL]</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> src <span class="kw">in</span> pull_order:</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> deficit <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>            take <span class="op">=</span> <span class="bu">min</span>(deficit, allocated[src])</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>            allocated[src] <span class="op">-=</span> take</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>            allocated[AccessChannelType.SHARED_FLEET] <span class="op">+=</span> take</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>            deficit <span class="op">-=</span> take</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- D) Commit allocation to inventory ---</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ch <span class="kw">in</span> AccessChannelType:</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>        inv.by_channel[ch] <span class="op">=</span> inv.by_channel.get(ch, <span class="dv">0</span>) <span class="op">+</span> allocated[ch]</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    inv.updated_at <span class="op">=</span> datetime.utcnow()</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> inv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<ol start="2" type="1">
+<li>Availability + backlog indices (simple, computable)</li>
+</ol>
+<p>We interpret:</p>
+<ul>
+<li>personal stock <span class="math inline">\(S_p\)</span> vs personal requests <span class="math inline">\(R_p\)</span></li>
+<li>shared stock <span class="math inline">\(S_s\)</span> vs shared requests <span class="math inline">\(R_s\)</span></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_availability_metrics(inv: AccessInventoryRecord, epsilon: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1e-6</span>) <span class="op">-&gt;</span> Dict[<span class="bu">str</span>, <span class="bu">float</span>]:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    S_p <span class="op">=</span> inv.by_channel.get(AccessChannelType.PERSONAL, <span class="dv">0</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    S_s <span class="op">=</span> inv.by_channel.get(AccessChannelType.SHARED_FLEET, <span class="dv">0</span>) <span class="op">+</span> inv.by_channel.get(AccessChannelType.TOOL_LIBRARY, <span class="dv">0</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    R_p <span class="op">=</span> inv.pending_requests_personal</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    R_s <span class="op">=</span> inv.pending_requests_shared</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Availability indices</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    A_p <span class="op">=</span> <span class="fl">1.0</span> <span class="cf">if</span> (R_p <span class="op">&lt;=</span> <span class="dv">0</span> <span class="kw">and</span> S_p <span class="op">&gt;</span> <span class="dv">0</span>) <span class="cf">else</span> (<span class="bu">min</span>(<span class="fl">1.0</span>, S_p <span class="op">/</span> <span class="bu">max</span>(R_p, epsilon)) <span class="cf">if</span> R_p <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="fl">0.0</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    A_s <span class="op">=</span> <span class="fl">1.0</span> <span class="cf">if</span> (R_s <span class="op">&lt;=</span> <span class="dv">0</span> <span class="kw">and</span> S_s <span class="op">&gt;</span> <span class="dv">0</span>) <span class="cf">else</span> (<span class="bu">min</span>(<span class="fl">1.0</span>, S_s <span class="op">/</span> <span class="bu">max</span>(R_s, epsilon)) <span class="cf">if</span> R_s <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="fl">0.0</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Backlog ratios</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    B_p <span class="op">=</span> <span class="bu">max</span>(R_p <span class="op">-</span> S_p, <span class="dv">0</span>) <span class="op">/</span> <span class="bu">max</span>(R_p, <span class="dv">1</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    B_s <span class="op">=</span> <span class="bu">max</span>(R_s <span class="op">-</span> S_s, <span class="dv">0</span>) <span class="op">/</span> <span class="bu">max</span>(R_s, <span class="dv">1</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"A_p"</span>: A_p, <span class="st">"A_s"</span>: A_s, <span class="st">"B_p"</span>: B_p, <span class="st">"B_s"</span>: B_s}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<ol start="3" type="1">
+<li>Availability → advisory multiplier signal for ITC</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_itc_access_availability_signal(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    good_id: <span class="bu">str</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    inv: AccessInventoryRecord,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    gamma_scarcity: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.4</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    gamma_backlog: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.4</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    m_min: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    m_max: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> ITCAccessAvailabilitySignal:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    metrics <span class="op">=</span> compute_availability_metrics(inv)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    A_p, A_s <span class="op">=</span> metrics[<span class="st">"A_p"</span>], metrics[<span class="st">"A_s"</span>]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    B_p, B_s <span class="op">=</span> metrics[<span class="st">"B_p"</span>], metrics[<span class="st">"B_s"</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    scarcity <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> A_p) <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> A_s)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    backlog <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> B_p <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> B_s</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> <span class="fl">1.0</span> <span class="op">+</span> gamma_scarcity <span class="op">*</span> scarcity <span class="op">+</span> gamma_backlog <span class="op">*</span> backlog</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> <span class="bu">max</span>(m_min, <span class="bu">min</span>(m_max, m))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ITCAccessAvailabilitySignal(</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        good_id<span class="op">=</span>good_id,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        availability_index_personal<span class="op">=</span>A_p,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        availability_index_shared<span class="op">=</span>A_s,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        backlog_ratio_personal<span class="op">=</span>B_p,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        backlog_ratio_shared<span class="op">=</span>B_s,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        suggested_access_multiplier<span class="op">=</span>m,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        notes<span class="op">=</span><span class="st">"Advisory signal from COS Module 6 (availability/backlog). ITC applies CDS bounds."</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<ol start="4" type="1">
+<li>Stress signal for FRS (scarcity + underutilization proxy)</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_frs_access_stress_signal(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    good_id: <span class="bu">str</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    inv: AccessInventoryRecord,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> FRSAccessStressSignal:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    metrics <span class="op">=</span> compute_availability_metrics(inv)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    A_p, A_s <span class="op">=</span> metrics[<span class="st">"A_p"</span>], metrics[<span class="st">"A_s"</span>]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    B_p, B_s <span class="op">=</span> metrics[<span class="st">"B_p"</span>], metrics[<span class="st">"B_s"</span>]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># scarcity in [0,1]</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    scarcity <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> A_p) <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> A_s)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    total_stock <span class="op">=</span> <span class="bu">sum</span>(inv.by_channel.values())</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    total_requests <span class="op">=</span> inv.pending_requests_personal <span class="op">+</span> inv.pending_requests_shared <span class="op">+</span> inv.pending_requests_essential</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># underutilization proxy: “lots of stock with weak expressed demand”</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> total_stock <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        underutilization <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        demand_pressure <span class="op">=</span> <span class="bu">min</span>(<span class="fl">1.0</span>, total_requests <span class="op">/</span> <span class="bu">max</span>(total_stock, <span class="dv">1</span>))</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        underutilization <span class="op">=</span> <span class="fl">1.0</span> <span class="op">-</span> demand_pressure  <span class="co"># high when stock &gt;&gt; requests</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    desc <span class="op">=</span> (</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Access stress for </span><span class="sc">{</span>good_id<span class="sc">}</span><span class="ss"> in </span><span class="sc">{</span>node_id<span class="sc">}</span><span class="ss">: "</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"scarcity=</span><span class="sc">{</span>scarcity<span class="sc">:.2f}</span><span class="ss">, underutilization=</span><span class="sc">{</span>underutilization<span class="sc">:.2f}</span><span class="ss">, "</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"backlog_personal=</span><span class="sc">{</span>B_p<span class="sc">:.2f}</span><span class="ss">, backlog_shared=</span><span class="sc">{</span>B_s<span class="sc">:.2f}</span><span class="ss">."</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> FRSAccessStressSignal(</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        good_id<span class="op">=</span>good_id,</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        scarcity_index<span class="op">=</span>scarcity,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        underutilization_index<span class="op">=</span>underutilization,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span>desc,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<ol start="5" type="1">
+<li>Orchestration: end-to-end pass for Module 6</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_distribution_and_access_flow(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    good_id: <span class="bu">str</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    finished_units: <span class="bu">int</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    policy: DistributionPolicy,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    inventory: AccessInventoryRecord,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> Dict[<span class="bu">str</span>, <span class="bu">object</span>]:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">    COS Module 6 — Distribution &amp; Access Flow Coordination</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    ------------------------------------------------------</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">    1) Route newly produced goods into access channels.</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">    2) Compute availability/backlog metrics.</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">    3) Produce advisory ITC signal + FRS stress signal.</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    updated_inventory <span class="op">=</span> route_finished_goods(</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        finished_units<span class="op">=</span>finished_units,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        policy<span class="op">=</span>policy,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        inv<span class="op">=</span>inventory,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    itc_signal <span class="op">=</span> build_itc_access_availability_signal(</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        good_id<span class="op">=</span>good_id,</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        inv<span class="op">=</span>updated_inventory,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    frs_signal <span class="op">=</span> build_frs_access_stress_signal(</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        good_id<span class="op">=</span>good_id,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        inv<span class="op">=</span>updated_inventory,</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"inventory"</span>: updated_inventory,</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">"itc_access_signal"</span>: itc_signal,</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">"frs_access_stress"</span>: frs_signal,</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><strong>Math Sketch — Availability and Backlog</strong></p>
+<p>Let: - <span class="math inline">\(S_p\)</span> = personal stock - <span class="math inline">\(R_p\)</span> = personal requests - <span class="math inline">\(S_s\)</span> = shared stock (shared fleet + tool library) - <span class="math inline">\(R_s\)</span> = shared requests</p>
+<p>Personal availability:</p>
+<p><span class="math display">\[
+A_p = \min\left(1,\; \frac{S_p}{\max(R_p,\epsilon)}\right)
+\]</span></p>
+<p>Shared availability:</p>
+<p><span class="math display">\[
+A_s = \min\left(1,\; \frac{S_s}{\max(R_s,\epsilon)}\right)
+\]</span></p>
+<p>Personal backlog ratio:</p>
+<p><span class="math display">\[
+B_p = \frac{\max(R_p - S_p, 0)}{\max(R_p, 1)}
+\]</span></p>
+<p>Shared backlog ratio:</p>
+<p><span class="math display">\[
+B_s = \frac{\max(R_s - S_s, 0)}{\max(R_s, 1)}
+\]</span></p>
+<p>Scarcity index (0–1) used for signaling:</p>
+<p><span class="math display">\[
+\text{scarcity} = \tfrac{1}{2}(1-A_p) + \tfrac{1}{2}(1-A_s)
+\]</span></p>
+<p>Bounded advisory multiplier to ITC:</p>
+<p><span class="math display">\[
+m = \mathrm{clip}\left(1 + \gamma_1\cdot \text{scarcity} + \gamma_2\cdot \tfrac{1}{2}(B_p + B_s),\; m_{\min},\; m_{\max}\right)
+\]</span></p>
+<hr>
+<p><strong>Plain-Language Example</strong></p>
+<p>A node completes <strong>20 bicycles</strong>.</p>
+<p>Policy says: - 40% personal stock - 40% shared fleet - 20% repair pool - minimum shared fraction enforced</p>
+<p>COS routes bikes accordingly, updates inventory counts, and sees that: - personal requests are high and personal stock is tight → backlog rising - shared fleet stock is adequate → shared availability remains good</p>
+<p>COS sends ITC an <strong>advisory signal</strong>: - “Personal access is currently tight, shared access is fine; here is a bounded multiplier suggestion.”</p>
+<p>ITC can then, within CDS bounds: - nudge the personal acquisition obligation upward slightly (to avoid draining stock), - keep shared access near-free (or lightly gated only under scarcity), - and expose the rationale transparently.</p>
+<p>FRS receives the longer-horizon signal: - “Chronic personal-bike scarcity + healthy shared stock → consider shifting future routing/production strategy or strengthening shared-use culture.”</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.html" class="pagination-link" aria-label="Module 5 (COS) — Capacity, Throughput &amp; Constraint Balancing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Module 5 (COS) — Capacity, Throughput &amp; Constraint Balancing</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.html" class="pagination-link" aria-label="Module 7 (COS) — Quality Assurance &amp; Safety Verification">
+        <span class="nav-page-text"><span class="chapter-title">Module 7 (COS) — Quality Assurance &amp; Safety Verification</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

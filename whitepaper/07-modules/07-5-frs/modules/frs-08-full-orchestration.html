@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Putting It Together: FRS Orchestration – Integral Whitepaper</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../whitepaper/08-community-shuttle-example.html" rel="next">
+<link href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html" rel="prev">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-32c177501efb78f9be123735d54f4510.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html"><span class="chapter-title">Putting It Together: FRS Orchestration</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../../">Integral Whitepaper</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../../Integral-Whitepaper.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../../Integral-Whitepaper.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integral Whitepaper</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/00-abstract.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-abstract.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/01-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>1. INTRODUCTION</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/02-human-analogy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. A HUMAN-LEVEL ANALOGY</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/03-what-integral-solves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>3. WHAT INTEGRAL SOLVES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/04-what-integral-creates.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>4. WHAT INTEGRAL CREATES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/05-the-5-core-subsystems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>5. THE FIVE CORE SUBSYSTEMS (MEZZO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/06-how-the-five-systems-work-as-one.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>6. HOW THE FIVE SYSTEMS WORK AS ONE</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal CDS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (CDS) — Issue Capture &amp; Signal Intake</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (CDS) — Issue Structuring &amp; Framing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (CDS) — Knowledge Integration &amp; Context Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-04-norms-constraint-checking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (CDS) — Norms &amp; Constraint Checking Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-05-deliberation-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (CDS) — Participatory Deliberation Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-06-weighted-consensus.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (CDS) — Weighted Consensus Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-07-decision-recording.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (CDS) — Decision Recording, Versioning &amp; Accountability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-08-implementation-dispatch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (CDS) — Implementation Dispatch Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-09-human-deliberation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (CDS) — Human Deliberation &amp; High-Bandwidth Resolution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-module-10-review-revision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (CDS) — Review, Revision &amp; Override Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: CDS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDS Addendum: Syntegrity as Final-Stage Human Deliberation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/oad-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.2 OAD Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/oad-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal OAD Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (OAD) — Design Submission &amp; Structured Specification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (OAD) — Collaborative Design Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-03-material-ecological-coefficient-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (OAD) — Material &amp; Ecological Coefficient Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-04-lifecycle-maintainability-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (OAD) — Lifecycle &amp; Maintainability Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-05-feasibility-constraint-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (OAD) — Feasibility &amp; Constraint Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-06-skill-labor-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (OAD) — Skill &amp; Labor-Step Decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-07-systems-integration-architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (OAD) — Systems Integration &amp; Architectural Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-08-optimization-efficiency-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (OAD) — Optimization &amp; Efficiency Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-09-validation-certification-release.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (OAD) — Validation, Certification &amp; Release Manager</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (OAD) — Knowledge Commons &amp; Reuse Repository</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: OAD Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/itc-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.3 ITC Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/itc-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal ITC Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (ITC) — Labor Event Capture &amp; Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (ITC) — Skill &amp; Context Weighting Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-03-time-decay-mechanism.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (ITC) — Time-Decay Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-04-labor-forecasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (ITC) — Labor Forecasting &amp; Need Anticipation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-05-access-allocation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (ITC) — Access Allocation &amp; Redemption</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-06-cross-coop-reciprocity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (ITC) — Cross-Cooperative &amp; Internodal Reciprocity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-07-fairness-anti-coercion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (ITC) — Fairness, Anti-Coercion &amp; Ethical Safeguards</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-08-ledger-transparency.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (ITC) — Ledger, Transparency &amp; Auditability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (ITC) — Integration &amp; Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: ITC Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/cos-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.4 COS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/cos-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal COS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (COS) — Production Planning &amp; Work Breakdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (COS) — Labor Organization &amp; Skill-Matching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-03-resource-procurement-materials-management.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (COS) — Resource Procurement &amp; Materials Management</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-04-cooperative-workflow-execution.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (COS) — Cooperative Workflow Execution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (COS) — Capacity, Throughput &amp; Constraint Balancing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (COS) — Distribution &amp; Access Flow Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (COS) — Quality Assurance &amp; Safety Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-08-cooperative-coordination-inter-coop-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (COS) — Cooperative Coordination &amp; Inter-Coop Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (COS) — Transparency, Ledger &amp; Audit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: COS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/frs-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.5 FRS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/frs-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal FRS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-01-signal-intake.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (FRS) — Signal Intake &amp; Semantic Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-02-diagnostic-classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (FRS) — Diagnostic Classification &amp; Pathology Detection</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-03-constraint-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (FRS) — Constraint Modeling &amp; System Dynamics Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-04-recommendation-routing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (FRS) — Recommendation &amp; Signal Routing Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-05-democratic-sensemaking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (FRS)— Democratic Sensemaking &amp; CDS Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (FRS) — Longitudinal Memory, Pattern Learning &amp; Institutional Recall</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Putting It Together: FRS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/08-community-shuttle-example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8. THE FIVE SYSTEMS | SERVICE EXAMPLE</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>9. NODES TO NETWORKS: RECURSIVE ORGANIZATION (MACRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-01-node-network-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.1 Node Network Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-02-nodes-as-actors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.2 Nodes as Actors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-03-federation-as-synchronization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.3 Federation as Synchronization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.4 Scale, Scope, and Bioregional Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-06-case-watershed.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.6 Applied Case I: Bioregional Watershed Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-07-case-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.7 Applied Case II: Shared Energy Infrastructure Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-08-case-distributed-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.8 Applied Case III: Distributed Production of Complex Goods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/09-nodes-to-networks/09-09-synthesis-domain-invariant-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.9 Synthesis: Domain-Invariant Coordination Logic</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>10. INTERNODAL RECIPROCITY</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-01-reciprocity-primitives-and-flow-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.1 Reciprocity Primitives and Flow Types</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.2 Cross-Node Labor Reciprocity and ITC Recognition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.3 Material and Capacity Reciprocity Across Nodes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.4 Assurance, Trust, and Anti-Arbitrage Mechanisms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../whitepaper/11-transition-adoption-implementation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11. TRANSITION, ADOPTION, &amp; IMPLEMENTATION</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Putting It Together: FRS Orchestration</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The following orchestration sketch shows how <strong>FRS Modules 1–7</strong> operate as a <strong>single recursive adaptive loop</strong>. This is <strong>not</strong> a command system, optimizer, or control center. It is a <strong>coordination driver</strong> that moves the system from perception → understanding → democratic response → learning → federation.</p>
+<p>FRS does not decide outcomes. It ensures that decisions are made <strong>with shared situational awareness</strong> rather than delayed signals, abstraction, or price distortion.</p>
+<p><strong>FRS Orchestration Driver (Pseudocode)</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_frs_cycle(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    node_id: <span class="bu">str</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    time_window: Dict,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    cds_context: Dict,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    share_policy_id: <span class="bu">str</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    End-to-end FRS orchestration loop for a single node and cycle.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    This function:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    - perceives system state</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    - detects drift and pathology</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    - models constraints and futures</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    - proposes corrective signals</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    - supports democratic sensemaking</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    - records learning</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    - synchronizes intelligence across the federation</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">    FRS executes *no changes*. It only produces evidence, projections,</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">    and routed recommendations.</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Signal Intake &amp; Semantic Integration (FRS-1)</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    current_packet <span class="op">=</span> build_signal_packet(</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        time_window<span class="op">=</span>time_window,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    baseline_packet <span class="op">=</span> fetch_baseline_packet(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        reference<span class="op">=</span><span class="st">"recent_stable_period"</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Always archive perception, even if no issues are found</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    archive_signal_packet(current_packet)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Diagnostic Classification &amp; Pathology Detection (FRS-2)</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    diagnostic_findings <span class="op">=</span> diagnose_system_state(</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        current_packet<span class="op">=</span>current_packet,</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        baseline_packet<span class="op">=</span>baseline_packet,</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> diagnostic_findings:</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="co"># System appears stable in this window</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>            <span class="st">"node_id"</span>: node_id,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>            <span class="st">"status"</span>: <span class="st">"stable"</span>,</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>            <span class="st">"packet_id"</span>: current_packet.<span class="bu">id</span>,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. Constraint Modeling &amp; Scenario Simulation (FRS-3)</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    constraint_model <span class="op">=</span> build_constraint_model_from_findings(</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        current_packet<span class="op">=</span>current_packet,</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        baseline_packet<span class="op">=</span>baseline_packet,</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        findings<span class="op">=</span>diagnostic_findings,</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4. Recommendation &amp; Signal Routing (FRS-4)</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    recommendations <span class="op">=</span> generate_recommendations(</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        findings<span class="op">=</span>diagnostic_findings,</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span>constraint_model,</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        policy<span class="op">=</span>get_recommendation_policy(node_id),</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    routed_signals <span class="op">=</span> route_recommendations(recommendations)</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 5. Democratic Sensemaking Interface (FRS-5)</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    sensemaking_artifacts <span class="op">=</span> build_sensemaking_artifacts(</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>        findings<span class="op">=</span>diagnostic_findings,</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>        model<span class="op">=</span>constraint_model,</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>        recs<span class="op">=</span>recommendations,</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    publish_to_cds(</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>        artifacts<span class="op">=</span>sensemaking_artifacts,</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>        cds_context<span class="op">=</span>cds_context,</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 6. Longitudinal Memory &amp; Institutional Recall (FRS-6)</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    cds_outcomes <span class="op">=</span> fetch_cds_outcomes(</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>        node_id<span class="op">=</span>node_id,</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>        related_recommendation_ids<span class="op">=</span>[r.<span class="bu">id</span> <span class="cf">for</span> r <span class="kw">in</span> recommendations],</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    memory_records <span class="op">=</span> []</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cds_outcomes.get(<span class="st">"resolved"</span>):</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>        outcome_metrics <span class="op">=</span> collect_post_intervention_metrics(</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>            node_id<span class="op">=</span>node_id,</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>            intervention_ids<span class="op">=</span>cds_outcomes.get(<span class="st">"approved_recommendation_ids"</span>, []),</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>        memory_records <span class="op">=</span> record_learning_episode(</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>            node_id<span class="op">=</span>node_id,</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>            findings<span class="op">=</span>diagnostic_findings,</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>            model<span class="op">=</span>constraint_model,</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>            accepted_recommendations<span class="op">=</span>[</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>                r <span class="cf">for</span> r <span class="kw">in</span> recommendations</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> r.<span class="bu">id</span> <span class="kw">in</span> cds_outcomes.get(<span class="st">"approved_recommendation_ids"</span>, [])</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>            ],</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>            outcome_metrics<span class="op">=</span>outcome_metrics,</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 7. Federated Intelligence Exchange (FRS-7)</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> cds_outcomes.get(<span class="st">"shareable"</span>):</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>        federated_bundle <span class="op">=</span> build_federated_bundle(</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>            node_id<span class="op">=</span>node_id,</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>            findings<span class="op">=</span>diagnostic_findings,</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>            model<span class="op">=</span>constraint_model,</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>            lessons<span class="op">=</span>[m <span class="cf">for</span> m <span class="kw">in</span> memory_records <span class="cf">if</span> m.record_type <span class="op">==</span> <span class="st">"lesson"</span>],</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>            share_policy_id<span class="op">=</span>share_policy_id,</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>            prev_hash<span class="op">=</span>get_last_federated_hash(node_id),</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>        publish_to_federation(federated_bundle)</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return cycle summary</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------------------------------------------</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>        <span class="st">"node_id"</span>: node_id,</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>        <span class="st">"status"</span>: <span class="st">"adaptive_cycle_completed"</span>,</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>        <span class="st">"signal_packet_id"</span>: current_packet.<span class="bu">id</span>,</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>        <span class="st">"finding_ids"</span>: [f.<span class="bu">id</span> <span class="cf">for</span> f <span class="kw">in</span> diagnostic_findings],</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>        <span class="st">"constraint_model_id"</span>: constraint_model.<span class="bu">id</span>,</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>        <span class="st">"recommendation_ids"</span>: [r.<span class="bu">id</span> <span class="cf">for</span> r <span class="kw">in</span> recommendations],</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>        <span class="st">"sensemaking_artifact_ids"</span>: [a.<span class="bu">id</span> <span class="cf">for</span> a <span class="kw">in</span> sensemaking_artifacts],</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>        <span class="st">"memory_record_ids"</span>: [m.<span class="bu">id</span> <span class="cf">for</span> m <span class="kw">in</span> memory_records],</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p><strong>Narrative Interpretation — What This Driver Actually Does</strong></p>
+<p><strong>1. Perception Without Markets</strong></p>
+<p>FRS begins not with prices, votes, or authority, but with <strong>measured reality</strong>:</p>
+<ul>
+<li>COS execution data</li>
+<li>ITC valuation distortions</li>
+<li>OAD design outcomes</li>
+<li>ecological thresholds</li>
+<li>governance load and participation strain</li>
+</ul>
+<p>This replaces market “signals” with <strong>direct observables</strong>.</p>
+<hr>
+<p><strong>2. Drift Before Crisis</strong></p>
+<p>FRS does not wait for collapse. It detects <strong>gradients, correlations, and persistence</strong> before thresholds are crossed.</p>
+<p>This is the difference between:</p>
+<ul>
+<li>reacting to failure</li>
+<li>and <strong>maintaining viability</strong></li>
+</ul>
+<hr>
+<p><strong>3. Futures Without Command</strong></p>
+<p>FRS models:</p>
+<ul>
+<li><em>what happens if nothing changes</em></li>
+<li><em>what happens if different interventions occur</em></li>
+</ul>
+<p>It produces <strong>viability envelopes</strong>, not plans. No scenario is selected automatically.</p>
+<hr>
+<p><strong>4. Corrections Without Coercion</strong></p>
+<p>Recommendations are:</p>
+<ul>
+<li>typed (design, workflow, valuation, governance)</li>
+<li>bounded (no runaway automation)</li>
+<li>routed (to the appropriate subsystem)</li>
+<li>non-executive</li>
+</ul>
+<p>Nothing is enforced. Everything is inspectable.</p>
+<hr>
+<p><strong>5. Democracy With Shared Reality</strong></p>
+<p>CDS receives:</p>
+<ul>
+<li>the same evidence</li>
+<li>the same projections</li>
+<li>the same tradeoffs</li>
+</ul>
+<p>Governance becomes <strong>coordination under constraint</strong>, not ideology, intuition, or speculation.</p>
+<hr>
+<p><strong>6. Learning That Compounds</strong></p>
+<p>When outcomes are known, they are archived:</p>
+<ul>
+<li>not as rules</li>
+<li>not as doctrine</li>
+<li>but as <strong>conditional, contextual memory</strong></li>
+</ul>
+<p>Integral does not forget what worked—or why it failed.</p>
+<hr>
+<p><strong>7. Federation Without Centralization</strong></p>
+<p>What one node learns becomes available to others:</p>
+<ul>
+<li>voluntarily</li>
+<li>asynchronously</li>
+<li>without standardization mandates</li>
+</ul>
+<p>This is <strong>distributed intelligence</strong>, not global planning.</p>
+<hr>
+<p><strong>Why This Orchestration Solves the Core Systemic Problem</strong></p>
+<p>Markets fail because:</p>
+<ul>
+<li>they hide causes behind prices</li>
+<li>they reward short-term extraction</li>
+<li>they forget history</li>
+</ul>
+<p>Central planning fails because:</p>
+<ul>
+<li>it cannot process distributed complexity</li>
+<li>it concentrates authority</li>
+</ul>
+<p><strong>FRS replaces both</strong> by making the system:</p>
+<ul>
+<li>observable</li>
+<li>explainable</li>
+<li>anticipatory</li>
+<li>corrigible</li>
+<li>democratically governed</li>
+</ul>
+<hr>
+<blockquote class="blockquote">
+<p><strong>FRS is the adaptive nervous system of Integral — transforming real-world signals into shared understanding, coordinated correction, and collective learning, without markets, money, or centralized control.</strong></p>
+</blockquote>
+<hr>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html" class="pagination-link" aria-label="Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../whitepaper/08-community-shuttle-example.html" class="pagination-link" aria-label="8. THE FIVE SYSTEMS | SERVICE EXAMPLE">
+        <span class="nav-page-text"><span class="chapter-title">8. THE FIVE SYSTEMS | SERVICE EXAMPLE</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

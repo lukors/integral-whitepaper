@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification) – Integral Whitepaper</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../whitepaper/09-nodes-to-networks/09-06-case-watershed.html" rel="next">
+<link href="../../whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-32c177501efb78f9be123735d54f4510.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.html"><span class="chapter-title">9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Integral Whitepaper</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../Integral-Whitepaper.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../Integral-Whitepaper.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integral Whitepaper</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/00-abstract.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-abstract.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/01-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>1. INTRODUCTION</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/02-human-analogy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. A HUMAN-LEVEL ANALOGY</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/03-what-integral-solves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>3. WHAT INTEGRAL SOLVES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/04-what-integral-creates.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>4. WHAT INTEGRAL CREATES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/05-the-5-core-subsystems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>5. THE FIVE CORE SUBSYSTEMS (MEZZO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/06-how-the-five-systems-work-as-one.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>6. HOW THE FIVE SYSTEMS WORK AS ONE</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/cds-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/cds-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal CDS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (CDS) — Issue Capture &amp; Signal Intake</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (CDS) — Issue Structuring &amp; Framing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (CDS) — Knowledge Integration &amp; Context Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-04-norms-constraint-checking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (CDS) — Norms &amp; Constraint Checking Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-05-deliberation-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (CDS) — Participatory Deliberation Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-06-weighted-consensus.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (CDS) — Weighted Consensus Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-07-decision-recording.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (CDS) — Decision Recording, Versioning &amp; Accountability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-08-implementation-dispatch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (CDS) — Implementation Dispatch Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-09-human-deliberation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (CDS) — Human Deliberation &amp; High-Bandwidth Resolution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-module-10-review-revision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (CDS) — Review, Revision &amp; Override Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: CDS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDS Addendum: Syntegrity as Final-Stage Human Deliberation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/oad-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.2 OAD Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/oad-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal OAD Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (OAD) — Design Submission &amp; Structured Specification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (OAD) — Collaborative Design Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-03-material-ecological-coefficient-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (OAD) — Material &amp; Ecological Coefficient Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-04-lifecycle-maintainability-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (OAD) — Lifecycle &amp; Maintainability Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-05-feasibility-constraint-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (OAD) — Feasibility &amp; Constraint Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-06-skill-labor-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (OAD) — Skill &amp; Labor-Step Decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-07-systems-integration-architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (OAD) — Systems Integration &amp; Architectural Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-08-optimization-efficiency-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (OAD) — Optimization &amp; Efficiency Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-09-validation-certification-release.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (OAD) — Validation, Certification &amp; Release Manager</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (OAD) — Knowledge Commons &amp; Reuse Repository</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: OAD Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/itc-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.3 ITC Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/itc-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal ITC Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (ITC) — Labor Event Capture &amp; Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (ITC) — Skill &amp; Context Weighting Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-03-time-decay-mechanism.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (ITC) — Time-Decay Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-04-labor-forecasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (ITC) — Labor Forecasting &amp; Need Anticipation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-05-access-allocation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (ITC) — Access Allocation &amp; Redemption</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-06-cross-coop-reciprocity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (ITC) — Cross-Cooperative &amp; Internodal Reciprocity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-07-fairness-anti-coercion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (ITC) — Fairness, Anti-Coercion &amp; Ethical Safeguards</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-08-ledger-transparency.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (ITC) — Ledger, Transparency &amp; Auditability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (ITC) — Integration &amp; Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: ITC Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/cos-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.4 COS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/cos-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal COS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (COS) — Production Planning &amp; Work Breakdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (COS) — Labor Organization &amp; Skill-Matching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-03-resource-procurement-materials-management.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (COS) — Resource Procurement &amp; Materials Management</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-04-cooperative-workflow-execution.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (COS) — Cooperative Workflow Execution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (COS) — Capacity, Throughput &amp; Constraint Balancing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (COS) — Distribution &amp; Access Flow Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (COS) — Quality Assurance &amp; Safety Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-08-cooperative-coordination-inter-coop-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (COS) — Cooperative Coordination &amp; Inter-Coop Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (COS) — Transparency, Ledger &amp; Audit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: COS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/frs-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.5 FRS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/frs-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal FRS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/modules/frs-module-01-signal-intake.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (FRS) — Signal Intake &amp; Semantic Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/modules/frs-module-02-diagnostic-classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (FRS) — Diagnostic Classification &amp; Pathology Detection</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/modules/frs-module-03-constraint-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (FRS) — Constraint Modeling &amp; System Dynamics Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/modules/frs-module-04-recommendation-routing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (FRS) — Recommendation &amp; Signal Routing Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/modules/frs-module-05-democratic-sensemaking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (FRS)— Democratic Sensemaking &amp; CDS Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (FRS) — Longitudinal Memory, Pattern Learning &amp; Institutional Recall</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: FRS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/08-community-shuttle-example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8. THE FIVE SYSTEMS | SERVICE EXAMPLE</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>9. NODES TO NETWORKS: RECURSIVE ORGANIZATION (MACRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-01-node-network-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.1 Node Network Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-02-nodes-as-actors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.2 Nodes as Actors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-03-federation-as-synchronization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.3 Federation as Synchronization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.4 Scale, Scope, and Bioregional Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-06-case-watershed.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.6 Applied Case I: Bioregional Watershed Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-07-case-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.7 Applied Case II: Shared Energy Infrastructure Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-08-case-distributed-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.8 Applied Case III: Distributed Production of Complex Goods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/09-nodes-to-networks/09-09-synthesis-domain-invariant-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.9 Synthesis: Domain-Invariant Coordination Logic</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/10-internodal-reciprocity/10-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>10. INTERNODAL RECIPROCITY</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/10-internodal-reciprocity/10-01-reciprocity-primitives-and-flow-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.1 Reciprocity Primitives and Flow Types</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.2 Cross-Node Labor Reciprocity and ITC Recognition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.3 Material and Capacity Reciprocity Across Nodes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.4 Assurance, Trust, and Anti-Arbitrage Mechanisms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../whitepaper/11-transition-adoption-implementation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11. TRANSITION, ADOPTION, &amp; IMPLEMENTATION</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Purpose and Boundary Conditions</strong>:</p>
+<p>The purpose of this section is to formalize <strong>how and when decision scope expands beyond a single node</strong> within the Integral network. Up to this point, scope expansion has been described conceptually—as an adaptive response to shared constraints and correlated impacts. What follows makes this process explicit, specifying the criteria, signals, and structural mechanisms through which temporary, multi-node coordination is initiated, bounded, and dissolved.</p>
+<p>This section does not introduce a new layer of governance, nor does it describe a macro-authority overseeing local nodes. The core invariant remains intact: <strong>there is no permanent authority and no centralized control</strong> within Integral. Scope expands only in response to <strong>measurable, cross-node constraints</strong>—conditions whose effects cannot be resolved within the regulatory boundary of any single node. When such constraints dissipate or decouple, expanded coordination contracts automatically, and all regulatory capacity returns fully to the local level.</p>
+<p>Formally, scope expansion is triggered not by preference, ideology, or abstract representation, but by <strong>empirical signals</strong>: ecological thresholds, material dependencies, operational couplings, or risk correlations detected through shared telemetry. These signals indicate a mismatch between the scale of disturbance and the scale of regulation, requiring temporary coordination among affected nodes. No expansion occurs absent such evidence, and no expanded structure persists without ongoing justification.</p>
+<p>It is important to define what this section does <em>not</em> cover. The mechanisms described here do not address <strong>internal node optimization</strong>, including local decision processes, production scheduling, contribution accounting, or design iteration. Those dynamics are fully contained within each node’s own CDS, COS, ITC, OAD, and FRS, and have been specified in earlier sections. Section 9.5 concerns only the <strong>interface conditions</strong> under which multiple nodes must coordinate due to shared reality, and the formal limits that prevent such coordination from hardening into hierarchy.</p>
+<p>With these boundary conditions established, the following subsections formalize the observable state representations, threshold functions, and coordination envelopes through which adaptive scope expansion occurs in practice.</p>
+<hr>
+<p><strong>Cybernetic Basis of Adaptive Scope</strong>:</p>
+<p>To understand how the Integral node network expands coordination from a single node to a temporary, multi-node context, it is useful to restate the cybernetic principle governing recursive regulation.</p>
+<p>In cybernetic systems, coordination does not scale by adding command layers, but by <strong>matching regulatory scope to the scale of disturbance</strong>. When a system encounters a condition it cannot resolve within its existing boundaries—such as an ecological constraint, material dependency, or operational coupling—information about that disturbance propagates outward. Awareness widens until the system boundary fully contains the problem.</p>
+<p>Within Integral, this process occurs through <strong>feedback</strong>, not escalation. Signals generated by the Feedback &amp; Review System (FRS) indicate when local regulation is insufficient. These signals widen perception to adjacent nodes affected by the same condition. Collective Decision System (CDS) processes then connect laterally, forming a <strong>temporary coordination membrane</strong> that includes all and only those exposed to the disturbance.</p>
+<p>Once the condition stabilizes or decouples, the need for expanded coordination disappears. Feedback signals quiet, shared deliberation contracts, and each node resumes fully local regulation. The system thus expands and contracts its decision scope dynamically, maintaining coherence without introducing hierarchy, permanence, or centralized control. In this way, Integral behaves as a viable cybernetic organism: regulation follows disturbance, scope follows impact, and coordination exists only for as long—and as far—as reality requires.</p>
+<p>It is true that, within a dense and highly developed Integral network, certain node positions may become temporarily more consequential than others due to interdependence. At the highest level of awareness, the Earth itself is necessarily understood as a single, coupled system. However, neither condition implies a permanent or centralized mode of governance.</p>
+<p>As science, sensing, and modeling advance, cross-node coordination may occur frequently and, in some contexts, appear continuous—giving the impression of a static organizational layer. This persistence reflects ongoing shared conditions, not structural elevation. From a cybernetic perspective, regulation remains situational and feedback-driven: coordination expands when disturbances propagate and contracts when they resolve.</p>
+<p>In short, <strong>global awareness may become persistent, but global authority does not</strong>. Local integrity remains the primary site of regulation, with broader coordination emerging only as—and for as long as—shared reality requires.</p>
+<hr>
+<p><strong>Observable State and Requisite Variety</strong>:</p>
+<p>Adaptive coordination across nodes requires that shared reality be <em>visible</em> at the appropriate scale. However, visibility does not imply total transparency. Integral distinguishes sharply between <strong>local state</strong>, which remains internal to a node, and <strong>observable state</strong>, which is selectively exposed for the purpose of supra-local coordination.</p>
+<p>At the node level, internal state is high-resolution and context-specific. It includes detailed operational schedules, individual contribution records, internal deliberations, design iterations, and localized ecological measurements. This information is necessary for local regulation, but it is neither interpretable nor relevant beyond the node’s boundary. Exposing such detail would overwhelm other nodes with irrelevant variety, undermine autonomy, and create unnecessary pathways for interference.</p>
+<p>At regional or federated scales, coordination depends not on internal processes, but on <strong>effects</strong>. What matters is not how a node arrives at a decision or executes a plan, but whether its actions impose constraints, risks, or dependencies beyond its own boundary. For this reason, Integral coordinates across scale through <strong>compressed state representations</strong> that expose outcomes and impacts rather than internal mechanics.</p>
+<p>This distinction follows a foundational cybernetic principle commonly summarized as <strong>Ashby’s Law of Requisite Variety</strong>: effective regulation requires that the regulator perceive <em>at least</em> the variety present in the disturbances it must manage—but no more. Excess variety is not neutral; it degrades regulation by obscuring signal with noise. Integral therefore exposes only the minimum variety necessary for cross-node coordination, preserving both autonomy and clarity.</p>
+<p><em>State compression</em> is the mechanism by which this principle is enforced. Rather than sharing raw data, each node computes a <strong>Node State Summary (NSS)</strong>: a bounded, typed, and periodically updated representation of those aspects of local activity that have potential supra-local impact. NSS does not describe internal decision logic or operational detail. It describes <strong>constraint-relevant state</strong>.</p>
+<p>Formally, a Node State Summary consists of indicators drawn from four state classes:</p>
+<ul>
+<li><strong>Ecological state</strong>, capturing interactions with shared natural systems—such as resource drawdown rates, regeneration alignment, emissions, or pollutant accumulation—expressed relative to known biophysical thresholds.</li>
+<li><strong>Capacity state</strong>, representing a node’s current and projected ability to produce, maintain, or respond—such as utilization ratios, redundancy margins, or infrastructure stress.</li>
+<li><strong>Dependency state</strong>, indicating reliance on shared resources, upstream inputs, or external capacities whose disruption would propagate beyond the node.</li>
+<li><strong>Risk state</strong>, capturing correlated vulnerabilities, instability patterns, or emerging failure modes whose effects would not remain locally contained.</li>
+</ul>
+<p>Together, these classes provide sufficient variety to detect scope mismatches, identify correlated disturbances, and trigger coordination when necessary—without exposing internal governance, labor organization, or strategic choice.</p>
+<p>The Node State Summary is therefore not a reporting requirement imposed from above, but a <strong>cybernetic interface</strong>: a minimal projection of local reality into a shared coordination space. It enables nodes to remain internally sovereign while participating in collective awareness at scale. The following sections formalize this representation and specify how such summaries are aggregated, evaluated, and acted upon through threshold functions and coordination envelopes.</p>
+<hr>
+<p><strong>Node State Summary (NSS) — Formal Definition</strong>:</p>
+<p>The <strong>Node State Summary (NSS)</strong> is the formal mechanism through which a node exposes constraint-relevant information for supra-local coordination. It is a <strong>compressed, structured representation of observable effects</strong>, designed to be sufficient for detecting scope mismatches without revealing internal decision logic, operational detail, or individual-level data.</p>
+<p>Formally, each node <span class="math inline">\(i\)</span> publishes an NSS as a vector of typed indicators:</p>
+<p><span class="math display">\[\text{NSS}_i = \{ s_{i1}, s_{i2}, \dots, s_{in} \}\]</span></p>
+<p>Each element <span class="math inline">\(s_{ij}\)</span> corresponds to a specific observable dimension of local activity that may generate cross-node impact. Indicators are explicitly typed to ensure interpretability, comparability, and bounded variety.</p>
+<p><strong>Indicator Types</strong></p>
+<p>NSS indicators fall into three primary classes:</p>
+<ol type="1">
+<li><p><strong>Scalar indicators</strong> — These represent continuous quantities normalized to meaningful ratios or rates. Examples include resource utilization ratios, throughput capacity fractions, infrastructure load percentages, and labor strain indices. Scalar indicators support aggregation, trend analysis, and correlation detection across nodes.</p></li>
+<li><p><strong>Bounded indices</strong> — These represent interactions with biophysical or systemic limits, expressed relative to known thresholds. Examples include ecological load indices, regeneration alignment scores, pollution accumulation measures, and resilience margins. Bounded indices are constrained to fixed ranges (e.g., <span class="math inline">\([0,1]\)</span> or <span class="math inline">\([-1,1]\)</span>) to allow direct comparison and threshold evaluation without unit conversion.</p></li>
+<li><p><strong>Categorical flags</strong> — These indicate the presence of discrete conditions or emerging risks that are not meaningfully represented as continuous quantities. Examples include risk type classifications (e.g., drought risk, supply fragility, infrastructure failure), dependency alerts, and correlated stress signals. Categorical flags are used to trigger attention and scope evaluation rather than quantitative optimization.</p></li>
+</ol>
+<p>Each indicator is accompanied by metadata specifying its semantic meaning, unit conventions, confidence bounds, and applicable correlation domains (e.g., watershed, supply network, energy grid).</p>
+<p><strong>Update Cadence and Validation</strong></p>
+<p>NSS updates occur at a cadence appropriate to the dynamics of the underlying system. Rapidly changing operational indicators may update frequently, while slower ecological indices may update over longer intervals. Cadence is not globally fixed; it is negotiated through protocol standards and adjusted based on empirical performance.</p>
+<p>All NSS submissions must be <strong>cryptographically signed</strong> by the issuing node to ensure integrity and provenance. Validation does not involve approval or oversight, but rather structural verification: ensuring that indicators conform to shared schemas, bounds, and semantic definitions. Invalid or malformed summaries are ignored by aggregation processes, preserving autonomy while maintaining coordination reliability.</p>
+<p><strong>Boundary of Exposure</strong></p>
+<p>Critically, the NSS exposes <strong>effects, not internal processes</strong>. It does not reveal:</p>
+<ul>
+<li>internal CDS deliberations or voting structures,</li>
+<li>individual contribution records,</li>
+<li>detailed production schedules,</li>
+<li>design rationales or strategic intent.</li>
+</ul>
+<p>A node remains entirely free in <em>how</em> it organizes itself internally. The NSS communicates only <em>what consequences may propagate outward</em>—those aspects of local activity that, if left uncoordinated, could impose constraints on others.</p>
+<p>In this way, the NSS functions as a <strong>cybernetic interface</strong>, not a reporting channel. It allows shared reality to become legible at scale while preserving local sovereignty and limiting information exposure to the minimum variety required for effective coordination.</p>
+<p>The following section builds on this definition by specifying how collections of Node State Summaries are evaluated to detect scope mismatches and trigger coordination thresholds.</p>
+<hr>
+<p><strong>Scope Detection Criteria</strong>:</p>
+<p>Scope expansion in Integral is not discretionary or political. It is triggered only when <strong>observable state indicates that a condition cannot be resolved within the regulatory boundary of a single node</strong>. This determination is made through explicit scope detection criteria applied to collections of Node State Summaries (NSS), evaluated by the Feedback &amp; Review System (FRS).</p>
+<p>Formally, a <strong>scope mismatch</strong> exists when the effects represented in one or more NSS vectors propagate beyond the originating node in a way that produces correlated constraint, risk, or dependency for others. In such cases, local regulation is insufficient not because of failure or mismanagement, but because the <strong>problem space exceeds local closure capacity</strong>.</p>
+<p>Scope detection therefore answers a precise question: <em>Is the disturbance fully containable within one node’s decision and operational domain, or does its resolution require coordinated action across multiple nodes?</em></p>
+<p><strong>Classes of Scope-Triggering Conditions</strong></p>
+<p>Scope expansion may be triggered by any of the following condition classes, detected through NSS aggregation and correlation analysis:</p>
+<ol type="1">
+<li><strong>Shared resource coupling</strong> — When multiple nodes draw from or impact the same finite or regenerating system—such as a watershed, airshed, soil system, or energy grid—and aggregate indicators approach or exceed sustainable thresholds.</li>
+<li><strong>Dependency propagation</strong> — When a node’s reliance on upstream inputs, specialized capacities, or shared infrastructure creates downstream vulnerability for other nodes in the event of disruption or overload.</li>
+<li><strong>Correlated stress patterns</strong> — When similar strain indicators appear across multiple nodes simultaneously, indicating systemic rather than local causes (e.g., climate anomalies, material bottlenecks, cascading maintenance failure).</li>
+<li><strong>Temporal persistence</strong> — When a constraint persists across multiple update cycles, indicating that short-term local adaptation is insufficient to restore viability.</li>
+<li><strong>Risk amplification potential</strong> — When categorical risk flags indicate conditions that could escalate rapidly or non-linearly if left uncoordinated, even if current quantitative indicators remain within nominal bounds.</li>
+</ol>
+<p>No single indicator is sufficient on its own. Scope detection depends on <strong>pattern recognition across nodes and over time</strong>, rather than isolated threshold breaches.</p>
+<p><strong>Formal Detection Logic</strong></p>
+<p>Let <span class="math inline">\(\{\text{NSS}_1, \text{NSS}_2, \dots, \text{NSS}_n\}\)</span> represent the set of Node State Summaries within a correlated domain (e.g., a watershed or supply network).</p>
+<p>A scope mismatch is detected when one or more of the following conditions hold:</p>
+<ul>
+<li>Aggregated indicators exceed defined tolerance bounds for the domain.</li>
+<li>Correlation coefficients between stress indicators across nodes exceed specified thresholds.</li>
+<li>Dependency graphs reveal concentration or fragility beyond acceptable margins.</li>
+<li>Risk flags co-occur across nodes with shared exposure.</li>
+</ul>
+<p>Detection does not imply immediate coordination. It <strong>qualifies the condition for further evaluation</strong> by threshold functions, which determine whether advisory awareness is sufficient or whether temporary coordination structures must be instantiated.</p>
+<p><strong>Non-Triggering Conditions</strong></p>
+<p>Equally important are conditions that <strong>do not</strong> trigger scope expansion:</p>
+<ul>
+<li>Local inefficiency or suboptimal internal organization.</li>
+<li>Voluntary divergence in priorities or practices.</li>
+<li>Cultural, technical, or normative differences between nodes.</li>
+<li>Transient fluctuations that self-correct within expected timeframes.</li>
+</ul>
+<p>Integral explicitly avoids expanding scope in response to preference conflict or performance comparison. Only <strong>materially coupled constraints</strong> qualify.</p>
+<p><strong>Outcome of Scope Detection</strong></p>
+<p>When scope detection criteria are met, the system does not issue commands or mandates. It produces a <strong>qualified signal</strong> indicating that the disturbance exceeds local closure capacity and should be evaluated for coordinated response. This signal feeds into threshold functions, which determine the degree and form of coordination required.</p>
+<p>If criteria are no longer met—because indicators stabilize, correlations weaken, or dependencies decouple—scope detection resolves automatically. No coordination is triggered, or existing coordination contracts accordingly.</p>
+<p>In this way, scope detection acts as a <strong>gatekeeper mechanism</strong>, ensuring that expanded coordination arises only when warranted by shared reality and dissolves as soon as it is no longer necessary.</p>
+<hr>
+<p><strong>Threshold Functions:</strong></p>
+<p>Scope detection identifies when a disturbance exceeds local closure capacity. <strong>Threshold functions determine what follows.</strong> They translate aggregated observable state into discrete coordination responses, ensuring that the system neither overreacts to noise nor delays action until crisis forces coercive intervention.</p>
+<p>Thresholds in Integral do not authorize command. They <strong>classify conditions</strong>, establish urgency, and bound the form and extent of coordination permitted. In cybernetic terms, they regulate <em>gain</em>: how strongly the system responds to a given disturbance.</p>
+<p><strong>Threshold Typology</strong></p>
+<p>Threshold functions operate over aggregated Node State Summaries within a correlated domain. They evaluate whether detected scope mismatches warrant no action, increased awareness, or temporary coordination.</p>
+<p>Three threshold classes are defined:</p>
+<ol type="1">
+<li><p><strong>Advisory thresholds</strong> — These thresholds indicate emerging or weakly correlated disturbances. When crossed, they trigger enhanced visibility and notification without expanding decision scope. Outcomes include shared situational awareness, early-warning signals, and voluntary local adjustment informed by network-level insight. Advisory thresholds preserve full local autonomy and do not instantiate coordination structures.</p></li>
+<li><p><strong>Coordination thresholds</strong> — These thresholds indicate persistent or strongly correlated constraints that cannot be resolved through isolated local action. When crossed, they trigger the formation of a <strong>Coordination Envelope</strong>, enabling temporary inter-nodal deliberation and synchronized response. Outcomes include temporary convergence of CDS processes, bounded coordination of COS activity, shared prioritization of relevant OAD efforts, and cross-node ITC recognition within defined limits.</p></li>
+<li><p><strong>Non-negotiable thresholds</strong> — These thresholds correspond to hard biophysical or systemic limits—such as ecological collapse points or safety-critical infrastructure tolerances. When crossed, they impose <strong>constraint boundaries</strong> that no node may override, regardless of preference. Importantly, non-negotiable thresholds do not prescribe solutions. They specify <em>what cannot continue</em>, leaving nodes free to determine <em>how</em> to adapt within those limits.</p></li>
+</ol>
+<p><strong>Threshold Evaluation Logic</strong></p>
+<p>Threshold functions are applied to aggregated and correlated NSS indicators rather than to individual node states. Let <span class="math inline">\(\mathbf{S}_{\text{domain}}\)</span> represent the aggregated state of a correlated domain.</p>
+<p>A threshold function <span class="math inline">\(T_k\)</span> maps this state to a coordination classification:</p>
+<p><span class="math display">\[T_k(\mathbf{S}_{\text{domain}}) \rightarrow \{\text{normal}, \text{advisory}, \text{coordinate}\}\]</span></p>
+<p>Multiple threshold functions may operate simultaneously over different indicators and domains. Coordination is triggered only when at least one coordination or non-negotiable threshold is satisfied.</p>
+<p><strong>Hysteresis and Stability</strong></p>
+<p>To prevent oscillation between coordination states, threshold functions incorporate <strong>hysteresis</strong>. Entry into a higher coordination state requires stronger evidence than maintenance of that state, and exit requires sustained resolution rather than momentary fluctuation.</p>
+<p>Thresholds also incorporate <strong>decay conditions</strong>. If indicators trend back toward stability, coordination intensity reduces automatically. This ensures that coordination contracts as soon as it is no longer justified by current conditions.</p>
+<p><strong>Threshold Governance</strong></p>
+<p>Threshold definitions are not arbitrary. They are derived from empirical system modeling, ecological science, historical performance data, and iterative refinement through feedback. Threshold parameters are published openly and remain contestable. However, once instantiated, they operate automatically, preventing discretionary escalation or selective enforcement.</p>
+<p><strong>Outcome of Threshold Evaluation</strong></p>
+<p>Threshold functions do not enact coordination themselves. They determine <strong>which coordination regime is appropriate</strong>. Advisory thresholds widen awareness. Coordination thresholds authorize the creation of a Coordination Envelope. Non-negotiable thresholds impose absolute constraint boundaries.</p>
+<p>The next section formalizes the Coordination Envelope itself: the temporary, scope-limited structure through which nodes respond collectively once coordination thresholds are crossed.</p>
+<hr>
+<p><strong>Coordination Envelope (CE)</strong>:</p>
+<p>A <strong>Coordination Envelope (CE)</strong> is the formal mechanism through which Integral enables temporary, multi-node coordination once scope detection criteria and threshold functions indicate that local regulation is insufficient. It is not a governing body, an organizational tier, or a standing institution. It is a <strong>bounded coordination context</strong> instantiated solely for the duration and extent required to address a specific cross-node disturbance.</p>
+<p>The Coordination Envelope defines <em>where</em> coordination applies, <em>who</em> participates, <em>what</em> constraints are shared, and <em>how</em> collective action may occur—without introducing permanent authority or centralized control.</p>
+<p><strong>Definition and Purpose</strong></p>
+<p>Formally, a Coordination Envelope is a tuple:</p>
+<p><span class="math display">\[\text{CE} = \langle N, C, D, P, \Delta \rangle\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(N\)</span> is the set of participating nodes affected by the disturbance,</li>
+<li><span class="math inline">\(C\)</span> is the set of shared constraints identified through threshold evaluation,</li>
+<li><span class="math inline">\(D\)</span> defines the bounded decision domain permitted within the envelope,</li>
+<li><span class="math inline">\(P\)</span> specifies coordination protocols across systems,</li>
+<li><span class="math inline">\(\Delta\)</span> defines dissolution conditions.</li>
+</ul>
+<p>The purpose of a CE is to <strong>align regulation with disturbance</strong>: to temporarily widen decision scope only as far as necessary to restore viability across the affected domain.</p>
+<p><strong>Envelope Instantiation</strong></p>
+<p>A Coordination Envelope is instantiated automatically when one or more coordination or non-negotiable thresholds are crossed. Instantiation does not require authorization, voting, or approval. It is a <strong>system response</strong>, not a political act.</p>
+<p>Upon instantiation:</p>
+<ul>
+<li>Participating nodes are identified based on exposure to the detected constraint.</li>
+<li>The scope of coordination is explicitly bounded to the relevant issue domain (e.g., watershed allocation, infrastructure repair, material substitution).</li>
+<li>All other aspects of node sovereignty remain unaffected.</li>
+</ul>
+<p>Nodes not implicated by the disturbance are not included, and nodes may not self-expand the envelope beyond its defined scope.</p>
+<p><strong>System Participation Within an Envelope</strong></p>
+<p>Each of the five systems participates in a CE in a strictly constrained manner:</p>
+<ul>
+<li><strong>CDS</strong> converges laterally to deliberate only on decisions necessary to resolve the shared constraint. Delegation is node-based, scope-limited, and revocable. No permanent representative structures emerge.</li>
+<li><strong>OAD</strong> prioritizes design efforts relevant to the constraint, enabling rapid adaptation, validation, and dissemination of solutions across participating nodes.</li>
+<li><strong>COS</strong> coordinates operational parameters where interdependence exists—such as scheduling, load balancing, or shared infrastructure use—without managing internal node operations.</li>
+<li><strong>ITC</strong> provides cross-node contribution recognition within the envelope, ensuring that labor and capacity mobilized for shared resolution are reciprocally acknowledged without creating exchange or accumulation.</li>
+<li><strong>FRS</strong> continuously monitors envelope-relevant indicators, updating participants on progress, emerging risks, and resolution trajectories.</li>
+</ul>
+<p>No system gains expanded authority beyond the envelope’s domain. Coordination occurs through shared constraints and protocols, not command.</p>
+<p><strong>Decision and Action Boundaries</strong></p>
+<p>The CE explicitly restricts:</p>
+<ul>
+<li>the decisions that may be made,</li>
+<li>the resources that may be coordinated,</li>
+<li>the duration of shared deliberation,</li>
+<li>and the conditions under which actions may be taken.</li>
+</ul>
+<p>Decisions unrelated to the triggering disturbance remain entirely local. The envelope does not supersede node-level governance; it <strong>interfaces</strong> with it.</p>
+<p><strong>Dissolution and Contraction</strong></p>
+<p>A Coordination Envelope contains its own dissolution criteria. When FRS indicators fall below exit thresholds—through stabilization, decoupling, or resolution—the envelope contracts automatically.</p>
+<p>Dissolution requires no approval, no vote, and no executive action.</p>
+<p>Once dissolved:</p>
+<ul>
+<li>CDS convergence ceases,</li>
+<li>coordination protocols disengage,</li>
+<li>ITC recognition returns to local-only scope,</li>
+<li>and all nodes resume fully independent regulation.</li>
+</ul>
+<p>No institutional residue remains.</p>
+<p><strong>Safeguards Against Scope Creep</strong></p>
+<p>Coordination Envelopes are designed to prevent persistence by construction:</p>
+<ul>
+<li>They cannot expand beyond their initiating constraint set.</li>
+<li>They cannot absorb new domains without fresh threshold triggers.</li>
+<li>They cannot self-renew absent continued disturbance.</li>
+<li>They cannot accumulate authority, memory, or assets across instantiations.</li>
+</ul>
+<p>Every envelope is discrete, contextual, and ephemeral.</p>
+<p><strong>Functional Significance</strong></p>
+<p>The Coordination Envelope is the <strong>core technical bridge</strong> between local autonomy and collective viability in Integral. It allows the system to behave as a coherent organism without becoming a hierarchy—expanding regulation precisely when required, and contracting it immediately when it is not.</p>
+<p>With the Coordination Envelope formalized, the remaining sections specify how CDS convergence operates within an envelope, how failure modes are prevented, and how the system resolves coordination without institutionalization.</p>
+<hr>
+<p><strong>CDS Convergence Within an Envelope</strong>:</p>
+<p>When a Coordination Envelope (CE) is instantiated, <strong>Collective Decision Systems (CDS)</strong> converge across participating nodes to address the specific disturbance that triggered scope expansion. This convergence does not create a new sovereign decision body. It establishes a <strong>temporary, scope-limited deliberative interface</strong> between otherwise autonomous node-level CDS processes.</p>
+<p>The purpose of CDS convergence is narrowly defined: to enable coordinated decisions where independent action would be insufficient or mutually destabilizing. Outside the envelope’s domain, all decision-making authority remains fully local.</p>
+<p><strong>Nature of Convergence</strong></p>
+<p>CDS convergence within a CE is <strong>lateral, not hierarchical</strong>. Nodes do not submit to a higher authority, nor do individuals bypass their local governance structures. Instead, each node participates as a coherent unit, delegating bounded decision authority strictly limited to the envelope’s scope.</p>
+<p>Convergence therefore operates on the principle of <strong>issue-specific delegation</strong>:</p>
+<ul>
+<li>Delegation is defined by the triggering constraint.</li>
+<li>Delegation is revocable.</li>
+<li>Delegation dissolves automatically when the envelope dissolves.</li>
+</ul>
+<p>No permanent representative roles, voting bodies, or executive functions persist beyond the coordination context.</p>
+<p><strong>Participation and Representation</strong></p>
+<p>Within an envelope, participation occurs at the <strong>node level</strong>, not the individual level. Each node determines internally—via its own CDS—how it formulates positions, selects delegates, or ratifies commitments relevant to the shared issue. Integral imposes no universal method of internal decision-making.</p>
+<p>What must remain shared is the <strong>structure of decision outputs</strong>: commitments, constraints accepted, timelines agreed upon, and interface conditions must be expressed in standardized, legible formats so that other nodes can interpret and rely upon them.</p>
+<p>This ensures coordination without homogenizing governance practices.</p>
+<p><strong>Decision Domain Constraints</strong></p>
+<p>The CE explicitly bounds what the converged CDS may decide. Permitted decisions are limited to:</p>
+<ul>
+<li>resolving the triggering constraint,</li>
+<li>establishing compatibility conditions between nodes,</li>
+<li>allocating shared responsibility within the envelope,</li>
+<li>defining coordination timelines and dissolution criteria.</li>
+</ul>
+<p>The converged CDS may not:</p>
+<ul>
+<li>alter internal governance of any node,</li>
+<li>mandate production, labor, or contribution outside the agreed scope,</li>
+<li>reallocate resources permanently,</li>
+<li>or extend its mandate beyond the envelope’s domain.</li>
+</ul>
+<p>These restrictions are structural, not procedural. The CDS interface simply lacks the capacity to act beyond them.</p>
+<p><strong>Decision Validity and Enforcement</strong></p>
+<p>Decisions reached within a CE are <strong>binding only within the envelope’s scope and duration</strong>. Enforcement occurs not through coercion, but through <strong>protocol alignment</strong>: COS coordination, OAD prioritization, and ITC recognition within the envelope are conditional on adherence to agreed terms.</p>
+<p>Nodes retain the right to withdraw from coordination. However, withdrawal does not negate shared constraints or erase consequences. Nodes that opt out lose access to envelope-level coordination benefits while remaining subject to ecological or systemic limits that no CDS can override.</p>
+<p><strong>Resolution and Dissolution</strong></p>
+<p>As the shared condition stabilizes, FRS indicators signal reduced coupling. CDS convergence naturally contracts: deliberation frequency decreases, decision interfaces disengage, and remaining issues return to local resolution.</p>
+<p>Once the Coordination Envelope dissolves, no residual CDS structure remains. Decisions made within the envelope do not persist as precedent, authority, or institutional memory beyond their immediate relevance.</p>
+<p><strong>Functional Role</strong></p>
+<p>CDS convergence within a Coordination Envelope provides the <strong>minimal decision intelligence required for collective action under shared constraint</strong>, while preserving local autonomy and preventing the accumulation of power. It is the decision-making analog to state compression and thresholding: sufficient for coordination, bounded by design, and ephemeral by necessity.</p>
+<p>With CDS convergence defined, the remaining sections address system safeguards, failure modes, and the formal dissolution logic that ensures coordination never hardens into hierarchy.</p>
+<hr>
+<p><strong>Formal Pseudo-Code: Detection → Envelope → Dissolution</strong>:</p>
+<p>The following pseudo-code specifies the end-to-end control loop through which Integral expands and contracts decision scope: nodes publish compressed observable state (NSS); FRS aggregates and evaluates scope/threshold conditions; when warranted, a Coordination Envelope (CE) is instantiated; CDS converges laterally within the CE’s bounded domain; and once indicators stabilize, the CE dissolves automatically.</p>
+<p>This is presented as a reference implementation pattern rather than a prescribed software stack.</p>
+<p><strong>A. Node Loop: Sense → Compress → Publish → Adapt</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Node i: local loop (runs continuously)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> node_loop(node_id):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 1) Sense full internal state (private; high-resolution)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        S_local <span class="op">=</span> sense_local_state()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2) Compress to observable effects only (public; bounded variety)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        NSS_i <span class="op">=</span> compute_NSS(S_local)          <span class="co"># typed indicators + metadata</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        SIG_i <span class="op">=</span> sign(NSS_i, node_private_key) <span class="co"># provenance + integrity</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 3) Publish to federation fabric</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        publish(<span class="st">"NSS"</span>, node_id, SIG_i)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 4) Receive any active coordination envelopes affecting this node</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        active_CEs <span class="op">=</span> receive(<span class="st">"CE_NOTICES"</span>, node_id)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 5) For each relevant envelope, re-solve locally under envelope constraints</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> CE <span class="kw">in</span> active_CEs:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> node_id <span class="kw">in</span> CE.participants <span class="kw">and</span> CE.is_active():</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Apply envelope constraints as boundary conditions (not commands)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                K <span class="op">=</span> CE.constraints</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Local CDS may adjust priorities/commitments within delegated bounds</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                cds_commitments <span class="op">=</span> local_CDS_deliberate(CE.domain, K)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Local COS updates plans/schedules to comply with commitments</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                cos_plan <span class="op">=</span> local_COS_plan(objective<span class="op">=</span>local_objective(),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                                          constraints<span class="op">=</span>K,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                                          commitments<span class="op">=</span>cds_commitments)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Local ITC records contributions relevant to envelope coordination</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                local_ITC_record_envelope_activity(CE.<span class="bu">id</span>, cos_plan)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Local OAD pulls/pushes relevant designs/updates (if needed)</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                local_OAD_sync(CE.domain)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Execute locally (autonomous implementation)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                execute(cos_plan)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        sleep(NSS_UPDATE_INTERVAL(node_id))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>B. Federation FRS Loop: Aggregate → Detect → Threshold → Instantiate / Update</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FRS: domain-scoped loop (e.g., watershed, supply network, grid region)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> frs_domain_loop(domain_id):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    active_envelopes <span class="op">=</span> {}  <span class="co"># CE_id -&gt; CE_state</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 1) Collect latest signed NSS from nodes in this domain</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        NSS_set <span class="op">=</span> collect_latest(<span class="st">"NSS"</span>, domain_id)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2) Verify integrity and schema conformance (structural validation)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        valid <span class="op">=</span> []</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (node_id, sig_NSS) <span class="kw">in</span> NSS_set:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> verify_signature(sig_NSS) <span class="kw">and</span> schema_valid(sig_NSS.payload):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                valid.append((node_id, sig_NSS.payload))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 3) Aggregate to domain state representation</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        S_domain <span class="op">=</span> aggregate_domain_state(valid)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 4) Scope detection: determine whether mismatch exists</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        scope_events <span class="op">=</span> detect_scope_mismatch(S_domain)  <span class="co"># returns event objects</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 5) Threshold evaluation: classify coordination regime per event</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ev <span class="kw">in</span> scope_events:</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            status <span class="op">=</span> evaluate_thresholds(ev, S_domain)  <span class="co"># NORMAL / ADVISORY / COORDINATE / NONNEGOTIABLE</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> status <span class="kw">in</span> [<span class="st">"ADVISORY"</span>]:</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                broadcast_advisory(domain_id, ev, S_domain)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> status <span class="kw">in</span> [<span class="st">"COORDINATE"</span>, <span class="st">"NONNEGOTIABLE"</span>]:</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Instantiate or update coordination envelope</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                CE <span class="op">=</span> upsert_coordination_envelope(active_envelopes, ev, S_domain)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Broadcast envelope notice to participants (and optionally observers)</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                broadcast(<span class="st">"CE_NOTICES"</span>, CE.participants, CE)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 6) Update &amp; dissolve envelopes based on exit thresholds/hysteresis</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ce_id, CE <span class="kw">in</span> <span class="bu">list</span>(active_envelopes.items()):</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>            CE <span class="op">=</span> update_envelope_state(CE, S_domain)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> exit_conditions_met(CE, S_domain):  <span class="co"># hysteresis + persistence checks</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>                CE <span class="op">=</span> mark_dissolved(CE)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>                broadcast(<span class="st">"CE_DISSOLUTION"</span>, CE.participants, CE)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>                <span class="kw">del</span> active_envelopes[ce_id]</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        sleep(FRS_EVAL_INTERVAL(domain_id))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>C. Coordination Envelope Object: Structure and Lifecycle</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CoordinationEnvelope:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, ce_id, domain, participants, constraints, decision_bounds, protocols, dissolve_rules):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.<span class="bu">id</span> <span class="op">=</span> ce_id</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.domain <span class="op">=</span> domain</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.participants <span class="op">=</span> participants          <span class="co"># node IDs</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.constraints <span class="op">=</span> constraints            <span class="co"># typed constraint set K</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.decision_bounds <span class="op">=</span> decision_bounds    <span class="co"># what CDS may decide (scope-limited)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.protocols <span class="op">=</span> protocols                <span class="co"># OAD/COS/ITC/FRS interface specs</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dissolve_rules <span class="op">=</span> dissolve_rules      <span class="co"># exit thresholds + persistence windows</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.state <span class="op">=</span> <span class="st">"ACTIVE"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.created_at <span class="op">=</span> now()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.last_updated <span class="op">=</span> now()</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> is_active(<span class="va">self</span>):</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.state <span class="op">==</span> <span class="st">"ACTIVE"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>D. Envelope Instantiation: Minimal Logic</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> upsert_coordination_envelope(active_envelopes, event, S_domain):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    ce_id <span class="op">=</span> derive_envelope_id(event)  <span class="co"># deterministic by (domain, constraint-type, affected-set)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    participants <span class="op">=</span> compute_participants(event, S_domain)   <span class="co"># exposure-based inclusion</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    constraints <span class="op">=</span> compute_constraint_set(event, S_domain)  <span class="co"># boundary conditions K</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    decision_bounds <span class="op">=</span> compute_decision_bounds(event)        <span class="co"># permitted CDS domain</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    protocols <span class="op">=</span> load_protocol_bundle(event.domain)          <span class="co"># schemas + verification</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    dissolve_rules <span class="op">=</span> compute_dissolve_rules(event)          <span class="co"># hysteresis + stability window</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ce_id <span class="kw">in</span> active_envelopes:</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        CE <span class="op">=</span> active_envelopes[ce_id]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        CE.participants <span class="op">=</span> participants</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        CE.constraints <span class="op">=</span> constraints</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        CE.last_updated <span class="op">=</span> now()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        CE <span class="op">=</span> CoordinationEnvelope(ce_id, event.domain, participants, constraints,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                                  decision_bounds, protocols, dissolve_rules)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        active_envelopes[ce_id] <span class="op">=</span> CE</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> CE</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>E. Key Properties Encoded by This Flow</strong></p>
+<ul>
+<li><strong>No centralized control</strong>: the federation fabric broadcasts constraints and envelope contexts; nodes choose internal implementation paths.</li>
+<li><strong>No permanent authority</strong>: envelopes are event-scoped objects with explicit dissolution rules; no standing executive is created.</li>
+<li><strong>Scope follows impact</strong>: participant sets are derived from exposure and coupling, not representation or jurisdiction.</li>
+<li><strong>Effects, not internals</strong>: NSS is the sole required inter-node state exposure; internal CDS/COS/ITC details remain local.</li>
+<li><strong>Automatic contraction</strong>: exit thresholds and hysteresis ensure that coordination dissolves when disturbances stabilize or decouple.</li>
+</ul>
+<hr>
+<p><strong>Failure Modes and Safeguards</strong>:</p>
+<p>Any system that permits adaptive scope expansion must also prevent that expansion from hardening into permanence, hierarchy, or covert control. Integral therefore incorporates <strong>structural safeguards</strong>—not discretionary rules—to ensure that coordination remains temporary, bounded, and proportional to real-world disturbance. These safeguards are enforced through protocol design and system constraints rather than through oversight or trust.</p>
+<p>This section identifies the primary failure modes associated with cross-node coordination and the mechanisms by which Integral prevents them.</p>
+<p><strong>Scope Creep</strong></p>
+<p><em>Failure mode:</em> Coordination expands beyond the domain of the original disturbance, gradually absorbing adjacent issues, prolonging deliberation, or broadening authority without renewed justification.</p>
+<p><em>Safeguards:</em> - <strong>Explicit decision-domain bounds:</strong> Each Coordination Envelope encodes a narrowly defined problem domain; CDS interfaces cannot act outside it. - <strong>Event-derived envelope IDs:</strong> Envelopes are deterministically linked to specific constraint events, preventing self-extension. - <strong>Fresh threshold requirements:</strong> Expansion into any new domain requires independent scope detection and threshold triggers. - <strong>Hysteresis and decay:</strong> Coordination contracts automatically once indicators stabilize, preventing inertia-driven persistence.</p>
+<p><strong>Permanent Coordination Bodies</strong></p>
+<p><em>Failure mode:</em> Temporary coordination structures persist as standing committees, councils, or executive layers.</p>
+<p><em>Safeguards:</em> - <strong>Stateless envelope architecture:</strong> Coordination Envelopes do not retain authority, assets, or mandates once dissolved. - <strong>No standing representation:</strong> Delegation is issue-specific and expires with the envelope. - <strong>Automatic dissolution:</strong> Envelopes terminate when exit conditions are met, without votes or approvals. - <strong>No institutional memory:</strong> Past envelopes do not create precedent or ongoing jurisdiction.</p>
+<p><strong>Data Overexposure</strong></p>
+<p><em>Failure mode:</em> Excessive data sharing undermines autonomy, privacy, or security, creating pathways for interference or surveillance.</p>
+<p><em>Safeguards:</em> - <strong>State compression by design:</strong> Only NSS vectors—effects, not internals—are exposed across nodes. - <strong>Typed, bounded indicators:</strong> Shared data is constrained to predefined schemas and ranges. - <strong>Local data sovereignty:</strong> Internal CDS deliberations, COS schedules, ITC ledgers, and OAD workflows remain private. - <strong>Structural validation, not inspection:</strong> Federation processes verify format and integrity, not content rationale.</p>
+<p><strong>Authority Accumulation</strong></p>
+<p><em>Failure mode:</em> Repeated coordination events concentrate influence, expertise, or decision leverage in particular nodes or actors.</p>
+<p><em>Safeguards:</em> - <strong>Node-based participation:</strong> Individuals cannot bypass local CDS by appealing upward. - <strong>Rotating relevance:</strong> Participation is determined by exposure to current constraints, not status or experience. - <strong>No accumulation channels:</strong> ITC recognition decays without continued contribution; no power compounds across events. - <strong>Protocol symmetry:</strong> All nodes interact through identical interfaces; no privileged access exists.</p>
+<p><strong>Protocol Constraints as Enforcement</strong></p>
+<p>Integral does not rely on behavioral compliance to enforce these safeguards. Enforcement is <strong>architectural</strong>.</p>
+<ul>
+<li><strong>Interfaces limit action:</strong> CDS, COS, ITC, and OAD interfaces simply cannot perform operations outside their authorized scope.</li>
+<li><strong>Non-compliant signals are ignored:</strong> NSS submissions or coordination actions that violate schema or bounds are excluded automatically.</li>
+<li><strong>Interoperability as incentive:</strong> Nodes that refuse protocol constraints lose access to shared coordination benefits without coercion.</li>
+</ul>
+<p>In this way, protocol constraints replace enforcement bodies. What cannot be done structurally does not require policing.</p>
+<p><strong>Systemic Significance</strong></p>
+<p>These safeguards ensure that Integral’s capacity for large-scale coordination does not evolve into centralized control. The system can expand decisional scope rapidly when reality demands it, and contract just as quickly when it does not—without relying on moral restraint, political vigilance, or trust in benevolent administrators.</p>
+<p>Coordination remains <strong>situational, reversible, and proportional</strong>, preserving local sovereignty while enabling collective viability.</p>
+<hr>
+<p><strong>Transition to Applied Examples</strong>:</p>
+<p>The preceding sections have specified the <strong>formal mechanics</strong> by which Integral expands and contracts coordination across scale: how observable state is compressed, how scope mismatches are detected, how thresholds classify response regimes, how Coordination Envelopes are instantiated and dissolved, and how safeguards prevent hierarchy, persistence, or authority accumulation. What remains is to demonstrate how these mechanisms operate in <strong>concrete, real-world contexts</strong>.</p>
+<p>The sections that follow do not introduce new architectural principles. Instead, they <strong>instantiate the same formal pattern</strong>—state compression, threshold evaluation, envelope formation, and scope-limited CDS convergence—within distinct material domains. Each example applies the identical logic to different constraint structures, illustrating how a single cybernetic framework adapts across varied scales and problem types.</p>
+<p>Specifically, the following applied cases will show:</p>
+<ul>
+<li>how <strong>bioregional systems</strong> (such as watersheds) trigger scope expansion through shared ecological constraints,</li>
+<li>how <strong>critical infrastructure</strong> (such as energy or logistics networks) requires capacity synchronization without centralized planning,</li>
+<li>and how <strong>distributed production</strong> of complex goods coordinates design, labor, and maintenance across nodes without markets or command hierarchies.</li>
+</ul>
+<p>In each case, attention is focused on <em>mechanism</em>, not narrative: what observable state is exposed, which thresholds are crossed, how coordination envelopes are bounded, how decisions are made within scope, and how coordination dissolves once conditions stabilize. The intent is to make clear that Integral’s macro-scale behavior is not an abstraction layered atop local organization, but a <strong>direct consequence of the same cybernetic rules applied recursively</strong>.</p>
+<p>By grounding the formal specification in empirical problem spaces, these examples complete the demonstration that Integral’s approach to scale is neither utopian nor ad hoc. It is a technically coherent method for aligning decision scope with real-world impact—capable of operating across neighborhoods, regions, and global systems without surrendering autonomy or creating new centers of power.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.html" class="pagination-link" aria-label="9.4 Scale, Scope, and Bioregional Coordination">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">9.4 Scale, Scope, and Bioregional Coordination</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../whitepaper/09-nodes-to-networks/09-06-case-watershed.html" class="pagination-link" aria-label="9.6 Applied Case I: Bioregional Watershed Coordination">
+        <span class="nav-page-text"><span class="chapter-title">9.6 Applied Case I: Bioregional Watershed Coordination</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7.2 OAD Modules – Integral Whitepaper</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../whitepaper/07-modules/07-2-oad/oad-02-architecture-code.html" rel="next">
+<link href="../../../whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-32c177501efb78f9be123735d54f4510.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../whitepaper/07-modules/07-2-oad/oad-01-overview.html"><span class="chapter-title">7.2 OAD Modules</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">Integral Whitepaper</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../Integral-Whitepaper.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../../../Integral-Whitepaper.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integral Whitepaper</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/00-abstract.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-abstract.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/01-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>1. INTRODUCTION</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/02-human-analogy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. A HUMAN-LEVEL ANALOGY</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/03-what-integral-solves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>3. WHAT INTEGRAL SOLVES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/04-what-integral-creates.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>4. WHAT INTEGRAL CREATES</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/05-the-5-core-subsystems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>5. THE FIVE CORE SUBSYSTEMS (MEZZO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/06-how-the-five-systems-work-as-one.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>6. HOW THE FIVE SYSTEMS WORK AS ONE</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/cds-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/cds-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal CDS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (CDS) — Issue Capture &amp; Signal Intake</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (CDS) — Issue Structuring &amp; Framing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (CDS) — Knowledge Integration &amp; Context Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-04-norms-constraint-checking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (CDS) — Norms &amp; Constraint Checking Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-05-deliberation-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (CDS) — Participatory Deliberation Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-06-weighted-consensus.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (CDS) — Weighted Consensus Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-07-decision-recording.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (CDS) — Decision Recording, Versioning &amp; Accountability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-08-implementation-dispatch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (CDS) — Implementation Dispatch Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-09-human-deliberation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (CDS) — Human Deliberation &amp; High-Bandwidth Resolution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-module-10-review-revision.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (CDS) — Review, Revision &amp; Override Module</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: CDS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDS Addendum: Syntegrity as Final-Stage Human Deliberation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/oad-01-overview.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">7.2 OAD Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/oad-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal OAD Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (OAD) — Design Submission &amp; Structured Specification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (OAD) — Collaborative Design Workspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-03-material-ecological-coefficient-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (OAD) — Material &amp; Ecological Coefficient Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-04-lifecycle-maintainability-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (OAD) — Lifecycle &amp; Maintainability Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-05-feasibility-constraint-simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (OAD) — Feasibility &amp; Constraint Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-06-skill-labor-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (OAD) — Skill &amp; Labor-Step Decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-07-systems-integration-architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (OAD) — Systems Integration &amp; Architectural Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-08-optimization-efficiency-engine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (OAD) — Optimization &amp; Efficiency Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-09-validation-certification-release.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (OAD) — Validation, Certification &amp; Release Manager</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 10 (OAD) — Knowledge Commons &amp; Reuse Repository</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: OAD Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/itc-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.3 ITC Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/itc-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal ITC Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (ITC) — Labor Event Capture &amp; Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (ITC) — Skill &amp; Context Weighting Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-03-time-decay-mechanism.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (ITC) — Time-Decay Mechanism</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-04-labor-forecasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (ITC) — Labor Forecasting &amp; Need Anticipation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-05-access-allocation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (ITC) — Access Allocation &amp; Redemption</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-06-cross-coop-reciprocity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (ITC) — Cross-Cooperative &amp; Internodal Reciprocity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-07-fairness-anti-coercion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (ITC) — Fairness, Anti-Coercion &amp; Ethical Safeguards</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-08-ledger-transparency.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (ITC) — Ledger, Transparency &amp; Auditability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (ITC) — Integration &amp; Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: ITC Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/cos-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.4 COS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/cos-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal COS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (COS) — Production Planning &amp; Work Breakdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (COS) — Labor Organization &amp; Skill-Matching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-03-resource-procurement-materials-management.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (COS) — Resource Procurement &amp; Materials Management</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-04-cooperative-workflow-execution.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (COS) — Cooperative Workflow Execution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (COS) — Capacity, Throughput &amp; Constraint Balancing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (COS) — Distribution &amp; Access Flow Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (COS) — Quality Assurance &amp; Safety Verification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-08-cooperative-coordination-inter-coop-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 8 (COS) — Cooperative Coordination &amp; Inter-Coop Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 9 (COS) — Transparency, Ledger &amp; Audit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: COS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/frs-01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.5 FRS Modules</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/frs-02-architecture-code.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Formal FRS Specification: Pseudocode + Math Sketches</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-01-signal-intake.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 1 (FRS) — Signal Intake &amp; Semantic Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-02-diagnostic-classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 2 (FRS) — Diagnostic Classification &amp; Pathology Detection</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-03-constraint-modeling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 3 (FRS) — Constraint Modeling &amp; System Dynamics Simulation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-04-recommendation-routing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 4 (FRS) — Recommendation &amp; Signal Routing Engine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-05-democratic-sensemaking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 5 (FRS)— Democratic Sensemaking &amp; CDS Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 6 (FRS) — Longitudinal Memory, Pattern Learning &amp; Institutional Recall</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Module 7 (FRS) — Federated Intelligence &amp; Inter-Node Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Putting It Together: FRS Orchestration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/08-community-shuttle-example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8. THE FIVE SYSTEMS | SERVICE EXAMPLE</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>9. NODES TO NETWORKS: RECURSIVE ORGANIZATION (MACRO LEVEL)</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-01-node-network-integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.1 Node Network Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-02-nodes-as-actors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.2 Nodes as Actors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-03-federation-as-synchronization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.3 Federation as Synchronization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.4 Scale, Scope, and Bioregional Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.5 Scope Detection, Thresholds, and Coordination Envelopes (Formal Specification)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-06-case-watershed.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.6 Applied Case I: Bioregional Watershed Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-07-case-energy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.7 Applied Case II: Shared Energy Infrastructure Coordination</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-08-case-distributed-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.8 Applied Case III: Distributed Production of Complex Goods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/09-nodes-to-networks/09-09-synthesis-domain-invariant-coordination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.9 Synthesis: Domain-Invariant Coordination Logic</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-00-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><strong>10. INTERNODAL RECIPROCITY</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-01-reciprocity-primitives-and-flow-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.1 Reciprocity Primitives and Flow Types</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.2 Cross-Node Labor Reciprocity and ITC Recognition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.3 Material and Capacity Reciprocity Across Nodes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.4 Assurance, Trust, and Anti-Arbitrage Mechanisms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../whitepaper/11-transition-adoption-implementation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11. TRANSITION, ADOPTION, &amp; IMPLEMENTATION</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#module-1-design-submission-structured-specification" id="toc-module-1-design-submission-structured-specification" class="nav-link active" data-scroll-target="#module-1-design-submission-structured-specification">Module 1: Design Submission &amp; Structured Specification</a></li>
+  <li><a href="#module-2-collaborative-design-workspace" id="toc-module-2-collaborative-design-workspace" class="nav-link" data-scroll-target="#module-2-collaborative-design-workspace">Module 2: Collaborative Design Workspace</a></li>
+  <li><a href="#module-3-material-ecological-coefficient-engine" id="toc-module-3-material-ecological-coefficient-engine" class="nav-link" data-scroll-target="#module-3-material-ecological-coefficient-engine">Module 3: Material &amp; Ecological Coefficient Engine</a></li>
+  <li><a href="#module-4-lifecycle-maintainability-modeling" id="toc-module-4-lifecycle-maintainability-modeling" class="nav-link" data-scroll-target="#module-4-lifecycle-maintainability-modeling">Module 4: Lifecycle &amp; Maintainability Modeling</a></li>
+  <li><a href="#module-5-feasibility-constraint-simulation" id="toc-module-5-feasibility-constraint-simulation" class="nav-link" data-scroll-target="#module-5-feasibility-constraint-simulation">Module 5: Feasibility &amp; Constraint Simulation</a></li>
+  <li><a href="#module-6-skill-labor-step-decomposition-module" id="toc-module-6-skill-labor-step-decomposition-module" class="nav-link" data-scroll-target="#module-6-skill-labor-step-decomposition-module">Module 6: Skill &amp; Labor-Step Decomposition Module</a></li>
+  <li><a href="#module-7-systems-integration-architectural-coordination" id="toc-module-7-systems-integration-architectural-coordination" class="nav-link" data-scroll-target="#module-7-systems-integration-architectural-coordination">Module 7: Systems Integration &amp; Architectural Coordination</a></li>
+  <li><a href="#module-8-optimization-efficiency-engine" id="toc-module-8-optimization-efficiency-engine" class="nav-link" data-scroll-target="#module-8-optimization-efficiency-engine">Module 8: Optimization &amp; Efficiency Engine</a></li>
+  <li><a href="#module-9-validation-certification-release-manager" id="toc-module-9-validation-certification-release-manager" class="nav-link" data-scroll-target="#module-9-validation-certification-release-manager">Module 9: Validation, Certification &amp; Release Manager</a></li>
+  <li><a href="#module-10-knowledge-commons-reuse-repository" id="toc-module-10-knowledge-commons-reuse-repository" class="nav-link" data-scroll-target="#module-10-knowledge-commons-reuse-repository">Module 10: Knowledge Commons &amp; Reuse Repository</a></li>
+  <li><a href="#narrative-snapshot-a-full-oad-walkthrough" id="toc-narrative-snapshot-a-full-oad-walkthrough" class="nav-link" data-scroll-target="#narrative-snapshot-a-full-oad-walkthrough">Narrative Snapshot: A Full OAD Walkthrough</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">7.2 OAD Modules</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>If the CDS is Integral’s governance intelligence, the Open Access Design System (OAD) is its <strong>collective engineering, architectural, and creative intelligence</strong>—the subsystem through which the network conceives, models, optimizes, validates, and archives every design used across the federation.</p>
+<p>In market economies, design is fragmented by secrecy, patents, and proprietary ecosystems. OAD replaces this with a <strong>global design commons</strong>, where:</p>
+<ul>
+<li>all designs are open,</li>
+<li>all improvements benefit everyone,</li>
+<li>ecological and material implications are visible upfront,</li>
+<li>lifecycle labor and maintenance requirements are quantified,</li>
+<li>and every node—no matter how small—contributes to and draws from the shared collective expertise.</li>
+</ul>
+<p>OAD is not simply “open source engineering.” It is a <strong>cybernetic design organism</strong> whose purpose is to generate the information that COS and ITC depend on for production coordination and value calculation. Without OAD’s structured design metadata—labor-step breakdowns, skill requirements, <strong>material &amp; ecological coefficients</strong>, maintainability indices—COS cannot compute ITC access values or plan production intelligently.</p>
+<p>Thus OAD:</p>
+<ul>
+<li>transforms ideas into structured design specifications,</li>
+<li>embeds ecological and lifecycle intelligence directly into designs,</li>
+<li>simulates performance and constraint compliance,</li>
+<li>optimizes for efficiency, modularity, repairability, and sustainability,</li>
+<li>ensures interoperability with <strong>existing node infrastructure and federated Integral standards</strong>,</li>
+<li>and continuously expands Integral’s global knowledge archive.</li>
+</ul>
+<p>Every tool, machine, device, infrastructure, and workflow is part of a <strong>recursively improving design ecology</strong>.</p>
+<p><strong>Design reuse is not a separate pathway—it is a recursion.</strong> Certified designs stored in the global commons (Module 10) are continuously pulled back into the <strong>Collaborative Design Workspace (Module 2)</strong> for local adaptation, contextual modification, and evolutionary branching.</p>
+<p>Below is the complete <strong>micro-architecture of OAD</strong>, updated to reflect its central role in feeding COS and ITC with computable design intelligence.</p>
+<hr>
+<p><strong>OAD Module Overview Table</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>OAD Module</strong></th>
+<th><strong>Primary Function</strong></th>
+<th><strong>Real-World Analogs / Technical Basis</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1. Design Submission &amp; Structured Specification</strong></td>
+<td>Intake of new designs with metadata: purpose, constraints, labor-step outline, skill requirements, and expected lifecycle</td>
+<td>OSHW templates, FreeCAD, Wikifactory</td>
+</tr>
+<tr class="even">
+<td><strong>2. Collaborative Design Workspace</strong></td>
+<td>Multi-user refinement, transparent versioning, branch/merge workflows, community commentary</td>
+<td>Git, Figma, CAD cloud platforms</td>
+</tr>
+<tr class="odd">
+<td><strong>3. Material &amp; Ecological Coefficient Engine</strong></td>
+<td>Compute ecological intensity, embodied energy, recyclability, toxicity, and material substitution pathways</td>
+<td>OpenLCA, ecoinvent, embodied-carbon databases</td>
+</tr>
+<tr class="even">
+<td><strong>4. Lifecycle &amp; Maintainability Modeling</strong></td>
+<td>Determine expected maintenance intervals, replacement cycles, repair labor, modularity index</td>
+<td>Asset lifecycle modeling, P-F curves, maintainability engineering</td>
+</tr>
+<tr class="odd">
+<td><strong>5. Feasibility &amp; Constraint Simulation</strong></td>
+<td>Physics-based modeling, structural tests, energy modeling, safety validation, environmental boundary checks</td>
+<td>SimScale, OpenFOAM, EnergyPlus, dynamic digital-twin simulation</td>
+</tr>
+<tr class="even">
+<td><strong>6. Skill &amp; Labor Step Decomposition Module</strong></td>
+<td>Convert design into explicit production tasks: skill tiers, time estimates, sequence logic</td>
+<td>Industrial engineering methods, process mapping, MTM/REFA-like systems</td>
+</tr>
+<tr class="odd">
+<td><strong>7. Systems Integration &amp; Architectural Coordination</strong></td>
+<td>Ensure compatibility with existing node infrastructure, interfaces, standardized modules, and federated design patterns</td>
+<td>BIM, systems engineering frameworks, interoperability standards</td>
+</tr>
+<tr class="even">
+<td><strong>8. Optimization &amp; Efficiency Engine</strong></td>
+<td>Algorithmic improvements: reduce material intensity, minimize labor, optimize performance, maximize modularity</td>
+<td>Parametric solvers, evolutionary algorithms, multi-objective optimization</td>
+</tr>
+<tr class="odd">
+<td><strong>9. Validation, Certification &amp; Release Manager</strong></td>
+<td>Quality control, final approval, version stamping, compliance with ecological and operational norms</td>
+<td>PLM systems, OSHW certifications, formal verification pipelines</td>
+</tr>
+<tr class="even">
+<td><strong>10. Knowledge Commons &amp; Reuse Repository</strong></td>
+<td>Global archive of all designs, metadata, versions, simulations, maintenance logs, and cross-node adoption</td>
+<td>Wikimedia, open hardware libraries, federated knowledge bases</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<section id="module-1-design-submission-structured-specification" class="level3">
+<h3 class="anchored" data-anchor-id="module-1-design-submission-structured-specification">Module 1: Design Submission &amp; Structured Specification</h3>
+<p><strong>Purpose</strong> To intake new design concepts in a structured, complete, and computable format suitable for engineering, ecological evaluation, and eventual COS–ITC processing.</p>
+<p><strong>Description</strong> This module transforms a raw idea into a formally specified design object. It captures:</p>
+<ul>
+<li>functional purpose and design intent</li>
+<li>detailed component breakdown</li>
+<li>preliminary CAD geometry</li>
+<li>expected materials and their ecological coefficients</li>
+<li>performance criteria and environmental assumptions</li>
+<li>safety considerations</li>
+<li>early maintainability expectations</li>
+<li>preliminary labor-step outline (even if rough)</li>
+</ul>
+<p>The structured template ensures that <em>every design enters OAD with enough metadata to begin evaluation and iteration immediately</em>. This is the “front door” of the design organism.</p>
+<p><strong>Example</strong> A contributor submits a modular water filtration unit. They upload preliminary CAD files, list bamboo and stainless options, define target flow rate, outline cleaning intervals, and include a rough labor-step sketch: frame fabrication → filter packing → flow testing. The module verifies the submission for completeness and moves it forward.</p>
+<hr>
+</section>
+<section id="module-2-collaborative-design-workspace" class="level3">
+<h3 class="anchored" data-anchor-id="module-2-collaborative-design-workspace">Module 2: Collaborative Design Workspace</h3>
+<p><strong>Purpose</strong> To enable transparent, democratic, multi-user design refinement with full version control.</p>
+<p><strong>Description</strong> This workspace supports:</p>
+<ul>
+<li>real-time co-editing of geometric and schematic models</li>
+<li>annotation and inline commenting</li>
+<li>branch-and-merge design variants</li>
+<li>parametric experimentation</li>
+<li>AI-assisted corrections and alternatives</li>
+<li>transparent version histories</li>
+</ul>
+<p>This is the <em>collective design intelligence</em> of Integral—open, traceable, and free from proprietary locks.</p>
+<p><strong>Crucially, this module is also the point of design reuse and local adaptation.</strong> Certified designs retrieved from the <strong>Knowledge Commons (Module 10)</strong> re-enter OAD here, where nodes can adapt them to local materials, climates, labor conditions, and cultural preferences while preserving full traceability to prior versions.</p>
+<p><strong>Example</strong> Three variants of the filter housing emerge: recycled plastic, bamboo composite, and lightweight metal. Contributors run parallel branches, compare pros and cons, merge promising optimizations, and document every design path. Months later, a different node pulls the bamboo variant from the commons and adapts it for colder climates by thickening wall sections and altering seals—creating a new certified branch.</p>
+<hr>
+</section>
+<section id="module-3-material-ecological-coefficient-engine" class="level3">
+<h3 class="anchored" data-anchor-id="module-3-material-ecological-coefficient-engine">Module 3: Material &amp; Ecological Coefficient Engine</h3>
+<p><strong>Purpose</strong> To quantify the ecological footprint, sustainability, and material resource implications of every design choice.</p>
+<p><strong>Description</strong> This module computes <strong>material &amp; ecological coefficients</strong>, including:</p>
+<ul>
+<li>embodied energy</li>
+<li>carbon intensity</li>
+<li>recyclability / biodegradability</li>
+<li>toxicity profile</li>
+<li>regional material availability</li>
+<li>extraction and water-use implications</li>
+<li>suitability to local ecosystems</li>
+</ul>
+<p>These coefficients form the <strong>ecological intelligence layer</strong> of OAD. They are required by <strong>COS</strong> to plan sustainable production and by <strong>ITC</strong> to calculate fair access values that reflect real material and ecological costs.</p>
+<p><strong>Importantly, these coefficients are not static.</strong> Operational feedback from <strong>FRS</strong> can recalibrate them over time when real-world degradation, scarcity, or ecological strain diverges from initial design assumptions.</p>
+<p><strong>Example</strong> The stainless-steel version flags high embodied energy. OAD recommends shifting to bamboo composite for low-impact regions or recycled plastic for nodes with industrial recycling capacity. Later, FRS reports faster-than-expected bamboo degradation in high-humidity coastal nodes, triggering a coefficient update and a redesign branch using treated composite layers.</p>
+<hr>
+</section>
+<section id="module-4-lifecycle-maintainability-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="module-4-lifecycle-maintainability-modeling">Module 4: Lifecycle &amp; Maintainability Modeling</h3>
+<p><strong>Purpose</strong> To define the long-term labor burden, repair cycles, durability, and replacement intervals of a design.</p>
+<p><strong>Description</strong> This module predicts:</p>
+<ul>
+<li>expected wear patterns</li>
+<li>mean time between failures (MTBF)</li>
+<li>required inspection intervals</li>
+<li>module replaceability</li>
+<li>disassembly and repair difficulty</li>
+<li>lubrication, cleaning, or recalibration steps</li>
+<li>cradle-to-cradle reuse pathways</li>
+</ul>
+<p>The goal is to make <strong>future maintenance labor explicit and computable</strong>, rather than hidden or deferred. Outputs feed <strong>COS</strong> to plan maintenance cooperatives and <strong>ITC</strong> to compute <strong>long-term labor burdens</strong> that influence access values.</p>
+<p>These models are continuously updated. Operational performance data from <strong>FRS</strong> recalibrates durability assumptions, maintenance intervals, and failure probabilities when real-world conditions diverge from modeled expectations.</p>
+<p><strong>Example</strong> The initial filter design requires frequent disassembly. OAD models show that redesigning the housing to be tool-free reduces lifetime labor by 40%. After deployment, FRS confirms the reduced maintenance frequency in practice, reinforcing the new design as the preferred certified branch.</p>
+<hr>
+</section>
+<section id="module-5-feasibility-constraint-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="module-5-feasibility-constraint-simulation">Module 5: Feasibility &amp; Constraint Simulation</h3>
+<p><strong>Purpose</strong> To test technical, safety, and operational feasibility using digital simulation and scenario analysis.</p>
+<p><strong>Description</strong> Simulations include:</p>
+<ul>
+<li>structural stress, load, and fatigue</li>
+<li>fluid or airflow dynamics</li>
+<li>temperature, humidity, or chemical exposure</li>
+<li>manufacturability limits</li>
+<li>catastrophic failure modes</li>
+<li>maintenance feasibility</li>
+<li>environmental boundary conditions</li>
+</ul>
+<p>Designs must pass feasibility thresholds before proceeding to labor decomposition and certification. This module ensures that <strong>no design enters production with untested assumptions</strong>.</p>
+<p>Feasibility limits are not static; they can be <strong>tightened or revised</strong> as ecological thresholds or operational constraints evolve via CDS or FRS.</p>
+<p><strong>Example</strong> CFD reveals back-pressure buildup in the filtration channel. A revised geometry improves throughput and safety margins, resolving the constraint automatically. Later, higher sediment loads reported by FRS trigger a re-run of simulations with updated boundary conditions.</p>
+<hr>
+</section>
+<section id="module-6-skill-labor-step-decomposition-module" class="level3">
+<h3 class="anchored" data-anchor-id="module-6-skill-labor-step-decomposition-module">Module 6: Skill &amp; Labor-Step Decomposition Module</h3>
+<p><strong>Purpose</strong> To convert a design into a computable labor plan usable by COS and ITC.</p>
+<p><strong>Description</strong> This module creates:</p>
+<ul>
+<li>a full task decomposition (e.g., 14 steps)</li>
+<li>estimated hours per task</li>
+<li>skill tier requirements</li>
+<li>sequencing logic and dependency graph</li>
+<li>required tools and equipment</li>
+<li>ergonomic and safety notes</li>
+<li>maintainability labor profile (linked to Module 4)</li>
+</ul>
+<p>This decomposition is the <strong>bridge between design intelligence and economic coordination</strong>. It allows:</p>
+<ul>
+<li><strong>COS</strong> to schedule work, form cooperatives, and resolve bottlenecks</li>
+<li><strong>ITC</strong> to compute fair access values based on real labor effort</li>
+</ul>
+<p><strong>Labor-step models are revised when reality deviates from estimates.</strong> COS throughput data and FRS maintenance logs can trigger updates to time estimates, skill requirements, or task sequencing.</p>
+<p>Without this module, Integral could not perform <em>non-market economic calculation</em>.</p>
+<p><strong>Example</strong> The filtration unit decomposes into: frame cutting (low skill), housing assembly (medium), flow testing (medium/high), and seal inspection (medium). COS uses this to match workers, while ITC uses it to compute fair access values. After deployment, COS reports that seal inspection takes longer in sandy environments, prompting a labor-step update.</p>
+<hr>
+</section>
+<section id="module-7-systems-integration-architectural-coordination" class="level3">
+<h3 class="anchored" data-anchor-id="module-7-systems-integration-architectural-coordination">Module 7: Systems Integration &amp; Architectural Coordination</h3>
+<p><strong>Purpose</strong> To ensure that designs are compatible with existing infrastructure, standards, and federated patterns.</p>
+<p><strong>Description</strong> This module evaluates how a design fits into the <strong>broader technical, spatial, and systemic context</strong> of a node and the federation. It checks:</p>
+<ul>
+<li>interface compatibility</li>
+<li>resource flows (water, power, waste, heat)</li>
+<li>spatial and architectural constraints</li>
+<li>safety clearances and access pathways</li>
+<li>interoperability with other OAD-certified modules</li>
+<li>emergent circularity opportunities across systems</li>
+</ul>
+<p>This module prevents locally optimal designs from becoming <strong>systemically incompatible</strong>, brittle, or siloed.</p>
+<p>It also ensures that designs align with <strong>federated Integral standards</strong>, enabling designs developed in one node to be adopted elsewhere without friction.</p>
+<p><strong>Example</strong> OAD confirms the filtration unit fits neatly into existing rainwater capture systems and can integrate with a compost-heat loop, reducing mold risk and increasing performance. The module also flags that a standardized inlet size allows the unit to connect to other OAD-certified storage tanks.</p>
+<hr>
+</section>
+<section id="module-8-optimization-efficiency-engine" class="level3">
+<h3 class="anchored" data-anchor-id="module-8-optimization-efficiency-engine">Module 8: Optimization &amp; Efficiency Engine</h3>
+<p><strong>Purpose</strong> To improve a design through computational and participatory optimization across multiple dimensions.</p>
+<p><strong>Description</strong> This module explores design improvements using algorithmic and collaborative methods. Optimization targets may include:</p>
+<ul>
+<li>material reduction</li>
+<li>structural strength and resilience</li>
+<li>energy efficiency</li>
+<li>reduced ecological footprint</li>
+<li>easier manufacturability</li>
+<li>simplified maintenance</li>
+<li>modularity, repairability, and recyclability</li>
+</ul>
+<p>The engine may use evolutionary solvers, gradient descent, constraint optimization, and AI-assisted suggestions. Human contributors can guide optimization goals when trade-offs involve values or context-sensitive priorities.</p>
+<p>Optimization outputs directly influence <strong>COS production efficiency</strong> and <strong>ITC access-value calculations</strong> by reducing labor, material, or maintenance burdens.</p>
+<p><strong>Example</strong> Optimization reduces material usage by 27%, increases durability, and decreases required assembly time—lowering lifetime labor inputs and reducing ITC access requirements for the final product.</p>
+<hr>
+</section>
+<section id="module-9-validation-certification-release-manager" class="level3">
+<h3 class="anchored" data-anchor-id="module-9-validation-certification-release-manager">Module 9: Validation, Certification &amp; Release Manager</h3>
+<p><strong>Purpose</strong> To finalize a design as <strong>production-ready</strong>, ensuring it meets all ecological, operational, and governance requirements.</p>
+<p><strong>Description</strong> This module performs final validation and certification checks, including:</p>
+<ul>
+<li>ecological compliance (based on Material &amp; Ecological Coefficients)</li>
+<li>safety performance and failure tolerance</li>
+<li>manufacturability under COS conditions</li>
+<li>interoperability approval (Module 7)</li>
+<li>lifecycle and maintainability sign-off (Module 4)</li>
+<li>completeness and consistency of labor-step decomposition (Module 6)</li>
+</ul>
+<p>Only designs that pass certification are released as <strong>canonical OAD versions</strong>. Each certified release includes full traceability: design history, simulation results, lifecycle assumptions, and governance metadata.</p>
+<p>Certification status can be <strong>revoked or updated</strong> if later FRS data indicates divergence between modeled and real-world performance.</p>
+<p><strong>Example</strong> The filtration design is certified after tests confirm safety, maintainability, and ecological requirements. COS is notified that production can begin. Months later, FRS feedback prompts a minor revision and re-certification for high-sediment environments.</p>
+<hr>
+</section>
+<section id="module-10-knowledge-commons-reuse-repository" class="level3">
+<h3 class="anchored" data-anchor-id="module-10-knowledge-commons-reuse-repository">Module 10: Knowledge Commons &amp; Reuse Repository</h3>
+<p><strong>Purpose</strong> To store and propagate the entire OAD design memory across the federation.</p>
+<p><strong>Description</strong> This repository serves as Integral’s <strong>global design commons</strong>, ensuring that:</p>
+<ul>
+<li>all designs remain open and remixable</li>
+<li>designs are globally searchable and comparable</li>
+<li>metadata, simulations, and lifecycle records are preserved</li>
+<li>adaptations across climates and resource conditions are documented</li>
+<li>successful patterns propagate rapidly</li>
+<li>failed designs and lessons learned are retained</li>
+</ul>
+<p>Designs stored here are not static artifacts. They are continuously pulled back into <strong>Module 2 (Collaborative Design Workspace)</strong> for local adaptation, contextual modification, and evolutionary branching.</p>
+<p>This module constitutes Integral’s <strong>evolving design genome</strong>.</p>
+<p><strong>Example</strong> A cold-climate adaptation appears: a freeze-resistant filter casing. Months later, a desert node merges its own sand-resistant prefilter, creating a hybrid version adopted globally.</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../assets/integral-system-diagram-12.png" class="img-fluid figure-img"></p>
+<figcaption>Integral system diagram</figcaption>
+</figure>
+</div>
+<p>Above Diagram: <em>Open Access Design System (OAD): Micro-Architecture and Feedback Loops</em> This diagram illustrates the micro-architecture of the Open Access Design System (OAD) and its role as Integral’s collective design intelligence. The vertical flow represents the lifecycle of a design, beginning with a new need or idea and proceeding through structured specification, collaborative refinement, ecological and lifecycle modeling, feasibility simulation, labor decomposition, system integration, optimization, certification, and archival in the global design commons.</p>
+<p>At multiple stages, OAD produces computable design intelligence—material and ecological coefficients, lifecycle and maintenance profiles, labor-step decompositions, interoperability constraints, and optimization results—which are consumed directly by the Cooperative Organization System (COS) and Integral Time Credits (ITC) for production planning and access-value calculation.</p>
+<p>The diagram also highlights OAD’s recursive feedback structure. Operational performance data from the Feedback &amp; Review System (FRS) feeds back into ecological coefficients, lifecycle assumptions, labor estimates, optimization targets, and certification status, ensuring that designs evolve in response to real-world conditions rather than remaining fixed abstractions.</p>
+<p>Finally, the Knowledge Commons &amp; Reuse Repository functions as a living design genome: certified designs are preserved globally and continuously re-enter the collaborative workspace for local adaptation, branching, and improvement. Together, these flows show OAD not as a static repository of blueprints, but as a self-correcting, federated design organism that enables non-market production coordination across the Integral network.**</p>
+<hr>
+</section>
+<section id="narrative-snapshot-a-full-oad-walkthrough" class="level3">
+<h3 class="anchored" data-anchor-id="narrative-snapshot-a-full-oad-walkthrough">Narrative Snapshot: A Full OAD Walkthrough</h3>
+<p>A coastal Integral node is experiencing worsening <strong>seasonal saltwater intrusion</strong> into its freshwater wells. Rather than purchasing a proprietary desalination unit or relying on external supply chains, the community initiates an <strong>open-access design pathway</strong> to create a low-energy, modular desalination system appropriate for its climate and material conditions.</p>
+<p>The moment the idea emerges, it enters <strong>OAD</strong>.</p>
+<hr>
+<p><strong>Module 1 — Design Submission &amp; Structured Specification</strong></p>
+<p>A community member submits a concept for a <strong>solar-assisted modular desalination unit</strong>. The structured template requires:</p>
+<ul>
+<li>functional goals (daily output, energy budget)</li>
+<li>preliminary CAD geometry</li>
+<li>materials assumptions</li>
+<li>ecological considerations</li>
+<li>maintenance expectations</li>
+<li>contextual conditions (humidity, solar exposure, brine disposal constraints)</li>
+</ul>
+<p>OAD checks for completeness, classifies the submission, and confirms it is technically coherent enough to move into collaborative development.</p>
+<hr>
+<p><strong>Module 2 — Collaborative Design Workspace</strong></p>
+<p>Designers, engineers, and practitioners join a shared, version-controlled workspace.</p>
+<p>Multiple branches emerge:</p>
+<ol type="1">
+<li><strong>Low-tech solar still</strong> (simple, durable, low throughput)</li>
+<li><strong>Fiber-membrane filtration unit</strong> (moderate throughput, moderate complexity)</li>
+<li><strong>Wave-energy-assisted design</strong> (high potential efficiency, coastal specialization)</li>
+</ol>
+<p>Branches evolve openly through:</p>
+<ul>
+<li>real-time annotations</li>
+<li>parametric adjustments</li>
+<li>AI-assisted geometry suggestions</li>
+<li>transparent version history</li>
+</ul>
+<p>Ideas are not privatized; they are <em>co-evolving organisms</em> in a shared ecosystem.</p>
+<hr>
+<p><strong>Module 3 — Material &amp; Ecological Coefficient Engine</strong></p>
+<p>Each branch is evaluated for:</p>
+<ul>
+<li>embodied energy</li>
+<li>material toxicity</li>
+<li>recyclability</li>
+<li>water and land footprint</li>
+<li>compatibility with local ecosystems</li>
+<li>repairability</li>
+<li>brine disposal safety</li>
+</ul>
+<p>The membrane-based design raises concerns:</p>
+<ul>
+<li>high embodied energy</li>
+<li>petroleum-derived plastic components</li>
+<li>difficult end-of-life recycling</li>
+</ul>
+<p>The engine suggests lower-impact alternatives: <strong>biodegradable fiber supports, bamboo structuring</strong>, and reduced resin use.</p>
+<p>A <strong>more ecologically viable branch</strong> is spawned.</p>
+<hr>
+<p><strong>Module 4 — Lifecycle &amp; Maintainability Modeling</strong></p>
+<p>To prevent fragile or short-lived designs, OAD simulates:</p>
+<ul>
+<li>expected lifespan</li>
+<li>maintenance intervals</li>
+<li>failure modes</li>
+<li>labor intensity of upkeep</li>
+<li>required skills for repairs</li>
+<li>impacts under extreme climate conditions</li>
+</ul>
+<p>The high-throughput membrane design shows excessive long-term maintenance demand. Conversely, the hybrid solar/fiber design:</p>
+<ul>
+<li>requires low-skill maintenance</li>
+<li>has long component lifespan</li>
+<li>is resilient under salt-corrosion scenarios</li>
+</ul>
+<p>This dramatically affects later <strong>ITC access valuation</strong> once operational—lower maintainability burden → lower access cost.</p>
+<hr>
+<p><strong>Module 5 — Feasibility &amp; Constraint Simulation</strong></p>
+<p>Now the system tests whether the design <strong>physically works</strong>:</p>
+<ul>
+<li>thermal gradients</li>
+<li>condensation efficiency</li>
+<li>fluid dynamics</li>
+<li>shell stress loads</li>
+<li>material response to continuous salt exposure</li>
+<li>extreme-weather tolerance</li>
+</ul>
+<p>A thermal-flow simulation reveals the internal condensation baffle is angled incorrectly. A revised geometry increases output by <strong>21%</strong> with <em>no additional materials</em>.</p>
+<p>At this stage the design is no longer speculative—it is <strong>functionally sound</strong>.</p>
+<hr>
+<p><strong>Module 6 — Skill &amp; Labor-Step Decomposition</strong></p>
+<p>OAD now breaks the design into <strong>explicit labor steps</strong>, producing the data COS and ITC need for accurate non-market economic calculation.</p>
+<p>For the desalination unit:</p>
+<ul>
+<li>fabrication steps (cutting, fitting, sealing)</li>
+<li>assembly sequences</li>
+<li>expected labor hours by skill level</li>
+<li>tooling and workspace requirements</li>
+<li>maintenance steps and periodic workloads</li>
+</ul>
+<p>This module outputs:</p>
+<ol type="1">
+<li><strong>Labor coefficients</strong> → fed directly into ITC valuation</li>
+<li><strong>Skill-matching requirements</strong> → fed to COS for cooperative formation</li>
+<li><strong>Maintainability workload expectations</strong> → fed to FRS for long-term monitoring</li>
+</ol>
+<p>This is where OAD begins interfacing directly with the <strong>future access cost of the good</strong>.</p>
+<hr>
+<p><strong>Module 7 — Systems Integration &amp; Architectural Coordination</strong></p>
+<p>The system checks whether the desalination unit harmonizes with:</p>
+<ul>
+<li>local rainwater collection</li>
+<li>solar-electric infrastructure</li>
+<li>greywater loops</li>
+<li>COS-controlled fabrication capacity</li>
+<li>locally available materials</li>
+<li>spatial constraints</li>
+<li>brine disposal pathways</li>
+</ul>
+<p>A synergy emerges: <strong>routing waste heat from the unit into a nearby greenhouse increases winter crop yield</strong>.</p>
+<p>The design becomes <em>part of a system</em>, not an isolated object.</p>
+<hr>
+<p><strong>Module 8 — Optimization &amp; Efficiency Engine</strong></p>
+<p>Now the design is improved through algorithmic and participatory refinement:</p>
+<ul>
+<li>reduce material volume</li>
+<li>improve thermal retention</li>
+<li>increase throughput</li>
+<li>simplify assembly</li>
+<li>increase durability</li>
+<li>reduce long-term maintenance</li>
+<li>minimize labor requirements where possible</li>
+</ul>
+<p>A parametric optimization cycle yields:</p>
+<ul>
+<li><strong>26% reduction in material use</strong></li>
+<li><strong>19% improvement in condensation efficiency</strong></li>
+<li>simplified geometry enabling tool-less assembly</li>
+<li>improved robustness via modular gasket design</li>
+</ul>
+<p>The design is now <em>approaching optimality</em>.</p>
+<hr>
+<p><strong>Module 9 — Validation, Certification &amp; Release Manager</strong></p>
+<p>Before any design can enter production, it must:</p>
+<ul>
+<li>pass ecological thresholds</li>
+<li>pass safety and stress modeling</li>
+<li>pass maintainability checks</li>
+<li>confirm manufacturability within at least one node</li>
+<li>confirm systems-integration compliance</li>
+<li>produce a full documentation bundle</li>
+</ul>
+<p>Once validated, the desalination unit gains:</p>
+<ul>
+<li>a canonical version</li>
+<li>full build package</li>
+<li>maintenance registry</li>
+<li>interoperability metadata</li>
+<li>access-value-relevant valuations (labor, materials, impacts)</li>
+</ul>
+<p>The design becomes <strong>production-ready</strong>.</p>
+<hr>
+<p><strong>Module 10 — Knowledge Commons &amp; Reuse Repository</strong></p>
+<p>The final design enters the global commons:</p>
+<ul>
+<li>the certified core version</li>
+<li>all explored branches</li>
+<li>ecological coefficients</li>
+<li>lifecycle models</li>
+<li>labor-step breakdowns</li>
+<li>simulation results</li>
+<li>optimization history</li>
+<li>climate-specific adaptations</li>
+</ul>
+<p><strong>Design reuse now becomes recursive.</strong> Certified designs are continuously pulled back into <strong>Module 2</strong> by other nodes for local adaptation.</p>
+<p>Weeks later, an inland node dealing with saline groundwater adapts the unit using <strong>geothermal pre-heating</strong>. That variant is certified and re-enters the commons—contributing back into OAD’s collective learning process.</p>
+<p>Meanwhile, <strong>FRS operational data</strong> from deployed units feeds back into:</p>
+<ul>
+<li>updated ecological coefficients (Module 3)</li>
+<li>revised maintenance assumptions (Module 4)</li>
+<li>corrected labor estimates (Module 6)</li>
+<li>optimization priorities (Module 8)</li>
+<li>and, if needed, re-certification (Module 9)</li>
+</ul>
+<p>No patents. No market silos. No intellectual-property rent.</p>
+<p>Just <strong>collective intelligence → ecological evaluation → simulation → optimization → certification → global inheritance → real-world feedback</strong>.</p>
+<p>A civilization designing like an expanding, learning organism. Not for profit — <strong>for life, resilience, and shared flourishing</strong>.</p>
+<hr>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.html" class="pagination-link" aria-label="CDS Addendum: Syntegrity as Final-Stage Human Deliberation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">CDS Addendum: Syntegrity as Final-Stage Human Deliberation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../whitepaper/07-modules/07-2-oad/oad-02-architecture-code.html" class="pagination-link" aria-label="Formal OAD Specification: Pseudocode + Math Sketches">
+        <span class="nav-page-text"><span class="chapter-title">Formal OAD Specification: Pseudocode + Math Sketches</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
