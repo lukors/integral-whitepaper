@@ -174,6 +174,7 @@ def compute_consensus(
 ```
 
 ------
+
 **Math Sketch: Consensus Score & Objection Index**
 
 **1. Preference Gradient (Weighted)**

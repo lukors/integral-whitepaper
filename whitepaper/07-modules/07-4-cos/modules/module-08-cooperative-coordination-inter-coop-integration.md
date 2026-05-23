@@ -355,6 +355,7 @@ Triggered when:
 - or FRS/ITC request reevaluation after a shock.
 
 ------
+
 **Math Sketch — Network-Level Autonomy and Fragility**
 
 Let the following quantities be defined:

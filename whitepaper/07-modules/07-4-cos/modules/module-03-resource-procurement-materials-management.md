@@ -252,6 +252,7 @@ From `ResourceProcurementResult` we can derive:
 - **FRS inputs:** trends in external dependence, nearing extraction floors, and overall ecological load
 
 ------
+
 **Math Sketch — Material Requirements, Scarcity, and EII**
 
 Let:

@@ -466,6 +466,7 @@ Conceptually, you’ll see outputs like:
 - **CDS**: policy review prompts (ecological threshold, dependency tolerance)
 
 ------
+
 **Math Sketches**
 
 **1. Recommendation as a Typed Function of Findings and Scenario Risk**

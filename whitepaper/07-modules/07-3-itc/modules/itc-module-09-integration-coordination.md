@@ -336,6 +336,7 @@ def coordination_tick_for_node(node_id: str) -> Optional[ITCPolicySnapshot]:
 ```
 
 ------
+
 **Math Sketch — Policy as a Bounded Function of Signals**
 
 Let:

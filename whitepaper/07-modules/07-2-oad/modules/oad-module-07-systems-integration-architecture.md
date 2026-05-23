@@ -222,6 +222,7 @@ def evaluate_system_integration(
 ```
 
 ------
+
 **Math Sketch — Integration Scoring**
 
 Let:

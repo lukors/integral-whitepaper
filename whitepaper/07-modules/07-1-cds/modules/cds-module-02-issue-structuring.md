@@ -190,6 +190,7 @@ def cluster_submissions(
 ```
 
 ------
+
 **Math Sketch — Clustering and Similarity**
 
 Let there be $N$ clusterable submissions $\{s_1, s_2, \dots, s_N\}$ with semantic embeddings $e(s_i) \in \mathbb{R}^d$.

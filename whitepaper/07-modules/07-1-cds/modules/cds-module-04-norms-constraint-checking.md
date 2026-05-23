@@ -132,6 +132,7 @@ def check_constraints(
 ```
 
 ------
+
 **Math Sketch — Constraint Check as Multi-Domain Feasibility**
 
 A scenario $S$ is viable only if it satisfies:

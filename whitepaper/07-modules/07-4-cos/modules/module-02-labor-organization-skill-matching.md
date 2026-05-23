@@ -313,6 +313,7 @@ def build_labor_matching(
 Voluntary selection remains the rule.
 
 ------
+
 **Math Sketch — Demand, Availability, Scarcity, Matching**
 
 Let:

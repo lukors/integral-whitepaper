@@ -178,6 +178,7 @@ def compute_schedule(
 ```
 
 ------
+
 **Math Sketch — Dependency Ordering**
 
 Tasks are represented as a directed acyclic graph $G = (V, E)$:

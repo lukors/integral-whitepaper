@@ -395,6 +395,7 @@ def run_quality_assurance_pipeline(
 ```
 
 ------
+
 **Math Sketch — QA-driven valuation adjustment**
 
 Let:

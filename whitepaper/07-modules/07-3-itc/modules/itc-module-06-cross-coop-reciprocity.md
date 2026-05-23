@@ -229,6 +229,7 @@ def record_cross_node_labor(
 ```
 
 ------
+
 **Math Sketch — Node Equivalence & Cross-Node Credits**
 
 Let each node $n$ have:

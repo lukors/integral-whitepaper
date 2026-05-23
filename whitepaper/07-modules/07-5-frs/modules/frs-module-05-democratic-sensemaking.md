@@ -364,6 +364,7 @@ Typical outputs for the sailboat case:
 - **Deliberation Prompts:** “Authorize OAD sprint? Adjust COS workflow now? Prioritize autonomy strategy? Revisit thresholds?”
 
 ------
+
 **Math Sketches**
 
 **1. Ranking and Salience in Democratic Presentation**

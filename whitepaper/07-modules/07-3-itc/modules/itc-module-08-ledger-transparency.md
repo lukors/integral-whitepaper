@@ -330,6 +330,7 @@ def verify_ledger_integrity() -> bool:
 ```
 
 ------
+
 **Math Sketch — Hash-Chained Audit Log**
 
 We can think of the ledger as an ordered sequence:

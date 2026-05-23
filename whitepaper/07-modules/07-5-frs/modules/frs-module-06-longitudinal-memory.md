@@ -331,6 +331,7 @@ Conceptual takeaway:
 A later node gets “we saw this pattern before” as **evidence** (what conditions matched, what interventions were tried, what outcomes occurred)—not as an order.
 
 ------
+
 **Math Sketches**
 
 **1. Similarity-Based Recall**

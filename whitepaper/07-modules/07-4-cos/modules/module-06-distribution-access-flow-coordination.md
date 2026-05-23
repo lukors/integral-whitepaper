@@ -343,6 +343,7 @@ def run_distribution_and_access_flow(
 ```
 
 ------
+
 **Math Sketch — Availability and Backlog**
 
 Let:

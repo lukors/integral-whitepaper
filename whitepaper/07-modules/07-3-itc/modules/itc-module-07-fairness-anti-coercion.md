@@ -293,6 +293,7 @@ def run_itc_ethics_monitoring_cycle(
 ```
 
 ------
+
 **Math Sketch — Ethical Pattern Indicators**
 
 **1. Queue Bias Correlation**

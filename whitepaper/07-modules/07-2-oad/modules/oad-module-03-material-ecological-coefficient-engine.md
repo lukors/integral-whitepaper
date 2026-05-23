@@ -259,6 +259,7 @@ def compute_eco_assessment(
 Later, when Module 4 (Lifecycle & Maintainability Modeling) is applied, `repairability_norm` is recalculated using empirically modeled disassembly, maintenance, and refurbishment characteristics, replacing this provisional estimate.
 
 ------
+
 **Math Sketch — Eco Score Aggregation**
 
 Let per-design aggregates (from BOM + material coefficients) be:

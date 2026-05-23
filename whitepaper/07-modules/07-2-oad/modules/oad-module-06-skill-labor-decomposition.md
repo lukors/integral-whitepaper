@@ -311,6 +311,7 @@ def build_labor_profile(
 ```
 
 ------
+
 **Math Sketch — Labor Aggregation & Lifetime Effort**
 
 Let:

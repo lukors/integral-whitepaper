@@ -188,6 +188,7 @@ def validate_hash_chain(
 ```
 
 ------
+
 **Math Sketch — Merkle-Style Attestation**
 
 Each log entry hash is computed as:

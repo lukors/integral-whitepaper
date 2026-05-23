@@ -197,6 +197,7 @@ def weight_labor_event(event: LaborEvent, policy: WeightingPolicy, policy_snapsh
 ```
 
 ------
+
 **Math Sketch — From Hours to Contribution Signal**
 
 For each valid labor event $e$:

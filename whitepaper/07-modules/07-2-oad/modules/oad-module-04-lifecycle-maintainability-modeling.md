@@ -260,6 +260,7 @@ def build_valuation_profile_from_oad(
 ```
 
 ------
+
 **Math Sketch — Lifecycle Labor & Repairability**
 
 Let:

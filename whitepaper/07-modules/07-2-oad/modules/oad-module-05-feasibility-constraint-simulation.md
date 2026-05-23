@@ -242,6 +242,7 @@ def run_feasibility_simulation(version: DesignVersion) -> SimulationResult:
 ```
 
 ------
+
 **Math Sketch — Feasibility Aggregation**
 
 For scenarios $S = \{s_1, \dots, s_n\}$, each produces a local feasibility score $f_s \in [0,1]$.

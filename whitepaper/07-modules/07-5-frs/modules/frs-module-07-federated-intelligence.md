@@ -343,6 +343,7 @@ The following example illustrates how a local sailboat durability episode is sha
 No one is told what to do. Everyone can see what worked.
 
 ------
+
 **Math Sketches**
 
 **1. Confidence accumulation across nodes**

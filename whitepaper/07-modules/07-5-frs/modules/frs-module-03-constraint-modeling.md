@@ -420,6 +420,7 @@ for r in model.scenario_results:
 ```
 
 ------
+
 **Math Sketches**
 
 **1. Constraint Margin and Breach**

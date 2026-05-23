@@ -139,6 +139,7 @@ def deliberate(
 ```
 
 ------
+
 **Math Sketch — Objection Aggregation**
 
 In deliberation, objections must be:

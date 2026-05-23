@@ -161,6 +161,7 @@ def build_context_model(
 Everything is organized so downstream modules can evaluate **what is actually possible and responsible**.
 
 ------
+
 **Math Sketch — Multi-Criteria Indicator Aggregation**
 
 Module 3 often needs to normalize heterogeneous indicators so that Modules 4–6 can reason about them systematically.

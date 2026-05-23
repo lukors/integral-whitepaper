@@ -218,6 +218,7 @@ This evidence is routed back to:
 - **Module 8** (next-generation optimization).
 
 ------
+
 **Math Sketch — Reuse as a Distributed Utility Signal**
 
 For each design version $v$:

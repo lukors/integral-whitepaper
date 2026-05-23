@@ -172,6 +172,7 @@ def evaluate_review_request(
 ```
 
 ------
+
 **Mathematical Sketch — Divergence Trigger**
 
 Let:

@@ -390,6 +390,7 @@ def run_capacity_and_constraint_analysis(
 ```
 
 ------
+
 **Math Sketch — Bottleneck Identification & Severity**
 
 Let:

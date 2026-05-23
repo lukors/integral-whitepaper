@@ -215,6 +215,7 @@ def optimize_design(
 ```
 
 ------
+
 **Math Sketch — Multi-Objective Optimization**
 
 Let the design state vector be:

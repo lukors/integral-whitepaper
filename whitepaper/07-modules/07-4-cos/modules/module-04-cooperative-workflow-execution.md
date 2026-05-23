@@ -268,6 +268,7 @@ def compute_execution_metrics(plan: COSProductionPlan) -> COSExecutionMetrics:
 ```
 
 ------
+
 **Math Sketch — Cycle Time, WIP, and Deviation**
 
 Let:
