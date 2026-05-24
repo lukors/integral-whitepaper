@@ -41,7 +41,7 @@ It is a consensus mechanism, **not a voting system**.
   - `issue.status = "consensus_check"`
   - `issue.last_updated_at` set
 
-------
+***
 
 **Helper Type: ConsensusResult (canonical)**
 
@@ -63,7 +63,7 @@ class ConsensusResult:
     metadata: Dict[str, Any] = field(default_factory=dict)
 ```
 
-------
+***
 
 **Core Logic **
 
@@ -173,7 +173,8 @@ def compute_consensus(
     )
 ```
 
-------
+***
+
 **Math Sketch: Consensus Score & Objection Index**
 
 **1. Preference Gradient (Weighted)**
@@ -207,7 +208,7 @@ If:
 - $O \ge O_{\text{block}}$ → revise (blocking objection)
 - contradictory signals / value conflict → escalate to Module 9
 
----
+***
 
 **Semantic Summary**
 

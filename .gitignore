@@ -1,0 +1,16 @@
+/.quarto/
+**/*.quarto_ipynb
+
+# Build output directory
+/_book/
+
+# Temporary build files
+# These can be left behind if a build fails
+/index.typ
+/index.tex
+/index.html
+/whitepaper/**/*.html
+**/*.typst.md
+**/*.epub.md
+__pycache__/
+/site_libs/

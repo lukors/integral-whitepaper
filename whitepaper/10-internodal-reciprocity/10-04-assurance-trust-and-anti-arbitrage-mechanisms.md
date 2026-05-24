@@ -4,7 +4,7 @@ Internodal reciprocity at scale requires more than goodwill. When information, l
 
 This section formalizes how Integral stabilizes reciprocity while preventing strategic manipulation, free-riding, or value arbitrage across heterogeneous local contexts.
 
-------
+***
 
 **10.4.1 Trust Without Central Authority**
 
@@ -18,7 +18,7 @@ Trust emerges because:
 
 Nodes are never required to trust other nodes as authorities. They are required only to trust **cryptographic signatures, shared schemas, and empirical evidence**.
 
-------
+***
 
 **10.4.2 Assurance Artifacts**
 
@@ -34,7 +34,7 @@ Assurance artifacts include:
 
 These artifacts do not grant authority. They provide **evidence**. Receiving nodes remain free to accept, reject, or conditionally accept incoming flows based on their own standards.
 
-------
+***
 
 **10.4.3 Local Attestation and Distributed Validation**
 
@@ -53,7 +53,7 @@ Validation is **distributed**, not hierarchical. Nodes independently verify:
 
 Invalid or unverifiable artifacts simply do not propagate. No sanctions are required.
 
-------
+***
 
 **10.4.4 Anti-Arbitrage by Design**
 
@@ -65,7 +65,7 @@ There is no fungible, transferable unit of value that can be accumulated, traded
 
 Without a transferable unit, arbitrage has nothing to operate on.
 
-------
+***
 
 **2. Equivalence Bands Instead of Conversion Rates**
 
@@ -73,7 +73,7 @@ Cross-node recognition of labor uses **equivalence bands**, not exchange rates. 
 
 This ensures comparability without creating incentive gradients that drive strategic migration.
 
-------
+***
 
 **3. Capacity and Material Envelopes**
 
@@ -81,7 +81,7 @@ Nodes expose only **provisionable envelopes** of materials and capacity, preserv
 
 Scarcity does not increase “price”; it **reduces availability**.
 
-------
+***
 
 **4. Recognition Decay and Non-Accumulation**
 
@@ -93,7 +93,7 @@ Recognized contributions:
 
 This prevents the emergence of “ITC wealth” or persistent advantage.
 
-------
+***
 
 **5. Evidence-Based Quality Weighting**
 
@@ -105,7 +105,7 @@ Low-quality or bad-faith contributions are naturally discounted through:
 
 Repeated poor outcomes lead to diminished recognition and reduced opportunities—without blacklists or punitive exclusion.
 
-------
+***
 
 **10.4.5 Dispute Handling Without Escalation**
 
@@ -117,7 +117,7 @@ Disputes over contribution quality, material acceptance, or capacity provision a
 
 Only when disputes themselves generate cross-node harm do they become candidates for scope expansion under Section 9’s logic.
 
-------
+***
 
 **10.4.6 Failure Is Contained, Not Systemic**
 
@@ -129,7 +129,7 @@ Integral assumes that errors, mismatches, and occasional bad faith will occur. T
 
 Nodes that consistently produce unreliable outputs or attest poorly simply become less interoperable. Designs are forked away from. Contributions are discounted. Provision requests go unanswered. No coercion is required.
 
-------
+***
 
 **10.4.7 Why This Is Sufficient**
 
@@ -144,7 +144,7 @@ By embedding assurance, bounded recognition, and anti-arbitrage constraints into
 
 Trust becomes a function of **evidence, structure, and consequence**, not belief or control.
 
-------
+***
 
 **10.4.8 Closing the Reciprocity Loop**
 
@@ -152,4 +152,4 @@ With assurance mechanisms in place, the three major reciprocity domains—inform
 
 This completes Integral’s account of internodal reciprocity: a framework in which cooperation scales without markets, hierarchy, or coercion, grounded in cybernetic feedback, local sovereignty, and shared reality.
 
-------
+***

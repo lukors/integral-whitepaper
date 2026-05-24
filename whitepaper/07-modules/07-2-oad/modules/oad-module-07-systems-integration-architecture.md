@@ -49,7 +49,7 @@ These outputs directly influence:
 - final certification (Module 9),
 - and long-term FRS telemetry mapping.
 
-------
+***
 
 **Reminder: Integration Type**
 
@@ -221,7 +221,8 @@ def evaluate_system_integration(
     )
 ```
 
-------
+***
+
 **Math Sketch — Integration Scoring**
 
 Let:
@@ -241,7 +242,7 @@ Thus:
 - A design that enables **resource circularity** is softly rewarded.
 - Final score $I \in [0,1]$ gives a clean compatibility signal.
 
----
+***
 
 **Interpretation in Plain Language**
 

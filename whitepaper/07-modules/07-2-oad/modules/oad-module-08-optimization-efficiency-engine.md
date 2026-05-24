@@ -41,7 +41,7 @@ Module 8 operates **only within the feasible design space** defined by earlier c
 - Updated ecological, labor, lifecycle, and feasibility metrics
 - Preferred candidates for **Module 9 Certification**
 
-------
+***
 
 **Reminder: Optimization Result Type**
 
@@ -56,13 +56,13 @@ class OptimizationResult:
     improvement_summary: str
 ```
 
-------
+***
 
 **Core Optimization Logic**
 
 Optimization is **multi-objective**. A single scalar objective is computed from weighted physical and human realities.
 
-------
+***
 
 1. **Extract Optimization Vector**
 
@@ -86,7 +86,7 @@ def extract_optimization_metrics(
     }
 ```
 
-------
+***
 
 2. **Scalar Objective Function**
 
@@ -116,7 +116,7 @@ DEFAULT_OPTIMIZATION_WEIGHTS = {
 }
 ```
 
-------
+***
 
 3. **Parameter Mutation Engine (Design Evolution)**
 
@@ -137,7 +137,7 @@ def mutate_design_parameters(
     return new_params
 ```
 
-------
+***
 
 4. **Optimization Loop (Evolutionary Sketch)**
 
@@ -214,7 +214,8 @@ def optimize_design(
     ), optimized_version
 ```
 
-------
+***
+
 **Math Sketch — Multi-Objective Optimization**
 
 Let the design state vector be:
@@ -245,7 +246,7 @@ Subject to constraints from:
 
 This is a **Pareto-constrained, multi-objective physical optimization**, not a market cost minimization.
 
----
+***
 
 **Interpretation in Plain Language**
 

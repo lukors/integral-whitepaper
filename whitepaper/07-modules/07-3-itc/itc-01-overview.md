@@ -8,7 +8,7 @@ Unlike money, ITCs have no independent economic power. They cannot be traded, st
 
 ITCs calibrate fairness—as defined by **CDS policy** and **ecological constraints**—synchronize labor availability with actual needs, ensure proportional access to goods, and maintain coherence across the federation’s metabolic processes.
 
-------
+***
 
 **Cybernetic Valuation Pipeline **
 
@@ -42,7 +42,7 @@ FRS ensures that valuation and weighting propagate **reality**, not assumption. 
 
 These adjustments are **coordination signals**, not scarcity rents or incentive rewards.
 
-------
+***
 
 **Post-Scarcity Trajectory**
 
@@ -50,7 +50,7 @@ Over time, this dynamic reinforces Integral’s long-term trajectory toward **po
 
 Entire categories of goods and services asymptotically approach **zero contribution requirement**, eventually exiting the ITC domain entirely. Integral is thus structurally designed to achieve **“more with less”**—a secular decline in the labor-cost of life-supporting goods and a shrinking of the metabolic layer rather than its institutionalization.
 
-------
+***
 
 **Normative Governance (CDS)**
 
@@ -66,7 +66,7 @@ Together, OAD, COS, FRS, and CDS compute the **ITC access obligation**—the pro
 
 Thus, ITC valuation is neither a market price nor a centralized assignment. It is the emergent outcome of a **recursive, transparent, physically grounded calculation**—an algorithmic expression of labor, ecology, repairability, scarcity, and maintenance burden, all measured in human time.
 
-------
+***
 
 **Scope of ITCs**
 
@@ -76,7 +76,7 @@ By contrast, **democratic participation and creative ideation do not generate IT
 
 This structural separation preserves democratic legitimacy and prevents market logic from re-entering intellectual or cultural life.
 
-------
+***
 
 **In practice, ITCs:**
 
@@ -91,7 +91,7 @@ This structural separation preserves democratic legitimacy and prevents market l
 
 ITC is not an incentive mechanism, but a **coordination and integrity mechanism**. It ensures access is governed by contribution and ecological responsibility—not wealth or bargaining power—and replaces price signals with multidimensional, cybernetic information.
 
-------
+***
 
 **ITC Module Overview Table**
 
@@ -107,7 +107,7 @@ ITC is not an incentive mechanism, but a **coordination and integrity mechanism*
 | **8. Ledger, Transparency & Auditability**          | Maintains a tamper-evident public record of ITC dynamics.    | Open audit trails; transparent ledgers                       |
 | **9. Integration & Coordination Module**            | Synchronizes ITC with CDS, OAD, COS, and FRS.                | Cybernetic middleware; VSM-inspired coordination             |
 
-------
+***
 
 ### Module 1: Labor Event Capture & Verification
 
@@ -134,7 +134,7 @@ The system logs:
 
 The event then moves forward to weighting.
 
-------
+***
 
 ### Module 2: Skill & Context Weighting Engine
 
@@ -153,7 +153,7 @@ There is no bidding, no price negotiation, and no competition—only democratic,
 - Precision micro-soldering → **1.6**
 - Micro-soldering during technician scarcity or urgent heat-wave deployment → **1.8**
 
-------
+***
 
 ### Module 3: Time-Decay Mechanism
 
@@ -169,7 +169,7 @@ Decay is **not a punishment for inactivity**, but a normalization mechanism that
 Someone who spent a month repairing modular phone screens accumulates 60 ITCs.
 If they are inactive for several months, their balance decays gently. When they resume participation—say, by updating firmware modules—the balance stabilizes.
 
-------
+***
 
 ### Module 4: Labor-Budget Forecasting & Need Anticipation
 
@@ -191,7 +191,7 @@ It prevents misalignment between **necessary labor** and **recognized contributi
 The system forecasts a rise in battery module replacements during summer due to thermal strain.
 To avoid bottlenecks, the weighting parameters for battery conditioning and module diagnostics are temporarily adjusted.
 
-------
+***
 
 ### Module 5: Access Allocation & Redemption
 
@@ -262,7 +262,7 @@ The same member checks out a precision diagnostic tool from the Access Center.
 A camera module replacement requires ITC redemption proportional to labor, material intensity, ecological coefficients, and component scarcity.
 As production efficiency improves or materials become more abundant, the access-value naturally falls.
 
-------
+***
 
 ### Module 6: Cross-Cooperative & Internodal Reciprocity
 
@@ -277,7 +277,7 @@ This module harmonizes **interpretation**, not balances, through equivalence ban
 A member who earned ITCs assembling logic boards in Node A travels to Node B, where micro-soldering expertise is scarcer and ecologically prioritized.
 The **effective interpretation** of their balance adapts to local equivalence bands, ensuring fairness without enabling arbitrage.
 
-------
+***
 
 ### Module 7: Fairness, Anti-Coercion & Ethical Safeguards
 
@@ -298,7 +298,7 @@ FRS monitors patterns and flags irregularities for CDS review. This module does 
 **Example (Modular Cell Phone)**
 A repair coop begins giving faster access to diagnostic benches to members with high ITC balances. The system flags this as unethical. CDS intervenes and resets queue rules.
 
-------
+***
 
 ### Module 8: Ledger, Transparency & Auditability
 
@@ -321,7 +321,7 @@ The ledger is **not a blockchain**. It is a cybernetic audit layer enabling veri
 **Example (Modular Cell Phone)**
 Ledger analytics show a sharp rise in screen replacements. OAD reviews the design, COS adjusts maintenance schedules, and FRS watches for ecological stress in glass supply chains. Transparency turns what would be a market failure into rapid systemic correction.
 
-------
+***
 
 ### Module 9: Integration & Coordination
 
@@ -346,7 +346,7 @@ The federation moves toward cobalt independence—without markets.
 
 
 
-![Integral system diagram](../../../assets/integral-system-diagram-13b.png)<img width="468" height="15" alt="image" src="https://github.com/user-attachments/assets/09200a6e-0d90-4257-aca0-73793e274a09" />
+![Integral system diagram](../../../assets/integral-system-diagram-13b.png)
 
 
 Above Diagram: *Integral Time Credit (ITC) System | Cybernetic Flow of Contribution, Valuation, and Access*
@@ -360,7 +360,7 @@ Module 9 (Integration & Coordination) synchronizes signals across CDS, OAD, COS,
 
 Solid arrows represent primary operational data flows required for the system to function (e.g., labor events, access allocation). Dotted arrows represent contextual, supervisory, or feedback signals that inform and correct behavior without conferring command authority. Together, these flows demonstrate how Integral replaces the price system with a transparent, physically grounded, non-coercive valuation process rooted in real labor, ecology, and democratic governance.
 
-------
+***
 
 ### Narrative Snapshot: ITC Walkthrough A (Labor Focus)
 
@@ -371,7 +371,7 @@ A regional node is preparing for the dry season. Water tables are dropping, and 
 **The moment real operational work begins—physical fabrication, testing, assembly, logistics—ITC comes alive.**
 Not during debate, not during ideation, but during **material contribution** to shared infrastructure. ITCs only metabolize where real, necessary labor takes place.
 
-------
+***
 
 **Module 1 — Labor Event Capture & Verification**
 
@@ -387,7 +387,7 @@ Each task check-in is logged through COS, authenticated, and verified by a peer.
 
 No event enters the ITC ledger until humans verify it. Labor enters as a **neutral signal**—not yet valued.
 
-------
+***
 
 **Module 2 — Skill & Context Weighting Engine**
 
@@ -405,7 +405,7 @@ Context modifies weight:
 **These weighting bands are not arbitrary—they are democratically decided through CDS deliberation and revisited whenever needed.**
 They are transparent, bounded, and community-governed. No bidding, no competition, no private negotiation.
 
-------
+***
 
 **Module 3 — Time-Decay Mechanism**
 
@@ -418,7 +418,7 @@ Decay affects *unused balances* only; ITCs extinguished through access are not s
 **And importantly: decay parameters are democratically set, not black-boxed or algorithmically imposed.**
 FRS ensures decay behavior remains fair and functional.
 
-------
+***
 
 **Module 4 — Labor-Budget Forecasting & Need Anticipation**
 
@@ -435,7 +435,7 @@ Weighting for ceramic firing and diagnostic testing temporarily increases. Train
 
 This prevents scarcity—**before** it manifests.
 
-------
+***
 
 **Module 5 — Access Allocation & Redemption**
 
@@ -452,7 +452,7 @@ When a purifier is acquired, ITCs are extinguished.This prevents accumulation, t
 
 Borrowing a turbidity meter or UV testing wand from an Access Center is **simply free**, because tools stay in the shared-use pool rather than leaving circulation. Only during scarcity would a temporary fairness-lock appear.
 
-------
+***
 
 **Module 6 — Cross-Cooperative & Internodal Reciprocity**
 
@@ -466,7 +466,7 @@ Their ITCs transfer with them, and **local equivalence rules** adjust interpreta
 
 There is no currency exchange, no arbitrage—just unified contribution coherence across nodes.
 
-------
+***
 
 **Module 7 — Fairness, Anti-Coercion & Ethical Safeguards**
 
@@ -477,7 +477,7 @@ The system flags it → CDS intervenes → training expands → weighting adjust
 
 Power does not aggregate in skill bottlenecks.
 
-------
+***
 
 **Module 8 — Ledger, Transparency & Auditability**
 
@@ -492,7 +492,7 @@ People can see:
 Transparency eliminates speculation and rumor.
 It creates immediate, shared situational awareness.
 
-------
+***
 
 **Module 9 — Integration & Coordination**
 
@@ -507,7 +507,7 @@ Response:
 
 The federation reduces ecological strain **without markets**, **without prices**, **without command hierarchies**, purely through cybernetic coordination.
 
-------
+***
 
 ### Narrative Snapshot: ITC Walkthrough B (Access Focus)
 
@@ -520,7 +520,7 @@ This is because ITCs apply **only** to operational, materially grounded labor, n
 
 Below is how the bicycle’s **ITC access-value** emerges from the cybernetic valuation pipeline.
 
-------
+***
 
 **STEP 1 — OAD: Deriving the Bicycle’s Design Intelligence**
 
@@ -545,7 +545,7 @@ OAD output (prior to ITC weighting):
 - These steps populate `LaborProfile.total_production_hours`
 - Skill weighting is deferred to **ITC Module 2**
 
-------
+***
 
 **2. Material Intensity & Ecological Coefficients (OAD → ITC input)**
 
@@ -572,7 +572,7 @@ These values populate fields in `OADValuationProfile` and later contribute to:
 - `eco_burden_adjustment`
 - `material_scarcity_adjustment`
 
-------
+***
 
 **3. Lifecycle & Repairability (OAD → ITC input)**
 
@@ -591,7 +591,7 @@ These values populate:
 
 This bicycle is designed to be repaired locally with minimal special tools—an important factor in reducing ITC access obligations.
 
-------
+***
 
 **STEP 2 — COS: Real Production Conditions**
 
@@ -615,7 +615,7 @@ COS converts design assumptions into **real operational context**.
 
 These populate `COSWorkloadSignal` inputs to Module 5.
 
-------
+***
 
 **STEP 3 — FRS: Real-World Corrections**
 
@@ -633,7 +633,7 @@ This revises:
 - `repairability_credit` upward
 - `longevity_credit` downward (rewarding durability)
 
-------
+***
 
 **2. Scarcity amplification**
 
@@ -642,20 +642,20 @@ Aluminum recycling throughput dips.
 
 - `material_scarcity_adjustment = +0.11`
 
-------
+***
 
 **3. Worker fatigue signal**
 
 FRS detects elevated welder fatigue due to unrelated infrastructure surges.
  It recommends a **+0.05 safety/fairness weighting adjustment** to welding tasks.
 
-------
+***
 
 **STEP 4 — ITC Modules Resolve the Signals**
 
 Now ITC processes these inputs.
 
-------
+***
 
 **ITC Module 1 — Labor Event Capture**
 
@@ -664,7 +664,7 @@ Now ITC processes these inputs.
 - `LaborEvent` objects created
 - **No value assigned yet**
 
-------
+***
 
 **ITC Module 2 — Skill & Context Weighting**
 
@@ -685,13 +685,13 @@ Result:
 
 This value is stored as the **labor backbone** of `AccessValuation.base_weighted_labor_hours`.
 
-------
+***
 
 **ITC Module 3 — Time-Decay**
 
 Not relevant to the bicycle’s computation, but affects individual balances over time.
 
-------
+***
 
 **ITC Module 4 — Labor Forecasting**
 
@@ -700,7 +700,7 @@ COS forecasts rising bicycle demand in two months.
 - Future weighting may adjust
 - **Current access-value remains unchanged** (no retroactive effects)
 
-------
+***
 
 **ITC Module 5 — Access Allocation & Redemption**
 
@@ -719,7 +719,7 @@ These values are **bounded by CDS policy**, logged transparently, and fully trac
 
 **≈ 14 ITCs**
 
-------
+***
 
 **STEP 5 — Redemption**
 
@@ -735,4 +735,4 @@ If the member instead used a shared bicycle or tool:
 - **No extinguishment**
 - **Shared access only**
 
-------
+***

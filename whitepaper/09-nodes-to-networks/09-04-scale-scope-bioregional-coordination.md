@@ -36,4 +36,4 @@ As correlations intensify, coordination deepens organically: CDS scope widens, C
 
 Bioregional fields are neither fixed nor exclusive. They overlap, shift, and reconfigure as conditions evolve. There are no permanent regional blocs, no territorial identities to defend, and no standing authorities attached to them. Coordination geometries are defined by **current reality**, not politics—preventing coordination from hardening into power.
 
-------
+***

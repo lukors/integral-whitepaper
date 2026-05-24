@@ -43,7 +43,7 @@ For a given `DesignVersion`:
   - **ITC** (access-value computation)
   - **Module 10** (repository indexing)
 
-------
+***
 
 **Reminder: CertificationRecord**
 
@@ -59,7 +59,7 @@ class CertificationRecord:
     status: Literal["certified", "revoked", "pending"]
 ```
 
-------
+***
 
 **Core Validation & Certification Logic**
 
@@ -77,7 +77,7 @@ Each checker returns:
 - `reason: str`
 - `risk_score: float` (0–1)
 
-------
+***
 
 1) **Per-dimension checkers** 
 
@@ -216,7 +216,7 @@ def check_integration(
     return passed, reason, risk
 ```
 
-------
+***
 
 **2) Aggregate certification decision**
 
@@ -329,7 +329,7 @@ where $\tau_R$ is a conservatively chosen risk threshold (e.g. 0.5).
 
 > Even if a design squeaks by on all individual checks, if its **aggregate risk profile** is too high, Module 9 can still refuse certification or demand redesign. This prevents "borderline" designs from slipping through just because they technically meet minimums.
 
----
+***
 
 **How Module 9 Feeds COS, ITC, and Module 10**
 

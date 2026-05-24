@@ -31,7 +31,7 @@ Certified designs retrieved from the **Knowledge Commons (Module 10)** re-enter 
 - Updated `DesignVersion` objects with refined parameters and change logs
 - Traceable version history (parent–child relationships via `parent_version_id` and `VERSION_CHILDREN`)
 
-------
+***
 
 **Core Logic**
 
@@ -157,7 +157,7 @@ def import_from_commons_for_local_adaptation(
     )
 ```
 
-------
+***
 
 **Simple Branch Preference Helper (Using Downstream Scores)**
 
@@ -194,7 +194,7 @@ def choose_preferred_branch(
 
 In a real implementation, geometric merges and CAD-level reconciliation are handled by specialized tools; this workspace logic coordinates branches as computational objects and references CAD assets by URI/hash.
 
-------
+***
 
 **Math Sketch — Branch Preference Scoring**
 

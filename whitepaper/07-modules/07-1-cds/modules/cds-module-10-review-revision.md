@@ -6,7 +6,7 @@ Module 10 ensures that CDS remains a **living, adaptive governance system** by p
 
 This module operates **after implementation**, using feedback from FRS, COS, and ITC to reassess decisions **over time**, not at decision-time.
 
-------
+***
 
 **What This Module Is (and Is Not)**
 
@@ -19,7 +19,7 @@ In biological metaphor:
 > If FRS senses stress,
 >  Module 10 is the **adaptive correction loop** that restores viability.
 
-------
+***
 
 **Why This Module Exists**
 
@@ -33,7 +33,7 @@ Even well-designed decisions can fail because:
 
 Without a formal revision pathway, governance **ossifies** and loses legitimacy.
 
-------
+***
 
 **Inputs**
 
@@ -59,7 +59,7 @@ Without a formal revision pathway, governance **ossifies** and loses legitimacy.
 - Mandatory recording via Module 7
 - Redispatch via Module 8 if amended
 
-------
+***
 
 **Helper Types (canonical)**
 
@@ -102,7 +102,7 @@ class ReviewOutcome:
     decided_at: datetime = field(default_factory=datetime.utcnow)
 ```
 
-------
+***
 
 **Core Logic **
 
@@ -171,7 +171,8 @@ def evaluate_review_request(
     )
 ```
 
-------
+***
+
 **Mathematical Sketch — Divergence Trigger**
 
 Let:
@@ -184,7 +185,7 @@ If:
 
 $$D > \tau \Rightarrow \text{review triggered}$$
 
----
+***
 
 **Final Conceptual Distinction (Important)**
 

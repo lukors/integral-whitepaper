@@ -33,7 +33,7 @@ A proposal that fails a constraint is **not rejected outright**—it is returned
   - `issue.last_updated_at` set
 - A filtered set of feasible scenarios for Module 5 and 6 *(or a set of “revise-and-retry” requirements if all fail)*
 
-------
+***
 
 **Helper Type for Reporting**
 
@@ -55,7 +55,7 @@ class ConstraintReport:
     metadata: Dict[str, Any] = field(default_factory=dict)
 ```
 
-------
+***
 
 **Core Logic **
 
@@ -131,12 +131,13 @@ def check_constraints(
     )
 ```
 
-------
+***
+
 **Math Sketch — Constraint Check as Multi-Domain Feasibility**
 
 A scenario $S$ is viable only if it satisfies:
 
-$$S \in \mathcal{F}_{eco} \;\cap\; \mathcal{F}_{res} \;\cap\; \mathcal{F}_{lab} \;\cap\; \mathcal{F}_{soc} \;\cap\; \mathcal{F}_{const}$$
+$$S \in \mathcal{F}_{eco},\quad S \in \mathcal{F}_{res},\quad S \in \mathcal{F}_{lab},\quad S \in \mathcal{F}_{soc},\quad S \in \mathcal{F}_{const}$$
 
 Where each feasibility set defines a constraint domain:
 
@@ -162,7 +163,7 @@ $$C_k(S) = \text{True} \;\; \forall k$$
 
 If any domain fails, the scenario is returned for revision with specificity, not rejected in total.
 
----
+***
 
 **Semantic Summary**
 

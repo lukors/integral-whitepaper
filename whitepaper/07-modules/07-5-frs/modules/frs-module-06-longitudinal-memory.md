@@ -5,7 +5,7 @@ Preserve, structure, and operationalize institutional memory so Integral can lea
 
 FRS-6 does not decide what should be repeated. It records what happened, under what conditions, and with what consequences.
 
-------
+***
 
 **Inputs**
 
@@ -16,7 +16,7 @@ FRS-6 does not decide what should be repeated. It records what happened, under w
 - Ecological and operational traces over time (FRS-1 packets)
 - Optional inter-node memory shares (FRS-7)
 
-------
+***
 
 **Outputs**
 
@@ -40,7 +40,7 @@ Structured inputs for:
 - FRS-4 (recommendation templates)
 - FRS-5 (historical parallels in deliberation)
 
-------
+***
 
 **Design Principles**
 
@@ -53,7 +53,7 @@ Structured inputs for:
 4. **Pattern extraction, not dogma**
     Generalizations are explicit, bounded, and confidence-scored.
 
-------
+***
 
 **Core Logic **
 
@@ -280,7 +280,7 @@ def pattern_confidence(
     return max(0.0, min(1.0, score))
 ```
 
-------
+***
 
 **Running Example (Sailboat): “We’ve Seen This Before”**
 
@@ -330,7 +330,8 @@ for rec, sim in similar:
 Conceptual takeaway:
 A later node gets “we saw this pattern before” as **evidence** (what conditions matched, what interventions were tried, what outcomes occurred)—not as an order.
 
-------
+***
+
 **Math Sketches**
 
 **1. Similarity-Based Recall**
@@ -347,7 +348,7 @@ $$\mathrm{sim}(\mathbf{x},\mathbf{y}) \ge \tau$$
 
 where $\tau$ is a configurable threshold.
 
----
+***
 
 **2. Pattern Confidence Accumulation**
 
@@ -359,7 +360,7 @@ $$\mathrm{conf}(p)=h(n,\overline{\Delta},\mathrm{var}(\Delta))$$
 
 where $h(\cdot)$ increases with sample size and average improvement, and decreases with variance. Higher confidence increases prominence in FRS-4/5 artifacts—but never becomes mandatory.
 
----
+***
 
 **3. Anti-Dogma Safeguard**
 
@@ -369,7 +370,7 @@ $$\text{Memory evidence} \neq \text{Policy authority}$$
 
 FRS-6 outputs remain inputs to modeling and deliberation, not executive decisions.
 
----
+***
 
 **Plain-Language Summary**
 

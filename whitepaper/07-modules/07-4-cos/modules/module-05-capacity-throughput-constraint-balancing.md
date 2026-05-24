@@ -20,7 +20,7 @@ Module 5 answers:
 
 This is COS’s *constraint radar + suggestion engine*.
 
-------
+***
 
 **Types — Constraints & Signals**
 
@@ -85,7 +85,7 @@ class FRSConstraintSignal:
 - `COSExecutionMetrics`
 - `TaskStatus` from Module 4
 
-------
+***
 
 **Execution-layer consistency requirement**
 
@@ -100,7 +100,7 @@ BlockReason = Literal["skill", "tool", "material", "space", "unknown"]
 
 If you don’t want to add a field, Module 5 can still fall back to parsing `notes`, but structured tags are strongly preferred.
 
-------
+***
 
 1. Detect Task-Level Bottlenecks from Execution Metrics
 
@@ -188,7 +188,7 @@ def detect_task_bottlenecks(
     return constraints
 ```
 
-------
+***
 
 2. Refine Constraint Types
 
@@ -261,7 +261,7 @@ def refine_constraint_types(
                 c.suggested_actions.append("re-sequence tasks to avoid workspace saturation")
 ```
 
-------
+***
 
 3. **Generate Signals for ITC, OAD, and FRS**
 
@@ -361,7 +361,7 @@ def build_frs_constraint_signals(
     return signals
 ```
 
-------
+***
 
 4. Orchestration
 
@@ -389,11 +389,12 @@ def run_capacity_and_constraint_analysis(
     }
 ```
 
-------
+***
+
 **Math Sketch — Bottleneck Identification & Severity**
 
 Let:
-- $S = \\{ s_1, \dots, s_n \\}$ be the set of task types (definitions).
+- $S = \{ s_1, \dots, s_n \}$ be the set of task types (definitions).
 - For each step $s$:
   - Estimated total hours:
 
@@ -440,7 +441,7 @@ Steps with high severity are candidates for:
 
 Once the most severe step is identified (or top-$k$), that step is (for this batch) the **bottleneck**: its capacity constrains total output.
 
----
+***
 
 **Plain-Language Example (Still Bicycle / Guitar Behind the Scenes)**
 
@@ -461,4 +462,3 @@ Over time:
 - Training expands, tools improve, design is simplified.
 - The severity score drops, throughput stabilizes.
 - ITC weighting for that step can relax, and the **access-value of the good trends downward**, reflecting real systemic efficiency, not price games.
-

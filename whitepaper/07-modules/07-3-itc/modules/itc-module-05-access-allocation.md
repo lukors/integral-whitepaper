@@ -46,7 +46,7 @@ For a given `design_version_id` in `node_id`:
 - Corresponding `LedgerEntry` entries:
   - `"access_value_quoted"` and `"access_redeemed"`
 
-------
+***
 
 **Core Logic **
 
@@ -301,7 +301,7 @@ def redeem_access(
 
 > If you want the **lock return** logic documented: on return, you’d create a ledger entry that restores `account.balance += lock_amount` and records `"shared_use_lock_released"` (you can add it as a ledger entry type if desired).
 
-------
+***
 
 **Math Sketch — Formal Access-Value Computation**
 

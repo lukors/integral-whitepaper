@@ -25,7 +25,7 @@ These outputs feed:
 - **FRS** → ecological stress, over-extraction risk, import dependency trajectories
 - **COS Module 5** → constraints that influence throughput and scheduling
 
-------
+***
 
 Types
 
@@ -82,7 +82,7 @@ class ResourceProcurementResult:
     notes: str
 ```
 
-------
+***
 
 1. Aggregate material requirements from the plan
 
@@ -111,7 +111,7 @@ def compute_material_requirements_from_plan(
     return total_req
 ```
 
-------
+***
 
 2. Compute procurement decisions: internal allocation first, then transitional external
 
@@ -241,7 +241,7 @@ def compute_resource_procurement(
 **General note:**
 If internal procurement is not feasible—because a material, component, or process is currently unavailable within the node—COS flags that portion as **transitional external procurement**. This becomes an explicit prompt for CDS/OAD/FRS.
 
-------
+***
 
 3. Signals to ITC, OAD, and FRS
 
@@ -251,7 +251,8 @@ From `ResourceProcurementResult` we can derive:
 - **OAD inputs:** repeated high-scarcity materials and high external EII materials as redesign targets
 - **FRS inputs:** trends in external dependence, nearing extraction floors, and overall ecological load
 
-------
+***
+
 **Math Sketch — Material Requirements, Scarcity, and EII**
 
 Let:
@@ -300,7 +301,7 @@ $$
 EII_{\text{total}}^{ext} = \sum_{m\in\mathcal{M}} EII_m^{ext}
 $$
 
----
+***
 
 **Plain-Language Interpretation**
 

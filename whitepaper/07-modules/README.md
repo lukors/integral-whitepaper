@@ -18,7 +18,7 @@ Each subsystem is decomposed into modules to enable:
 - independent refinement
 - recursive scaling across nodes and federations
 
----
+***
 
 ## Subsystem Structure
 
@@ -37,7 +37,7 @@ Describes production orchestration, workflow coordination, resource management, 
 ### 07-5-FRS — Feedback & Review System
 Specifies signal integration, diagnostics, system modeling, recommendation routing, and institutional learning.
 
----
+***
 
 ## Module Philosophy
 
@@ -53,7 +53,7 @@ They are architectural lenses describing:
 
 Each module may eventually map to software components, institutional processes, or hybrid socio-technical infrastructure.
 
----
+***
 
 ## Cross-System Integration
 
@@ -67,7 +67,7 @@ Subsystem modules are intentionally designed with:
 
 The orchestration sections within each subsystem describe how modules interact internally and across subsystem boundaries.
 
----
+***
 
 ## Reading Guidance
 
@@ -87,7 +87,7 @@ You may focus on:
 - governance boundaries
 - auditability mechanisms
 
----
+***
 
 ## Evolution Status
 
@@ -103,7 +103,7 @@ They will evolve through:
 
 Repository version history provides full traceability of architectural evolution.
 
----
+***
 
 ## Relationship to the Whitepaper
 

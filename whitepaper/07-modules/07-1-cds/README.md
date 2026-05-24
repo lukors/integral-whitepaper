@@ -4,7 +4,7 @@ The Collaborative Decision System (CDS) provides Integral’s governance and coo
 
 This subsystem functions as both a protocol for collective intelligence and a recursive coordination layer connecting all other Integral subsystems.
 
----
+***
 
 ## Structure
 
@@ -17,7 +17,7 @@ The CDS section is organized into:
 
 This segmentation enables targeted critique, modular revision, and future mapping into specification and implementation repositories.
 
----
+***
 
 ## Navigation (in order of White Paper)
 
@@ -26,7 +26,7 @@ This segmentation enables targeted critique, modular revision, and future mappin
 * [Modules](modules/)
 * [Addendum — Syntegrity](cds-11-addendum-syntegrity.md)
 
----
+***
 
 ## Module Ordering
 
@@ -34,7 +34,7 @@ The CDS modules represent a decision metabolism pipeline progressing from signal
 
 While sequentially presented, modules remain architecturally modular and subject to independent revision.
 
----
+***
 
 ## Contribution Guidance
 
@@ -47,7 +47,7 @@ Participants should:
 
 Module-level critique is preferred over subsystem-level critique.
 
----
+***
 
 ## Architectural Role
 

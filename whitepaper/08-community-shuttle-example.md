@@ -10,7 +10,7 @@ While the prior greenhouse story centered on **physical production and ecologica
 
 Crucially, it also clarifies **why certain forms of participation do not generate ITCs**, while others do—an essential distinction for avoiding the monetization of civic life.
 
----
+***
 
 ## A Need Emerges
 
@@ -36,7 +36,7 @@ A small group raises the issue through a CDS intake channel:
 
 This begins the governance cycle.
 
----
+***
 
 ## 1. CDS — Structured Deliberation & Democratic Input (Non-ITC)
 
@@ -67,7 +67,7 @@ After deliberation and synthesis, CDS produces a mandate:
 
 The decision authorizes design work, transitioning the problem from governance to engineering.
 
----
+***
 
 ## 2. OAD — Design, Modeling, Ecological Assessment & Certification
 
@@ -103,7 +103,7 @@ The design is evaluated against:
 
 After validation, the design is certified and published to the commons.
 
----
+***
 
 ## 3. COS — From Blueprint to Real Service
 
@@ -134,7 +134,7 @@ Most components are local. One external dependency (brushless motor) is logged f
 ### Deployment
 COS launches routes and integrates charging with the energy cooperative.
 
----
+***
 
 ## 4. ITC — Contribution, Access & Non-Coercive Fairness
 
@@ -165,7 +165,7 @@ Use of the shuttle requires **no ITCs**. Access is determined by service need:
 
 ITC governs contribution fairness, not access to essential services.
 
----
+***
 
 ## 5. FRS — Continuous Learning & Adaptive Correction
 
@@ -204,7 +204,7 @@ FRS outputs inform CDS deliberation and approval processes.
 ### Memory & Federation
 FRS archives outcomes and shares templates across nodes.
 
----
+***
 
 ## Result: A Service That Learns Without Coercion
 
@@ -218,7 +218,7 @@ The shuttle becomes:
 
 No markets. No fares. No bureaucratic administration. No hidden coercion.
 
----
+***
 
 ## What This Example Demonstrates
 
@@ -232,7 +232,7 @@ This example reinforces subsystem roles:
 
 The same architecture governing production also governs **care, mobility, and dignity**.
 
----
+***
 
 ## Conclusion
 

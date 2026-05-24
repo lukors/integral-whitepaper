@@ -18,7 +18,7 @@ This framing is critical for both practical and political reasons. Systems that 
 
 It grows by solving problems existing systems handle poorly, by reducing dependence on coercive mechanisms, and by offering a credible, working alternative grounded in everyday use rather than abstract promise.
 
----
+***
 
 ## 11.2 Stage I: Proto-Nodes and Mutual Aid Foundations
 
@@ -44,7 +44,7 @@ The significance of this stage cannot be overstated. Early Integral adoption loo
 
 Stage I therefore establishes the most important precondition for later scaling: **legitimacy through continuity**. Integral does not appear as a foreign system imposed from outside. It emerges as a natural extension of mutual aid and cooperative behavior—made durable, interoperable, and viable through design.
 
----
+***
 
 ## 11.3 Gradual Emergence of the Five Systems
 
@@ -54,7 +54,7 @@ In other words, Integral is not "installed." It **emerges**.
 
 Each of the five systems supports a clear **parameter ramp-up**—a sequence through which informal practice becomes structured capacity over time. Complexity is introduced only when it reduces friction or failure, never in advance of use.
 
----
+***
 
 **Collective Decision Systems (CDS)**
 
@@ -62,7 +62,7 @@ Early decision-making typically begins with informal consensus, open meetings, o
 
 **Progression:** informal consensus → structured facilitation → scoped decision protocols
 
----
+***
 
 **Open Access Design (OAD)**
 
@@ -70,7 +70,7 @@ In early stages, design knowledge appears as shared documents, notes, instructio
 
 **Progression:** shared docs → versioned designs → certified design commons
 
----
+***
 
 **Cooperative Organization Systems (COS)**
 
@@ -78,7 +78,7 @@ Initial coordination is often ad hoc: people self-assign tasks, share tools info
 
 **Progression:** ad hoc coordination → role clarity → capacity signaling
 
----
+***
 
 **Integral Time Credits (ITC)**
 
@@ -86,7 +86,7 @@ Reciprocity begins socially, through trust, reputation, and shared expectation. 
 
 **Progression:** social norms → simple ledgers → weighted, protocol-bound recognition
 
----
+***
 
 **Feedback & Review Systems (FRS)**
 
@@ -94,7 +94,7 @@ Learning initially occurs anecdotally: what worked, what failed, what exhausted 
 
 **Progression:** anecdotal learning → metrics → modeling & thresholds
 
----
+***
 
 The critical design principle across all five systems is **sequencing**. Each system deepens only when its additional complexity delivers real benefit. Premature formalization is avoided; unnecessary abstraction is resisted. Nodes remain free to pause, simplify, or adapt their parameterization as conditions change.
 
@@ -102,7 +102,7 @@ This gradualism is not a weakness—it is a safeguard. By ensuring that complexi
 
 In this way, Integral avoids the common failure of alternative systems that demand full adoption before delivering value. Here, value appears first; structure follows.
 
----
+***
 
 ## 11.4 Scaling Through Use, Not Membership
 
@@ -125,7 +125,7 @@ For this reason, Integral avoids the language and logic of "conversion," "joinin
 
 Nodes emerge because people *need them*, not because they believe in them.
 
----
+***
 
 ## 11.5 Hybrid Integration with the Existing Economy
 
@@ -155,13 +155,13 @@ The strategic implication is clear: **existing firms do not disappear**. They ad
 
 While certainly an experimental concept that needs more development, this possible hybrid integration can help transform the existing economy **from within**, function by function.
 
----
+***
 
 ## 11.6 Interface Cooperatives and Market-to-Integral Conversion
 
 Interface cooperatives are the **primary metabolic bridge** between the existing market economy and the Integral system during transition. They allow Integral to operate inside a monetary environment without internalizing monetary logic, extracting resources from legacy institutions while preserving non-market coordination internally. This section formalizes why such mechanisms are necessary, how they operate, and how they are designed to **disappear over time**.
 
----
+***
 
 **11.6.1 Why Interface Mechanisms Are Necessary**
 
@@ -176,7 +176,7 @@ Interface mechanisms exist to solve this boundary condition. They allow Integral
 
 This is not a mixed-economy strategy. It is a **containment strategy**: money is allowed to cross the boundary only where necessary, and only in one direction.
 
----
+***
 
 **11.6.2 Definition of an Interface Cooperative (IC)**
 
@@ -191,7 +191,7 @@ Formally, an IC:
 
 Crucially, an IC is not a profit-seeking enterprise. It has no owners, no equity, no wage hierarchy, and no internal price system. It exists solely to **convert external monetary flows into non-market capacity** for the Integral network.
 
----
+***
 
 **11.6.3 COS Operation Inside Interface Cooperatives**
 
@@ -205,7 +205,7 @@ Inside an Interface Cooperative, the Cooperative Organization System (COS) funct
 
 The presence of external contracts does not alter internal organization. Market-facing obligations are treated as **boundary conditions**, not drivers of internal behavior.
 
----
+***
 
 **11.6.4 Monetary Revenue as Input, Not Objective**
 
@@ -227,7 +227,7 @@ Instead, monetary revenue is absorbed into **public node coffers** and used excl
 
 Once converted into durable assets, money ceases to have organizing relevance.
 
----
+***
 
 **11.6.5 Asset Absorption into Integral Commons**
 
@@ -244,7 +244,7 @@ This process steadily shifts productive capacity out of the market economy and i
 
 In effect, Interface Cooperatives **digest capital** rather than reproducing it.
 
----
+***
 
 **11.6.6 Gradual Reduction of Market Exposure**
 
@@ -258,7 +258,7 @@ As Integral nodes expand internal production, improve material reciprocity, incr
 
 This prevents Interface Cooperatives from becoming permanent hybrids or revenue-driven entities.
 
----
+***
 
 **11.6.7 Sunset Logic: How Interface Cooperatives Dissolve Over Time**
 
@@ -278,7 +278,7 @@ Interface Cooperatives make Integral **transitionally viable without compromisin
 
 They are not an end state. They are **scaffolding**—necessary until they are not, and designed to disappear when their function is fulfilled.
 
----
+***
 
 ## 11.7 Absorbing the "Marketing Ecosystem"
 
@@ -303,7 +303,7 @@ The guiding principle is simple: **Integral markets itself by functioning better
 
 This mode of propagation is slower than advertising-driven growth, but far more durable. It builds trust that cannot be purchased, undermined, or withdrawn by capital power, ensuring that adoption remains rooted in lived experience rather than belief.
 
----
+***
 
 ## 11.8 Immediate Value for the Unemployed and Marginalized
 
@@ -323,7 +323,7 @@ Integral's approach therefore serves a dual function. It directly addresses the 
 
 The underlying principle is straightforward: Integral does not offer help; it offers **inclusion**. And inclusion, when made real, becomes its strongest defense.
 
----
+***
 
 ## 11.9 Cultural and Political Promotion Without Electoral Capture
 
@@ -353,13 +353,13 @@ In this way, political presence supports Integral's growth without entangling it
 
 The guiding posture is therefore deliberate restraint: **Political presence as shield, not spear.**
 
----
+***
 
 ## 11.10 Safeguards Against Sabotage and Hostile Interests
 
 This section addresses an unspoken but inevitable concern: *What happens when Integral is perceived as a threat?* It establishes how Integral is designed to resist suppression, capture, and systemic failure across political, economic, technical, and cultural dimensions—**without centralization** and without relying on benevolent actors or permanent protection.
 
----
+***
 
 **11.10.1 Threat Model and Design Premise**
 
@@ -381,7 +381,7 @@ In this sense, Integral is designed less like an institution and more like an **
 
 This threat-aware posture does not imply paranoia or antagonism. Integral does not seek confrontation. It seeks **structural survivability**: the capacity to continue operating, learning, and providing value even under adverse conditions. The safeguards described in the following sections extend this premise across political, economic, technical, and cultural dimensions, ensuring that resilience is not a matter of reaction, but of design.
 
----
+***
 
 **11.10.2 Political and Legal Safeguards**
 
@@ -399,7 +399,7 @@ Taken together, these safeguards produce a simple but powerful outcome: **there 
 
 > *A system that cannot be "shut down" by policy is one that is not governed by policy.*
 
----
+***
 
 **11.10.3 Economic Safeguards**
 
@@ -417,7 +417,7 @@ These design choices have a direct defensive consequence: **economic coercion be
 
 > *You cannot seize what is not owned.*
 
----
+***
 
 **11.10.4 Digital Infrastructure as a Resilience Layer**
 
@@ -459,7 +459,7 @@ Finally, at the **user interface level**, offline-first mobile and web applicati
 
 Taken together, these technologies demonstrate that Integral's digital resilience is not aspirational. The required components—cryptographic identity, distributed storage, federated communication, agent-centric logic, and offline-capable interfaces—are **already in production use across multiple sectors**. Integral's contribution is not to invent these tools, but to **compose them into a coherent socio-economic nervous system** aligned with non-market coordination, local sovereignty, and systemic resilience.
 
----
+***
 
 ## 11.11 From Parallel System to Dominant Substrate: Transition Summary
 

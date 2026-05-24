@@ -3,7 +3,7 @@
 **Purpose**
 Transform `DiagnosticFinding` objects (FRS-2) and `ConstraintModel` outputs (FRS-3) into **typed, non-executive recommendations** and route them to the appropriate subsystem (**OAD, COS, ITC, CDS, FED**) without enforcing changes. Module 4 is the bridge from **intelligence → actionable signals**, while preserving distributed authority and democratic governance.
 
-------
+***
 
 **Inputs**
 
@@ -14,7 +14,7 @@ Transform `DiagnosticFinding` objects (FRS-2) and `ConstraintModel` outputs (FRS
   - a **technical alert** (non-normative, non-executive), vs.
   - a **CDS policy review prompt** (required visibility / deliberation)
 
-------
+***
 
 **Outputs**
 
@@ -23,7 +23,7 @@ Transform `DiagnosticFinding` objects (FRS-2) and `ConstraintModel` outputs (FRS
 
 Recommendations are **not commands**. They are structured proposals that downstream systems can accept, reject, revise, or escalate through CDS.
 
-------
+***
 
 **Core Logic **
 
@@ -435,7 +435,7 @@ def route_recommendations(recs: List["Recommendation"]) -> List["RoutedSignal"]:
     return routed
 ```
 
-------
+***
 
 **Running Example (Sailboat): From Model → Typed Recommendations**
 
@@ -465,7 +465,8 @@ Conceptually, you’ll see outputs like:
 - **ITC**: valuation drift flags (maintenance burden, dependency multiplier candidate)
 - **CDS**: policy review prompts (ecological threshold, dependency tolerance)
 
-------
+***
+
 **Math Sketches**
 
 **1. Recommendation as a Typed Function of Findings and Scenario Risk**
@@ -485,7 +486,7 @@ where $g$ is a bounded mapping that outputs **typed** recommendations with audit
 
 Let recommendation $r$ have severity $s(r)$.
 
-Let $S_{CDS}$ be the severities requiring CDS visibility (e.g., $\\{\text{high}, \text{critical}\\}$).
+Let $S_{CDS}$ be the severities requiring CDS visibility (e.g., $\{\text{high}, \text{critical}\}$).
 
 If:
 
@@ -503,7 +504,7 @@ $$\Delta = \text{risk}(\text{status quo}) - \text{risk}(\text{combined intervent
 
 A large $\Delta$ increases confidence in the relevance of the recommendation, but does not create executive authority.
 
----
+***
 
 **Plain-Language Summary**
 

@@ -4,7 +4,7 @@
 
 Detect and classify emerging system stresses by distinguishing **causes vs. symptoms**, assigning **severity, scope, persistence, and confidence**, and emitting structured **DiagnosticFindings** for modeling (FRS-3) and routing (FRS-4).
 
-------
+***
 
 **Inputs**
 
@@ -14,7 +14,7 @@ Module 2 consumes:
 - Optional baseline references from `MemoryRecord` (FRS-6), used only to contextualize deviation
 - CDS-approved diagnostic configuration references (thresholds, scopes, persistence windows) that FRS **references** but does not author
 
-------
+***
 
 **Outputs**
 
@@ -27,7 +27,7 @@ Module 2 produces:
   - `summary` + `rationale` (audit-ready)
 - Optional “finding index” keyed by tags/domains for downstream lookup
 
-------
+***
 
 **Core Logic **
 
@@ -253,7 +253,7 @@ def diagnose_sailboat_packet(
     return findings
 ```
 
-------
+***
 
 **Running Example (Sailboat): Packet → Findings**
 
@@ -291,7 +291,7 @@ Expected conceptual outputs:
 - dependency risk (resin reliance increasing)
 - contextual corrosion pressure (supporting finding)
 
-------
+***
 
 **Math Sketches**
 
@@ -315,7 +315,7 @@ $$\text{margin} = R - C$$
 
 If $\text{margin} < 0$ and persists, overshoot risk increases.
 
----
+***
 
 **Plain-Language Summary**
 

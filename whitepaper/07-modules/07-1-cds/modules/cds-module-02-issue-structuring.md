@@ -30,7 +30,7 @@ Convert raw, heterogeneous submissions—proposals, objections, comments, and sy
 - Deduplicated placeholder submissions (inserted by Module 1) are ignored to preserve signal clarity.
 - `StructuredIssueView` and `SubmissionCluster` are **transient computational artifacts**, not canonical CDS records. They exist to support downstream reasoning and deliberation.
 
-------
+***
 
 **Helper Types (for structuring)**
 
@@ -55,7 +55,7 @@ class StructuredIssueView:
     metadata: Dict[str, Any]
 ```
 
-------
+***
 
 **Core Logic **
 
@@ -189,10 +189,11 @@ def cluster_submissions(
     )
 ```
 
-------
+***
+
 **Math Sketch — Clustering and Similarity**
 
-Let there be $N$ clusterable submissions $\\{s_1, s_2, \dots, s_N\\}$ with semantic embeddings $e(s_i) \in \mathbb{R}^d$.
+Let there be $N$ clusterable submissions $\{s_1, s_2, \dots, s_N\}$ with semantic embeddings $e(s_i) \in \mathbb{R}^d$.
 
 The goal is to partition them into $K$ clusters $C_1, \dots, C_K$ (with $K \leq \text{max clusters}$) such that submissions within each cluster are semantically similar.
 

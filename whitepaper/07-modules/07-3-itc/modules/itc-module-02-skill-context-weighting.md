@@ -29,7 +29,7 @@ The output is a `WeightedLaborRecord` that says, in effect:
 - A corresponding `LedgerEntry` of type `"labor_weight_applied"`
 - *(Optionally, later modules apply `"itc_credited"` to mutate the account balance—kept separate for clarity and auditability.)*
 
-------
+***
 
 **Core Logic **
 
@@ -196,7 +196,8 @@ def weight_labor_event(event: LaborEvent, policy: WeightingPolicy, policy_snapsh
     return record
 ```
 
-------
+***
+
 **Math Sketch — From Hours to Contribution Signal**
 
 For each valid labor event $e$:

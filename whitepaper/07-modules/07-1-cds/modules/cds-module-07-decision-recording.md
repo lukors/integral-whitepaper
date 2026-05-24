@@ -54,7 +54,7 @@ Module 7 may receive **any artifact produced by CDS Modules 1–10**, including:
   - node-level oversight
   - inter-node federation review
 
-------
+***
 
 **Helper Type — LogEntry (canonical)**
 
@@ -77,7 +77,7 @@ class LogEntry:
     entry_hash: str                # cryptographic integrity hash
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -129,7 +129,7 @@ def append_log(
     return entry
 ```
 
-------
+***
 
 **Public Dashboard View**
 
@@ -159,7 +159,7 @@ def summarize_issue_history(
     }
 ```
 
-------
+***
 
 **Chain Integrity Validation**
 
@@ -187,7 +187,8 @@ def validate_hash_chain(
     return True
 ```
 
-------
+***
+
 **Math Sketch — Merkle-Style Attestation**
 
 Each log entry hash is computed as:
@@ -206,7 +207,7 @@ This guarantees:
 
 This provides **blockchain-grade integrity without blockchain overhead**.
 
----
+***
 
 **Semantic Summary**
 

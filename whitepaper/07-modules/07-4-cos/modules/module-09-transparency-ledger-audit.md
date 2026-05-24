@@ -33,7 +33,7 @@ This is **not a blockchain**. It is:
 - human-readable,
 - and purpose-built for cybernetic coordination.
 
-------
+***
 
 **1. Types — Events, Ledger, Snapshots**
 
@@ -118,7 +118,7 @@ class COSLedger:
         return event
 ```
 
-------
+***
 
 **2. Event Payload Schemas (Conceptual)**
 
@@ -195,7 +195,7 @@ Coordination event
 }
 ```
 
-------
+***
 
 **3. Ledger Integrity & Audit Checks**
 
@@ -214,7 +214,7 @@ def verify_ledger_integrity(ledger: COSLedger) -> bool:
     return True
 ```
 
-------
+***
 
 **4. Aggregation for ITC — Production Summary**
 
@@ -298,7 +298,7 @@ def aggregate_for_itc(
     return summary
 ```
 
-------
+***
 
 **5. Aggregation for FRS — System Trace**
 
@@ -334,7 +334,7 @@ def build_frs_trace_from_itc_summary(
     )
 ```
 
-------
+***
 
 **6. Orchestration — Module 9 Pipeline**
 
@@ -381,7 +381,7 @@ $$H_{\text{weighted}} = \sum_k H_{\text{weighted}}^{(k)}$$
 
 This quantity **must match** (within tolerance) the labor cost used by ITC valuation. Any discrepancy indicates a data or logic error upstream.
 
----
+***
 
 **2. Material Footprint**
 
@@ -399,7 +399,7 @@ $$EII_{\text{total}} = \sum_m EII_m$$
 
 This same aggregate must be used by **both ITC and FRS**, ensuring ecological consistency.
 
----
+***
 
 **3. QA Consistency**
 
@@ -413,7 +413,7 @@ $$\left| r_{\text{fail}} - r_{\text{proj}} \right| > \varepsilon \;\Rightarrow\;
 
 This is how **empirical reality corrects design assumptions**.
 
----
+***
 
 **4. Traceability**
 
@@ -423,7 +423,7 @@ $$h_i = H(e_i,\, h_{i-1})$$
 
 Any modification to a prior event breaks all downstream hashes, making tampering **detectable rather than impossible**.
 
----
+***
 
 **Plain-Language Summary**
 

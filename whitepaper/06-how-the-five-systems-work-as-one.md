@@ -1,4 +1,4 @@
-# **6. HOW THE FIVE SYSTEMS WORK AS ONE**
+# 6. HOW THE FIVE SYSTEMS WORK AS ONE
 
 The five systems of Integral—CDS, OAD, ITC, COS, and FRS—are not independent components. They form an integrated, continuously cycling architecture in which each subsystem feeds, constrains, and corrects the others. This coupling transforms Integral from a set of tools into a coherent economic organism. Through their interaction, the system identifies needs, designs solutions, coordinates production, regulates contribution and access, and improves itself through continuous feedback.
 
@@ -119,7 +119,7 @@ The greenhouse becomes more efficient each season because feedback is easy to co
 The greenhouse becomes a living part of the community’s infrastructure—democratically initiated, collaboratively designed, cooperatively built, fairly accessed, and continuously improved. No competition, prices, or bargaining are needed. The system works because each subsystem reinforces the others, creating a self-correcting economic metabolism.
 
 
-![Integral system diagram](../assets/integral-system-diagram-10.png)<img width="468" height="29" alt="image" src="https://github.com/user-attachments/assets/4e6ab5eb-81d2-4a1e-ac6e-b5d39f191949" />
+![Integral system diagram](../assets/integral-system-diagram-10.png)
 
 
 Above Diagram: 

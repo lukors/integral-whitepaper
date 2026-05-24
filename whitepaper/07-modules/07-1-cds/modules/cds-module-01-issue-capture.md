@@ -129,7 +129,7 @@ To avoid manufactured consensus and redundancy, near-duplicate submissions can b
 
 Let $e(s)$ be the embedding of submission text $s$.
 
-For a new submission $s_{\text{new}}$ and existing submissions $\\{s_i\\}$, define:
+For a new submission $s_{\text{new}}$ and existing submissions $\{s_i\}$, define:
 
 $$\text{sim}(s_{\text{new}}, s_i) = \frac{e(s_{\text{new}}) \cdot e(s_i)}{\|e(s_{\text{new}})\| \, \|e(s_i)\|}$$
 

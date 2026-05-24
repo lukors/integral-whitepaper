@@ -15,7 +15,7 @@ It is activated when conflict persists **not because of missing data, feasibilit
 
 Module 9 ensures that CDS **never collapses into technocracy, majority coercion, or false rationality** by recognizing that some decisions require **direct human sense-making**, not further calculation.
 
-------
+***
 
 **What This Module Is (and Is Not)**
 
@@ -28,7 +28,7 @@ In biological terms:
 > If Modules 1–6 are the cognitive nervous system,
 >  Module 9 is the **conscious integrative layer** where meaning is reconciled.
 
-------
+***
 
 **When Module 9 Is Triggered**
 
@@ -42,7 +42,7 @@ This occurs when:
 - principled objections persist **and**
 - those objections reflect value conflict rather than solvable constraints.
 
-------
+***
 
 **Inputs**
 
@@ -64,7 +64,7 @@ This occurs when:
   - **Module 8** for dispatch *if resolved*
   - **Module 6 / 5** if further refinement is required
 
-------
+***
 
 **Helper Type — Module9Outcome**
 
@@ -84,7 +84,7 @@ class Module9Outcome:
     metadata: Dict[str, Any] = field(default_factory=dict)
 ```
 
-------
+***
 
 **Core Logic (pseudo-code)**
 
@@ -130,7 +130,7 @@ def run_high_bandwidth_deliberation(
     )
 ```
 
-------
+***
 
 **Conceptual Example**
 
@@ -144,7 +144,7 @@ Module 9 convenes a facilitated deliberation session. Participants agree to pres
 
 The compromise is **not advisory** — it is formalized, recorded, and dispatched.
 
-------
+***
 
 **Semantic Summary**
 
@@ -157,4 +157,4 @@ It ensures that:
 - legitimacy is preserved under disagreement
 - CDS remains human-centered, not algorithm-dominated
 
-------
+***

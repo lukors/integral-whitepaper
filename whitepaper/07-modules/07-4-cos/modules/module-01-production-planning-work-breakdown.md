@@ -27,7 +27,7 @@ Transform a certified `DesignVersion` + its `OADValuationProfile` into a concret
   - `expected_cycle_time_hours`
 - A simple **plan summary** that ITC can immediately use as an initial (pre-execution) input for valuation.
 
-------
+***
 
 **Assumed OAD Decomposition Format**
 
@@ -206,7 +206,7 @@ def summarize_plan_for_itc(plan: COSProductionPlan, oad_profile: OADValuationPro
 ```
 **Math Sketch — Labor & Material Budgets**
 
-Let there be a set of labor steps $S = \\{ s_1, s_2, \dots, s_n \\}$ from OAD.
+Let there be a set of labor steps $S = \{ s_1, s_2, \dots, s_n \}$ from OAD.
 
 For each step $s$:
 - $h_s$ = base hours per unit
@@ -259,7 +259,7 @@ $$
 
 This is crude, but enough for initial planning and ITC shadow valuation; more detailed versions can use full critical-path analysis over the task dependency graph.
 
----
+***
 
 **Plain-Language Interpretation**
 

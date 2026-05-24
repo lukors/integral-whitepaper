@@ -1,4 +1,4 @@
-ABSTRACT
+# ABSTRACT {.unnumbered}
 
 Modern industrial civilization faces a convergence of systemic failures—ecological overshoot, structural inequality, political polarization, and widespread economic insecurity. These crises are not anomalies or policy errors; they are the predictable outcomes of a socio-economic architecture rooted in competitive markets, perpetual growth, and price-driven coordination. Because these failures are structural, they cannot be resolved through conventional reforms, regulations, or technological optimism alone. What is required is a new framework of economic organization: one that is democratic, cooperative, ecologically aligned, and cybernetically coherent.
 

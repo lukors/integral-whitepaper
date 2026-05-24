@@ -18,7 +18,7 @@ Rather than treating design as private intellectual property, OAD treats design 
 
 OAD ensures that production knowledge evolves as a shared capability aligned with CDS governance, COS execution, ITC reciprocity, and FRS feedback.
 
----
+***
 
 # Repository Structure
 
@@ -30,7 +30,7 @@ OAD ensures that production knowledge evolves as a shared capability aligned wit
 - `oad-02-architecture-code.md`  
   High-level architecture, pseudocode, and mathematical sketches
 
----
+***
 
 ## Module Layer
  

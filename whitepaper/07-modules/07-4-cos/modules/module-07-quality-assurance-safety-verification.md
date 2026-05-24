@@ -22,7 +22,7 @@ If not, it:
 - updates the effective lifecycle/maintenance expectations,
 - and emits bounded signals that can raise or lower **future** access obligations (and optionally differentiate specific batches).
 
-------
+***
 
 **Types — QA Specs, Results, and Signals**
 
@@ -129,7 +129,7 @@ class FRSFailureSignal:
     description: str
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -259,7 +259,7 @@ def summarize_qa_results(
     )
 ```
 
-------
+***
 
 5) Translate QA deviations into ITC signals
 
@@ -316,7 +316,7 @@ def build_itc_reliability_signal(
     )p
 ```
 
-------
+***
 
 6) FRS failure signal
 
@@ -344,7 +344,7 @@ def build_frs_failure_signal(qa_summary: QABatchSummary) -> FRSFailureSignal:
     )
 ```
 
-------
+***
 
 7) Orchestration: Full Module 7 pass
 
@@ -394,7 +394,8 @@ def run_quality_assurance_pipeline(
     }
 ```
 
-------
+***
+
 **Math Sketch — QA-driven valuation adjustment**
 
 Let:
@@ -431,7 +432,7 @@ Interpretation:
 - If $\hat{p} > p_0$, then $r_p > 1$: lifespan decreases, maintenance increases, access obligation can rise modestly.
 - If $\hat{p} < p_0$, then $r_p < 1$: durability is better than expected; access obligations can drift downward over time.
 
----
+***
 
 **Plain-language summary**
 

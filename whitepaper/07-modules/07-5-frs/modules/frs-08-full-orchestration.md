@@ -154,7 +154,7 @@ def run_frs_cycle(
     }
 ```
 
-------
+***
 
 **Narrative Interpretation — What This Driver Actually Does**
 
@@ -170,7 +170,7 @@ FRS begins not with prices, votes, or authority, but with **measured reality**:
 
 This replaces market “signals” with **direct observables**.
 
-------
+***
 
 **2. Drift Before Crisis**
 
@@ -181,7 +181,7 @@ This is the difference between:
 - reacting to failure
 - and **maintaining viability**
 
-------
+***
 
 **3. Futures Without Command**
 
@@ -192,7 +192,7 @@ FRS models:
 
 It produces **viability envelopes**, not plans. No scenario is selected automatically.
 
-------
+***
 
 **4. Corrections Without Coercion**
 
@@ -205,7 +205,7 @@ Recommendations are:
 
 Nothing is enforced. Everything is inspectable.
 
-------
+***
 
 **5. Democracy With Shared Reality**
 
@@ -217,7 +217,7 @@ CDS receives:
 
 Governance becomes **coordination under constraint**, not ideology, intuition, or speculation.
 
-------
+***
 
 **6. Learning That Compounds**
 
@@ -229,7 +229,7 @@ When outcomes are known, they are archived:
 
 Integral does not forget what worked—or why it failed.
 
-------
+***
 
 **7. Federation Without Centralization**
 
@@ -241,7 +241,7 @@ What one node learns becomes available to others:
 
 This is **distributed intelligence**, not global planning.
 
-------
+***
 
 **Why This Orchestration Solves the Core Systemic Problem**
 
@@ -264,8 +264,8 @@ Central planning fails because:
 - corrigible
 - democratically governed
 
-------
+***
 
 > **FRS is the adaptive nervous system of Integral — transforming real-world signals into shared understanding, coordinated correction, and collective learning, without markets, money, or centralized control.**
 
-------
+***

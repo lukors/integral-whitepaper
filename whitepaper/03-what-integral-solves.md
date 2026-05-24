@@ -1,4 +1,4 @@
-# **3. WHAT INTEGRAL SOLVES**
+# 3. WHAT INTEGRAL SOLVES
 
 Market economics emerged in a context of low social complexity, abundant resources, small-scale production, and limited ecological awareness. Its central mechanism—price competition—was never designed to internalize environmental costs, manage delicate resource cycles, or promote long-term stability. As the industrial era accelerated, market systems became dominant not because they were efficient, but because they were expansionary. Their success was tied to the exploitation of labor, the extraction of resources, and the ability to push ecological and social costs outside the sphere of calculation.
 

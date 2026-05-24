@@ -48,5 +48,5 @@ Together, these principles show that the foundational elements of Integral—tra
 | **Rotating work teams coordinating daily tasks and production** | **COS — Cooperative Organization System** | Distributed workflow coordination, task allocation, and resource flow management. COS generates the raw data—labor hours, resource withdrawal, tool usage—used by ITC to determine access value. |
 | **Household visits gathering workload, need, and resource feedback** | **FRS — Feedback & Review System**        | Continuous monitoring of performance, resource balance, ecological conditions, and household needs. Feeds adjustments back into COS planning and ITC valuation, preventing shortages, drift, or inequities. |
 
-------
+***
 

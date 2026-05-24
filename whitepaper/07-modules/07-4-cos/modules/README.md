@@ -4,7 +4,7 @@ This directory contains the operational modules of the **Cooperative Organizatio
 
 Together, these modules transform governance decisions, design intelligence, and contribution signals into **coordinated, real-world execution** across the federation.
 
----
+***
 
 ## Module Flow Overview
 
@@ -31,7 +31,7 @@ COS modules form a recursive execution pipeline:
 10. **Full COS Orchestration**
    - integrates all modules into a coherent execution protocol
 
----
+***
 
 ## Architectural Function
 
@@ -44,7 +44,7 @@ The COS module set ensures:
 - operational transparency
 - learning feedback into CDS, OAD, and ITC
 
----
+***
 
 ## System Position
 
@@ -56,14 +56,14 @@ COS is the **execution layer** of Integral’s five-system architecture:
 - COS → execution
 - FRS → feedback and learning
 
----
+***
 
 ## Conceptual Interpretation
 
 If CDS is the **nervous system** and OAD the **design intelligence**,  
 COS is the **muscular system** of Integral — converting intention into action.
 
----
+***
 
 ## Important Note
 

@@ -4,7 +4,7 @@ Bioregional watershed management provides a clear, empirically grounded demonstr
 
 This case illustrates how **scope detection**, **threshold evaluation**, and **Coordination Envelopes** operate to align regulation with hydrological reality—without creating a permanent regional authority or centralized allocator.
 
-------
+***
 
 **Domain Definition**:
 
@@ -12,7 +12,7 @@ A watershed is defined here as a hydrologically coherent domain comprising all n
 
 Each node retains full internal control over water use decisions, infrastructure management, and local governance. Coordination emerges only when aggregated effects exceed local closure capacity.
 
-------
+***
 
 **Observable State and NSS Construction**:
 
@@ -36,7 +36,7 @@ Illustrative NSS indicators include:
 
 These indicators expose **effects on the shared system**, not the internal logic that produced them.
 
-------
+***
 
 **Scope Detection**:
 
@@ -49,7 +49,7 @@ FRS aggregates NSS vectors across the watershed and evaluates correlated pattern
 
 A scope mismatch is detected when aggregated indicators show that no single node can restore viability independently. At this point, local regulation is insufficient—not due to mismanagement, but due to shared constraint.
 
-------
+***
 
 **Threshold Evaluation**:
 
@@ -61,7 +61,7 @@ Threshold functions classify the disturbance:
 
 Thresholds do not prescribe water allocations. They classify **what cannot continue** under physical law.
 
-------
+***
 
 **Coordination Envelope Formation**:
 
@@ -77,7 +77,7 @@ The envelope specifies:
 
 Nodes outside the watershed are excluded automatically.
 
-------
+***
 
 **CDS Convergence and Decision Scope**:
 
@@ -99,7 +99,7 @@ Decisions cannot:
 
 Each node ratifies commitments internally and expresses outcomes in standardized CDS output formats.
 
-------
+***
 
 **COS, OAD, and ITC Coordination**:
 
@@ -109,7 +109,7 @@ Each node ratifies commitments internally and expresses outcomes in standardized
 
 No node is compensated for water itself; reciprocity applies only to effort and capacity mobilized to restore viability.
 
-------
+***
 
 **Feedback, Stabilization, and Dissolution**:
 
@@ -124,7 +124,7 @@ Once indicators fall below exit thresholds for a defined persistence window:
 
 No regional authority remains. No precedent is established beyond documented learning.
 
-------
+***
 
 **Significance of the Case**:
 
@@ -140,4 +140,4 @@ The same formal pattern—observable state, scope detection, threshold classific
 Above Diagram: *Bioregional Watershed Coordination Control Loop*
 This diagram illustrates how Integral coordinates across a shared watershed without centralized authority. Each node senses its local conditions and publishes a compressed *Node State Summary (NSS)* that exposes only outward-facing effects. The Feedback & Review System (FRS) aggregates these summaries at the watershed domain, detects scope mismatches, and evaluates thresholds. When disturbances are minor, advisory signals simply widen awareness. When shared constraints persist or intensify, a *Coordination Envelope (CE)* is instantiated, enabling temporary, scope-limited convergence of node-level decision processes (CDS) and synchronized action across operations (COS), design (OAD), and contribution recognition (ITC). As indicators stabilize, FRS signals exit conditions, the envelope dissolves automatically, and all nodes return to fully local regulation. Coordination expands and contracts strictly in response to real-world conditions, preserving autonomy while maintaining bioregional viability.
 
-------
+***

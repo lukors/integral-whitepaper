@@ -31,7 +31,7 @@ It is the cognitive **“memory + analysis layer”** of CDS. Where Module 2 str
 
 This becomes the input for **Module 4 (Norms & Constraint Checking)** and **Module 5 (Participatory Deliberation Workspace)**.
 
-------
+***
 
 **Helper Type (for context layer)**
 
@@ -54,7 +54,7 @@ class ContextModel:
 
 (Note: `ContextModel` is a computed context layer, not a permanent CDS record.)
 
-------
+***
 
 **Core Logic**
 
@@ -147,7 +147,7 @@ def build_context_model(
     return context
 ```
 
-------
+***
 
 **What Module 3 Actually Computes**
 
@@ -160,7 +160,8 @@ def build_context_model(
 
 Everything is organized so downstream modules can evaluate **what is actually possible and responsible**.
 
-------
+***
+
 **Math Sketch — Multi-Criteria Indicator Aggregation**
 
 Module 3 often needs to normalize heterogeneous indicators so that Modules 4–6 can reason about them systematically.

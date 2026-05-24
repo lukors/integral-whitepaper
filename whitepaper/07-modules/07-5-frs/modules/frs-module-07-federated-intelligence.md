@@ -20,7 +20,7 @@ FRS-7 does **not** standardize behavior. It synchronizes **insight**, not action
 - Optional `CrossNodePattern`s (aggregated, confidence-scored)
 - Synchronization metadata for auditability (hash chain, policy refs)
 
-------
+***
 
 **Design Principles**
 
@@ -35,7 +35,7 @@ FRS-7 does **not** standardize behavior. It synchronizes **insight**, not action
 5. **Autonomy preserved**
     Every received insight is advisory and must pass local FRS-2 → FRS-5 before action.
 
-------
+***
 
 **Core Logic (Pseudocode)**
 
@@ -117,7 +117,7 @@ class CrossNodePattern:
     confidence: Confidence
 ```
 
-------
+***
 
 **Publishing Intelligence (Outbound)**
 
@@ -206,7 +206,7 @@ def build_federated_bundle(
     return bundle
 ```
 
-------
+***
 
 **Receiving Intelligence (Inbound)**
 
@@ -238,7 +238,7 @@ def ingest_federated_bundle(
     )
 ```
 
-------
+***
 
 **Cross-Node Pattern Synthesis**
 
@@ -297,7 +297,7 @@ def synthesize_cross_node_patterns(
     return results
 ```
 
-------
+***
 
 **Routing Federated Intelligence Back into Local FRS**
 
@@ -320,7 +320,7 @@ def reintegrate_federated_insights(
     }
 ```
 
-------
+***
 
 **Running Example (Sailboat): One Node → Federation → Back Again**
 
@@ -342,7 +342,8 @@ The following example illustrates how a local sailboat durability episode is sha
 
 No one is told what to do. Everyone can see what worked.
 
-------
+***
+
 **Math Sketches**
 
 **1. Confidence accumulation across nodes**
@@ -353,7 +354,7 @@ $$C_p = \mathrm{clip}\left(\frac{1}{n}\sum_{i=1}^{n}\Delta_i,\ 0,\ 1\right)$$
 
 Confidence increases with replication and effect size.
 
----
+***
 
 **2. Non-dominance constraint**
 
@@ -363,7 +364,7 @@ $$\text{federated insight} \Rightarrow \text{prior adjustment}$$
 
 Federated intelligence modifies **priors**, not conclusions; local FRS-2/3 always re-validate.
 
----
+***
 
 **3. Network learning diffusion proxy**
 
@@ -373,7 +374,7 @@ $$\mathcal{R} = \frac{\lvert R\rvert}{\lvert P\rvert}\cdot \log(1+\lvert N\rvert
 
 where $N$ is nodes, $P$ shared patterns, and $R$ replicated interventions.
 
----
+***
 
 **Plain-Language Summary**
 

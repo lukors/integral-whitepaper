@@ -9,7 +9,7 @@ The structure is designed for:
 - modular expansion of technical sections
 - future site and publication rendering
 
----
+***
 
 # Reading Order
 
@@ -23,19 +23,19 @@ The structure is designed for:
 - [05 — The 5 Core Subsystems](05-the-5-core-subsystems.md)
 - [06 — How the Five Systems Work as One](06-how-the-five-systems-work-as-one.md)
 
----
+***
 
 ## System Architecture
 
 - [07 — Modules](07-modules/README.md)
 
----
+***
 
 ## Worked Example
 
 - [08 — Community Shuttle Example](08-community-shuttle-example.md)
 
----
+***
 
 ## Scaling, Reciprocity, and Transition
 
@@ -43,7 +43,7 @@ The structure is designed for:
 - [10 — Internodal Reciprocity](10-internodal-reciprocity/README.md)
 - [11 — Transition, Adoption, & Implementation](11-transition-adoption-implementation.md)
 
----
+***
 
 # Directory Map
 
@@ -65,7 +65,7 @@ Internodal cooperation primitives, cross-node labor recognition, material/capaci
 ### `11-transition-adoption-implementation.md`
 Transition pathway, proto-nodes, hybrid interface mechanisms, resilience safeguards, and long-term system emergence.
 
----
+***
 
 # Conventions
 
@@ -74,14 +74,14 @@ Transition pathway, proto-nodes, hybrid interface mechanisms, resilience safegua
 - Subfiles use: `NN-XX-subtitle-slug.md`
 - Slugs are lowercase and hyphenated
 
----
+***
 
 ## Headings
 - Section title: `# NN. Title`
 - Subsections: `## NN.X`
 - Sub-subsections: `### NN.X.Y`
 
----
+***
 
 ## Images and diagrams
 Images are stored in section-level `assets/` folders and referenced via relative paths:

@@ -39,7 +39,7 @@ These recommendations feed:
 - **Module 2** (as candidate context modifiers / policy hints),
 - **CDS** (as deliberation inputs for training capacity, workload norms, and bounded parameter updates).
 
-------
+***
 
 **Core Logic **
 
@@ -82,7 +82,7 @@ DEMAND_SIGNALS: List[LaborDemandSignal] = []
 HISTORICAL_EVENTS: List[LaborEvent] = []   # uses LaborEvent.end_time for time filtering
 ```
 
-------
+***
 
 1) Aggregate demand (by skill, optionally also by sector)
 
@@ -109,7 +109,7 @@ def aggregate_labor_demand(
     return demand
 ```
 
-------
+***
 
 2) Estimate supply (from recent participation)
 
@@ -145,7 +145,7 @@ def estimate_labor_supply_from_history(
     return supply_forecast
 ```
 
-------
+***
 
 3) Compute shortage index σ (demand vs supply)
 
@@ -169,7 +169,7 @@ def compute_shortage_index(
     return sigma
 ```
 
-------
+***
 
 4) Recommend bounded weight multipliers (policy hints)
 
@@ -198,7 +198,7 @@ def recommend_weight_multipliers(
     return multipliers
 ```
 
-------
+***
 
 5) Training priority suggestion (simple, explainable)
 
@@ -218,7 +218,7 @@ def suggest_training_priorities(
     return priorities
 ```
 
-------
+***
 
 6) Main forecasting function
 
@@ -265,7 +265,7 @@ def generate_labor_forecast(
     return forecast, multipliers
 ```
 
-------
+***
 
 **Math Sketch — Shortage Index and Weight Adjustment**
 

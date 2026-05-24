@@ -10,13 +10,20 @@ ___
 
 # Integral Whitepaper (Peer Review Repository)
 
+Live site: https://lukors.github.io/integral-whitepaper/
+
+- Build Requirements
+  - [Quarto](https://quarto.org/)
+  - [GladTeX](https://github.com/humenda/GladTeX)
+    - Maybe this can be a CI-only requirement, so it's not needed for local builds?
+
 This repository contains the **Integral technical whitepaper** — a federated, post-monetary, cybernetically coordinated cooperative economic system — structured as modular Markdown to enable transparent peer review, revision tracking, and distributed critique.
 
 [Download full PDF here: https://integralcollective.io/documents/whitepaper.html ]
 
 The repository functions as a **living technical document**, evolving through structured feedback rather than static publication.
 
----
+***
 
 ## Purpose of this Repository
 
@@ -30,7 +37,7 @@ Review occurs through:
 
 This structure enables precise section referencing, transparent argument evolution, and traceable revision history.
 
----
+***
 
 ## How to Read the Whitepaper
 
@@ -45,7 +52,36 @@ Each section directory contains:
 - numbered Markdown files for subsections
 - optional assets for diagrams
 
----
+***
+
+## Quarto Rendering
+
+This repository is configured as a Quarto book. The rendered book excludes
+`README.md` navigation files and publishes the substantive whitepaper sections
+as a static website, EPUB, and Typst-backed PDF.
+
+Local render commands:
+
+```bash
+quarto render
+quarto render --to html
+quarto render --to epub
+quarto render --to typst
+```
+
+The EPUB build renders TeX math through GladTeX as packaged SVG images. Install
+GladTeX before rendering EPUB output:
+
+```bash
+sudo apt install gladtex
+quarto render --to epub
+```
+
+Generated output is written to `_book/` and is not committed. The GitHub Actions
+workflow publishes the rendered HTML book to the `gh-pages` branch, with PDF and
+EPUB downloads linked from the site.
+
+***
 
 ## Peer Review Workflow
 
@@ -66,7 +102,7 @@ Each section directory contains:
 
 This ensures feedback remains specific, traceable, and actionable.
 
----
+***
 
 ### Option B — Propose Edits (Pull Requests)
 
@@ -78,7 +114,7 @@ This ensures feedback remains specific, traceable, and actionable.
 
 PRs should remain narrow and topic-bounded.
 
----
+***
 
 ### Option C — Open Dialogue (Discussions)
 
@@ -91,7 +127,7 @@ Use Discussions for:
 
 If discussion yields actionable feedback, convert it into an Issue.
 
----
+***
 
 ## What Happens After Feedback
 
@@ -102,7 +138,7 @@ If discussion yields actionable feedback, convert it into an Issue.
 
 The objective is **traceable document evolution**, not comment aggregation.
 
----
+***
 
 ## Issue Templates
 
@@ -117,7 +153,7 @@ They define the structured peer review categories:
 
 Together they form a distributed feedback loop aligned with Integral’s FRS logic.
 
----
+***
 
 ## Contribution Norms
 
@@ -131,7 +167,7 @@ Please keep feedback:
 
 Disagreement is expected and valuable. The aim is refinement, not consensus.
 
----
+***
 
 ## Repository Structure
 whitepaper/ → full modular whitepaper
@@ -140,7 +176,7 @@ assets/ → global diagrams and shared media
 README.md → repository overview
 
 
----
+***
 
 ## Whitepaper Architecture
 
@@ -161,7 +197,7 @@ This modularization supports:
 - modular expansion
 - future software and website rendering
 
----
+***
 
 ## Status
 
@@ -175,7 +211,7 @@ Suggested starting points for reviewers:
 - `/whitepaper/01-introduction.md`
 - `/whitepaper/05-the-5-core-subsystems.md`
 
----
+***
 
 ## Guiding Principle
 

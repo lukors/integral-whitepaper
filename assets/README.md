@@ -11,5 +11,5 @@ Assets may include:
 - visualizations supporting mathematical sketches
 - images embedded in markdown files
 
----
+***
 

@@ -41,7 +41,7 @@ Lifecycle modeling converts those differences into computable signals for:
 
 These outputs later populate the **`OADValuationProfile`** consumed by COS and ITC.
 
-------
+***
 
 **Lifecycle Model Type**
 
@@ -66,7 +66,7 @@ class LifecycleModel:
     lifecycle_burden_index: float  # 0–1, higher = more labor / risk over time
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -95,7 +95,7 @@ def get_usage_assumptions(version: DesignVersion) -> Dict:
     })
 ```
 
-------
+***
 
 2. Reliability estimate (MTTF)
 
@@ -115,7 +115,7 @@ def estimate_mttf_hours(
     return base_hours * material_factor / max(stress_factor, 0.1)
 ```
 
-------
+***
 
 3. Maintenance labor estimation
 
@@ -135,7 +135,7 @@ def estimate_maintenance_labor(
     return expected_events * labor_per_event_hours
 ```
 
-------
+***
 
 4. Lifecycle computation
 
@@ -217,7 +217,7 @@ def compute_lifecycle_model(
     )
 ```
 
-------
+***
 
 **Linking to OADValuationProfile (OAD → COS & ITC)**
 
@@ -259,7 +259,8 @@ def build_valuation_profile_from_oad(
     )
 ```
 
-------
+***
+
 **Math Sketch — Lifecycle Labor & Repairability**
 
 Let:

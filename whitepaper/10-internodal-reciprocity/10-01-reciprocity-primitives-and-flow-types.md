@@ -19,7 +19,7 @@ Each reciprocal flow has three invariant properties:
 
 These properties ensure that reciprocity supports cooperation without reproducing markets or hierarchies.
 
-------
+***
 
 **10.1.2 Primitive Flow Types**
 
@@ -40,7 +40,7 @@ Information flows include:
 
 These flows are **non-rivalrous** and propagate through open commons. No reciprocity obligation is incurred by their use; their value compounds through reuse and adaptation rather than accounting.
 
-------
+***
 
 **2. Capability and Capacity Flows**
 
@@ -55,7 +55,7 @@ Examples include:
 
 The reciprocal unit here is **capacity-time**, not an object. Provision is recorded as contribution when mobilized for shared need, but does not create ongoing claims over the capability itself.
 
-------
+***
 
 **3. Labor Mobility Flows**
 
@@ -72,7 +72,7 @@ What moves between nodes is not labor as a commodity, but **recognized contribut
 
 This is the most complex form of reciprocity and is treated in detail in Section 10.2.
 
-------
+***
 
 **4. Material and Goods Flows**
 
@@ -86,7 +86,7 @@ These flows are:
 
 Materials do not carry price signals. Provision is recorded as fulfillment of shared need or contribution to network viability, not as exchange or sale.
 
-------
+***
 
 **5. Assurance and Validation Flows**
 
@@ -102,7 +102,7 @@ They include:
 
 Assurance artifacts travel with designs, materials, labor contributions, and capacity offers, enabling nodes to evaluate incoming flows without external enforcement.
 
-------
+***
 
 **10.1.3 Independence from Scope Expansion**
 
@@ -117,7 +117,7 @@ without widening its CDS scope or entering a coordination envelope. Reciprocity 
 
 This distinction is critical: reciprocity is the *normal connective mode* of the network; coordination envelopes are an *exceptional regulatory mode*.
 
-------
+***
 
 **10.1.4 Why Primitives Matter**
 
@@ -130,5 +130,5 @@ By formalizing what can flow—and how—it becomes possible to specify mathemat
 
 The following sections formalize the two most structurally demanding reciprocity types—**labor mobility** and **material provisioning**—showing how they operate across heterogeneous nodes without collapsing into exchange.
 
-------
+***
 

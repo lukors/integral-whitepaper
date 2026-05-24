@@ -33,7 +33,7 @@ It does **not** decide. It organizes and clarifies human reasoning so the consen
   - `issue.status = "deliberation"`
   - `issue.last_updated_at` set
 
-------
+***
 
 **Helper Type**
 
@@ -54,7 +54,7 @@ class DeliberationState:
 
 *(Note: `DeliberationState` is a transient workspace representation—useful for downstream computation and optional trace logging, but not the canonical CDS record itself. Canonical trace is captured in Module 7.)*
 
-------
+***
 
 **Core Logic **
 
@@ -138,7 +138,8 @@ def deliberate(
     )
 ```
 
-------
+***
+
 **Math Sketch — Objection Aggregation**
 
 In deliberation, objections must be:
@@ -167,7 +168,7 @@ $$I(O_k) = \max_{o_i \in O_k} I(o_i)$$
 
 This ensures even a small minority with high-severity, high-scope objections cannot be silenced or diluted.
 
----
+***
 
 **Semantic Summary**
 

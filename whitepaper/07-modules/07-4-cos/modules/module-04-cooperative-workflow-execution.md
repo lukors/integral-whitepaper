@@ -20,7 +20,7 @@ It:
 
 Think of it as the **production cockpit**: everyone can see what’s happening, adjust voluntarily, and keep flow smooth—without managers or wage incentives.
 
-------
+***
 
 **Types (Execution Layer)**
 
@@ -106,7 +106,7 @@ class COSTaskDefinition:
     # plus tools, EII, predecessors, etc.
 ```
 
-------
+***
 
 1. Assign / Update Task Instances
 
@@ -119,7 +119,7 @@ def add_participant(plan: COSProductionPlan, task_instance_id: str, member_id: s
         inst.participants.append(member_id)
 ```
 
-------
+***
 
 2. Start, Pause, Complete Tasks
 
@@ -208,7 +208,7 @@ def complete_task_instance(
 
 > **Note:** This is intentionally “pre-verification.” COS is generating **structured labor claims**; ITC Module 1 is the canonical gate that verifies and records official events.
 
-------
+***
 
 3. **Execution Metrics & Deviations**
 
@@ -267,7 +267,8 @@ def compute_execution_metrics(plan: COSProductionPlan) -> COSExecutionMetrics:
     )
 ```
 
-------
+***
+
 **Math Sketch — Cycle Time, WIP, and Deviation**
 
 Let:
@@ -309,7 +310,7 @@ $$
 CT \approx \frac{WIP}{\lambda}
 $$
 
----
+***
 **How Module 4 Talks to ITC, OAD, and FRS**
 
 - **To ITC (Labor Event Capture & Valuation)**
@@ -323,7 +324,7 @@ $$
   - Chronic blocking, over-reliance on individuals, and abnormal overtime patterns become system-health signals.
   - CDS can respond with training programs, safety norms, or redesign directives.
 
-------
+***
 
 **Plain-Language Example**
 
@@ -333,4 +334,4 @@ $$
 
 Module 4 is where that proof lives.
 
-------
+***

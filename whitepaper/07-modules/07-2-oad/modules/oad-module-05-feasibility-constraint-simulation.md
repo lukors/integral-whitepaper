@@ -51,7 +51,7 @@ class SimulationResult:
     failure_modes: List[str]
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -91,7 +91,7 @@ def build_simulation_scenarios(version: DesignVersion) -> Dict[str, Dict]:
     }
 ```
 
-------
+***
 
 **2. Simulation Backends (Structural / Flow)**
 
@@ -130,7 +130,7 @@ def run_flow_sim(version: DesignVersion, scenario: Dict) -> Dict:
     }
 ```
 
-------
+***
 
 **3. Safety & Local Feasibility Scoring**
 
@@ -175,7 +175,7 @@ def compute_safety_and_feasibility(indicators: Dict) -> Dict:
     }
 ```
 
-------
+***
 
 **4. Aggregate Simulation Result**
 
@@ -241,10 +241,11 @@ def run_feasibility_simulation(version: DesignVersion) -> SimulationResult:
     )
 ```
 
-------
+***
+
 **Math Sketch — Feasibility Aggregation**
 
-For scenarios $S = \\{s_1, \dots, s_n\\}$, each produces a local feasibility score $f_s \in [0,1]$.
+For scenarios $S = \{s_1, \dots, s_n\}$, each produces a local feasibility score $f_s \in [0,1]$.
 
 Overall feasibility:
 
@@ -256,7 +257,7 @@ $$\text{yield factor}_s = \frac{\sigma_y}{\sigma_{\max}(s)}$$
 
 If any scenario violates safety thresholds (e.g. $\sigma_{\max} > \sigma_y$), the design is flagged with an explicit failure mode and routed back for redesign or risk-aware handling downstream.
 
----
+***
 
 **Plain-language summary**
 

@@ -23,7 +23,7 @@ Up to now:
 
 This is the federation’s **distribution nervous system**: not price formation, not bidding—just transparent routing plus measured availability.
 
-------
+***
 
 **Types — Access Channels, Inventory, and Signals**
 
@@ -94,7 +94,7 @@ class FRSAccessStressSignal:
     description: str
 ```
 
-------
+***
 
 **Core Logic**
 
@@ -192,7 +192,7 @@ def route_finished_goods(
     return inv
 ```
 
-------
+***
 
 2) Availability + backlog indices (simple, computable)
 
@@ -220,7 +220,7 @@ def compute_availability_metrics(inv: AccessInventoryRecord, epsilon: float = 1e
     return {"A_p": A_p, "A_s": A_s, "B_p": B_p, "B_s": B_s}
 ```
 
-------
+***
 
 3) Availability → advisory multiplier signal for ITC
 
@@ -256,7 +256,7 @@ def build_itc_access_availability_signal(
     )
 ```
 
-------
+***
 
 4) Stress signal for FRS (scarcity + underutilization proxy)
 
@@ -298,7 +298,7 @@ def build_frs_access_stress_signal(
     )
 ```
 
-------
+***
 
 5) Orchestration: end-to-end pass for Module 6
 
@@ -342,7 +342,8 @@ def run_distribution_and_access_flow(
     }
 ```
 
-------
+***
+
 **Math Sketch — Availability and Backlog**
 
 Let:
@@ -387,7 +388,7 @@ $$
 m = \mathrm{clip}\left(1 + \gamma_1\cdot \text{scarcity} + \gamma_2\cdot \tfrac{1}{2}(B_p + B_s),\; m_{\min},\; m_{\max}\right)
 $$
 
----
+***
 
 **Plain-Language Example**
 
