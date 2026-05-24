@@ -115,7 +115,8 @@ book:
       - whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.md
       - whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.md
       - whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.md
-      - whitepaper/11-transition-adoption-implementation.md
+    
+    - whitepaper/11-transition-adoption-implementation.md
 
 format:
   html:
