@@ -12,74 +12,76 @@ book:
   chapters:
     # Foundations
     - index.qmd
-    - part: "00 Abstract"
-      chapters:
-      - whitepaper/00-abstract.md
+    - whitepaper/00-abstract.md
     - whitepaper/01-introduction.md
     - whitepaper/02-human-analogy.md
     - whitepaper/03-what-integral-solves.md
     - whitepaper/04-what-integral-creates.md
     - whitepaper/05-the-5-core-subsystems.md
     - whitepaper/06-how-the-five-systems-work-as-one.md
-
-    # 7.1 Collaborative Decision System
     - whitepaper/07-modules/07-1-cds/cds-01-overview.md
-    - whitepaper/07-modules/07-1-cds/cds-02-architecture-code.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-04-norms-constraint-checking.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-05-deliberation-workspace.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-06-weighted-consensus.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-07-decision-recording.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-08-implementation-dispatch.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-09-human-deliberation.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-module-10-review-revision.md
-    - whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.md
-    - whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.md
 
-    # 7.2 Open Access Design
-    - whitepaper/07-modules/07-2-oad/oad-01-overview.md
-    - whitepaper/07-modules/07-2-oad/oad-02-architecture-code.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-03-material-ecological-coefficient-engine.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-04-lifecycle-maintainability-modeling.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-05-feasibility-constraint-simulation.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-06-skill-labor-decomposition.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-07-systems-integration-architecture.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-08-optimization-efficiency-engine.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-09-validation-certification-release.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.md
-    - whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.md
+    - part: "7.1 Collaborative Decision System"
+      chapters:
+      - whitepaper/07-modules/07-1-cds/cds-02-architecture-code.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-04-norms-constraint-checking.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-05-deliberation-workspace.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-06-weighted-consensus.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-07-decision-recording.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-08-implementation-dispatch.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-09-human-deliberation.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-module-10-review-revision.md
+      - whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.md
+      - whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.md
 
-    # 7.3 Integral Time Credits
-    - whitepaper/07-modules/07-3-itc/itc-01-overview.md
-    - whitepaper/07-modules/07-3-itc/itc-02-architecture-code.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-03-time-decay-mechanism.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-04-labor-forecasting.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-05-access-allocation.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-06-cross-coop-reciprocity.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-07-fairness-anti-coercion.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-08-ledger-transparency.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.md
-    - whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.md
+    - part: "7.2 Open Access Design"
+      chapters:
+      - whitepaper/07-modules/07-2-oad/oad-01-overview.md
+      - whitepaper/07-modules/07-2-oad/oad-02-architecture-code.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-03-material-ecological-coefficient-engine.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-04-lifecycle-maintainability-modeling.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-05-feasibility-constraint-simulation.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-06-skill-labor-decomposition.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-07-systems-integration-architecture.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-08-optimization-efficiency-engine.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-09-validation-certification-release.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.md
+      - whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.md
 
-    # 7.4 Cooperative Organization System
-    - whitepaper/07-modules/07-4-cos/cos-01-overview.md
-    - whitepaper/07-modules/07-4-cos/cos-02-architecture-code.md
-    - whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.md
-    - whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.md
-    - whitepaper/07-modules/07-4-cos/modules/module-03-resource-procurement-materials-management.md
-    - whitepaper/07-modules/07-4-cos/modules/module-04-cooperative-workflow-execution.md
-    - whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.md
-    - whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.md
-    - whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.md
-    - whitepaper/07-modules/07-4-cos/modules/module-08-cooperative-coordination-inter-coop-integration.md
-    - whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.md
-    - whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.md
+    - part: "7.3 Integral Time Credits"
+      chapters:
+      - whitepaper/07-modules/07-3-itc/itc-01-overview.md
+      - whitepaper/07-modules/07-3-itc/itc-02-architecture-code.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-03-time-decay-mechanism.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-04-labor-forecasting.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-05-access-allocation.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-06-cross-coop-reciprocity.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-07-fairness-anti-coercion.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-08-ledger-transparency.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.md
+      - whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.md
+
+    - part: "7.4 Cooperative Organization System"
+      chapters:
+      - whitepaper/07-modules/07-4-cos/cos-01-overview.md
+      - whitepaper/07-modules/07-4-cos/cos-02-architecture-code.md
+      - whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.md
+      - whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.md
+      - whitepaper/07-modules/07-4-cos/modules/module-03-resource-procurement-materials-management.md
+      - whitepaper/07-modules/07-4-cos/modules/module-04-cooperative-workflow-execution.md
+      - whitepaper/07-modules/07-4-cos/modules/module-05-capacity-throughput-constraint-balancing.md
+      - whitepaper/07-modules/07-4-cos/modules/module-06-distribution-access-flow-coordination.md
+      - whitepaper/07-modules/07-4-cos/modules/module-07-quality-assurance-safety-verification.md
+      - whitepaper/07-modules/07-4-cos/modules/module-08-cooperative-coordination-inter-coop-integration.md
+      - whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.md
+      - whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.md
 
     # 7.5 Feedback and Review System
     - whitepaper/07-modules/07-5-frs/frs-01-overview.md
