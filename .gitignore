@@ -12,4 +12,5 @@
 /whitepaper/**/*.html
 **/*.typst.md
 **/*.epub.md
+__pycache__/
 /site_libs/

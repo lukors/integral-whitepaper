@@ -3,6 +3,8 @@ quarto-required: ">= 1.9.0"
 project:
   type: book
   output-dir: _book
+  post-render:
+    - python3 scripts/fix_epub_toc_parts.py
 
 book:
   title: "Integral Whitepaper"
