@@ -10,6 +10,7 @@ project:
 book:
   title: "Integral Whitepaper"
   subtitle: "A federated, post-monetary cooperative system"
+  cover-image: "assets/cover.png"
   author: "Integral Collective"
   downloads: [pdf, epub]
   sidebar:
