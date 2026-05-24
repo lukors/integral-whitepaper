@@ -11,4 +11,5 @@
 /index.html
 /whitepaper/**/*.html
 **/*.typst.md
+**/*.epub.md
 /site_libs/
