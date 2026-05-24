@@ -10,37 +10,29 @@ apps show the same part grouping as the book config.
 from __future__ import annotations
 
 import html
-import os
 import re
-import shutil
-import tempfile
-import zipfile
 from dataclasses import dataclass
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+from epub_utils import (
+    EPUB_NS,
+    NCX_NS,
+    PROJECT_ROOT,
+    XHTML_NS,
+    epub_files_from_env,
+    qname,
+    rewrite_epub,
+)
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
 QUARTO_YML = PROJECT_ROOT / "_quarto.yml"
-OUTPUT_DIR = PROJECT_ROOT / "_book"
-
-XHTML_NS = "http://www.w3.org/1999/xhtml"
-EPUB_NS = "http://www.idpf.org/2007/ops"
-NCX_NS = "http://www.daisy.org/z3986/2005/ncx/"
-
-ET.register_namespace("", XHTML_NS)
-ET.register_namespace("epub", EPUB_NS)
-ET.register_namespace("ncx", NCX_NS)
 
 
 @dataclass
 class Part:
     label: str
     chapters: list[str]
-
-
-def qname(namespace: str, tag: str) -> str:
-    return f"{{{namespace}}}{tag}"
 
 
 def strip_yaml_scalar(value: str) -> str:
@@ -114,18 +106,6 @@ def parse_book_parts() -> list[Part]:
             current = None
 
     return [part for part in parts if part.chapters]
-
-
-def epub_files_from_env() -> list[Path]:
-    output_files = os.environ.get("QUARTO_PROJECT_OUTPUT_FILES", "")
-    epubs = [
-        PROJECT_ROOT / line.strip()
-        for line in output_files.splitlines()
-        if line.strip().endswith(".epub")
-    ]
-    if output_files:
-        return epubs
-    return sorted(OUTPUT_DIR.glob("*.epub"))
 
 
 def direct_child(element: ET.Element, tag: str) -> ET.Element | None:
@@ -297,54 +277,32 @@ def renumber_ncx_items(nav_map: ET.Element) -> None:
 
 
 def patch_epub(epub_path: Path, parts: list[Part]) -> bool:
-    with zipfile.ZipFile(epub_path, "r") as source:
-        entries = {info.filename: source.read(info.filename) for info in source.infolist()}
-        infos = source.infolist()
+    def patch_entries(entries: dict[str, bytes]) -> bool:
+        nav_path = "EPUB/nav.xhtml"
+        ncx_path = "EPUB/toc.ncx"
+        if nav_path not in entries or ncx_path not in entries:
+            return False
 
-    nav_path = "EPUB/nav.xhtml"
-    ncx_path = "EPUB/toc.ncx"
-    if nav_path not in entries or ncx_path not in entries:
-        return False
+        nav_root = ET.fromstring(entries[nav_path])
+        ncx_root = ET.fromstring(entries[ncx_path])
+        nav_changed = rebuild_xhtml_nav(nav_root, parts)
+        ncx_changed = rebuild_ncx_nav(ncx_root, parts)
 
-    nav_root = ET.fromstring(entries[nav_path])
-    ncx_root = ET.fromstring(entries[ncx_path])
-    nav_changed = rebuild_xhtml_nav(nav_root, parts)
-    ncx_changed = rebuild_ncx_nav(ncx_root, parts)
+        if not nav_changed and not ncx_changed:
+            return False
 
-    if not nav_changed and not ncx_changed:
-        return False
+        if nav_changed:
+            entries[nav_path] = ET.tostring(
+                nav_root, encoding="utf-8", xml_declaration=True, short_empty_elements=False
+            )
+        if ncx_changed:
+            entries[ncx_path] = ET.tostring(
+                ncx_root, encoding="utf-8", xml_declaration=True, short_empty_elements=False
+            )
 
-    if nav_changed:
-        entries[nav_path] = ET.tostring(
-            nav_root, encoding="utf-8", xml_declaration=True, short_empty_elements=False
-        )
-    if ncx_changed:
-        entries[ncx_path] = ET.tostring(
-            ncx_root, encoding="utf-8", xml_declaration=True, short_empty_elements=False
-        )
+        return True
 
-    fd, temp_name = tempfile.mkstemp(suffix=".epub", dir=str(epub_path.parent))
-    os.close(fd)
-    temp_path = Path(temp_name)
-    try:
-        with zipfile.ZipFile(temp_path, "w") as target:
-            for info in infos:
-                out_info = zipfile.ZipInfo(info.filename, date_time=info.date_time)
-                out_info.comment = info.comment
-                out_info.extra = info.extra
-                out_info.internal_attr = info.internal_attr
-                out_info.external_attr = info.external_attr
-                out_info.create_system = info.create_system
-                out_info.compress_type = (
-                    zipfile.ZIP_STORED if info.filename == "mimetype" else info.compress_type
-                )
-                target.writestr(out_info, entries[info.filename])
-        shutil.move(str(temp_path), epub_path)
-    finally:
-        if temp_path.exists():
-            temp_path.unlink()
-
-    return True
+    return rewrite_epub(epub_path, patch_entries)
 
 
 def main() -> int:
