@@ -128,7 +128,11 @@ format:
     number-sections: false
     # Quarto's bundled orange-book Typst template enables heading counters
     # internally; reset them after the template show rule is installed.
+    # The custom chapter show rule also resets orange-book's part
+    # state; otherwise each chapter in a part repeats the part title in the PDF
+    # outline/table of contents.
     include-before: |
+      #import "@preview/orange-book:0.7.1": part-change
       #show heading: set heading(numbering: none)
       #show heading.where(level: 1): it => {
         pagebreak()
@@ -140,4 +144,5 @@ format:
           align(left, text(size: 2.2em, weight: "bold", hyphenate: false, it.body)),
         )
         v(1.5cm, weak: true)
+        part-change.update(_ => false)
       }

@@ -1,7 +1,10 @@
 /.quarto/
+**/*.quarto_ipynb
+
+# Temporary build files
 /_book/
 /index.typ
 /index.tex
 /index.html
-**/*.quarto_ipynb
 /whitepaper/**/*.html
+**/*.typst.md
