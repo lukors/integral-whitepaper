@@ -1,4 +1,4 @@
-# **9. NODES TO NETWORKS: RECURSIVE ORGANIZATION (MACRO LEVEL)** 
+# 9. NODES TO NETWORKS: RECURSIVE ORGANIZATION (MACRO LEVEL)
 
 At the foundation of the Integral framework is the concept of the **node**—a neighborhood, town, or city-region understood not as a political jurisdiction or administrative unit, but as the smallest scale at which a complete socio-economic system can be made *viable*. A node is viable insofar as it can close the fundamental loops required for social and material reproduction: it can perceive its own conditions, make legitimate decisions, translate intent into design, coordinate real production and distribution, and continuously learn from the consequences of its actions. In this sense, a node is not a fragment of a larger system awaiting direction from above; it is a **self-regulating socio-economic organism** in its own right.
 

@@ -1,4 +1,4 @@
-# **10. INTERNODAL RECIPROCITY**
+# 10. INTERNODAL RECIPROCITY
 
 Section 9 addressed **how Integral scales coordination**: how decision scope expands and contracts in response to shared constraints, how temporary multi-node governance emerges when local closure is insufficient, and how that coordination dissolves once conditions stabilize. In that context, inter-node interaction was driven by *necessity*—by disturbances that could not be resolved within a single node’s boundary and therefore required scope-matched deliberation.
 

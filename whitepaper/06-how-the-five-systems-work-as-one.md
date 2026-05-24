@@ -1,4 +1,4 @@
-# **6. HOW THE FIVE SYSTEMS WORK AS ONE**
+# 6. HOW THE FIVE SYSTEMS WORK AS ONE
 
 The five systems of Integral—CDS, OAD, ITC, COS, and FRS—are not independent components. They form an integrated, continuously cycling architecture in which each subsystem feeds, constrains, and corrects the others. This coupling transforms Integral from a set of tools into a coherent economic organism. Through their interaction, the system identifies needs, designs solutions, coordinates production, regulates contribution and access, and improves itself through continuous feedback.
 
