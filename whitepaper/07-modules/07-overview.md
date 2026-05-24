@@ -1,4 +1,4 @@
-# **7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)**
+# 7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)
 
 These modules are the functional “cells” of the Integral organism—micro-level units that break down each subsystem into executable logic. Each module performs a discrete, formally definable operation: capturing input, organizing knowledge, validating feasibility, allocating labor, updating credits, monitoring ecological constraints, or analyzing system behavior. These are not only conceptual abstractions; they are the objects and functions that will become code. In implementation, the modules form the class structures, APIs, state machines, and data flows that animate the software itself.
 
