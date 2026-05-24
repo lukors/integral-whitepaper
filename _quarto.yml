@@ -9,6 +9,8 @@ book:
   subtitle: "A federated, post-monetary cooperative system"
   author: "Integral Collective"
   downloads: [pdf, epub]
+  sidebar:
+    collapse-level: 1
   chapters:
     # Foundations
     - index.qmd
@@ -21,9 +23,8 @@ book:
     - whitepaper/06-how-the-five-systems-work-as-one.md
     - whitepaper/07-modules/07-1-cds/cds-01-overview.md
 
-    - part: "7.1 Collaborative Decision System"
+    - part: whitepaper/07-modules/07-1-cds/cds-02-architecture-code.md
       chapters:
-      - whitepaper/07-modules/07-1-cds/cds-02-architecture-code.md
       - whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.md
       - whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.md
       - whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.md
@@ -37,9 +38,8 @@ book:
       - whitepaper/07-modules/07-1-cds/modules/cds-11-full-module-orchestration.md
       - whitepaper/07-modules/07-1-cds/cds-12-addendum-syntegrity.md
 
-    - part: "7.2 Open Access Design"
+    - part: whitepaper/07-modules/07-2-oad/oad-01-overview.md
       chapters:
-      - whitepaper/07-modules/07-2-oad/oad-01-overview.md
       - whitepaper/07-modules/07-2-oad/oad-02-architecture-code.md
       - whitepaper/07-modules/07-2-oad/modules/oad-module-01-design-submission.md
       - whitepaper/07-modules/07-2-oad/modules/oad-module-02-collaborative-design-workspace.md
@@ -53,9 +53,8 @@ book:
       - whitepaper/07-modules/07-2-oad/modules/oad-module-10-knowledge-commons-reuse.md
       - whitepaper/07-modules/07-2-oad/modules/oad-11-full-module-orchestration.md
 
-    - part: "7.3 Integral Time Credits"
+    - part: whitepaper/07-modules/07-3-itc/itc-01-overview.md
       chapters:
-      - whitepaper/07-modules/07-3-itc/itc-01-overview.md
       - whitepaper/07-modules/07-3-itc/itc-02-architecture-code.md
       - whitepaper/07-modules/07-3-itc/modules/itc-module-01-labor-event-capture.md
       - whitepaper/07-modules/07-3-itc/modules/itc-module-02-skill-context-weighting.md
@@ -68,9 +67,8 @@ book:
       - whitepaper/07-modules/07-3-itc/modules/itc-module-09-integration-coordination.md
       - whitepaper/07-modules/07-3-itc/modules/itc-10-full-orchestration.md
 
-    - part: "7.4 Cooperative Organization System"
+    - part: whitepaper/07-modules/07-4-cos/cos-01-overview.md
       chapters:
-      - whitepaper/07-modules/07-4-cos/cos-01-overview.md
       - whitepaper/07-modules/07-4-cos/cos-02-architecture-code.md
       - whitepaper/07-modules/07-4-cos/modules/module-01-production-planning-work-breakdown.md
       - whitepaper/07-modules/07-4-cos/modules/module-02-labor-organization-skill-matching.md
@@ -83,36 +81,40 @@ book:
       - whitepaper/07-modules/07-4-cos/modules/module-09-transparency-ledger-audit.md
       - whitepaper/07-modules/07-4-cos/modules/cos-10-full-module-orchestration.md
 
-    # 7.5 Feedback and Review System
-    - whitepaper/07-modules/07-5-frs/frs-01-overview.md
-    - whitepaper/07-modules/07-5-frs/frs-02-architecture-code.md
-    - whitepaper/07-modules/07-5-frs/modules/frs-module-01-signal-intake.md
-    - whitepaper/07-modules/07-5-frs/modules/frs-module-02-diagnostic-classification.md
-    - whitepaper/07-modules/07-5-frs/modules/frs-module-03-constraint-modeling.md
-    - whitepaper/07-modules/07-5-frs/modules/frs-module-04-recommendation-routing.md
-    - whitepaper/07-modules/07-5-frs/modules/frs-module-05-democratic-sensemaking.md
-    - whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.md
-    - whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.md
-    - whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.md
+    - part: whitepaper/07-modules/07-5-frs/frs-01-overview.md
+      chapters:
+      - whitepaper/07-modules/07-5-frs/frs-02-architecture-code.md
+      - whitepaper/07-modules/07-5-frs/modules/frs-module-01-signal-intake.md
+      - whitepaper/07-modules/07-5-frs/modules/frs-module-02-diagnostic-classification.md
+      - whitepaper/07-modules/07-5-frs/modules/frs-module-03-constraint-modeling.md
+      - whitepaper/07-modules/07-5-frs/modules/frs-module-04-recommendation-routing.md
+      - whitepaper/07-modules/07-5-frs/modules/frs-module-05-democratic-sensemaking.md
+      - whitepaper/07-modules/07-5-frs/modules/frs-module-06-longitudinal-memory.md
+      - whitepaper/07-modules/07-5-frs/modules/frs-module-07-federated-intelligence.md
+      - whitepaper/07-modules/07-5-frs/modules/frs-08-full-orchestration.md
 
     # Worked example, federation, reciprocity, and transition
     - whitepaper/08-community-shuttle-example.md
-    - whitepaper/09-nodes-to-networks/09-00-overview.md
-    - whitepaper/09-nodes-to-networks/09-01-node-network-integration.md
-    - whitepaper/09-nodes-to-networks/09-02-nodes-as-actors.md
-    - whitepaper/09-nodes-to-networks/09-03-federation-as-synchronization.md
-    - whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.md
-    - whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.md
-    - whitepaper/09-nodes-to-networks/09-06-case-watershed.md
-    - whitepaper/09-nodes-to-networks/09-07-case-energy.md
-    - whitepaper/09-nodes-to-networks/09-08-case-distributed-production.md
-    - whitepaper/09-nodes-to-networks/09-09-synthesis-domain-invariant-coordination.md
-    - whitepaper/10-internodal-reciprocity/10-00-overview.md
-    - whitepaper/10-internodal-reciprocity/10-01-reciprocity-primitives-and-flow-types.md
-    - whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.md
-    - whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.md
-    - whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.md
-    - whitepaper/11-transition-adoption-implementation.md
+
+    - part: whitepaper/09-nodes-to-networks/09-00-overview.md
+      chapters:
+      - whitepaper/09-nodes-to-networks/09-01-node-network-integration.md
+      - whitepaper/09-nodes-to-networks/09-02-nodes-as-actors.md
+      - whitepaper/09-nodes-to-networks/09-03-federation-as-synchronization.md
+      - whitepaper/09-nodes-to-networks/09-04-scale-scope-bioregional-coordination.md
+      - whitepaper/09-nodes-to-networks/09-05-scope-detection-thresholds-envelopes.md
+      - whitepaper/09-nodes-to-networks/09-06-case-watershed.md
+      - whitepaper/09-nodes-to-networks/09-07-case-energy.md
+      - whitepaper/09-nodes-to-networks/09-08-case-distributed-production.md
+      - whitepaper/09-nodes-to-networks/09-09-synthesis-domain-invariant-coordination.md
+
+    - part: whitepaper/10-internodal-reciprocity/10-00-overview.md
+      chapters:
+      - whitepaper/10-internodal-reciprocity/10-01-reciprocity-primitives-and-flow-types.md
+      - whitepaper/10-internodal-reciprocity/10-02-cross-node-labor-reciprocity-and-itc-recognition.md
+      - whitepaper/10-internodal-reciprocity/10-03-material-and-capacity-reciprocity-across-nodes.md
+      - whitepaper/10-internodal-reciprocity/10-04-assurance-trust-and-anti-arbitrage-mechanisms.md
+      - whitepaper/11-transition-adoption-implementation.md
 
 format:
   html:

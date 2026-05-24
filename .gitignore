@@ -4,3 +4,4 @@
 /index.tex
 /index.html
 **/*.quarto_ipynb
+/whitepaper/**/*.html
