@@ -22,10 +22,11 @@ book:
     - whitepaper/04-what-integral-creates.md
     - whitepaper/05-the-5-core-subsystems.md
     - whitepaper/06-how-the-five-systems-work-as-one.md
-    - whitepaper/07-modules/07-1-cds/cds-01-overview.md
+    - whitepaper/07-modules/07-overview.md
 
-    - part: whitepaper/07-modules/07-1-cds/cds-02-architecture-code.md
+    - part: whitepaper/07-modules/07-1-cds/cds-01-overview.md
       chapters:
+      - whitepaper/07-modules/07-1-cds/cds-02-architecture-code.md
       - whitepaper/07-modules/07-1-cds/modules/cds-module-01-issue-capture.md
       - whitepaper/07-modules/07-1-cds/modules/cds-module-02-issue-structuring.md
       - whitepaper/07-modules/07-1-cds/modules/cds-module-03-knowledge-integration.md

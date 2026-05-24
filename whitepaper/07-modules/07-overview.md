@@ -1,0 +1,7 @@
+# **7. ARCHITECTURE: MODULES OF EACH SYSTEM (MICRO LEVEL)**
+
+These modules are the functional “cells” of the Integral organism—micro-level units that break down each subsystem into executable logic. Each module performs a discrete, formally definable operation: capturing input, organizing knowledge, validating feasibility, allocating labor, updating credits, monitoring ecological constraints, or analyzing system behavior. These are not only conceptual abstractions; they are the objects and functions that will become code. In implementation, the modules form the class structures, APIs, state machines, and data flows that animate the software itself.
+
+When interconnected, these micro-modules scale into workflows that govern cooperatives, nodes, and ultimately the global federation. Higher layers of Integral do not introduce new logic—they simply federate, synchronize, and recurse these same micro-operations. The mezzo and macro layers are therefore scaled reflections of what is defined here: repeating patterns of coordination, decision, verification, allocation, and feedback.
+
+We begin with the Collaborative Decision System (CDS)—the subsystem that encodes participatory governance for all of Integral. Every normative choice—design approvals, project initiation, labor weighting rules, ecological thresholds, access constraints, and the evaluation of feedback signals—ultimately passes through CDS. Its micro-architecture is the foundation for the other four systems, providing the decision logic that contextualizes OAD, COS, ITC, and FRS.
