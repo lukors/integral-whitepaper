@@ -12,7 +12,9 @@ book:
   chapters:
     # Foundations
     - index.qmd
-    - whitepaper/00-abstract.md
+    - part: "00 Abstract"
+      chapters:
+      - whitepaper/00-abstract.md
     - whitepaper/01-introduction.md
     - whitepaper/02-human-analogy.md
     - whitepaper/03-what-integral-solves.md
