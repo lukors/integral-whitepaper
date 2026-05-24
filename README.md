@@ -12,6 +12,11 @@ ___
 
 Live site: https://lukors.github.io/integral-whitepaper/
 
+- Build Requirements
+  - [Quarto](https://quarto.org/)
+  - [GladTeX](https://github.com/humenda/GladTeX)
+    - Maybe this can be a CI-only requirement, so it's not needed for local builds?
+
 This repository contains the **Integral technical whitepaper** — a federated, post-monetary, cybernetically coordinated cooperative economic system — structured as modular Markdown to enable transparent peer review, revision tracking, and distributed critique.
 
 [Download full PDF here: https://integralcollective.io/documents/whitepaper.html ]
@@ -62,6 +67,14 @@ quarto render
 quarto render --to html
 quarto render --to epub
 quarto render --to typst
+```
+
+The EPUB build renders TeX math through GladTeX as packaged SVG images. Install
+GladTeX before rendering EPUB output:
+
+```bash
+sudo apt install gladtex
+quarto render --to epub
 ```
 
 Generated output is written to `_book/` and is not committed. The GitHub Actions

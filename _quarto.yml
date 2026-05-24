@@ -126,6 +126,8 @@ format:
   epub:
     toc: true
     number-sections: false
+    filters:
+      - scripts/gladtex-filter.sh
   typst:
     toc: true
     number-sections: false

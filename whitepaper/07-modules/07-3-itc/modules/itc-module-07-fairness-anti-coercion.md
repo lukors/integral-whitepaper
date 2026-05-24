@@ -304,7 +304,7 @@ Let:
 
 Compute:
 
-$$\rho = \text{corr}(B_i,\ -R_i)$$
+$$\rho = \operatorname{corr}(B_i, -R_i)$$
 
 If:
 
