@@ -310,9 +310,8 @@ def patch_epub(epub_path: Path, parts: list[Part]) -> bool:
     ncx_root = ET.fromstring(entries[ncx_path])
     nav_changed = rebuild_xhtml_nav(nav_root, parts)
     ncx_changed = rebuild_ncx_nav(ncx_root, parts)
-    math_links_changed = unwrap_gladtex_description_links(entries)
 
-    if not nav_changed and not ncx_changed and not math_links_changed:
+    if not nav_changed and not ncx_changed:
         return False
 
     if nav_changed:
@@ -346,61 +345,6 @@ def patch_epub(epub_path: Path, parts: list[Part]) -> bool:
             temp_path.unlink()
 
     return True
-
-
-def unwrap_gladtex_description_links(entries: dict[str, bytes]) -> bool:
-    """Remove GladTeX links to unbundled long-description helper files.
-
-    GladTeX can wrap long formula images in anchors pointing at
-    `_book/gladtex-math/outsourced-descriptions.html`. Pandoc packages the SVGs
-    into the EPUB but does not include that helper HTML file, so the links are
-    broken in readers. The rendered math image and alt text are already present,
-    so unwrap those anchors and keep the image.
-    """
-    changed = False
-    for path, data in list(entries.items()):
-        if not path.startswith("EPUB/text/") or not path.endswith(".xhtml"):
-            continue
-
-        root = ET.fromstring(data)
-        if unwrap_gladtex_links_in_element(root):
-            entries[path] = ET.tostring(
-                root,
-                encoding="utf-8",
-                xml_declaration=True,
-                short_empty_elements=True,
-            )
-            changed = True
-
-    return changed
-
-
-def unwrap_gladtex_links_in_element(parent: ET.Element) -> bool:
-    changed = False
-    children = list(parent)
-
-    for child in children:
-        if unwrap_gladtex_links_in_element(child):
-            changed = True
-
-    new_children: list[ET.Element] = []
-    for child in list(parent):
-        href = child.get("href", "")
-        if child.tag == qname(XHTML_NS, "a") and "outsourced-descriptions.html" in href:
-            replacements = list(child)
-            if replacements:
-                if child.tail:
-                    replacements[-1].tail = (replacements[-1].tail or "") + child.tail
-                new_children.extend(replacements)
-                changed = True
-                continue
-
-        new_children.append(child)
-
-    if changed:
-        parent[:] = new_children
-
-    return changed
 
 
 def main() -> int:

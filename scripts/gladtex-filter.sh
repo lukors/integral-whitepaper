@@ -9,5 +9,8 @@ fi
 export GLADTEX_ARGS="${GLADTEX_ARGS:--d _book/gladtex-math -R}"
 export LANG="${LANG:-en_US.UTF-8}"
 export LC_ALL="${LC_ALL_GLADTEX:-en_US.UTF-8}"
+
+# Upstream issues causes many warnings,
+# this line supresses them.
 export PYTHONWARNINGS="${PYTHONWARNINGS:-ignore::RuntimeWarning:subprocess}"
 exec gladtex

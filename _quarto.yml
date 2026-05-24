@@ -5,6 +5,7 @@ project:
   output-dir: _book
   post-render:
     - python3 scripts/fix_epub_toc_parts.py
+    - python3 scripts/fix_epub_gladtex_math.py
 
 book:
   title: "Integral Whitepaper"
